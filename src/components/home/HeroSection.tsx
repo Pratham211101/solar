@@ -1,12 +1,18 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown, Check } from "lucide-react";
 
 const scrollTexts = [
   "ENVIRONMENTAL MONITORING",
   "WATER QUALITY ANALYSIS",
   "EMISSION TRACKING",
   "SUSTAINABLE FUTURE",
+];
+
+const features = [
+  "NABL-ready accuracy standards",
+  "Government-approved deployments",
+  "Enterprise-grade reliability",
 ];
 
 const HeroSection = () => {
@@ -53,24 +59,41 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6"
+              className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
             >
-              <span className="text-foreground">Protecting</span>
+              <span className="text-foreground">Decision-Grade</span>
               <br />
-              <span className="text-gradient">Tomorrow's</span>
+              <span className="text-gradient">Water Quality</span>
               <br />
-              <span className="text-foreground">Environment</span>
+              <span className="text-foreground">Analyzer</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-xl text-muted-foreground max-w-xl mb-8"
+              className="text-lg text-muted-foreground max-w-2xl mb-8"
             >
-              Advanced monitoring solutions for water quality, air emissions,
-              and environmental compliance. Real-time data, actionable insights.
+              Trusted by government utilities, industries, and institutions for field-ready 
+              water quality monitoring with real-time compliance reporting.
             </motion.p>
+
+            {/* Feature Checkmarks */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              className="flex flex-wrap gap-6 mb-10"
+            >
+              {features.map((feature, index) => (
+                <div key={index} className="flex items-center gap-2">
+                  <div className="w-5 h-5 rounded-full bg-primary/20 border border-primary/50 flex items-center justify-center">
+                    <Check className="w-3 h-3 text-primary" />
+                  </div>
+                  <span className="text-sm text-muted-foreground">{feature}</span>
+                </div>
+              ))}
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 40 }}
