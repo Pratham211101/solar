@@ -25,12 +25,11 @@ const HeroSection = () => {
           muted
           loop
           playsInline
-          preload="auto"
           className="w-full h-full object-cover"
-          poster="https://images.unsplash.com/photo-1468421870903-4df1664ac249?w=1920&q=80"
+          poster="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80"
         >
           <source
-            src="https://videos.pexels.com/video-files/1918465/1918465-uhd_2560_1440_25fps.mp4"
+            src="https://cdn.pixabay.com/video/2020/05/25/40130-424930908_large.mp4"
             type="video/mp4"
           />
         </video>
