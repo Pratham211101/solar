@@ -17,7 +17,7 @@ const HeroSection = () => {
           loop
           playsInline
           className="w-full h-full object-cover"
-          poster="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80"
+          {/* poster="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80" */}
         >
           <source
             src="https://media.istockphoto.com/id/1286503548/video/hands-of-woman-filling-a-glass-with-water-from-the-garden-faucet.mp4?s=mp4-640x640-is&k=20&c=8IhXhbU3X4wjhW9mFWulEJbG-JoZ882LDF2gx8egc0Y="
