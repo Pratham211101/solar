@@ -12,26 +12,25 @@ const FullPageSection = ({ children, className = "", index = 0 }: FullPageSectio
   
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end start"],
+    offset: ["start end", "start start"],
   });
 
-  // Transform values for the "page coming in" effect
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-  const y = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [100, 0, 0, -50]);
-  const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.95, 1, 1, 0.98]);
+  // Section slides up and covers the previous section
+  const y = useTransform(scrollYProgress, [0, 1], ["100%", "0%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
 
   return (
-    <motion.div
-      ref={ref}
-      style={{
-        opacity,
-        y,
-        scale,
-      }}
-      className={`relative ${className}`}
-    >
-      {children}
-    </motion.div>
+    <div ref={ref} className="relative" style={{ zIndex: index + 1 }}>
+      <motion.div
+        style={{
+          y,
+          opacity,
+        }}
+        className={`relative bg-background ${className}`}
+      >
+        {children}
+      </motion.div>
+    </div>
   );
 };
 
