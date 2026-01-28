@@ -39,8 +39,6 @@ const navItems: NavItem[] = [
   },
 ];
 
-const DROPDOWN_OFFSET = -8;
-
 const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
@@ -48,7 +46,9 @@ const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -60,15 +60,14 @@ const Navbar = () => {
 
   return (
     <motion.header
-      animate={{
-        y: activeDropdown ? DROPDOWN_OFFSET : 0,
-      }}
-      transition={{ duration: 0.25, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 ${
+      initial={{ y: 0 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         activeDropdown
           ? "bg-background/95 backdrop-blur-xl shadow-xl"
           : scrolled
-            ? "bg-background/80 backdrop-blur-lg shadow-md"
+            ? "bg-background/95 backdrop-blur-lg shadow-md"
             : "bg-gradient-to-b from-background/70 to-transparent"
       }`}
     >
@@ -86,19 +85,28 @@ const Navbar = () => {
                 onMouseEnter={() => item.children && setActiveDropdown(item.label)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <Link
-                  to={item.href || "#"}
-                  className="flex items-center gap-1 px-4 py-2 text-foreground/80 hover:text-foreground transition-colors link-underline"
-                >
-                  {item.label}
-                  {item.children && (
-                    <ChevronDown
-                      className={`w-4 h-4 transition-transform duration-300 ${
-                        activeDropdown === item.label ? "rotate-180" : ""
-                      }`}
-                    />
-                  )}
-                </Link>
+                {item.href && !item.children ? (
+                  <Link
+                    to={item.href}
+                    className="flex items-center gap-1 px-4 py-2 text-foreground/80 hover:text-foreground transition-colors link-underline"
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <Link
+                    to={item.href || "#"}
+                    className="flex items-center gap-1 px-4 py-2 text-foreground/80 hover:text-foreground transition-colors link-underline"
+                  >
+                    {item.label}
+                    {item.children && (
+                      <ChevronDown
+                        className={`w-4 h-4 transition-transform duration-300 ${
+                          activeDropdown === item.label ? "rotate-180" : ""
+                        }`}
+                      />
+                    )}
+                  </Link>
+                )}
               </div>
             ))}
 
@@ -112,19 +120,19 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button className="lg:hidden relative z-50 p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-6 h-6 text-foreground" /> : <Menu className="w-6 h-6 text-foreground" />}
           </button>
         </div>
 
-        {/* DESKTOP DROPDOWN — SAME ORIGIN ANIMATION */}
+        {/* Full Width Dropdown */}
         <AnimatePresence>
           {activeDropdown && (
             <motion.div
-              initial={{ opacity: 0, y: DROPDOWN_OFFSET }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: DROPDOWN_OFFSET }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
-              className="absolute left-0 right-0 top-full bg-background/95 backdrop-blur-xl border-b border-border"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="absolute left-0 right-0 top-full bg-background/95 backdrop-blur-xl border-b border-border overflow-hidden"
               onMouseEnter={() => setActiveDropdown(activeDropdown)}
               onMouseLeave={() => setActiveDropdown(null)}
             >
@@ -143,7 +151,9 @@ const Navbar = () => {
                           to={child.href}
                           className="group block p-4 rounded-xl hover:bg-muted/50 transition-all duration-300"
                         >
-                          <span className="text-lg font-medium group-hover:text-primary">{child.label}</span>
+                          <span className="text-lg font-medium text-foreground group-hover:text-primary transition-colors">
+                            {child.label}
+                          </span>
                           {child.description && (
                             <p className="mt-1 text-sm text-muted-foreground">{child.description}</p>
                           )}
@@ -156,7 +166,7 @@ const Navbar = () => {
           )}
         </AnimatePresence>
 
-        {/* MOBILE MENU (UNCHANGED) */}
+        {/* Mobile Menu */}
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
@@ -175,15 +185,22 @@ const Navbar = () => {
                     className="mb-6"
                   >
                     {item.href ? (
-                      <Link to={item.href} className="text-lg font-semibold block">
+                      <Link
+                        to={item.href}
+                        className="text-lg font-semibold text-foreground mb-3 block hover:text-primary transition-colors"
+                      >
                         {item.label}
                       </Link>
                     ) : (
                       <>
-                        <span className="text-lg font-semibold block">{item.label}</span>
+                        <span className="text-lg font-semibold text-foreground mb-3 block">{item.label}</span>
                         <div className="space-y-2 pl-4">
                           {item.children?.map((child) => (
-                            <Link key={child.href} to={child.href} className="block py-2">
+                            <Link
+                              key={child.href}
+                              to={child.href}
+                              className="block py-2 text-muted-foreground hover:text-primary transition-colors link-underline"
+                            >
                               {child.label}
                             </Link>
                           ))}
@@ -192,6 +209,19 @@ const Navbar = () => {
                     )}
                   </motion.div>
                 ))}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                  className="mt-8"
+                >
+                  <Link
+                    to="/demo"
+                    className="block w-full py-3 bg-primary text-primary-foreground rounded-full font-medium text-center"
+                  >
+                    Request Demo
+                  </Link>
+                </motion.div>
               </div>
             </motion.div>
           )}
