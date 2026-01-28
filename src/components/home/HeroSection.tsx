@@ -137,9 +137,9 @@ const HeroSection = () => {
                 transition={{ delay: 1.5 }}
                 className="mt-12 flex flex-col items-end"
               >
-                <span className="text-xs tracking-[0.2em] text-muted-foreground mb-3 rotate-90 origin-right translate-x-3">
+                {/* <span className="text-xs tracking-[0.2em] text-muted-foreground mb-3 rotate-90 origin-right translate-x-3">
                   SCROLL
-                </span>
+                </span> */}
                 <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
                   <ChevronDown className="w-6 h-6 text-primary" />
                 </motion.div>
