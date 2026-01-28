@@ -27,10 +27,10 @@ const Index = () => {
         <TrustedBySection />
         <TestimonialsSection />
         <CTABannerSection />
-        <FeaturesSection />
-        <ProductsSection />
-        <StatsSection />
-        <CTASection />
+        {/* <FeaturesSection /> */}
+        {/* <ProductsSection /> */}
+        {/* <StatsSection /> */}
+        {/* <CTASection /> */}
       </main>
       <Footer />
     </>
