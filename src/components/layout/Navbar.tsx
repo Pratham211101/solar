@@ -87,9 +87,7 @@ const Navbar = () => {
                 onMouseEnter={() => setActiveDropdown(item.label)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <button
-                  className="flex items-center gap-1 px-4 py-2 text-foreground/80 hover:text-foreground transition-colors link-underline"
-                >
+                <button className="flex items-center gap-1 px-4 py-2 text-foreground/80 hover:text-foreground transition-colors link-underline">
                   {item.label}
                   <ChevronDown
                     className={`w-4 h-4 transition-transform duration-300 ${
@@ -101,23 +99,16 @@ const Navbar = () => {
             ))}
 
             <Link
-              to="/demo"
+              to="https://dashboard.cluix.in"
               className="ml-4 px-6 py-2 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/25"
             >
-              Request Demo
+              Dashboard
             </Link>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden relative z-50 p-2"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? (
-              <X className="w-6 h-6 text-foreground" />
-            ) : (
-              <Menu className="w-6 h-6 text-foreground" />
-            )}
+          <button className="lg:hidden relative z-50 p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            {mobileMenuOpen ? <X className="w-6 h-6 text-foreground" /> : <Menu className="w-6 h-6 text-foreground" />}
           </button>
         </div>
 
@@ -152,9 +143,7 @@ const Navbar = () => {
                             {child.label}
                           </span>
                           {child.description && (
-                            <p className="mt-1 text-sm text-muted-foreground">
-                              {child.description}
-                            </p>
+                            <p className="mt-1 text-sm text-muted-foreground">{child.description}</p>
                           )}
                         </Link>
                       </motion.div>
@@ -183,9 +172,7 @@ const Navbar = () => {
                     transition={{ delay: idx * 0.1 }}
                     className="mb-6"
                   >
-                    <span className="text-lg font-semibold text-foreground mb-3 block">
-                      {item.label}
-                    </span>
+                    <span className="text-lg font-semibold text-foreground mb-3 block">{item.label}</span>
                     <div className="space-y-2 pl-4">
                       {item.children?.map((child) => (
                         <Link
