@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Mail, MapPin, Phone, Linkedin, Twitter, Youtube } from "lucide-react";
+import Logo from "@/components/ui/Logo";
 
 const footerLinks = {
   products: [
@@ -39,9 +40,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 mb-16">
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <Link to="/" className="inline-block mb-6">
-              <span className="text-3xl font-bold text-gradient">CLUIX</span>
-            </Link>
+            <Logo variant="auto" size="md" />
             <p className="text-muted-foreground mb-6 max-w-sm">
               Pioneering environmental monitoring solutions for a sustainable future.
             </p>
