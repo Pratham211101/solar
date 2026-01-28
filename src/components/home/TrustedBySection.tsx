@@ -15,13 +15,13 @@ const organizations = [
 
 export function TrustedBySection() {
   return (
-    <section className="py-16 lg:py-20 bg-muted overflow-hidden">
+    <section className="py-16 lg:py-20 bg-slate-50 overflow-hidden">
       <div className="container mx-auto px-6 mb-10">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center font-sans text-xl md:text-2xl font-semibold text-foreground"
+          className="text-center font-display text-xl md:text-2xl font-semibold text-slate-900"
         >
           Trusted by Leading Organizations
         </motion.h2>
@@ -30,8 +30,8 @@ export function TrustedBySection() {
       {/* Carousel Container */}
       <div className="relative">
         {/* Gradient Overlays */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-muted to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-muted to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none" />
 
         {/* Scrolling Track */}
         <motion.div
@@ -52,9 +52,9 @@ export function TrustedBySection() {
           {[...organizations, ...organizations, ...organizations].map((org, i) => (
             <div
               key={`${org}-${i}`}
-              className="flex-shrink-0 px-6 py-3 bg-card rounded-full border border-border shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300 cursor-pointer"
+              className="flex-shrink-0 px-6 py-3 bg-white rounded-full border border-slate-200 shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300 cursor-pointer"
             >
-              <span className="text-foreground/80 text-sm font-medium whitespace-nowrap">
+              <span className="text-slate-700 text-sm font-medium whitespace-nowrap">
                 {org}
               </span>
             </div>

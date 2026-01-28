@@ -14,7 +14,7 @@ const features = [
 
 export function WhyCluixSection() {
   return (
-    <section className="py-20 lg:py-28 bg-background">
+    <section className="py-20 lg:py-28 bg-white">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Content */}
@@ -23,10 +23,10 @@ export function WhyCluixSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-sans text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
               Why Cluix
             </h2>
-            <p className="text-muted-foreground text-lg mb-8 max-w-lg">
+            <p className="text-slate-600 text-lg mb-8 max-w-lg">
               Built for the reality of field water testing in India—reliable, accurate, and designed for scale.
             </p>
 
@@ -44,7 +44,7 @@ export function WhyCluixSection() {
                   <div className="flex-shrink-0 w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center mt-0.5">
                     <Check className="w-3 h-3 text-primary" />
                   </div>
-                  <span className="text-foreground/80 text-sm">{feature}</span>
+                  <span className="text-slate-700 text-sm">{feature}</span>
                 </motion.div>
               ))}
             </div>
@@ -58,15 +58,15 @@ export function WhyCluixSection() {
             transition={{ delay: 0.2 }}
             className="relative"
           >
-            <div className="aspect-video bg-muted rounded-2xl border border-border flex flex-col items-center justify-center shadow-sm hover:shadow-lg transition-shadow duration-300 cursor-pointer group">
+            <div className="aspect-video bg-slate-100 rounded-2xl border border-slate-200 flex flex-col items-center justify-center shadow-sm hover:shadow-lg transition-shadow duration-300 cursor-pointer group">
               {/* Play Button */}
-              <div className="w-16 h-16 rounded-full bg-card shadow-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                 <div className="w-0 h-0 border-l-[20px] border-l-primary border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent ml-1" />
               </div>
-              <h3 className="font-sans text-lg font-semibold text-foreground mb-1">
+              <h3 className="font-display text-lg font-semibold text-slate-900 mb-1">
                 Product Video
               </h3>
-              <p className="text-muted-foreground text-sm">See Cluix in action</p>
+              <p className="text-slate-500 text-sm">See Cluix in action</p>
             </div>
           </motion.div>
         </div>

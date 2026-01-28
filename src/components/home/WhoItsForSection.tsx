@@ -30,7 +30,7 @@ const audiences = [
 
 export function WhoItsForSection() {
   return (
-    <section className="py-20 lg:py-28 bg-muted">
+    <section className="py-20 lg:py-28 bg-slate-50">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -38,10 +38,10 @@ export function WhoItsForSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="font-sans text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
             Who it's for
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-slate-600 text-lg max-w-2xl mx-auto">
             Trusted across sectors where water quality decisions matter.
           </p>
         </motion.div>
@@ -57,17 +57,17 @@ export function WhoItsForSection() {
               whileHover={{ y: -4 }}
               className="group"
             >
-              <div className="h-full bg-card rounded-2xl border border-border p-6 shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="h-full bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-lg transition-all duration-300">
                 {/* Icon */}
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
                   <audience.icon className="w-6 h-6 text-primary" />
                 </div>
 
                 {/* Content */}
-                <h3 className="font-sans text-lg font-bold text-foreground mb-2">
+                <h3 className="font-display text-lg font-bold text-slate-900 mb-2">
                   {audience.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                <p className="text-slate-600 text-sm leading-relaxed mb-4">
                   {audience.description}
                 </p>
 

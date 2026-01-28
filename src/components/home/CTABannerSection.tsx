@@ -12,7 +12,7 @@ export function CTABannerSection() {
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto"
         >
-          <h2 className="font-sans text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
             Ready to Transform Your Water Quality Operations?
           </h2>
           <p className="text-white/90 text-lg mb-10">

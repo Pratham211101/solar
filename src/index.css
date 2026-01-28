@@ -6,48 +6,47 @@
 
 @layer base {
   :root {
-    /* Light Theme - Clean Professional */
-    --background: 0 0% 100%;
-    --foreground: 222 47% 11%;
+    --background: 222 47% 8%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 98%;
-    --card-foreground: 222 47% 11%;
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover: 222 47% 10%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 185 84% 40%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 185 84% 50%;
+    --primary-foreground: 222 47% 8%;
 
-    --secondary: 220 14% 96%;
-    --secondary-foreground: 222 47% 11%;
+    --secondary: 252 90% 65%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 9% 46%;
+    --muted: 222 40% 15%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 185 70% 95%;
-    --accent-foreground: 185 84% 30%;
+    --accent: 185 70% 40%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 185 84% 40%;
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 185 84% 50%;
 
     --radius: 0.75rem;
 
-    /* Custom Cluix tokens - Light theme */
-    --gradient-primary: linear-gradient(135deg, hsl(185 84% 40% / 0.1), hsl(185 70% 50% / 0.05));
-    --gradient-hero: linear-gradient(180deg, hsl(0 0% 100% / 0.1), hsl(0 0% 100% / 0.95));
-    --gradient-curve: radial-gradient(ellipse 80% 50% at 50% -20%, hsl(185 84% 40% / 0.08), transparent);
-    --gradient-curve-bottom: radial-gradient(ellipse 80% 50% at 50% 120%, hsl(185 70% 50% / 0.05), transparent);
-    --gradient-glow: radial-gradient(circle at center, hsl(185 84% 40% / 0.15), transparent 70%);
+    /* Custom Cluix tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(185 84% 50% / 0.2), hsl(252 90% 65% / 0.1));
+    --gradient-hero: linear-gradient(180deg, hsl(222 47% 8% / 0.3), hsl(222 47% 8% / 0.9));
+    --gradient-curve: radial-gradient(ellipse 80% 50% at 50% -20%, hsl(185 84% 50% / 0.15), transparent);
+    --gradient-curve-bottom: radial-gradient(ellipse 80% 50% at 50% 120%, hsl(252 90% 65% / 0.1), transparent);
+    --gradient-glow: radial-gradient(circle at center, hsl(185 84% 50% / 0.3), transparent 70%);
 
-    --shadow-glow: 0 0 60px hsl(185 84% 40% / 0.15);
-    --shadow-card: 0 4px 24px hsl(220 13% 91% / 0.8);
+    --shadow-glow: 0 0 60px hsl(185 84% 50% / 0.2);
+    --shadow-card: 0 4px 24px hsl(222 47% 5% / 0.5);
 
-    --footer-bg: 222 47% 11%;
+    --footer-bg: 222 50% 5%;
   }
 
   .dark {
@@ -111,25 +110,28 @@
 
   /* Card with gradient border */
   .card-gradient {
-    @apply relative overflow-hidden rounded-xl bg-card border border-border shadow-sm transition-all duration-300;
+    @apply relative overflow-hidden rounded-xl;
+    background: linear-gradient(135deg, hsl(var(--card)), hsl(var(--muted)));
   }
 
-  .card-gradient:hover {
-    @apply shadow-lg border-primary/30;
+  .card-gradient::before {
+    content: "";
+    @apply absolute inset-0 rounded-xl;
+    padding: 1px;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.5), hsl(var(--secondary) / 0.3));
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
   }
 
   /* Footer dark */
   .footer-dark {
     background: hsl(var(--footer-bg));
-    color: hsl(0 0% 98%);
-  }
-
-  .footer-dark .text-foreground {
-    color: hsl(0 0% 98%);
-  }
-
-  .footer-dark .text-muted-foreground {
-    color: hsl(220 9% 70%);
   }
 
   /* Hero video overlay */
@@ -155,7 +157,7 @@
   /* Text gradient */
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(185 70% 30%));
+    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
   }
 
   /* Button variants */

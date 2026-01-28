@@ -55,7 +55,7 @@ export function StatsHighlightSection() {
               transition={{ delay: i * 0.1 }}
               className="text-center"
             >
-              <div className="font-sans text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2">
+              <div className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2">
                 <AnimatedNumber value={stat.value} suffix={stat.suffix} />
               </div>
               <div className="text-white/80 text-sm md:text-base">

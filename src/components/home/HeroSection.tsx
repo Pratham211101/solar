@@ -21,7 +21,7 @@ const HeroSection = () => {
         >
           <source src="https://cdn.pixabay.com/video/2017/03/10/8281-208046155_large.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/60 to-foreground/40" />
+        <div className="hero-overlay absolute inset-0" />
       </div>
 
       {/* Gradient Curves */}
@@ -49,11 +49,11 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
             >
-              <span className="text-white">Decision-Grade</span>
+              <span className="text-foreground">Decision-Grade</span>
               <br />
-              <span className="text-primary">Water Quality</span>
+              <span className="text-gradient">Water Quality</span>
               <br />
-              <span className="text-white">System</span>
+              <span className="text-foreground">System</span>
             </motion.h1>
 
             {/* <motion.p
@@ -78,7 +78,7 @@ const HeroSection = () => {
                   <div className="w-5 h-5 rounded-full bg-primary/20 border border-primary/50 flex items-center justify-center">
                     <Check className="w-3 h-3 text-primary" />
                   </div>
-                  <span className="text-sm text-white/80">{feature}</span>
+                  <span className="text-sm text-muted-foreground">{feature}</span>
                 </div>
               ))}
             </motion.div>
@@ -98,7 +98,7 @@ const HeroSection = () => {
               </Link>
               <Link
                 to="/about-us"
-                className="inline-flex items-center gap-2 px-8 py-4 border border-white/30 text-white rounded-full font-semibold hover:bg-white/10 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-8 py-4 border border-primary/30 text-foreground rounded-full font-semibold hover:bg-primary/10 transition-all duration-300"
               >
                 Learn More
               </Link>
@@ -126,7 +126,7 @@ const HeroSection = () => {
                   }}
                   className="text-right mb-4"
                 >
-                  <span className="text-sm tracking-[0.3em] text-white/60 font-light">{text}</span>
+                  <span className="text-sm tracking-[0.3em] text-muted-foreground font-light">{text}</span>
                 </motion.div>
               ))}
 

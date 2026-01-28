@@ -65,10 +65,10 @@ const Navbar = () => {
       transition={{ duration: 0.3, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         activeDropdown
-          ? "bg-background shadow-xl border-b border-border"
+          ? "bg-background/95 backdrop-blur-xl shadow-xl"
           : scrolled
-            ? "bg-background/95 backdrop-blur-lg shadow-md border-b border-border/50"
-            : "bg-gradient-to-b from-background/80 to-transparent"
+            ? "bg-background/95 backdrop-blur-lg shadow-md"
+            : "bg-gradient-to-b from-background/70 to-transparent"
       }`}
     >
       <nav className="container mx-auto px-6 py-4">
@@ -132,7 +132,7 @@ const Navbar = () => {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="absolute left-0 right-0 top-full bg-background border-b border-border shadow-lg overflow-hidden"
+              className="absolute left-0 right-0 top-full bg-background/95 border-b border-border overflow-hidden"
               onMouseEnter={() => setActiveDropdown(activeDropdown)}
               onMouseLeave={() => setActiveDropdown(null)}
             >
@@ -142,10 +142,10 @@ const Navbar = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="w-1/2 bg-foreground text-background p-12 flex flex-col justify-center"
+                  className="w-1/2 bg-background/95 text-foreground p-12 flex flex-col justify-center"
                 >
                   <h2 className="text-4xl md:text-5xl font-bold mb-4">{activeDropdown}</h2>
-                  <p className="text-background/70 text-lg">
+                  <p className="text-foreground/70 text-lg">
                     {activeDropdown === "Products" && "Discover our innovative water quality solutions"}
                     {activeDropdown === "Company" && "Learn about our mission and team"}
                     {activeDropdown === "Media" && "Stay updated with our latest news"}
@@ -153,7 +153,7 @@ const Navbar = () => {
                 </motion.div>
 
                 {/* Right Side - Sub Items */}
-                <div className="w-1/2 bg-background p-12 flex flex-col justify-center border-l border-border">
+                <div className="w-1/2 bg-background/95 p-12 flex flex-col justify-center border-l border-border">
                   <div className="space-y-2">
                     {navItems
                       .find((item) => item.label === activeDropdown)
@@ -191,7 +191,7 @@ const Navbar = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-background z-40 lg:hidden"
+              className="fixed inset-0 bg-background/95 z-40 lg:hidden"
             >
               <div className="pt-24 px-6 pb-8 h-full overflow-y-auto">
                 {navItems.map((item, idx) => (
