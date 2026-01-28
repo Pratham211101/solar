@@ -53,18 +53,18 @@ const products = [
 
 const Products = () => {
   return (
-    <div className="bg-background min-h-screen">
+    <div className="bg-foreground min-h-screen">
       <main className="pt-24">
         {/* Hero Section */}
         <section className="relative py-16 lg:py-24">
           <div className="container mx-auto px-6">
             <ScrollReveal className="max-w-5xl">
-              <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-foreground tracking-tight leading-none">
+              <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-background tracking-tight leading-none">
                 OUR
                 <br />
                 PRODUCTS
               </h1>
-              <p className="text-lg text-muted-foreground mt-8 max-w-xl">
+              <p className="text-lg text-muted-background mt-8 max-w-xl">
                 Field-proven water quality monitoring solutions designed for Indian conditions.
               </p>
             </ScrollReveal>
@@ -84,9 +84,9 @@ const Products = () => {
                   transition={{ delay: i * 0.1 }}
                   className="group"
                 >
-                  <div className="relative h-full bg-background rounded-2xl border border-border overflow-hidden transition-all duration-500 group-hover:border-transparent group-hover:shadow-2xl">
+                  <div className="relative h-full bg-foreground rounded-2xl border border-border overflow-hidden transition-all duration-500 group-hover:border-transparent group-hover:shadow-2xl">
                     {/* Gradient overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-foreground via-foreground/95 to-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
 
                     {/* Content wrapper */}
                     <div className="relative z-10 p-6 h-full flex flex-col">
@@ -96,8 +96,8 @@ const Products = () => {
                           <span
                             key={tag}
                             className="px-4 py-1.5 text-xs font-medium rounded-full border transition-colors duration-500
-                              border-border text-foreground
-                              group-hover:border-background/30 group-hover:text-background"
+                              border-border text-background
+                              group-hover:border-foreground/30 group-hover:text-foreground"
                           >
                             {tag}
                           </span>
@@ -116,27 +116,27 @@ const Products = () => {
 
                       {/* Title & Description */}
                       <div className="flex-1">
-                        <h3 className="font-sans text-xl font-bold mb-2 transition-colors duration-500 text-foreground group-hover:text-background">
+                        <h3 className="font-sans text-xl font-bold mb-2 transition-colors duration-500 text-background group-hover:text-foreground">
                           {product.name}
                         </h3>
-                        <p className="text-sm leading-relaxed transition-colors duration-500 text-muted-foreground group-hover:text-background/70">
+                        <p className="text-sm leading-relaxed transition-colors duration-500 text-muted-background group-hover:text-foreground/70">
                           {product.description}
                         </p>
                       </div>
 
                       {/* Sub Links */}
-                      <div className="flex flex-wrap gap-4 mt-6 pt-4 border-t transition-colors duration-500 border-border group-hover:border-background/20">
+                      <div className="flex flex-wrap gap-4 mt-6 pt-4 border-t transition-colors duration-500 border-border group-hover:border-foreground/20">
                         {product.subLinks.map((link) => (
                           <Link
                             key={link.label}
                             to={link.href}
                             className="inline-flex items-center gap-1 text-sm font-medium transition-colors duration-500
-                              text-foreground hover:text-primary
-                              group-hover:text-background group-hover:hover:text-primary-foreground"
+                              text-background hover:text-primary
+                              group-hover:text-foreground group-hover:hover:text-primary-background"
                           >
                             <span className="relative">
                               {link.label}
-                              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary transition-colors duration-500 group-hover:bg-background/50" />
+                              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary transition-colors duration-500 group-hover:bg-foreground/50" />
                             </span>
                             <ChevronRight className="w-4 h-4" />
                           </Link>
