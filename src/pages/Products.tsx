@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Footer from "../components/layout/Footer";
 import ScrollReveal from "../components/ui/ScrollReveal";
-import { ArrowRight, Droplets, Wifi, Gauge, FlaskConical } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 
 const products = [
   {
@@ -11,8 +11,9 @@ const products = [
     tagline: "Lab-grade testing in your pocket",
     description:
       "Multi-parameter field testing device with 12+ parameters, GPS tagging, and cloud sync.",
-    icon: Droplets,
+    image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80",
     features: ["12+ Parameters", "< 2 min testing", "IP65 rated"],
+    size: "large",
   },
   {
     id: "ocems",
@@ -20,8 +21,9 @@ const products = [
     tagline: "24/7 compliance monitoring",
     description:
       "Continuous effluent monitoring system for STP/ETP compliance with real-time alerts.",
-    icon: Wifi,
+    image: "https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?w=800&q=80",
     features: ["CPCB Compliant", "Real-time alerts", "Remote access"],
+    size: "medium",
   },
   {
     id: "varunaa",
@@ -29,8 +31,9 @@ const products = [
     tagline: "Smart groundwater management",
     description:
       "IoT-enabled water level monitoring for borewells and tanks with predictive analytics.",
-    icon: Gauge,
+    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80",
     features: ["Solar powered", "LoRa enabled", "Trend analysis"],
+    size: "medium",
   },
   {
     id: "reagent-kit",
@@ -38,72 +41,84 @@ const products = [
     tagline: "Consumables for C012",
     description:
       "High-quality reagents for accurate colorimetric testing. Available for all parameters.",
-    icon: FlaskConical,
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
     features: ["Long shelf life", "Field-ready", "Bulk available"],
+    size: "small",
   },
 ];
 
 const Products = () => {
   return (
-    <>
+    <div className="bg-white min-h-screen">
       <main className="pt-24">
-        {/* Hero Section */}
-        <section className="relative py-20 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" />
-          <div className="container mx-auto px-6 relative z-10">
-            <ScrollReveal className="max-w-4xl mx-auto text-center">
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">
-                Our Products
+        {/* Hero Section - Light theme */}
+        <section className="relative py-16 lg:py-24">
+          <div className="container mx-auto px-6">
+            <ScrollReveal className="max-w-5xl">
+              <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-gray-900 tracking-tight leading-none">
+                OUR
+                <br />
+                PRODUCTS
               </h1>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-lg text-gray-500 mt-8 max-w-xl">
                 Field-proven water quality monitoring solutions designed for Indian conditions.
               </p>
             </ScrollReveal>
           </div>
         </section>
 
-        {/* Products Grid */}
-        <section className="py-16 pb-32">
+        {/* Products Grid - Masonry style like reference */}
+        <section className="pb-12">
           <div className="container mx-auto px-6">
-            <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
               {products.map((product, index) => (
-                <ScrollReveal key={product.id} delay={index * 0.1}>
-                  <motion.div
-                    whileHover={{ y: -8, scale: 1.01 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                    className="group relative h-full"
-                  >
-                    <Link
-                      to={`/products/${product.id}`}
-                      className="block h-full"
+                <ScrollReveal
+                  key={product.id}
+                  delay={index * 0.1}
+                  className={
+                    index === 0
+                      ? "md:col-span-1 lg:row-span-2"
+                      : index === 1
+                        ? "md:col-span-1"
+                        : ""
+                  }
+                >
+                  <Link to={`/products/${product.id}`} className="block h-full group">
+                    <motion.div
+                      whileHover={{ y: -4 }}
+                      transition={{ duration: 0.3 }}
+                      className={`relative overflow-hidden bg-gray-100 h-full ${
+                        index === 0 ? "min-h-[500px] lg:min-h-full" : "min-h-[280px] lg:min-h-[320px]"
+                      }`}
                     >
-                      <div className="relative h-full p-8 rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/30 hover:bg-card/80 transition-all duration-500">
-                        {/* Icon */}
-                        <div className="flex items-start gap-5 mb-5">
-                          <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center">
-                            <product.icon className="w-7 h-7 text-primary" />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <span className="text-primary text-sm font-medium block mb-1">
-                              {product.tagline}
-                            </span>
-                            <h3 className="text-xl lg:text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
-                              {product.name}
-                            </h3>
-                          </div>
-                        </div>
+                      {/* Product Image */}
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
 
-                        {/* Description */}
-                        <p className="text-muted-foreground mb-6 leading-relaxed">
+                      {/* Overlay gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
+
+                      {/* Content */}
+                      <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                        <span className="text-primary text-sm font-medium mb-1">
+                          {product.tagline}
+                        </span>
+                        <h3 className="text-xl lg:text-2xl font-bold text-white mb-2">
+                          {product.name}
+                        </h3>
+                        <p className="text-white/80 text-sm mb-4 line-clamp-2">
                           {product.description}
                         </p>
 
                         {/* Features */}
-                        <div className="flex flex-wrap gap-2 mb-6">
-                          {product.features.map((feature) => (
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {product.features.slice(0, 3).map((feature) => (
                             <span
                               key={feature}
-                              className="px-3 py-1.5 text-sm rounded-full bg-muted/50 text-muted-foreground border border-border/50"
+                              className="px-2 py-1 text-xs bg-white/20 backdrop-blur-sm text-white rounded"
                             >
                               {feature}
                             </span>
@@ -111,24 +126,33 @@ const Products = () => {
                         </div>
 
                         {/* CTA */}
-                        <div className="flex items-center gap-2 text-primary font-medium">
+                        <div className="flex items-center gap-2 text-white font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                           <span>View details</span>
-                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </div>
-
-                        {/* Hover glow effect */}
-                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                       </div>
-                    </Link>
-                  </motion.div>
+                    </motion.div>
+                  </Link>
                 </ScrollReveal>
               ))}
             </div>
           </div>
         </section>
+
+        {/* Scroll indicator */}
+        <div className="flex justify-center pb-16">
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+            className="flex flex-col items-center text-gray-400"
+          >
+            <span className="text-sm mb-2">Scroll down to discover more</span>
+            <ChevronDown className="w-5 h-5" />
+          </motion.div>
+        </div>
       </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

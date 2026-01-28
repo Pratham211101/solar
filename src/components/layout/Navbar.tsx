@@ -13,6 +13,12 @@ const navItems: NavItem[] = [
   {
     label: "Products",
     href: "/products",
+    children: [
+      { label: "Cluix C012", href: "/products/cluix-c012", description: "Handheld water quality analyzer" },
+      { label: "OCEMS", href: "/products/ocems", description: "Online monitoring system" },
+      { label: "Varunaa", href: "/products/varunaa", description: "Water level monitor" },
+      { label: "Reagent Kits", href: "/products/reagent-kit", description: "Testing consumables" },
+    ],
   },
   {
     label: "Company",
@@ -86,7 +92,7 @@ const Navbar = () => {
                 onMouseEnter={() => item.children && setActiveDropdown(item.label)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                {item.href ? (
+                {item.href && !item.children ? (
                   <Link
                     to={item.href}
                     className="flex items-center gap-1 px-4 py-2 text-foreground/80 hover:text-foreground transition-colors link-underline"
@@ -94,14 +100,19 @@ const Navbar = () => {
                     {item.label}
                   </Link>
                 ) : (
-                  <button className="flex items-center gap-1 px-4 py-2 text-foreground/80 hover:text-foreground transition-colors link-underline">
+                  <Link
+                    to={item.href || "#"}
+                    className="flex items-center gap-1 px-4 py-2 text-foreground/80 hover:text-foreground transition-colors link-underline"
+                  >
                     {item.label}
-                    <ChevronDown
-                      className={`w-4 h-4 transition-transform duration-300 ${
-                        activeDropdown === item.label ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
+                    {item.children && (
+                      <ChevronDown
+                        className={`w-4 h-4 transition-transform duration-300 ${
+                          activeDropdown === item.label ? "rotate-180" : ""
+                        }`}
+                      />
+                    )}
+                  </Link>
                 )}
               </div>
             ))}
