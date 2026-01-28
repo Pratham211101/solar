@@ -57,7 +57,13 @@ const ProductHero = ({ product }: ProductHeroProps) => {
                   key={feature}
                   className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-full text-sm text-gray-700"
                 >
-                  <svg className="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    className="w-4 h-4 text-primary"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                     <polyline points="22 4 12 14.01 9 11.01" />
                   </svg>
@@ -124,7 +130,7 @@ const ProductHero = ({ product }: ProductHeroProps) => {
               {/* Product Image Placeholder */}
               <div className="aspect-square bg-gray-50 rounded-xl flex items-center justify-center mb-6">
                 <div className="text-center">
-                  <div className="w-20 h-20 mx-auto bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
+                  <div className="w-16 h-16 mx-auto bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
                     <Droplets className="w-10 h-10 text-primary" />
                   </div>
                   <p className="text-gray-400 text-sm">Product image</p>
