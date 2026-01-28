@@ -31,14 +31,10 @@ const Logo = ({ variant = "auto", size = "md", className = "", linkTo = "/" }: L
   const content = (
     <motion.div
       className={`flex items-center gap-2 ${className}`}
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: 1 }}
       transition={{ duration: 0.2 }}
     >
-      <img
-        src={cluixLogo}
-        alt="Cluix Logo"
-        className={`${sizeClasses[size]} w-auto object-contain`}
-      />
+      <img src={cluixLogo} alt="Cluix Logo" className={`${sizeClasses[size]} w-auto object-contain`} />
       <span
         className={`font-bold tracking-tight ${textSizeClasses[size]} ${textColorClasses[variant]}`}
         style={{ fontFamily: "'Space Grotesk', sans-serif" }}
