@@ -145,7 +145,7 @@ const Navbar = () => {
                   className="w-1/2 bg-background text-foreground p-12 flex flex-col justify-center"
                 >
                   <h2 className="text-4xl md:text-5xl font-bold mb-4">{activeDropdown}</h2>
-                  <p className="text-background/70 text-lg">
+                  <p className="text-foreground/70 text-lg">
                     {activeDropdown === "Products" && "Discover our innovative water quality solutions"}
                     {activeDropdown === "Company" && "Learn about our mission and team"}
                     {activeDropdown === "Media" && "Stay updated with our latest news"}
@@ -153,7 +153,7 @@ const Navbar = () => {
                 </motion.div>
 
                 {/* Right Side - Sub Items */}
-                <div className="w-1/2 bg-background p-12 flex flex-col justify-center">
+                <div className="w-1/2 bg-background p-12 flex flex-col justify-center border-l border-foreground">
                   <div className="space-y-2">
                     {navItems
                       .find((item) => item.label === activeDropdown)
