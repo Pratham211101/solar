@@ -9,7 +9,7 @@ interface ProductHeroProps {
 
 const ProductHero = ({ product }: ProductHeroProps) => {
   return (
-    <section className="min-h-screen flex items-center bg-gradient-to-br from-gray-50 to-white py-16 lg:py-0">
+    <section className="h-screen flex items-center bg-gradient-to-br from-gray-50 to-white overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Content */}

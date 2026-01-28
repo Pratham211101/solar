@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
+import Logo from "@/components/ui/Logo";
 
 interface NavItem {
   label: string;
@@ -73,15 +74,7 @@ const Navbar = () => {
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="relative z-50">
-            <motion.span
-              className="text-2xl font-bold text-gradient"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.2 }}
-            >
-              CLUIX
-            </motion.span>
-          </Link>
+          <Logo variant="auto" size="md" />
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-1">
