@@ -38,21 +38,52 @@ const ProductHowItWorks = ({ title, subtitle, steps }: ProductHowItWorksProps) =
         </motion.div>
 
         {/* Steps */}
-        <div className="relative">
-          {/* Connection Line */}
+        <motion.div 
+          className="relative"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          {/* Connection Line - Base (gray) */}
           <div className="hidden lg:block absolute top-12 left-1/2 transform -translate-x-1/2 w-3/4 h-0.5 bg-gray-200" />
+          
+          {/* Connection Line - Animated Overlay (primary) */}
+          <motion.div 
+            className="hidden lg:block absolute top-12 left-1/2 transform -translate-x-1/2 w-3/4 h-0.5 bg-primary origin-left"
+            variants={{
+              hidden: { scaleX: 0 },
+              visible: { 
+                scaleX: 1,
+                transition: { 
+                  duration: 1.2, 
+                  ease: [0.22, 1, 0.36, 1],
+                  delay: 0.2
+                }
+              }
+            }}
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4">
             {steps.map((step, index) => {
               const IconComponent = iconMap[step.icon] || FlaskConical;
+              // Stagger delay: steps appear progressively as line fills
+              const stepDelay = 0.3 + index * 0.25;
 
               return (
                 <motion.div
                   key={step.step}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { 
+                      opacity: 1, 
+                      y: 0,
+                      transition: { 
+                        duration: 0.5, 
+                        ease: "easeOut",
+                        delay: stepDelay
+                      }
+                    }
+                  }}
                   className="text-center relative"
                 >
                   {/* Icon Container */}
@@ -62,14 +93,21 @@ const ProductHowItWorks = ({ title, subtitle, steps }: ProductHowItWorksProps) =
                     </div>
                     {/* Connector dot */}
                     {index < steps.length - 1 && (
-                      <div className="hidden lg:block absolute -right-2 top-1/2 transform w-3 h-3 bg-gray-200 rounded-full" />
+                      <motion.div 
+                        className="hidden lg:block absolute -right-2 top-1/2 transform w-3 h-3 bg-primary rounded-full"
+                        variants={{
+                          hidden: { scale: 0 },
+                          visible: { 
+                            scale: 1,
+                            transition: { 
+                              duration: 0.3, 
+                              delay: stepDelay + 0.2
+                            }
+                          }
+                        }}
+                      />
                     )}
                   </div>
-
-                  {/* Step Badge */}
-                  {/* <div className="inline-flex items-center justify-center px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full mb-3">
-                    Step {step.step}
-                  </div> */}
 
                   {/* Title */}
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">{step.title}</h3>
@@ -80,7 +118,7 @@ const ProductHowItWorks = ({ title, subtitle, steps }: ProductHowItWorksProps) =
               );
             })}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
