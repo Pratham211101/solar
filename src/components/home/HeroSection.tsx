@@ -29,7 +29,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-curve-bottom pointer-events-none" />
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 h-full flex items-center">
+      <div className="relative z-10 container mx-auto px-6 mt-20 h-full flex items-center">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full">
           {/* Main Text */}
           <div className="lg:col-span-8">
