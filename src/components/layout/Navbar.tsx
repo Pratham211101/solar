@@ -142,7 +142,7 @@ const Navbar = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="w-1/2 bg-background text-foreground p-12 flex flex-col justify-center"
+                  className="w-1/2 bg-background/95 text-foreground p-12 flex flex-col justify-center"
                 >
                   <h2 className="text-4xl md:text-5xl font-bold mb-4">{activeDropdown}</h2>
                   <p className="text-foreground/70 text-lg">
@@ -153,7 +153,7 @@ const Navbar = () => {
                 </motion.div>
 
                 {/* Right Side - Sub Items */}
-                <div className="w-1/2 bg-background p-12 flex flex-col justify-center border-l border-foreground">
+                <div className="w-1/2 bg-background/95 p-12 flex flex-col justify-center border-l border-border">
                   <div className="space-y-2">
                     {navItems
                       .find((item) => item.label === activeDropdown)
