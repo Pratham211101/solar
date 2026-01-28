@@ -1,90 +1,70 @@
 import { motion } from "framer-motion";
-import ScrollReveal from "../ui/ScrollReveal";
-import { Droplets, Wind, BarChart3, Shield, Zap, Globe } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Droplets, Wifi, BarChart3, ArrowRight } from "lucide-react";
 
-const features = [
+const offerings = [
   {
     icon: Droplets,
-    title: "Water Quality Monitoring",
-    description:
-      "Real-time analysis of water parameters including pH, turbidity, dissolved oxygen, and contamination levels.",
+    title: "Handheld Analyzer",
+    description: "Multi-parameter water quality testing in the field. Lab-grade accuracy, no lab required.",
+    href: "/products/c012",
   },
   {
-    icon: Wind,
-    title: "Air Emission Tracking",
-    description:
-      "Continuous monitoring of industrial emissions to ensure compliance with environmental regulations.",
+    icon: Wifi,
+    title: "Online Monitoring",
+    description: "24/7 continuous monitoring with OCEMS compliance. Real-time alerts and remote access.",
+    href: "/products/ocems",
   },
   {
     icon: BarChart3,
-    title: "Advanced Analytics",
-    description:
-      "AI-powered insights and predictive analytics for proactive environmental management.",
-  },
-  {
-    icon: Shield,
-    title: "Regulatory Compliance",
-    description:
-      "Automated reporting and documentation for EPA, CPCB, and international environmental standards.",
-  },
-  {
-    icon: Zap,
-    title: "Real-time Alerts",
-    description:
-      "Instant notifications for parameter exceedances and equipment anomalies.",
-  },
-  {
-    icon: Globe,
-    title: "Remote Access",
-    description:
-      "Cloud-based platform accessible from anywhere, enabling remote monitoring and management.",
+    title: "Data Dashboard",
+    description: "Centralized analytics platform. Track trends, generate reports, and make informed decisions.",
+    href: "/dashboard",
   },
 ];
 
-const FeaturesSection = () => {
+export function WhatWeDo() {
   return (
-    <section className="relative py-32 overflow-hidden">
-      {/* Background Curves */}
-      <div className="absolute inset-0 bg-curve-top pointer-events-none" />
-      <div className="absolute inset-0 bg-curve-bottom pointer-events-none" />
-
-      <div className="container mx-auto px-6 relative z-10">
-        <ScrollReveal className="text-center mb-16">
-          <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-medium mb-6">
-            Why Choose Cluix
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-foreground">Comprehensive</span>{" "}
-            <span className="text-gradient">Monitoring Solutions</span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            From water quality to air emissions, our integrated platform provides
-            everything you need for environmental compliance.
+    <section className="section-padding bg-card">
+      <div className="container-wide mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">What we do</h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            End-to-end water quality intelligence—from sample to decision.
           </p>
-        </ScrollReveal>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <ScrollReveal key={feature.title} delay={index * 0.1}>
-              <motion.div
-                whileHover={{ y: -8, scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-                className="card-gradient p-8 h-full"
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          {offerings.map((item, i) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+            >
+              <Link
+                to={item.href}
+                className="group block h-full p-8 bg-background rounded-2xl border border-border hover:border-primary/50 transition-all duration-300"
               >
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-                  <feature.icon className="w-7 h-7 text-primary" />
+                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                  <item.icon className="w-7 h-7 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-muted-foreground">{feature.description}</p>
-              </motion.div>
-            </ScrollReveal>
+                <h3 className="font-display text-xl font-semibold text-foreground mb-3">{item.title}</h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed">{item.description}</p>
+                <span className="inline-flex items-center text-sm font-medium text-primary group-hover:gap-2 transition-all">
+                  Learn more <ArrowRight className="w-4 h-4 ml-1" />
+                </span>
+              </Link>
+            </motion.div>
           ))}
         </div>
       </div>
     </section>
   );
-};
-
-export default FeaturesSection;
+}
