@@ -40,7 +40,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 mb-16">
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <Logo variant="auto" size="md" />
+            <Logo variant="auto" size="md" className="mb-6" />
             <p className="text-muted-foreground mb-6 max-w-sm">
               Pioneering environmental monitoring solutions for a sustainable future.
             </p>
