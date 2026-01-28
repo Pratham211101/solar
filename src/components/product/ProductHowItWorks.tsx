@@ -33,23 +33,19 @@ const ProductHowItWorks = ({ title, subtitle, steps }: ProductHowItWorksProps) =
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            {title}
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            {subtitle}
-          </p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">{title}</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">{subtitle}</p>
         </motion.div>
 
         {/* Steps */}
         <div className="relative">
           {/* Connection Line */}
           <div className="hidden lg:block absolute top-12 left-1/2 transform -translate-x-1/2 w-3/4 h-0.5 bg-gray-200" />
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4">
             {steps.map((step, index) => {
               const IconComponent = iconMap[step.icon] || FlaskConical;
-              
+
               return (
                 <motion.div
                   key={step.step}
@@ -71,19 +67,15 @@ const ProductHowItWorks = ({ title, subtitle, steps }: ProductHowItWorksProps) =
                   </div>
 
                   {/* Step Badge */}
-                  <div className="inline-flex items-center justify-center px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full mb-3">
+                  {/* <div className="inline-flex items-center justify-center px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full mb-3">
                     Step {step.step}
-                  </div>
+                  </div> */}
 
                   {/* Title */}
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    {step.title}
-                  </h3>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{step.title}</h3>
 
                   {/* Description */}
-                  <p className="text-gray-600 text-sm max-w-xs mx-auto">
-                    {step.description}
-                  </p>
+                  <p className="text-gray-600 text-sm max-w-xs mx-auto">{step.description}</p>
                 </motion.div>
               );
             })}
