@@ -5,6 +5,7 @@ import { WhatWeDoSection } from "../components/home/WhatWeDoSection";
 import { ProductsShowcaseSection } from "../components/home/ProductsShowcaseSection";
 import { WhoItsForSection } from "../components/home/WhoItsForSection";
 import { StatsHighlightSection } from "../components/home/StatsHighlightSection";
+import { WhyCluixSection } from "../components/home/WhyCluixSection";
 import { FeaturesSection } from "../components/home/FeaturesSection";
 import ProductsSection from "../components/home/ProductsSection";
 import StatsSection from "../components/home/StatsSection";
@@ -19,6 +20,7 @@ const Index = () => {
         <ProductsShowcaseSection />
         <WhoItsForSection />
         <StatsHighlightSection />
+        <WhyCluixSection />
         <FeaturesSection />
         <ProductsSection />
         <StatsSection />
