@@ -39,7 +39,7 @@ interface ProductParametersProps {
 
 const ProductParameters = ({ title, subtitle, parameters }: ProductParametersProps) => {
   return (
-    <section className="py-20 bg-white">
+    <section className="min-h-screen flex items-center bg-white py-16 lg:py-0">
       <div className="container mx-auto px-6">
         {/* Header */}
         <motion.div
