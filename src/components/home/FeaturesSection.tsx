@@ -25,16 +25,18 @@ const offerings = [
 
 export function FeaturesSection() {
   return (
-    <section className="section-padding bg-card">
-      <div className="container-wide mx-auto">
+    <section className="py-20 lg:py-28 bg-white">
+      <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">What we do</h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+            What we do
+          </h2>
+          <p className="text-slate-600 text-lg max-w-2xl mx-auto">
             End-to-end water quality intelligence—from sample to decision.
           </p>
         </motion.div>
@@ -50,13 +52,13 @@ export function FeaturesSection() {
             >
               <Link
                 to={item.href}
-                className="group block h-full p-8 bg-background rounded-2xl border border-border hover:border-primary/50 transition-all duration-300"
+                className="group block h-full p-8 bg-slate-50 rounded-2xl border border-slate-200 hover:border-primary/50 hover:shadow-lg transition-all duration-300"
               >
                 <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                   <item.icon className="w-7 h-7 text-primary" />
                 </div>
-                <h3 className="font-display text-xl font-semibold text-foreground mb-3">{item.title}</h3>
-                <p className="text-muted-foreground mb-4 leading-relaxed">{item.description}</p>
+                <h3 className="font-display text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
+                <p className="text-slate-600 mb-6 leading-relaxed">{item.description}</p>
                 <span className="inline-flex items-center text-sm font-medium text-primary group-hover:gap-2 transition-all">
                   Learn more <ArrowRight className="w-4 h-4 ml-1" />
                 </span>
