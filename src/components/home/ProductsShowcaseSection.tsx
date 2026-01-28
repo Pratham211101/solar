@@ -64,13 +64,13 @@ export function ProductsShowcaseSection() {
                   </div>
 
                   {/* Featured Badge */}
-                  {product.featured && (
+                  {/* {product.featured && (
                     <div className="absolute top-4 right-4 z-10">
                       <span className="px-3 py-1 bg-primary text-primary-foreground text-xs font-semibold rounded-full">
                         Featured
                       </span>
                     </div>
-                  )}
+                  )} */}
 
                   {/* Product Image */}
                   <motion.img
