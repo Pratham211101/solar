@@ -53,7 +53,7 @@ const HeroSection = () => {
               <br />
               <span className="text-gradient">Water Quality</span>
               <br />
-              <span className="text-foreground">Analyzer</span>
+              <span className="text-foreground">System</span>
             </motion.h1>
 
             {/* <motion.p
