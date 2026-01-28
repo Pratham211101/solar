@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { ChevronRight } from "lucide-react";
 
 const products = [
   {
@@ -7,21 +8,33 @@ const products = [
     name: "CLUIX C012",
     description: "Advanced multi-parameter water quality analyzer with IoT connectivity",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
-    featured: true,
+    tags: ["12+ Parameters", "IoT Enabled"],
+    subLinks: [
+      { label: "Features", href: "/products/cluix-c012#features" },
+      { label: "Specs", href: "/products/cluix-c012#specs" },
+    ],
   },
   {
     id: "reagent-kit",
-    name: "Reagent Kit (100 Test)",
+    name: "Reagent Kit",
     description: "Complete reagent kit for comprehensive water quality testing",
     image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&q=80",
-    featured: false,
+    tags: ["100 Tests", "Field Ready"],
+    subLinks: [
+      { label: "Parameters", href: "/products/reagent-kit#parameters" },
+      { label: "Order", href: "/contact-us" },
+    ],
   },
   {
     id: "varunaa",
     name: "Varunaa",
     description: "Smart water level monitoring system with real-time alerts",
     image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&q=80",
-    featured: false,
+    tags: ["Solar Powered", "LoRa Enabled"],
+    subLinks: [
+      { label: "How It Works", href: "/products/varunaa#how-it-works" },
+      { label: "Demo", href: "/demo" },
+    ],
   },
 ];
 
@@ -49,61 +62,65 @@ export function ProductsShowcaseSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              whileHover={{ y: -8 }}
               className="group"
             >
-              <div className="h-full bg-card rounded-2xl border border-border overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
-                {/* Image Area with Dark Gradient Background */}
-                <div className="relative aspect-[4/3] bg-gradient-to-br from-foreground via-foreground/90 to-primary/30 overflow-hidden">
-                  {/* Decorative particles/bubbles effect */}
-                  <div className="absolute inset-0 opacity-30">
-                    <div className="absolute top-1/4 left-1/4 w-1 h-1 bg-white rounded-full" />
-                    <div className="absolute top-1/3 right-1/3 w-0.5 h-0.5 bg-white rounded-full" />
-                    <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-white rounded-full" />
-                    <div className="absolute top-1/2 right-1/4 w-0.5 h-0.5 bg-white rounded-full" />
+              <div className="relative h-full bg-background rounded-2xl border border-border overflow-hidden transition-all duration-500 group-hover:border-transparent group-hover:shadow-2xl">
+                {/* Gradient overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-foreground via-foreground/95 to-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
+
+                {/* Content wrapper */}
+                <div className="relative z-10 p-6 h-full flex flex-col">
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {product.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-4 py-1.5 text-xs font-medium rounded-full border transition-colors duration-500
+                          border-border text-foreground
+                          group-hover:border-background/30 group-hover:text-background"
+                      >
+                        {tag}
+                      </span>
+                    ))}
                   </div>
 
-                  {/* Featured Badge */}
-                  {/* {product.featured && (
-                    <div className="absolute top-4 right-4 z-10">
-                      <span className="px-3 py-1 bg-primary text-primary-foreground text-xs font-semibold rounded-full">
-                        Featured
-                      </span>
-                    </div>
-                  )} */}
+                  {/* Image Area */}
+                  <div className="relative aspect-[4/3] mb-6 flex items-center justify-center">
+                    <motion.img
+                      src={product.image}
+                      alt={product.name}
+                      className="max-w-full max-h-full object-contain transition-all duration-500 
+                        filter grayscale-0 group-hover:grayscale group-hover:brightness-200 group-hover:opacity-80"
+                    />
+                  </div>
 
-                  {/* Product Image */}
-                  <motion.img
-                    src={product.image}
-                    alt={product.name}
-                    className="absolute inset-0 w-full h-full object-contain p-8"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.4 }}
-                  />
+                  {/* Title & Description */}
+                  <div className="flex-1">
+                    <h3 className="font-sans text-xl font-bold mb-2 transition-colors duration-500 text-foreground group-hover:text-background">
+                      {product.name}
+                    </h3>
+                    <p className="text-sm leading-relaxed transition-colors duration-500 text-muted-foreground group-hover:text-background/70">
+                      {product.description}
+                    </p>
+                  </div>
 
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/50 to-transparent" />
-                </div>
-
-                {/* Card Content */}
-                <div className="p-6">
-                  <h3 className="font-sans text-lg font-bold text-foreground mb-2">{product.name}</h3>
-                  <p className="text-muted-foreground text-sm mb-6 leading-relaxed">{product.description}</p>
-
-                  {/* Buttons */}
-                  <div className="flex gap-3">
-                    <Link
-                      to={`/products/${product.id}`}
-                      className="flex-1 inline-flex items-center justify-center px-4 py-2.5 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-primary/90 transition-colors"
-                    >
-                      View Details
-                    </Link>
-                    <Link
-                      to="/contact-us"
-                      className="inline-flex items-center justify-center px-4 py-2.5 border border-primary text-primary text-sm font-medium rounded-full hover:bg-primary/10 transition-colors"
-                    >
-                      Enquiry
-                    </Link>
+                  {/* Sub Links */}
+                  <div className="flex flex-wrap gap-4 mt-6 pt-4 border-t transition-colors duration-500 border-border group-hover:border-background/20">
+                    {product.subLinks.map((link) => (
+                      <Link
+                        key={link.label}
+                        to={link.href}
+                        className="inline-flex items-center gap-1 text-sm font-medium transition-colors duration-500
+                          text-foreground hover:text-primary
+                          group-hover:text-background group-hover:hover:text-primary-foreground"
+                      >
+                        <span className="relative">
+                          {link.label}
+                          <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary transition-colors duration-500 group-hover:bg-background/50" />
+                        </span>
+                        <ChevronRight className="w-4 h-4" />
+                      </Link>
+                    ))}
                   </div>
                 </div>
               </div>
