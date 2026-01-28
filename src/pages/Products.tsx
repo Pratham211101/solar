@@ -9,8 +9,7 @@ const products = [
     id: "cluix-c012",
     name: "C012 Handheld Water Quality Analyzer",
     tagline: "Lab-grade testing in your pocket",
-    description:
-      "Multi-parameter field testing device with 12+ parameters, GPS tagging, and cloud sync.",
+    description: "Multi-parameter field testing device with 12+ parameters, GPS tagging, and cloud sync.",
     image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80",
     features: ["12+ Parameters", "< 2 min testing", "IP65 rated"],
     size: "large",
@@ -19,8 +18,7 @@ const products = [
     id: "ocems",
     name: "Online Monitoring System (OCEMS)",
     tagline: "24/7 compliance monitoring",
-    description:
-      "Continuous effluent monitoring system for STP/ETP compliance with real-time alerts.",
+    description: "Continuous effluent monitoring system for STP/ETP compliance with real-time alerts.",
     image: "https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?w=800&q=80",
     features: ["CPCB Compliant", "Real-time alerts", "Remote access"],
     size: "medium",
@@ -29,8 +27,7 @@ const products = [
     id: "varunaa",
     name: "Varunaa Water Level Monitor",
     tagline: "Smart groundwater management",
-    description:
-      "IoT-enabled water level monitoring for borewells and tanks with predictive analytics.",
+    description: "IoT-enabled water level monitoring for borewells and tanks with predictive analytics.",
     image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80",
     features: ["Solar powered", "LoRa enabled", "Trend analysis"],
     size: "medium",
@@ -39,8 +36,7 @@ const products = [
     id: "reagent-kit",
     name: "Reagent Kits",
     tagline: "Consumables for C012",
-    description:
-      "High-quality reagents for accurate colorimetric testing. Available for all parameters.",
+    description: "High-quality reagents for accurate colorimetric testing. Available for all parameters.",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
     features: ["Long shelf life", "Field-ready", "Bulk available"],
     size: "small",
@@ -75,13 +71,7 @@ const Products = () => {
                 <ScrollReveal
                   key={product.id}
                   delay={index * 0.1}
-                  className={
-                    index === 0
-                      ? "md:col-span-1 lg:row-span-2"
-                      : index === 1
-                        ? "md:col-span-1"
-                        : ""
-                  }
+                  className={index === 0 ? "md:col-span-1 lg:row-span-2" : index === 1 ? "md:col-span-1" : ""}
                 >
                   <Link to={`/products/${product.id}`} className="block h-full group">
                     <motion.div
@@ -103,15 +93,9 @@ const Products = () => {
 
                       {/* Content */}
                       <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                        <span className="text-primary text-sm font-medium mb-1">
-                          {product.tagline}
-                        </span>
-                        <h3 className="text-xl lg:text-2xl font-bold text-white mb-2">
-                          {product.name}
-                        </h3>
-                        <p className="text-white/80 text-sm mb-4 line-clamp-2">
-                          {product.description}
-                        </p>
+                        <span className="text-primary text-sm font-medium mb-1">{product.tagline}</span>
+                        <h3 className="text-xl lg:text-2xl font-bold text-white mb-2">{product.name}</h3>
+                        <p className="text-white/80 text-sm mb-4 line-clamp-2">{product.description}</p>
 
                         {/* Features */}
                         <div className="flex flex-wrap gap-2 mb-4">
@@ -140,7 +124,7 @@ const Products = () => {
         </section>
 
         {/* Scroll indicator */}
-        <div className="flex justify-center pb-16">
+        {/* <div className="flex justify-center pb-16">
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
@@ -149,7 +133,7 @@ const Products = () => {
             <span className="text-sm mb-2">Scroll down to discover more</span>
             <ChevronDown className="w-5 h-5" />
           </motion.div>
-        </div>
+        </div> */}
       </main>
       <Footer />
     </div>
