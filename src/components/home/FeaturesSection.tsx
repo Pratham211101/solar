@@ -23,7 +23,7 @@ const offerings = [
   },
 ];
 
-export function WhatWeDo() {
+export function FeaturesSection() {
   return (
     <section className="section-padding bg-card">
       <div className="container-wide mx-auto">
