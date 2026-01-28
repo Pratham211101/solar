@@ -48,14 +48,14 @@ const Footer = () => {
             <div className="space-y-3">
               <a
                 href="mailto:contact@cluix.com"
-                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors link-underline"
+                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
               >
                 <Mail className="w-4 h-4" />
                 contact@cluix.com
               </a>
               <a
                 href="tel:+1234567890"
-                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors link-underline"
+                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
               >
                 <Phone className="w-4 h-4" />
                 +1 (234) 567-890
@@ -138,9 +138,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-border/30 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} Cluix. All rights reserved.
-          </p>
+          <p className="text-muted-foreground text-sm">© {new Date().getFullYear()} Cluix. All rights reserved.</p>
 
           {/* Social Links */}
           <div className="flex items-center gap-4">
