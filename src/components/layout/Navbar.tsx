@@ -138,15 +138,13 @@ const Navbar = () => {
             >
               <div className="flex min-h-[280px]">
                 {/* Left Side - Nav Link Name */}
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="w-1/2 bg-foreground text-background p-12 flex flex-col justify-center"
+                  className="w-1/2 bg-background text-foreground p-12 flex flex-col justify-center"
                 >
-                  <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                    {activeDropdown}
-                  </h2>
+                  <h2 className="text-4xl md:text-5xl font-bold mb-4">{activeDropdown}</h2>
                   <p className="text-background/70 text-lg">
                     {activeDropdown === "Products" && "Discover our innovative water quality solutions"}
                     {activeDropdown === "Company" && "Learn about our mission and team"}
