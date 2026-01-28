@@ -7,34 +7,81 @@ import Logo from "@/components/ui/Logo";
 interface NavItem {
   label: string;
   href?: string;
-  children?: { label: string; href: string; description?: string }[];
+  description?: string;
+  children?: {
+    label: string;
+    href: string;
+    description?: string;
+  }[];
 }
 
 const navItems: NavItem[] = [
   {
     label: "Products",
-    href: "/products",
+    description: "Explore our water intelligence hardware and platforms",
     children: [
-      { label: "Cluix C012", href: "/products/cluix-c012", description: "Handheld water quality analyzer" },
-      { label: "OCEMS", href: "/products/ocems", description: "Online monitoring system" },
-      { label: "Varunaa", href: "/products/varunaa", description: "Water level monitor" },
-      { label: "Reagent Kits", href: "/products/reagent-kit", description: "Testing consumables" },
+      {
+        label: "Cluix C012",
+        href: "/products/cluix-c012",
+        description: "Handheld water quality analyzer",
+      },
+      {
+        label: "OCEMS",
+        href: "/products/ocems",
+        description: "Online continuous monitoring system",
+      },
+      {
+        label: "Varunaa",
+        href: "/products/varunaa",
+        description: "IoT-based water level monitoring",
+      },
+      {
+        label: "Reagent Kits",
+        href: "/products/reagent-kit",
+        description: "Consumables for chemical testing",
+      },
     ],
   },
   {
     label: "Company",
+    description: "Who we are and how we build",
     children: [
-      { label: "About Us", href: "/about-us", description: "Our story and mission" },
-      { label: "Careers", href: "/careers", description: "Join our team" },
-      { label: "Contact", href: "/contact-us", description: "Get in touch" },
+      {
+        label: "About Us",
+        href: "/about-us",
+        description: "Our mission, vision, and story",
+      },
+      {
+        label: "Careers",
+        href: "/careers",
+        description: "Join our growing team",
+      },
+      {
+        label: "Contact",
+        href: "/contact-us",
+        description: "Get in touch with us",
+      },
     ],
   },
   {
     label: "Media",
+    description: "News, updates, and publications",
     children: [
-      { label: "Newsletter", href: "/news-letter", description: "Stay updated" },
-      { label: "Blogs", href: "/blog", description: "Insights and articles" },
-      { label: "Newsroom", href: "/media", description: "Press and news" },
+      {
+        label: "Newsletter",
+        href: "/news-letter",
+        description: "Monthly updates from CLUIX",
+      },
+      {
+        label: "Blogs",
+        href: "/blog",
+        description: "Insights and technical articles",
+      },
+      {
+        label: "Newsroom",
+        href: "/media",
+        description: "Press releases and coverage",
+      },
     ],
   },
 ];
@@ -46,9 +93,7 @@ const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -58,175 +103,129 @@ const Navbar = () => {
     setMobileMenuOpen(false);
   }, [location]);
 
+  const activeItem = navItems.find((i) => i.label === activeDropdown);
+
   return (
     <motion.header
-      initial={{ y: 0 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         activeDropdown
           ? "bg-background/95 backdrop-blur-xl shadow-xl"
           : scrolled
-            ? "bg-background/95 backdrop-blur-lg shadow-md"
+            ? "bg-background/80 backdrop-blur-lg shadow-md"
             : "bg-gradient-to-b from-background/70 to-transparent"
       }`}
     >
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
           <Logo variant="auto" size="md" />
 
-          {/* Desktop Navigation */}
+          {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (
               <div
                 key={item.label}
                 className="relative"
-                onMouseEnter={() => item.children && setActiveDropdown(item.label)}
+                onMouseEnter={() => setActiveDropdown(item.label)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                {item.href && !item.children ? (
-                  <Link
-                    to={item.href}
-                    className="flex items-center gap-1 px-4 py-2 text-foreground/80 hover:text-foreground transition-colors link-underline"
-                  >
-                    {item.label}
-                  </Link>
-                ) : (
-                  <Link
-                    to={item.href || "#"}
-                    className="flex items-center gap-1 px-4 py-2 text-foreground/80 hover:text-foreground transition-colors link-underline"
-                  >
-                    {item.label}
-                    {item.children && (
-                      <ChevronDown
-                        className={`w-4 h-4 transition-transform duration-300 ${
-                          activeDropdown === item.label ? "rotate-180" : ""
-                        }`}
-                      />
-                    )}
-                  </Link>
-                )}
+                <button className="flex items-center gap-1 px-4 py-2 text-foreground/80 hover:text-foreground transition-colors">
+                  {item.label}
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform duration-300 ${
+                      activeDropdown === item.label ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
               </div>
             ))}
 
             <Link
               to="https://dashboard.cluix.in"
-              className="ml-4 px-6 py-2 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/25"
+              className="ml-4 px-6 py-2 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-all"
             >
               Dashboard
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button className="lg:hidden relative z-50 p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            {mobileMenuOpen ? <X className="w-6 h-6 text-foreground" /> : <Menu className="w-6 h-6 text-foreground" />}
+          {/* Mobile Toggle */}
+          <button className="lg:hidden p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            {mobileMenuOpen ? <X /> : <Menu />}
           </button>
         </div>
+      </nav>
 
-        {/* Full Width Dropdown */}
-        <AnimatePresence>
-          {activeDropdown && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="absolute left-0 right-0 top-full bg-background/95 backdrop-blur-xl border-b border-border overflow-hidden"
-              onMouseEnter={() => setActiveDropdown(activeDropdown)}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <div className="container mx-auto px-6 py-8">
-                <div className="grid grid-cols-4 gap-6">
-                  {navItems
-                    .find((item) => item.label === activeDropdown)
-                    ?.children?.map((child, index) => (
-                      <motion.div
-                        key={child.href}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.05 }}
-                      >
-                        <Link
-                          to={child.href}
-                          className="group block p-4 rounded-xl hover:bg-muted/50 transition-all duration-300"
-                        >
-                          <span className="text-lg font-medium text-foreground group-hover:text-primary transition-colors">
-                            {child.label}
-                          </span>
-                          {child.description && (
-                            <p className="mt-1 text-sm text-muted-foreground">{child.description}</p>
-                          )}
-                        </Link>
-                      </motion.div>
-                    ))}
+      {/* ================= MEGA DROPDOWN ================= */}
+      <AnimatePresence>
+        {activeDropdown && activeItem && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
+            className="absolute left-0 right-0 top-full h-[60vh] bg-background/95 backdrop-blur-xl border-b border-border"
+            onMouseEnter={() => setActiveDropdown(activeDropdown)}
+            onMouseLeave={() => setActiveDropdown(null)}
+          >
+            <div className="container mx-auto h-full grid grid-cols-12">
+              {/* LEFT PANEL */}
+              <div className="col-span-4 px-10 py-16 flex flex-col justify-center border-r border-border">
+                <h2 className="text-4xl font-semibold text-foreground">{activeItem.label}</h2>
+                <p className="mt-4 text-muted-foreground max-w-sm">{activeItem.description}</p>
+              </div>
+
+              {/* RIGHT PANEL */}
+              <div className="col-span-8 px-12 py-16 overflow-y-auto">
+                <div className="grid grid-cols-2 gap-x-12 gap-y-8">
+                  {activeItem.children?.map((child, index) => (
+                    <motion.div
+                      key={child.href}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.06 }}
+                    >
+                      <Link to={child.href} className="group block">
+                        <h4 className="text-lg font-medium text-foreground group-hover:text-primary transition-colors">
+                          {child.label}
+                        </h4>
+                        {child.description && (
+                          <p className="mt-1 text-sm text-muted-foreground max-w-md">{child.description}</p>
+                        )}
+                      </Link>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-background z-40 lg:hidden"
-            >
-              <div className="pt-24 px-6 pb-8 h-full overflow-y-auto">
-                {navItems.map((item, idx) => (
-                  <motion.div
-                    key={item.label}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: idx * 0.1 }}
-                    className="mb-6"
-                  >
-                    {item.href ? (
-                      <Link
-                        to={item.href}
-                        className="text-lg font-semibold text-foreground mb-3 block hover:text-primary transition-colors"
-                      >
-                        {item.label}
+      {/* ================= MOBILE MENU ================= */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-background z-40 lg:hidden"
+          >
+            <div className="pt-24 px-6 space-y-8">
+              {navItems.map((item) => (
+                <div key={item.label}>
+                  <h3 className="text-lg font-semibold mb-3">{item.label}</h3>
+                  <div className="space-y-2 pl-4">
+                    {item.children?.map((child) => (
+                      <Link key={child.href} to={child.href} className="block text-muted-foreground hover:text-primary">
+                        {child.label}
                       </Link>
-                    ) : (
-                      <>
-                        <span className="text-lg font-semibold text-foreground mb-3 block">{item.label}</span>
-                        <div className="space-y-2 pl-4">
-                          {item.children?.map((child) => (
-                            <Link
-                              key={child.href}
-                              to={child.href}
-                              className="block py-2 text-muted-foreground hover:text-primary transition-colors link-underline"
-                            >
-                              {child.label}
-                            </Link>
-                          ))}
-                        </div>
-                      </>
-                    )}
-                  </motion.div>
-                ))}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                  className="mt-8"
-                >
-                  <Link
-                    to="/demo"
-                    className="block w-full py-3 bg-primary text-primary-foreground rounded-full font-medium text-center"
-                  >
-                    Request Demo
-                  </Link>
-                </motion.div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </nav>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 };
