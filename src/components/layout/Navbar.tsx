@@ -132,7 +132,7 @@ const Navbar = () => {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="absolute left-0 right-0 top-full bg-background border-b border-border overflow-hidden"
+              className="absolute left-0 right-0 top-full bg-background/95 border-b border-border overflow-hidden"
               onMouseEnter={() => setActiveDropdown(activeDropdown)}
               onMouseLeave={() => setActiveDropdown(null)}
             >
