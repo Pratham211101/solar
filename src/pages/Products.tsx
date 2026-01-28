@@ -1,133 +1,126 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import ScrollReveal from "../components/ui/ScrollReveal";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Droplets, Wifi, Gauge, FlaskConical } from "lucide-react";
 
 const products = [
   {
     id: "cluix-c012",
-    name: "Cluix C012",
-    tagline: "Advanced Water Quality Analyzer",
+    name: "C012 Handheld Water Quality Analyzer",
+    tagline: "Lab-grade testing in your pocket",
     description:
-      "Multi-parameter water quality analyzer with IoT connectivity, real-time monitoring, and automated reporting capabilities.",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
-    features: [
-      "12+ parameter analysis",
-      "Cloud connectivity",
-      "Auto-calibration",
-      "Mobile app control",
-    ],
-  },
-  {
-    id: "reagent-kit",
-    name: "Reagent Kit",
-    tagline: "Premium Testing Reagents",
-    description:
-      "High-purity reagents for accurate water quality testing, designed for compatibility with all Cluix analyzers.",
-    image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80",
-    features: ["High purity", "Long shelf life", "Wide parameter range", "Easy handling"],
-  },
-  {
-    id: "varunaa",
-    name: "Varunaa Water Monitoring",
-    tagline: "Complete Monitoring Solution",
-    description:
-      "End-to-end water monitoring solution for industrial applications with predictive analytics and compliance automation.",
-    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80",
-    features: [
-      "24/7 monitoring",
-      "Predictive alerts",
-      "Compliance ready",
-      "Custom dashboards",
-    ],
+      "Multi-parameter field testing device with 12+ parameters, GPS tagging, and cloud sync.",
+    icon: Droplets,
+    features: ["12+ Parameters", "< 2 min testing", "IP65 rated"],
   },
   {
     id: "ocems",
-    name: "OCEMS Device",
-    tagline: "Emission Monitoring System",
+    name: "Online Monitoring System (OCEMS)",
+    tagline: "24/7 compliance monitoring",
     description:
-      "Online Continuous Emission Monitoring System for industrial compliance with real-time data and automated reporting.",
-    image: "https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?w=800&q=80",
-    features: ["Real-time data", "Regulatory compliant", "Remote access", "API integration"],
+      "Continuous effluent monitoring system for STP/ETP compliance with real-time alerts.",
+    icon: Wifi,
+    features: ["CPCB Compliant", "Real-time alerts", "Remote access"],
+  },
+  {
+    id: "varunaa",
+    name: "Varunaa Water Level Monitor",
+    tagline: "Smart groundwater management",
+    description:
+      "IoT-enabled water level monitoring for borewells and tanks with predictive analytics.",
+    icon: Gauge,
+    features: ["Solar powered", "LoRa enabled", "Trend analysis"],
+  },
+  {
+    id: "reagent-kit",
+    name: "Reagent Kits",
+    tagline: "Consumables for C012",
+    description:
+      "High-quality reagents for accurate colorimetric testing. Available for all parameters.",
+    icon: FlaskConical,
+    features: ["Long shelf life", "Field-ready", "Bulk available"],
   },
 ];
 
 const Products = () => {
   return (
     <>
-      <Navbar />
       <main className="pt-24">
         {/* Hero Section */}
-        <section className="relative py-24 overflow-hidden">
-          <div className="absolute inset-0 bg-curve-top pointer-events-none" />
+        <section className="relative py-20 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" />
           <div className="container mx-auto px-6 relative z-10">
             <ScrollReveal className="max-w-4xl mx-auto text-center">
-              <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-medium mb-6">
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">
                 Our Products
-              </span>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                <span className="text-foreground">Innovative</span>{" "}
-                <span className="text-gradient">Monitoring Solutions</span>
               </h1>
-              <p className="text-xl text-muted-foreground">
-                Explore our range of cutting-edge environmental monitoring products
-                designed for accuracy, reliability, and ease of use.
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Field-proven water quality monitoring solutions designed for Indian conditions.
               </p>
             </ScrollReveal>
           </div>
         </section>
 
-        {/* Products List */}
-        <section className="py-24">
+        {/* Products Grid */}
+        <section className="py-16 pb-32">
           <div className="container mx-auto px-6">
-            <div className="space-y-24">
+            <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
               {products.map((product, index) => (
-                <ScrollReveal key={product.id}>
-                  <div
-                    className={`grid lg:grid-cols-2 gap-12 items-center ${
-                      index % 2 === 1 ? "lg:flex-row-reverse" : ""
-                    }`}
+                <ScrollReveal key={product.id} delay={index * 0.1}>
+                  <motion.div
+                    whileHover={{ y: -8, scale: 1.01 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className="group relative h-full"
                   >
-                    <motion.div
-                      whileHover={{ scale: 1.02 }}
-                      className={`relative overflow-hidden rounded-2xl ${
-                        index % 2 === 1 ? "lg:order-2" : ""
-                      }`}
+                    <Link
+                      to={`/products/${product.id}`}
+                      className="block h-full"
                     >
-                      <img
-                        src={product.image}
-                        alt={product.name}
-                        className="w-full aspect-[4/3] object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
-                    </motion.div>
-                    <div className={index % 2 === 1 ? "lg:order-1" : ""}>
-                      <span className="text-primary text-sm font-medium mb-2 block">
-                        {product.tagline}
-                      </span>
-                      <h2 className="text-4xl font-bold text-foreground mb-4">{product.name}</h2>
-                      <p className="text-muted-foreground mb-6">{product.description}</p>
-                      <div className="flex flex-wrap gap-2 mb-8">
-                        {product.features.map((feature) => (
-                          <span
-                            key={feature}
-                            className="px-3 py-1 text-sm rounded-full bg-muted text-muted-foreground"
-                          >
-                            {feature}
-                          </span>
-                        ))}
+                      <div className="relative h-full p-8 rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/30 hover:bg-card/80 transition-all duration-500">
+                        {/* Icon */}
+                        <div className="flex items-start gap-5 mb-5">
+                          <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center">
+                            <product.icon className="w-7 h-7 text-primary" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <span className="text-primary text-sm font-medium block mb-1">
+                              {product.tagline}
+                            </span>
+                            <h3 className="text-xl lg:text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                              {product.name}
+                            </h3>
+                          </div>
+                        </div>
+
+                        {/* Description */}
+                        <p className="text-muted-foreground mb-6 leading-relaxed">
+                          {product.description}
+                        </p>
+
+                        {/* Features */}
+                        <div className="flex flex-wrap gap-2 mb-6">
+                          {product.features.map((feature) => (
+                            <span
+                              key={feature}
+                              className="px-3 py-1.5 text-sm rounded-full bg-muted/50 text-muted-foreground border border-border/50"
+                            >
+                              {feature}
+                            </span>
+                          ))}
+                        </div>
+
+                        {/* CTA */}
+                        <div className="flex items-center gap-2 text-primary font-medium">
+                          <span>View details</span>
+                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                        </div>
+
+                        {/* Hover glow effect */}
+                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                       </div>
-                      <Link
-                        to={`/products/${product.id}`}
-                        className="group inline-flex items-center gap-2 text-primary font-medium link-underline"
-                      >
-                        Learn More
-                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                      </Link>
-                    </div>
-                  </div>
+                    </Link>
+                  </motion.div>
                 </ScrollReveal>
               ))}
             </div>
