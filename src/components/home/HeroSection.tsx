@@ -135,7 +135,7 @@ const HeroSection = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.5 }}
-                className="mt-12 flex flex-col items-end"
+                className="mt-20 flex flex-col items-end"
               >
                 {/* <span className="text-xs tracking-[0.2em] text-muted-foreground mb-3 rotate-90 origin-right translate-x-3">
                   SCROLL
