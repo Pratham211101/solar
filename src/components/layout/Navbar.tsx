@@ -191,7 +191,7 @@ const Navbar = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-background z-40 lg:hidden"
+              className="fixed inset-0 bg-background/95 z-40 lg:hidden"
             >
               <div className="pt-24 px-6 pb-8 h-full overflow-y-auto">
                 {navItems.map((item, idx) => (
