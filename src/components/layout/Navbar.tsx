@@ -124,7 +124,7 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Full Width Dropdown */}
+        {/* Full Width Dropdown - Split Layout */}
         <AnimatePresence>
           {activeDropdown && (
             <motion.div
@@ -132,34 +132,54 @@ const Navbar = () => {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="absolute left-0 right-0 top-full bg-background/95 backdrop-blur-xl border-b border-border overflow-hidden"
+              className="absolute left-0 right-0 top-full bg-background border-b border-border overflow-hidden"
               onMouseEnter={() => setActiveDropdown(activeDropdown)}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <div className="container mx-auto px-6 py-8">
-                <div className="grid grid-cols-4 gap-6">
-                  {navItems
-                    .find((item) => item.label === activeDropdown)
-                    ?.children?.map((child, index) => (
-                      <motion.div
-                        key={child.href}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.05 }}
-                      >
-                        <Link
-                          to={child.href}
-                          className="group block p-4 rounded-xl hover:bg-muted/50 transition-all duration-300"
+              <div className="flex min-h-[280px]">
+                {/* Left Side - Nav Link Name */}
+                <motion.div 
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-1/2 bg-foreground text-background p-12 flex flex-col justify-center"
+                >
+                  <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                    {activeDropdown}
+                  </h2>
+                  <p className="text-background/70 text-lg">
+                    {activeDropdown === "Products" && "Discover our innovative water quality solutions"}
+                    {activeDropdown === "Company" && "Learn about our mission and team"}
+                    {activeDropdown === "Media" && "Stay updated with our latest news"}
+                  </p>
+                </motion.div>
+
+                {/* Right Side - Sub Items */}
+                <div className="w-1/2 bg-background p-12 flex flex-col justify-center">
+                  <div className="space-y-2">
+                    {navItems
+                      .find((item) => item.label === activeDropdown)
+                      ?.children?.map((child, index) => (
+                        <motion.div
+                          key={child.href}
+                          initial={{ opacity: 0, x: 20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: index * 0.08 }}
                         >
-                          <span className="text-lg font-medium text-foreground group-hover:text-primary transition-colors">
-                            {child.label}
-                          </span>
-                          {child.description && (
-                            <p className="mt-1 text-sm text-muted-foreground">{child.description}</p>
-                          )}
-                        </Link>
-                      </motion.div>
-                    ))}
+                          <Link
+                            to={child.href}
+                            className="group block py-4 border-b border-border last:border-b-0 hover:pl-2 transition-all duration-300"
+                          >
+                            <span className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
+                              {child.label}
+                            </span>
+                            {child.description && (
+                              <p className="mt-1 text-sm text-muted-foreground">{child.description}</p>
+                            )}
+                          </Link>
+                        </motion.div>
+                      ))}
+                  </div>
                 </div>
               </div>
             </motion.div>
