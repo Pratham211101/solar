@@ -27,7 +27,7 @@ const products = [
 
 export function ProductsShowcaseSection() {
   return (
-    <section className="py-20 lg:py-28 bg-white">
+    <section className="py-20 lg:py-28 bg-background">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -35,8 +35,8 @@ export function ProductsShowcaseSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">Our Products</h2>
-          <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+          <h2 className="font-sans text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">Our Products</h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Industry-leading water quality monitoring solutions
           </p>
         </motion.div>
@@ -52,9 +52,9 @@ export function ProductsShowcaseSection() {
               whileHover={{ y: -8 }}
               className="group"
             >
-              <div className="h-full bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+              <div className="h-full bg-card rounded-2xl border border-border overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
                 {/* Image Area with Dark Gradient Background */}
-                <div className="relative aspect-[4/3] bg-gradient-to-br from-slate-900 via-slate-800 to-primary/30 overflow-hidden">
+                <div className="relative aspect-[4/3] bg-gradient-to-br from-foreground via-foreground/90 to-primary/30 overflow-hidden">
                   {/* Decorative particles/bubbles effect */}
                   <div className="absolute inset-0 opacity-30">
                     <div className="absolute top-1/4 left-1/4 w-1 h-1 bg-white rounded-full" />
@@ -82,13 +82,13 @@ export function ProductsShowcaseSection() {
                   />
 
                   {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/50 to-transparent" />
                 </div>
 
                 {/* Card Content */}
                 <div className="p-6">
-                  <h3 className="font-display text-lg font-bold text-slate-900 mb-2">{product.name}</h3>
-                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">{product.description}</p>
+                  <h3 className="font-sans text-lg font-bold text-foreground mb-2">{product.name}</h3>
+                  <p className="text-muted-foreground text-sm mb-6 leading-relaxed">{product.description}</p>
 
                   {/* Buttons */}
                   <div className="flex gap-3">

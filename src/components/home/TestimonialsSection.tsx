@@ -21,7 +21,7 @@ const testimonials = [
 
 export function TestimonialsSection() {
   return (
-    <section className="py-20 lg:py-28 bg-white">
+    <section className="py-20 lg:py-28 bg-background">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -29,7 +29,7 @@ export function TestimonialsSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900">
+          <h2 className="font-sans text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
             What our users say
           </h2>
         </motion.div>
@@ -45,25 +45,25 @@ export function TestimonialsSection() {
               whileHover={{ y: -4 }}
               className="group"
             >
-              <div className="h-full bg-slate-50 rounded-2xl border border-slate-200 p-8 hover:shadow-xl hover:border-primary/20 transition-all duration-300">
+              <div className="h-full bg-muted rounded-2xl border border-border p-8 hover:shadow-xl hover:border-primary/20 transition-all duration-300">
                 {/* Quote Icon */}
                 <div className="mb-6">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center">
                     <Quote className="w-5 h-5 text-primary" />
                   </div>
                 </div>
 
                 {/* Quote Text */}
-                <p className="text-slate-700 text-base leading-relaxed mb-8">
+                <p className="text-foreground/80 text-base leading-relaxed mb-8">
                   "{testimonial.quote}"
                 </p>
 
                 {/* Author Info */}
-                <div className="border-t border-slate-200 pt-6">
-                  <p className="font-display font-semibold text-slate-900 text-sm">
+                <div className="border-t border-border pt-6">
+                  <p className="font-sans font-semibold text-foreground text-sm">
                     {testimonial.role}
                   </p>
-                  <p className="text-slate-500 text-sm mt-1">
+                  <p className="text-muted-foreground text-sm mt-1">
                     {testimonial.organization}
                   </p>
                 </div>
