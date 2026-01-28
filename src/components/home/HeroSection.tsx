@@ -59,7 +59,7 @@ const HeroSection = () => {
               <span className="text-foreground">Analyzer</span>
             </motion.h1>
 
-            <motion.p
+            {/* <motion.p
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -67,7 +67,7 @@ const HeroSection = () => {
             >
               Trusted by government utilities, industries, and institutions for field-ready water quality monitoring
               with real-time compliance reporting.
-            </motion.p>
+            </motion.p> */}
 
             {/* Feature Checkmarks */}
             <motion.div
