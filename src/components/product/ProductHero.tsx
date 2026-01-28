@@ -126,7 +126,7 @@ const ProductHero = ({ product }: ProductHeroProps) => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="relative"
           >
-            <div className="relative rounded-2xl shadow-xl p-8 lg:p-12">
+            <div className="relative bg-white rounded-2xl shadow-xl p-8 lg:p-12">
               {/* Product Image Placeholder */}
               <div className="bg-gray-50 rounded-xl flex items-center justify-center mb-6 aspect-square">
                 <div className="text-center">
