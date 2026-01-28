@@ -76,13 +76,13 @@ export function ProductsShowcaseSection() {
                   <motion.img
                     src={product.image}
                     alt={product.name}
-                    className="absolute inset-0 w-full h-full object-contain p-8 mix-blend-luminosity opacity-80 group-hover:opacity-100 group-hover:mix-blend-normal transition-all duration-500"
+                    className="absolute inset-0 w-full h-full object-contain p-8"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.4 }}
                   />
 
                   {/* Gradient Overlay */}
-                  {/* <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent" /> */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent" />
                 </div>
 
                 {/* Card Content */}
