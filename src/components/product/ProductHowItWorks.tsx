@@ -62,7 +62,7 @@ const ProductHowItWorks = ({ title, subtitle, steps }: ProductHowItWorksProps) =
                     </div>
                     {/* Connector dot */}
                     {index < steps.length - 1 && (
-                      <div className="hidden lg:block absolute right-0 top-3/4 transform translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-gray-200 rounded-full" />
+                      <div className="hidden lg:block absolute right-0 top-1/2 transform w-3 h-3 bg-gray-200 rounded-full" />
                     )}
                   </div>
 
