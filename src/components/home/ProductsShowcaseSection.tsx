@@ -35,9 +35,7 @@ export function ProductsShowcaseSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
-            Our Products
-          </h2>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">Our Products</h2>
           <p className="text-slate-600 text-lg max-w-2xl mx-auto">
             Industry-leading water quality monitoring solutions
           </p>
@@ -64,7 +62,7 @@ export function ProductsShowcaseSection() {
                     <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-white rounded-full" />
                     <div className="absolute top-1/2 right-1/4 w-0.5 h-0.5 bg-white rounded-full" />
                   </div>
-                  
+
                   {/* Featured Badge */}
                   {product.featured && (
                     <div className="absolute top-4 right-4 z-10">
@@ -73,7 +71,7 @@ export function ProductsShowcaseSection() {
                       </span>
                     </div>
                   )}
-                  
+
                   {/* Product Image */}
                   <motion.img
                     src={product.image}
@@ -82,20 +80,16 @@ export function ProductsShowcaseSection() {
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.4 }}
                   />
-                  
+
                   {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent" />
+                  {/* <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent" /> */}
                 </div>
 
                 {/* Card Content */}
                 <div className="p-6">
-                  <h3 className="font-display text-lg font-bold text-slate-900 mb-2">
-                    {product.name}
-                  </h3>
-                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
-                    {product.description}
-                  </p>
-                  
+                  <h3 className="font-display text-lg font-bold text-slate-900 mb-2">{product.name}</h3>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">{product.description}</p>
+
                   {/* Buttons */}
                   <div className="flex gap-3">
                     <Link
