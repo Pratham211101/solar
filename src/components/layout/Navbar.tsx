@@ -68,7 +68,7 @@ const Navbar = () => {
           ? "bg-background shadow-xl border-b border-border"
           : scrolled
             ? "bg-background/95 backdrop-blur-lg shadow-md border-b border-border/50"
-            : "bg-gradient-to-b from-background/80 to-transparent"
+            : "bg-gradient-to-b from-black/80 to-transparent"
       }`}
     >
       <nav className="container mx-auto px-6 py-4">
