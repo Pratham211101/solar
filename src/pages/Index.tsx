@@ -1,13 +1,23 @@
+import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import HeroSection from "../components/home/HeroSection";
-import { StackingSections } from "../components/home/StackingSections";
+import { WhatWeDoSection } from "../components/home/WhatWeDoSection";
+import { FeaturesSection } from "../components/home/FeaturesSection";
+import ProductsSection from "../components/home/ProductsSection";
+import StatsSection from "../components/home/StatsSection";
+import CTASection from "../components/home/CTASection";
 
 const Index = () => {
   return (
     <>
+      <Navbar />
       <main>
         <HeroSection />
-        <StackingSections />
+        <WhatWeDoSection />
+        <FeaturesSection />
+        <ProductsSection />
+        <StatsSection />
+        <CTASection />
       </main>
       <Footer />
     </>
