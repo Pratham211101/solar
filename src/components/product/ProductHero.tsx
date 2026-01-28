@@ -128,7 +128,7 @@ const ProductHero = ({ product }: ProductHeroProps) => {
           >
             <div className="relative bg-white rounded-2xl shadow-xl p-8 lg:p-12">
               {/* Product Image Placeholder */}
-              <div className="bg-gray-50 rounded-xl flex items-center justify-center mb-6 aspect-square">
+              <div className="rounded-xl flex items-center justify-center mb-6 aspect-square">
                 <div className="text-center">
                   <div className="w-20 h-20 mx-auto bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
                     <Droplets className="w-10 h-10 text-primary" />
