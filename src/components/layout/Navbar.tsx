@@ -12,12 +12,7 @@ interface NavItem {
 const navItems: NavItem[] = [
   {
     label: "Products",
-    children: [
-      { label: "Cluix C012", href: "/products/cluix-c012", description: "Advanced monitoring system" },
-      { label: "Reagent Kit", href: "/products/reagent-kit", description: "Complete reagent solutions" },
-      { label: "Varunaa Water Monitoring", href: "/products/varunaa", description: "Smart water quality monitoring" },
-      { label: "OCEMS Device", href: "/products/ocems", description: "Online continuous emission monitoring" },
-    ],
+    href: "/products",
   },
   {
     label: "Company",
@@ -88,17 +83,26 @@ const Navbar = () => {
               <div
                 key={item.label}
                 className="relative"
-                onMouseEnter={() => setActiveDropdown(item.label)}
+                onMouseEnter={() => item.children && setActiveDropdown(item.label)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <button className="flex items-center gap-1 px-4 py-2 text-foreground/80 hover:text-foreground transition-colors link-underline">
-                  {item.label}
-                  <ChevronDown
-                    className={`w-4 h-4 transition-transform duration-300 ${
-                      activeDropdown === item.label ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
+                {item.href ? (
+                  <Link
+                    to={item.href}
+                    className="flex items-center gap-1 px-4 py-2 text-foreground/80 hover:text-foreground transition-colors link-underline"
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <button className="flex items-center gap-1 px-4 py-2 text-foreground/80 hover:text-foreground transition-colors link-underline">
+                    {item.label}
+                    <ChevronDown
+                      className={`w-4 h-4 transition-transform duration-300 ${
+                        activeDropdown === item.label ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                )}
               </div>
             ))}
 
@@ -176,18 +180,29 @@ const Navbar = () => {
                     transition={{ delay: idx * 0.1 }}
                     className="mb-6"
                   >
-                    <span className="text-lg font-semibold text-foreground mb-3 block">{item.label}</span>
-                    <div className="space-y-2 pl-4">
-                      {item.children?.map((child) => (
-                        <Link
-                          key={child.href}
-                          to={child.href}
-                          className="block py-2 text-muted-foreground hover:text-primary transition-colors link-underline"
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
-                    </div>
+                    {item.href ? (
+                      <Link
+                        to={item.href}
+                        className="text-lg font-semibold text-foreground mb-3 block hover:text-primary transition-colors"
+                      >
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <>
+                        <span className="text-lg font-semibold text-foreground mb-3 block">{item.label}</span>
+                        <div className="space-y-2 pl-4">
+                          {item.children?.map((child) => (
+                            <Link
+                              key={child.href}
+                              to={child.href}
+                              className="block py-2 text-muted-foreground hover:text-primary transition-colors link-underline"
+                            >
+                              {child.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </>
+                    )}
                   </motion.div>
                 ))}
                 <motion.div
