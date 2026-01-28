@@ -2,7 +2,6 @@ import { motion, useInView } from "framer-motion";
 import { FlaskConical, Zap, Cloud, FileCheck, LucideIcon } from "lucide-react";
 import { useRef } from "react";
 
-
 const iconMap: Record<string, LucideIcon> = {
   flask: FlaskConical,
   zap: Zap,
@@ -62,28 +61,28 @@ const ProductHowItWorks = ({ title, subtitle, steps }: ProductHowItWorksProps) =
                   {/* Icon Container */}
                   <div className="relative inline-flex items-center justify-center mb-6">
                     <motion.div
-  initial={{ backgroundColor: "#ffffff" }}
-  animate={isInView ? { backgroundColor: "rgba(99,102,241,0.08)" } : {}}
-  transition={{ delay: index * 0.2, duration: 0.4 }}
-  className="w-20 h-20 rounded-2xl border border-gray-200 flex items-center justify-center shadow-sm"
->
+                      initial={{ backgroundColor: "#ffffff" }}
+                      animate={isInView ? { backgroundColor: "rgba(99,102,241,0.08)" } : {}}
+                      transition={{ delay: index * 0.2, duration: 0.4 }}
+                      className="w-20 h-20 rounded-2xl border border-gray-200 flex items-center justify-center shadow-sm"
+                    >
                       <IconComponent className="w-8 h-8 text-primary" />
-                    </div>
+                    </motion.div>
                     {/* Connector dot */}
                     {index < steps.length - 1 && (
-                      <motion.div
-  ref={ref}
-  className="hidden lg:block absolute top-12 left-1/2 -translate-x-1/2 w-3/4 h-0.5 bg-gray-200 overflow-hidden"
->
-  {/* Animated Fill */}
-  <motion.div
-    initial={{ scaleX: 0 }}
-    animate={isInView ? { scaleX: 1 } : {}}
-    transition={{ duration: 0.4, delay: 0.4 + index * 0.2 }}
-    style={{ transformOrigin: "left" }}
-    className="h-full bg-primary"
-  />
-</div>
+                      <div
+                        ref={ref}
+                        className="hidden lg:block absolute top-12 left-1/2 -translate-x-1/2 w-3/4 h-0.5 bg-gray-200 overflow-hidden"
+                      >
+                        {/* Animated Fill */}
+                        <motion.div
+                          initial={{ scaleX: 0 }}
+                          animate={isInView ? { scaleX: 1 } : {}}
+                          transition={{ duration: 0.4, delay: 0.4 + index * 0.2 }}
+                          style={{ transformOrigin: "left" }}
+                          className="h-full bg-primary"
+                        />
+                      </div>
                     )}
                   </div>
 
