@@ -45,18 +45,18 @@ const products = [
 
 const Products = () => {
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-background min-h-screen">
       <main className="pt-24">
         {/* Hero Section - Light theme */}
         <section className="relative py-16 lg:py-24">
           <div className="container mx-auto px-6">
             <ScrollReveal className="max-w-5xl">
-              <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-gray-900 tracking-tight leading-none">
+              <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-foreground tracking-tight leading-none">
                 OUR
                 <br />
                 PRODUCTS
               </h1>
-              <p className="text-lg text-gray-500 mt-8 max-w-xl">
+              <p className="text-lg text-muted-foreground mt-8 max-w-xl">
                 Field-proven water quality monitoring solutions designed for Indian conditions.
               </p>
             </ScrollReveal>
@@ -77,7 +77,7 @@ const Products = () => {
                     <motion.div
                       whileHover={{ y: -4 }}
                       transition={{ duration: 0.3 }}
-                      className={`relative overflow-hidden bg-gray-100 h-full ${
+                      className={`relative overflow-hidden bg-muted rounded-xl ${
                         index === 0 ? "min-h-[500px] lg:min-h-full" : "min-h-[280px] lg:min-h-[320px]"
                       }`}
                     >

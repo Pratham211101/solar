@@ -24,7 +24,7 @@ const Logo = ({ variant = "auto", size = "md", className = "", linkTo = "/" }: L
 
   const textColorClasses = {
     light: "text-white",
-    dark: "text-gray-900",
+    dark: "text-foreground",
     auto: "text-foreground",
   };
 
