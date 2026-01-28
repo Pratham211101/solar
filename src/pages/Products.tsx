@@ -84,7 +84,7 @@ const Products = () => {
                   transition={{ delay: i * 0.1 }}
                   className="group"
                 >
-                  <div className="relative h-full bg-foreground rounded-2xl border border-border overflow-hidden transition-all duration-500 group-hover:border-transparent group-hover:shadow-2xl">
+                  <div className="relative h-full bg-foreground rounded-2xl border border-foreground overflow-hidden transition-all duration-500 group-hover:border-transparent group-hover:shadow-2xl">
                     {/* Gradient overlay on hover */}
                     <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
 
