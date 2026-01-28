@@ -3,11 +3,11 @@ import Footer from "../components/layout/Footer";
 import HeroSection from "../components/home/HeroSection";
 import { WhatWeDoSection } from "../components/home/WhatWeDoSection";
 import { ProductsShowcaseSection } from "../components/home/ProductsShowcaseSection";
+import { WhoItsForSection } from "../components/home/WhoItsForSection";
 import { FeaturesSection } from "../components/home/FeaturesSection";
 import ProductsSection from "../components/home/ProductsSection";
 import StatsSection from "../components/home/StatsSection";
 import CTASection from "../components/home/CTASection";
-
 const Index = () => {
   return (
     <>
@@ -16,6 +16,7 @@ const Index = () => {
         <HeroSection />
         <WhatWeDoSection />
         <ProductsShowcaseSection />
+        <WhoItsForSection />
         <FeaturesSection />
         <ProductsSection />
         <StatsSection />
