@@ -1,5 +1,7 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { FlaskConical, Zap, Cloud, FileCheck, LucideIcon } from "lucide-react";
+import { useRef } from "react";
+
 
 const iconMap: Record<string, LucideIcon> = {
   flask: FlaskConical,
@@ -22,6 +24,8 @@ interface ProductHowItWorksProps {
 }
 
 const ProductHowItWorks = ({ title, subtitle, steps }: ProductHowItWorksProps) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
   return (
     <section className="min-h-screen flex items-center bg-gray-50 py-16 lg:py-0">
       <div className="container mx-auto px-6">
@@ -57,12 +61,29 @@ const ProductHowItWorks = ({ title, subtitle, steps }: ProductHowItWorksProps) =
                 >
                   {/* Icon Container */}
                   <div className="relative inline-flex items-center justify-center mb-6">
-                    <div className="w-20 h-20 bg-white rounded-2xl border border-gray-200 flex items-center justify-center shadow-sm">
+                    <motion.div
+  initial={{ backgroundColor: "#ffffff" }}
+  animate={isInView ? { backgroundColor: "rgba(99,102,241,0.08)" } : {}}
+  transition={{ delay: index * 0.2, duration: 0.4 }}
+  className="w-20 h-20 rounded-2xl border border-gray-200 flex items-center justify-center shadow-sm"
+>
                       <IconComponent className="w-8 h-8 text-primary" />
                     </div>
                     {/* Connector dot */}
                     {index < steps.length - 1 && (
-                      <div className="hidden lg:block absolute -right-2 top-1/2 transform w-3 h-3 bg-gray-200 rounded-full" />
+                      <motion.div
+  ref={ref}
+  className="hidden lg:block absolute top-12 left-1/2 -translate-x-1/2 w-3/4 h-0.5 bg-gray-200 overflow-hidden"
+>
+  {/* Animated Fill */}
+  <motion.div
+    initial={{ scaleX: 0 }}
+    animate={isInView ? { scaleX: 1 } : {}}
+    transition={{ duration: 0.4, delay: 0.4 + index * 0.2 }}
+    style={{ transformOrigin: "left" }}
+    className="h-full bg-primary"
+  />
+</div>
                     )}
                   </div>
 
