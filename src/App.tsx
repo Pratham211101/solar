@@ -14,6 +14,7 @@ import Demo from "./pages/Demo";
 import Media from "./pages/Media";
 import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
+import ReagentKits from "./pages/ReagentKits";
 import Blog from "./pages/Blog";
 import Newsletter from "./pages/Newsletter";
 import Resources from "./pages/Resources";
@@ -95,6 +96,14 @@ const AnimatedRoutes = () => {
           element={
             <PageTransition>
               <Products />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/products/reagent-kit"
+          element={
+            <PageTransition>
+              <ReagentKits />
             </PageTransition>
           }
         />
