@@ -19,6 +19,7 @@ import ReagentKitDetail from "./pages/ReagentKitDetail";
 import Blog from "./pages/Blog";
 import Newsletter from "./pages/Newsletter";
 import Resources from "./pages/Resources";
+import FAQs from "./pages/FAQs";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import ShippingPolicy from "./pages/ShippingPolicy";
@@ -147,6 +148,14 @@ const AnimatedRoutes = () => {
           element={
             <PageTransition>
               <Resources />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/faqs"
+          element={
+            <PageTransition>
+              <FAQs />
             </PageTransition>
           }
         />
