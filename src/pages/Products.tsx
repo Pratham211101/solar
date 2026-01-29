@@ -4,7 +4,17 @@ import Footer from "../components/layout/Footer";
 import ScrollReveal from "../components/ui/ScrollReveal";
 import { ChevronRight } from "lucide-react";
 
-const products = [
+interface ProductItem {
+  id: string;
+  name: string;
+  description: string;
+  image: string;
+  tags: string[];
+  isCategory?: boolean;
+  subLinks: { label: string; href: string }[];
+}
+
+const products: ProductItem[] = [
   {
     id: "cluix-c012",
     name: "CLUIX C012",
@@ -44,8 +54,9 @@ const products = [
     description: "High-quality reagents for accurate colorimetric testing. Available for all parameters.",
     image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&q=80",
     tags: ["Long Shelf Life", "Field Ready"],
+    isCategory: true,
     subLinks: [
-      { label: "Parameters", href: "/products/reagent-kit#parameters" },
+      { label: "View All", href: "/products/reagent-kit" },
       { label: "Order", href: "/contact-us" },
     ],
   },
@@ -75,7 +86,9 @@ const Products = () => {
         <section className="pb-24">
           <div className="container mx-auto px-6">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-              {products.map((product, i) => (
+              {products.map((product, i) => {
+                const cardLink = product.isCategory ? `/products/${product.id}` : `/products/${product.id}`;
+                return (
                 <motion.div
                   key={product.id}
                   initial={{ opacity: 0, y: 20 }}
@@ -145,7 +158,8 @@ const Products = () => {
                     </div>
                   </div>
                 </motion.div>
-              ))}
+              );
+              })}
             </div>
           </div>
         </section>
