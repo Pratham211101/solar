@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import ScrollReveal from "../components/ui/ScrollReveal";
+import WorkLifeSection from "../components/careers/WorkLifeSection";
+import EmployeeCarousel from "../components/careers/EmployeeCarousel";
 import { ArrowRight, MapPin, Briefcase } from "lucide-react";
 
 const openings = [
@@ -138,6 +140,12 @@ const Careers = () => {
             </div>
           </div>
         </section>
+
+        {/* Work Life Section */}
+        <WorkLifeSection />
+
+        {/* Employee Carousel */}
+        <EmployeeCarousel />
       </main>
       <Footer />
     </>
