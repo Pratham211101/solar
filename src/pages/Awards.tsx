@@ -9,42 +9,36 @@ const awards = [
     title: "Innovation Excellence Award",
     description: "Recognized for breakthrough water quality analysis technology enabling real-time multi-parameter testing across India.",
     icon: Trophy,
-    image: "/placeholder.svg",
   },
   {
     year: "2023",
     title: "Government Partnership Award",
     description: "Awarded for successful deployment across multiple state water quality monitoring programs under Jal Jeevan Mission.",
     icon: Award,
-    image: "/placeholder.svg",
   },
   {
     year: "2023",
     title: "Startup India Recognition",
     description: "Selected among top innovative startups driving technological advancement in environmental monitoring sector.",
     icon: Star,
-    image: "/placeholder.svg",
   },
   {
     year: "2022",
     title: "Environmental Impact Award",
     description: "Honored for contributions to sustainable water management and public health protection initiatives.",
     icon: Leaf,
-    image: "/placeholder.svg",
   },
   {
     year: "2022",
     title: "NABL Accreditation",
     description: "Our testing methodologies meet National Accreditation Board standards for laboratory excellence.",
     icon: Shield,
-    image: "/placeholder.svg",
   },
   {
     year: "2021",
     title: "Make in India Excellence",
     description: "Proudly designed and manufactured in India, recognized for achieving global quality standards.",
     icon: Medal,
-    image: "/placeholder.svg",
   },
 ];
 
@@ -97,35 +91,34 @@ const Awards = () => {
                 <ScrollReveal key={award.title} delay={i * 0.08}>
                   <motion.div
                     whileHover={{ y: -4 }}
-                    className="group"
+                    className="group text-center"
                   >
-                    {/* Award Ceremony Image */}
-                    <div className="mb-6 overflow-hidden rounded-lg border border-slate-200 bg-slate-50 aspect-[4/3] group-hover:border-primary/30 transition-colors">
-                      <img 
-                        src={award.image} 
-                        alt={award.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-
-                    {/* Content */}
-                    <div className="text-center">
-                      {/* Year badge */}
-                      <div className="inline-flex items-center gap-2 mb-3">
-                        <award.icon className="w-4 h-4 text-primary" />
-                        <span className="text-sm font-medium text-primary">{award.year}</span>
+                    {/* Award Badge */}
+                    <div className="mb-6">
+                      <div className="relative inline-flex items-center justify-center">
+                        {/* Outer decorative ring */}
+                        <div className="absolute w-28 h-28 border border-dashed border-slate-200 rounded-full group-hover:border-primary/30 transition-colors" />
+                        {/* Inner circle with icon */}
+                        <div className="w-24 h-24 bg-slate-50 rounded-full flex items-center justify-center border border-slate-200 group-hover:bg-primary/5 group-hover:border-primary/30 transition-all">
+                          <award.icon className="w-10 h-10 text-primary" />
+                        </div>
                       </div>
-
-                      {/* Title */}
-                      <h3 className="font-display text-xl font-bold text-slate-900 mb-2">
-                        {award.title}
-                      </h3>
-
-                      {/* Description */}
-                      <p className="text-slate-500 text-sm leading-relaxed">
-                        {award.description}
-                      </p>
                     </div>
+
+                    {/* Year */}
+                    <div className="text-sm font-medium text-primary mb-2">
+                      {award.year}
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="font-display text-xl font-bold text-slate-900 mb-3">
+                      {award.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-slate-500 text-sm leading-relaxed max-w-xs mx-auto">
+                      {award.description}
+                    </p>
                   </motion.div>
                 </ScrollReveal>
               ))}
