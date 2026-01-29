@@ -36,29 +36,30 @@ const ContactForm = ({ isOpen, onClose }: ContactFormProps) => {
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm overflow-y-auto">
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/40 backdrop-blur-sm">
             <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                className="relative w-full max-w-4xl my-8 bg-white rounded-2xl shadow-2xl"
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+                className="relative w-full max-w-4xl mx-4 bg-white rounded-2xl shadow-2xl max-h-[90vh] overflow-hidden"
             >
                 {/* Close Button */}
                 <button
                     onClick={onClose}
-                    className="absolute top-6 right-6 p-2 rounded-full hover:bg-slate-100 transition-colors z-10"
+                    className="absolute top-4 right-4 p-2 rounded-full hover:bg-slate-100 transition-colors z-10"
                 >
-                    <X className="w-6 h-6 text-slate-600" />
+                    <X className="w-5 h-5 text-slate-500" />
                 </button>
 
                 {/* Form Content */}
-                <div className="p-8 md:p-12 max-h-[80vh] overflow-y-auto">
-                    <h2 className="text-3xl md:text-4xl font-bold text-[#0066A1] mb-8">ASK US</h2>
+                <div className="p-8 md:p-12 overflow-y-auto max-h-[90vh]">
+                    <h2 className="text-3xl md:text-4xl font-bold text-primary mb-8">ASK US</h2>
 
                     <form onSubmit={handleSubmit}>
                         {/* Information Section */}
                         <div className="mb-8">
-                            <h3 className="text-xl font-semibold text-[#0066A1] mb-6">Information</h3>
+                            <h3 className="text-xl font-semibold text-primary mb-6">Information</h3>
 
                             <div className="grid md:grid-cols-2 gap-6 mb-6">
                                 {/* Full Name */}
@@ -73,7 +74,7 @@ const ContactForm = ({ isOpen, onClose }: ContactFormProps) => {
                                         onChange={handleChange}
                                         placeholder="First Name Last Name"
                                         required
-                                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0066A1] focus:border-transparent transition-all"
+                                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                                     />
                                 </div>
 
@@ -89,7 +90,7 @@ const ContactForm = ({ isOpen, onClose }: ContactFormProps) => {
                                         onChange={handleChange}
                                         placeholder="Name of Organisation"
                                         required
-                                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0066A1] focus:border-transparent transition-all"
+                                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                                     />
                                 </div>
                             </div>
@@ -107,7 +108,7 @@ const ContactForm = ({ isOpen, onClose }: ContactFormProps) => {
                                         onChange={handleChange}
                                         placeholder="user@website.com"
                                         required
-                                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0066A1] focus:border-transparent transition-all"
+                                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                                     />
                                 </div>
 
@@ -122,7 +123,7 @@ const ContactForm = ({ isOpen, onClose }: ContactFormProps) => {
                                         value={formData.phone}
                                         onChange={handleChange}
                                         required
-                                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0066A1] focus:border-transparent transition-all"
+                                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                                     />
                                 </div>
                             </div>
@@ -145,7 +146,7 @@ const ContactForm = ({ isOpen, onClose }: ContactFormProps) => {
                                         value={formData.addressLine2}
                                         onChange={handleChange}
                                         required
-                                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0066A1] focus:border-transparent transition-all"
+                                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                                     />
                                 </div>
 
@@ -157,7 +158,7 @@ const ContactForm = ({ isOpen, onClose }: ContactFormProps) => {
                                         name="state"
                                         value={formData.state}
                                         onChange={handleChange}
-                                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0066A1] focus:border-transparent transition-all"
+                                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                                     />
                                 </div>
                             </div>
@@ -174,7 +175,7 @@ const ContactForm = ({ isOpen, onClose }: ContactFormProps) => {
                                         value={formData.zipCode}
                                         onChange={handleChange}
                                         required
-                                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0066A1] focus:border-transparent transition-all"
+                                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                                     />
                                 </div>
 
@@ -188,7 +189,7 @@ const ContactForm = ({ isOpen, onClose }: ContactFormProps) => {
                                         value={formData.country}
                                         onChange={handleChange}
                                         required
-                                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0066A1] focus:border-transparent transition-all appearance-none cursor-pointer"
+                                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all appearance-none cursor-pointer"
                                     >
                                         <option value="">Select</option>
                                         <option value="india">India</option>
@@ -209,7 +210,7 @@ const ContactForm = ({ isOpen, onClose }: ContactFormProps) => {
                                 type="submit"
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
-                                className="px-12 py-4 bg-[#0066A1] text-white rounded-lg font-bold text-sm hover:bg-[#005581] transition-all uppercase tracking-widest shadow-lg"
+                                className="px-12 py-4 bg-primary text-primary-foreground rounded-lg font-bold text-sm hover:bg-primary/90 transition-all uppercase tracking-widest shadow-lg"
                             >
                                 Send to us
                             </motion.button>
