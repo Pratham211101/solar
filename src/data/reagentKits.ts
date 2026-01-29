@@ -4,7 +4,20 @@ export interface ReagentKitProduct {
   description: string;
   image: string;
   tags: string[];
-  subLinks: { label: string; href: string }[];
+  specifications?: {
+    parameter: string;
+    range: string;
+    method: string;
+    accuracy: string;
+    shelfLife: string;
+    storage: string;
+  };
+  features?: string[];
+  compatibility?: string[];
+  usage?: {
+    title: string;
+    steps: string[];
+  };
 }
 
 export const reagentKitsData: ReagentKitProduct[] = [
@@ -14,10 +27,28 @@ export const reagentKitsData: ReagentKitProduct[] = [
     description: "Full kit with reagents for all 12+ parameters. Designed for field use with the C012 analyzer.",
     image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&q=80",
     tags: ["100 Tests", "All Parameters"],
-    subLinks: [
-      { label: "Contents", href: "/products/reagent-kit/reagent-kit-100#contents" },
-      { label: "Order", href: "/contact-us" },
+    features: [
+      "Complete testing solution for 12+ water quality parameters",
+      "100 tests per parameter included",
+      "Pre-measured reagent pouches for accuracy",
+      "Organized carrying case for field deployment",
+      "Comprehensive instruction manual",
+      "Compatible with C012 analyzer",
+      "Extended shelf life (18+ months)",
+      "Quality certified and batch tested",
     ],
+    compatibility: ["C012 Handheld Analyzer", "Standard colorimeters", "Field testing kits"],
+    usage: {
+      title: "How to Use",
+      steps: [
+        "Select the appropriate reagent pouch for your parameter",
+        "Follow the specific mixing instructions on the pouch",
+        "Add sample water as per protocol",
+        "Wait for color development (timing varies by parameter)",
+        "Measure using C012 or compatible colorimeter",
+        "Record and sync results to cloud dashboard",
+      ],
+    },
   },
   {
     id: "ph-reagent",
@@ -25,10 +56,23 @@ export const reagentKitsData: ReagentKitProduct[] = [
     description: "High-precision pH indicator solution for accurate pH measurement in the 0-14 range.",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
     tags: ["Single Parameter", "pH 0-14"],
-    subLinks: [
-      { label: "Specs", href: "/products/reagent-kit/ph-reagent#specs" },
-      { label: "Order", href: "/contact-us" },
+    specifications: {
+      parameter: "pH",
+      range: "0 - 14 pH units",
+      method: "Colorimetric indicator",
+      accuracy: "±0.1 pH units",
+      shelfLife: "24 months",
+      storage: "Store at 15-30°C, away from direct sunlight",
+    },
+    features: [
+      "Wide range pH measurement (0-14)",
+      "High accuracy (±0.1 pH units)",
+      "Rapid color development",
+      "Stable formulation",
+      "Pre-calibrated for C012",
+      "100 tests per bottle",
     ],
+    compatibility: ["C012 Analyzer", "pH colorimeters", "Field test kits"],
   },
   {
     id: "chlorine-reagent",
@@ -36,10 +80,23 @@ export const reagentKitsData: ReagentKitProduct[] = [
     description: "DPD-based reagent for free and total chlorine testing. Range: 0-10 mg/L.",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
     tags: ["Single Parameter", "0-10 mg/L"],
-    subLinks: [
-      { label: "Specs", href: "/products/reagent-kit/chlorine-reagent#specs" },
-      { label: "Order", href: "/contact-us" },
+    specifications: {
+      parameter: "Free & Total Chlorine",
+      range: "0 - 10 mg/L",
+      method: "DPD (N,N-diethyl-p-phenylenediamine)",
+      accuracy: "±0.05 mg/L",
+      shelfLife: "18 months",
+      storage: "Store in cool, dry place (15-25°C)",
+    },
+    features: [
+      "Measures both free and total chlorine",
+      "DPD method - industry standard",
+      "Critical for drinking water safety",
+      "Fast reaction time (<2 minutes)",
+      "Suitable for field conditions",
+      "100 tests per kit",
     ],
+    compatibility: ["C012 Analyzer", "Chlorine colorimeters", "Pool testing kits"],
   },
   {
     id: "hardness-reagent",
@@ -47,10 +104,23 @@ export const reagentKitsData: ReagentKitProduct[] = [
     description: "EDTA titration reagent for total hardness measurement. Range: 0-750 mg/L as CaCO3.",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
     tags: ["Single Parameter", "0-750 mg/L"],
-    subLinks: [
-      { label: "Specs", href: "/products/reagent-kit/hardness-reagent#specs" },
-      { label: "Order", href: "/contact-us" },
+    specifications: {
+      parameter: "Total Hardness (as CaCO3)",
+      range: "0 - 750 mg/L",
+      method: "EDTA Titration",
+      accuracy: "±5 mg/L",
+      shelfLife: "24 months",
+      storage: "Store at room temperature (20-25°C)",
+    },
+    features: [
+      "Measures calcium and magnesium hardness",
+      "EDTA complexometric method",
+      "Important for water treatment",
+      "Pre-measured reagent packets",
+      "Clear endpoint indication",
+      "50 tests per kit",
     ],
+    compatibility: ["C012 Analyzer", "Hardness test kits", "Titration equipment"],
   },
   {
     id: "nitrate-reagent",
@@ -58,10 +128,23 @@ export const reagentKitsData: ReagentKitProduct[] = [
     description: "Cadmium reduction reagent for nitrate-nitrogen testing. Range: 0-100 mg/L.",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
     tags: ["Single Parameter", "0-100 mg/L"],
-    subLinks: [
-      { label: "Specs", href: "/products/reagent-kit/nitrate-reagent#specs" },
-      { label: "Order", href: "/contact-us" },
+    specifications: {
+      parameter: "Nitrate-Nitrogen (NO3-N)",
+      range: "0 - 100 mg/L",
+      method: "Cadmium Reduction",
+      accuracy: "±2 mg/L",
+      shelfLife: "18 months",
+      storage: "Store in cool, dark place (10-20°C)",
+    },
+    features: [
+      "Critical for groundwater monitoring",
+      "Cadmium reduction method",
+      "Detects agricultural contamination",
+      "Suitable for drinking water testing",
+      "Stable reagent formulation",
+      "100 tests per kit",
     ],
+    compatibility: ["C012 Analyzer", "Nitrate colorimeters", "Environmental test kits"],
   },
   {
     id: "iron-reagent",
@@ -69,10 +152,23 @@ export const reagentKitsData: ReagentKitProduct[] = [
     description: "Phenanthroline-based reagent for total iron measurement. Range: 0-10 mg/L.",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
     tags: ["Single Parameter", "0-10 mg/L"],
-    subLinks: [
-      { label: "Specs", href: "/products/reagent-kit/iron-reagent#specs" },
-      { label: "Order", href: "/contact-us" },
+    specifications: {
+      parameter: "Total Iron (Fe)",
+      range: "0 - 10 mg/L",
+      method: "Phenanthroline",
+      accuracy: "±0.1 mg/L",
+      shelfLife: "24 months",
+      storage: "Store at room temperature, protect from light",
+    },
+    features: [
+      "Measures total dissolved iron",
+      "Phenanthroline colorimetric method",
+      "Important for pipe corrosion monitoring",
+      "Detects staining potential",
+      "High sensitivity",
+      "100 tests per kit",
     ],
+    compatibility: ["C012 Analyzer", "Iron test kits", "Spectrophotometers"],
   },
   {
     id: "fluoride-reagent",
@@ -80,10 +176,23 @@ export const reagentKitsData: ReagentKitProduct[] = [
     description: "SPADNS reagent for fluoride testing. Range: 0-10 mg/L. Critical for drinking water.",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
     tags: ["Single Parameter", "0-10 mg/L"],
-    subLinks: [
-      { label: "Specs", href: "/products/reagent-kit/fluoride-reagent#specs" },
-      { label: "Order", href: "/contact-us" },
+    specifications: {
+      parameter: "Fluoride (F-)",
+      range: "0 - 10 mg/L",
+      method: "SPADNS",
+      accuracy: "±0.1 mg/L",
+      shelfLife: "18 months",
+      storage: "Store in cool, dry place (15-25°C)",
+    },
+    features: [
+      "Critical for drinking water compliance",
+      "SPADNS colorimetric method",
+      "Detects both natural and added fluoride",
+      "Important for dental health monitoring",
+      "Rapid color development",
+      "100 tests per kit",
     ],
+    compatibility: ["C012 Analyzer", "Fluoride colorimeters", "Water quality labs"],
   },
   {
     id: "turbidity-reagent",
@@ -91,10 +200,23 @@ export const reagentKitsData: ReagentKitProduct[] = [
     description: "Formazin turbidity standards for calibration and verification. Range: 0-4000 NTU.",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
     tags: ["Calibration", "0-4000 NTU"],
-    subLinks: [
-      { label: "Specs", href: "/products/reagent-kit/turbidity-reagent#specs" },
-      { label: "Order", href: "/contact-us" },
+    specifications: {
+      parameter: "Turbidity",
+      range: "0 - 4000 NTU",
+      method: "Formazin Standards",
+      accuracy: "±2% of reading",
+      shelfLife: "12 months (unopened)",
+      storage: "Store in dark, cool place (15-20°C)",
+    },
+    features: [
+      "Primary formazin standards",
+      "Multi-point calibration set",
+      "Traceable to international standards",
+      "Essential for turbidity meter calibration",
+      "Stable polymer suspension",
+      "Includes 10, 100, 800, 4000 NTU standards",
     ],
+    compatibility: ["C012 Analyzer", "Turbidity meters", "Nephelometers"],
   },
   {
     id: "do-reagent",
@@ -102,10 +224,23 @@ export const reagentKitsData: ReagentKitProduct[] = [
     description: "Winkler method reagent set for DO measurement. Range: 0-20 mg/L.",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
     tags: ["Single Parameter", "0-20 mg/L"],
-    subLinks: [
-      { label: "Specs", href: "/products/reagent-kit/do-reagent#specs" },
-      { label: "Order", href: "/contact-us" },
+    specifications: {
+      parameter: "Dissolved Oxygen (DO)",
+      range: "0 - 20 mg/L",
+      method: "Modified Winkler",
+      accuracy: "±0.2 mg/L",
+      shelfLife: "18 months",
+      storage: "Store reagents separately, cool and dark",
+    },
+    features: [
+      "Modified Winkler method",
+      "Critical for aquatic life monitoring",
+      "Three-reagent system included",
+      "Suitable for field and lab use",
+      "High precision",
+      "50 tests per kit",
     ],
+    compatibility: ["C012 Analyzer", "DO test kits", "Titration equipment"],
   },
   {
     id: "ammonia-reagent",
@@ -113,10 +248,23 @@ export const reagentKitsData: ReagentKitProduct[] = [
     description: "Nessler reagent for ammonia-nitrogen testing. Range: 0-50 mg/L.",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
     tags: ["Single Parameter", "0-50 mg/L"],
-    subLinks: [
-      { label: "Specs", href: "/products/reagent-kit/ammonia-reagent#specs" },
-      { label: "Order", href: "/contact-us" },
+    specifications: {
+      parameter: "Ammonia-Nitrogen (NH3-N)",
+      range: "0 - 50 mg/L",
+      method: "Nessler",
+      accuracy: "±1 mg/L",
+      shelfLife: "24 months",
+      storage: "Store in cool, dark place",
+    },
+    features: [
+      "Nessler colorimetric method",
+      "Important for wastewater monitoring",
+      "Detects ammonia contamination",
+      "Rapid color development",
+      "Suitable for various water types",
+      "100 tests per kit",
     ],
+    compatibility: ["C012 Analyzer", "Ammonia colorimeters", "Wastewater test kits"],
   },
   {
     id: "phosphate-reagent",
@@ -124,10 +272,23 @@ export const reagentKitsData: ReagentKitProduct[] = [
     description: "Ascorbic acid method reagent for phosphate testing. Range: 0-30 mg/L.",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
     tags: ["Single Parameter", "0-30 mg/L"],
-    subLinks: [
-      { label: "Specs", href: "/products/reagent-kit/phosphate-reagent#specs" },
-      { label: "Order", href: "/contact-us" },
+    specifications: {
+      parameter: "Phosphate (PO4-P)",
+      range: "0 - 30 mg/L",
+      method: "Ascorbic Acid",
+      accuracy: "±0.5 mg/L",
+      shelfLife: "18 months",
+      storage: "Store at room temperature, protect from light",
+    },
+    features: [
+      "Ascorbic acid reduction method",
+      "Critical for eutrophication monitoring",
+      "Detects agricultural runoff",
+      "Important for lake and river testing",
+      "Stable reagent formulation",
+      "100 tests per kit",
     ],
+    compatibility: ["C012 Analyzer", "Phosphate colorimeters", "Environmental labs"],
   },
   {
     id: "alkalinity-reagent",
@@ -135,10 +296,23 @@ export const reagentKitsData: ReagentKitProduct[] = [
     description: "Acid titration reagent for total alkalinity. Range: 0-500 mg/L as CaCO3.",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
     tags: ["Single Parameter", "0-500 mg/L"],
-    subLinks: [
-      { label: "Specs", href: "/products/reagent-kit/alkalinity-reagent#specs" },
-      { label: "Order", href: "/contact-us" },
+    specifications: {
+      parameter: "Total Alkalinity (as CaCO3)",
+      range: "0 - 500 mg/L",
+      method: "Acid Titration",
+      accuracy: "±5 mg/L",
+      shelfLife: "24 months",
+      storage: "Store at room temperature",
+    },
+    features: [
+      "Measures buffering capacity",
+      "Important for corrosion control",
+      "Titration method with indicator",
+      "Pre-measured acid solution",
+      "Clear endpoint detection",
+      "50 tests per kit",
     ],
+    compatibility: ["C012 Analyzer", "Alkalinity test kits", "Titration equipment"],
   },
   {
     id: "sulphate-reagent",
@@ -146,10 +320,23 @@ export const reagentKitsData: ReagentKitProduct[] = [
     description: "Turbidimetric reagent for sulphate measurement. Range: 0-200 mg/L.",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
     tags: ["Single Parameter", "0-200 mg/L"],
-    subLinks: [
-      { label: "Specs", href: "/products/reagent-kit/sulphate-reagent#specs" },
-      { label: "Order", href: "/contact-us" },
+    specifications: {
+      parameter: "Sulphate (SO4)",
+      range: "0 - 200 mg/L",
+      method: "Turbidimetric (BaCl2)",
+      accuracy: "±5 mg/L",
+      shelfLife: "24 months",
+      storage: "Store at room temperature",
+    },
+    features: [
+      "Turbidimetric barium chloride method",
+      "Important for drinking water quality",
+      "Detects industrial contamination",
+      "Rapid precipitation reaction",
+      "Suitable for field testing",
+      "100 tests per kit",
     ],
+    compatibility: ["C012 Analyzer", "Turbidimeters", "Sulphate test kits"],
   },
   {
     id: "residual-chlorine-reagent",
@@ -157,9 +344,22 @@ export const reagentKitsData: ReagentKitProduct[] = [
     description: "OT (Ortho-tolidine) reagent for residual chlorine. Range: 0-5 mg/L.",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
     tags: ["Single Parameter", "0-5 mg/L"],
-    subLinks: [
-      { label: "Specs", href: "/products/reagent-kit/residual-chlorine-reagent#specs" },
-      { label: "Order", href: "/contact-us" },
+    specifications: {
+      parameter: "Residual Chlorine",
+      range: "0 - 5 mg/L",
+      method: "Ortho-tolidine (OT)",
+      accuracy: "±0.05 mg/L",
+      shelfLife: "18 months",
+      storage: "Store in cool, dark place (10-20°C)",
+    },
+    features: [
+      "Measures residual disinfectant",
+      "Critical for water treatment plants",
+      "OT colorimetric method",
+      "Fast color development",
+      "Essential for distribution system monitoring",
+      "100 tests per kit",
     ],
+    compatibility: ["C012 Analyzer", "Chlorine colorimeters", "Water treatment facilities"],
   },
 ];

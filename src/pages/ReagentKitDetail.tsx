@@ -1,209 +1,247 @@
 import { useParams, Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { ArrowLeft, ShoppingCart, FileText, Beaker } from "lucide-react";
 import Footer from "../components/layout/Footer";
-import ScrollReveal from "../components/ui/ScrollReveal";
+import ProductHero from "../components/product/ProductHero";
+import ProductDeploymentSupport from "../components/product/ProductDeploymentSupport";
+import WhyCluixSection from "../components/product/WhyCluixSection";
 import { reagentKitsData } from "../data/reagentKits";
+import { ProductData } from "@/data/products";
 
 const ReagentKitDetail = () => {
   const { id } = useParams<{ id: string }>();
-  const product = reagentKitsData.find((p) => p.id === id);
+  const reagentKit = reagentKitsData.find((p) => p.id === id);
 
-  if (!product) {
+  if (!reagentKit) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-foreground mb-4">Product Not Found</h1>
-          <p className="text-muted-foreground mb-8">The reagent kit you're looking for doesn't exist.</p>
-          <Link
-            to="/products/reagent-kit"
-            className="inline-flex items-center gap-2 text-primary hover:underline"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Reagent Kits
-          </Link>
-        </div>
+      <div className="bg-white min-h-screen">
+        <main className="pt-24">
+          <div className="container mx-auto px-6 py-24 text-center">
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">Product Not Found</h1>
+            <p className="text-gray-600 mb-8">The reagent kit you're looking for doesn't exist.</p>
+            <Link
+              to="/products/reagent-kit"
+              className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
+            >
+              ← Back to Reagent Kits
+            </Link>
+          </div>
+        </main>
+        <Footer />
       </div>
     );
   }
 
+  // Convert reagent kit data to ProductData format
+  const productData: ProductData = {
+    id: reagentKit.id,
+    badge: reagentKit.tags[0] || "High Quality",
+    name: reagentKit.name,
+    tagline: reagentKit.specifications?.parameter || "Laboratory Grade Reagent",
+    description: reagentKit.description,
+    features: reagentKit.features || [
+      "High accuracy",
+      "Long shelf life",
+      "Field ready",
+      "Quality assured",
+    ],
+    image: reagentKit.image,
+    stat: {
+      value: reagentKit.specifications?.shelfLife || "24",
+      label: "Months Shelf Life"
+    },
+    deploymentSupport: {
+      title: "Ordering & Support",
+      description: `Get ${reagentKit.name} delivered to your facility with full technical support. Our team ensures you receive authentic, quality-tested reagents with proper documentation.`,
+      features: [
+        "Fast delivery across India",
+        "Quality certificates included",
+        "Technical support available",
+        "Bulk ordering discounts",
+        "Proper storage guidance",
+      ],
+      formTitle: "Order Now",
+      formSubtitle: `Interested in ${reagentKit.name}? Fill out the form and our team will get back to you with pricing and availability.`,
+    },
+  };
+
+  // Add specifications section if available
+  if (reagentKit.specifications) {
+    productData.parametersTitle = "Technical Specifications";
+    productData.parametersSubtitle = `Detailed specifications for ${reagentKit.name}`;
+    productData.parameters = [
+      { icon: "flask", name: "Parameter", range: reagentKit.specifications.parameter },
+      { icon: "activity", name: "Range", range: reagentKit.specifications.range },
+      { icon: "zap", name: "Method", range: reagentKit.specifications.method },
+      { icon: "target", name: "Accuracy", range: reagentKit.specifications.accuracy },
+      { icon: "calendar", name: "Shelf Life", range: reagentKit.specifications.shelfLife },
+      { icon: "thermometer", name: "Storage", range: reagentKit.specifications.storage },
+    ];
+  }
+
+  // Add usage/how it works section if available
+  if (reagentKit.usage) {
+    productData.howItWorks = {
+      title: reagentKit.usage.title,
+      subtitle: "Simple steps for accurate testing",
+      steps: reagentKit.usage.steps.map((step, index) => ({
+        icon: ["flask", "droplets", "clock", "check-circle", "upload", "file-check"][index] || "circle",
+        step: index + 1,
+        title: `Step ${index + 1}`,
+        description: step,
+      })),
+    };
+  }
+
+  // Add compatibility/who it's for section
+  if (reagentKit.compatibility) {
+    productData.whoItsFor = {
+      title: "Compatibility",
+      subtitle: `${reagentKit.name} is compatible with various testing equipment and systems`,
+      sectors: reagentKit.compatibility.map((item, index) => ({
+        icon: ["flask", "beaker", "test-tube", "microscope"][index] || "circle",
+        title: item,
+        description: `Fully compatible with ${item} for accurate and reliable testing.`,
+        tags: ["Certified", "Tested"],
+      })),
+    };
+  }
+
+  // Add Why Cluix section with features
+  if (reagentKit.features) {
+    productData.whyCluix = {
+      title: `Why Choose ${reagentKit.name}`,
+      description: "Quality-tested reagents designed for reliability and accuracy in field conditions.",
+      features: reagentKit.features,
+    };
+  }
+
   return (
-    <div className="bg-background min-h-screen">
-      <main className="pt-24">
+    <div className="bg-white min-h-screen">
+      <main className="pt-8">
         {/* Hero Section */}
-        <section className="py-16 lg:py-24">
-          <div className="container mx-auto px-6">
-            <Link
-              to="/products/reagent-kit"
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground mb-8 transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Back to Reagent Kits
-            </Link>
+        <ProductHero product={productData} />
 
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              {/* Product Image */}
-              <ScrollReveal>
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6 }}
-                  className="relative aspect-square bg-muted rounded-3xl overflow-hidden"
-                >
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-cover"
-                  />
-                </motion.div>
-              </ScrollReveal>
-
-              {/* Product Info */}
-              <ScrollReveal delay={0.2}>
-                <div className="space-y-6">
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2">
-                    {product.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-4 py-1.5 text-xs font-medium rounded-full border border-border text-foreground bg-muted"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight">
-                    {product.name}
-                  </h1>
-
-                  <p className="text-lg text-muted-foreground leading-relaxed">
-                    {product.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-4 pt-4">
-                    <Link
-                      to="/contact-us"
-                      className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/25"
-                    >
-                      <ShoppingCart className="w-5 h-5" />
-                      Order Now
-                    </Link>
-                    <Link
-                      to="/demo"
-                      className="inline-flex items-center gap-2 px-8 py-3 border border-border text-foreground rounded-full font-medium hover:bg-muted transition-colors"
-                    >
-                      <FileText className="w-5 h-5" />
-                      Request Demo
-                    </Link>
-                  </div>
-                </div>
-              </ScrollReveal>
-            </div>
-          </div>
-        </section>
-
-        {/* Specifications Section */}
-        <section id="specs" className="py-16 lg:py-24 bg-muted">
-          <div className="container mx-auto px-6">
-            <ScrollReveal>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12">
-                Specifications
-              </h2>
-            </ScrollReveal>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <ScrollReveal delay={0.1}>
-                <div className="bg-background p-6 rounded-2xl border border-border">
-                  <Beaker className="w-10 h-10 text-primary mb-4" />
-                  <h3 className="text-lg font-semibold text-foreground mb-2">High Accuracy</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Precision-formulated reagents ensuring accurate and reproducible results every time.
-                  </p>
-                </div>
-              </ScrollReveal>
-
-              <ScrollReveal delay={0.2}>
-                <div className="bg-background p-6 rounded-2xl border border-border">
-                  <Beaker className="w-10 h-10 text-primary mb-4" />
-                  <h3 className="text-lg font-semibold text-foreground mb-2">Long Shelf Life</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Stable formulations with extended shelf life for reliable field testing.
-                  </p>
-                </div>
-              </ScrollReveal>
-
-              <ScrollReveal delay={0.3}>
-                <div className="bg-background p-6 rounded-2xl border border-border">
-                  <Beaker className="w-10 h-10 text-primary mb-4" />
-                  <h3 className="text-lg font-semibold text-foreground mb-2">Field Ready</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Designed for on-site testing in challenging environmental conditions.
-                  </p>
-                </div>
-              </ScrollReveal>
-            </div>
-          </div>
-        </section>
-
-        {/* Contents Section (for complete kit) */}
-        {product.id === "reagent-kit-100" && (
-          <section id="contents" className="py-16 lg:py-24">
+        {/* Parameters/Specifications Section */}
+        {productData.parameters && productData.parametersTitle && productData.parametersSubtitle && (
+          <section className="py-20 lg:py-28 bg-slate-50">
             <div className="container mx-auto px-6">
-              <ScrollReveal>
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12">
-                  Kit Contents
+              <div className="text-center mb-12">
+                <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+                  {productData.parametersTitle}
                 </h2>
-              </ScrollReveal>
-
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                {reagentKitsData.slice(1).map((reagent, index) => (
-                  <ScrollReveal key={reagent.id} delay={index * 0.05}>
-                    <Link
-                      to={`/products/reagent-kit/${reagent.id}`}
-                      className="block p-4 bg-muted rounded-xl border border-border hover:border-primary transition-colors group"
-                    >
-                      <h3 className="font-medium text-foreground group-hover:text-primary transition-colors">
-                        {reagent.name}
-                      </h3>
-                      <p className="text-sm text-muted-foreground mt-1">
-                        {reagent.tags[1]}
-                      </p>
-                    </Link>
-                  </ScrollReveal>
+                <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+                  {productData.parametersSubtitle}
+                </p>
+              </div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {productData.parameters.map((param, index) => (
+                  <div
+                    key={index}
+                    className="bg-white p-6 rounded-2xl border border-slate-200 hover:shadow-lg transition-shadow"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                        <span className="text-primary text-xl">•</span>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-semibold text-slate-900 mb-1">{param.name}</h3>
+                        <p className="text-slate-600 text-sm">{param.range}</p>
+                      </div>
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
           </section>
         )}
 
-        {/* CTA Section */}
-        <section className="py-16 lg:py-24 bg-foreground">
-          <div className="container mx-auto px-6 text-center">
-            <ScrollReveal>
-              <h2 className="text-3xl md:text-4xl font-bold text-background mb-6">
-                Ready to Get Started?
-              </h2>
-              <p className="text-muted-background max-w-2xl mx-auto mb-8">
-                Contact our team to order reagent kits or learn more about our water quality testing solutions.
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Link
-                  to="/contact-us"
-                  className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-all"
-                >
-                  Contact Sales
-                </Link>
-                <Link
-                  to="/products/reagent-kit"
-                  className="inline-flex items-center gap-2 px-8 py-3 border border-background/30 text-background rounded-full font-medium hover:bg-background/10 transition-colors"
-                >
-                  View All Reagents
-                </Link>
+        {/* How It Works Section */}
+        {productData.howItWorks && (
+          <section className="py-20 lg:py-28 bg-white">
+            <div className="container mx-auto px-6">
+              <div className="text-center mb-12">
+                <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+                  {productData.howItWorks.title}
+                </h2>
+                <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+                  {productData.howItWorks.subtitle}
+                </p>
               </div>
-            </ScrollReveal>
-          </div>
-        </section>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {productData.howItWorks.steps.map((step, index) => (
+                  <div key={index} className="relative">
+                    <div className="flex items-start gap-4">
+                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold">
+                        {step.step}
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-semibold text-slate-900 mb-2">{step.title}</h3>
+                        <p className="text-slate-600 text-sm">{step.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Compatibility Section */}
+        {productData.whoItsFor && (
+          <section className="py-20 lg:py-28 bg-slate-50">
+            <div className="container mx-auto px-6">
+              <div className="text-center mb-12">
+                <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+                  {productData.whoItsFor.title}
+                </h2>
+                <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+                  {productData.whoItsFor.subtitle}
+                </p>
+              </div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {productData.whoItsFor.sectors.map((sector, index) => (
+                  <div
+                    key={index}
+                    className="bg-white p-6 rounded-2xl border border-slate-200 hover:shadow-lg transition-shadow"
+                  >
+                    <h3 className="font-semibold text-slate-900 mb-2">{sector.title}</h3>
+                    <p className="text-slate-600 text-sm mb-4">{sector.description}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {sector.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-3 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Why Cluix Section */}
+        {productData.whyCluix && (
+          <WhyCluixSection
+            title={productData.whyCluix.title}
+            description={productData.whyCluix.description}
+            features={productData.whyCluix.features}
+          />
+        )}
+
+        {/* Deployment & Support Section */}
+        {productData.deploymentSupport && (
+          <ProductDeploymentSupport
+            title={productData.deploymentSupport.title}
+            description={productData.deploymentSupport.description}
+            features={productData.deploymentSupport.features}
+            formTitle={productData.deploymentSupport.formTitle}
+            formSubtitle={productData.deploymentSupport.formSubtitle}
+            productName={productData.name}
+          />
+        )}
       </main>
       <Footer />
     </div>

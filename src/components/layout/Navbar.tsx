@@ -27,7 +27,7 @@ const navItems: NavItem[] = [
       { label: "About Us", href: "/about-us", description: "Our story and mission" },
       { label: "Careers", href: "/careers", description: "Join our team" },
       { label: "Contact", href: "/contact-us", description: "Get in touch" },
-      { label: "Resources", href: "/resources", description: "resources and downloads" },
+      { label: "Awards & Recognitions", href: "/awards", description: "Awards & Recognitions" },
     ],
   },
   {
@@ -36,6 +36,7 @@ const navItems: NavItem[] = [
       { label: "Newsletter", href: "/news-letter", description: "Stay updated" },
       { label: "Blogs", href: "/blog", description: "Insights and articles" },
       { label: "Newsroom", href: "/media", description: "Press and news" },
+      { label: "Resources", href: "/resources", description: "resources and downloads" },
     ],
   },
 ];
@@ -65,10 +66,10 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${activeDropdown
-          ? "bg-background/95 backdrop-blur-xl shadow-xl"
-          : scrolled
-            ? "bg-background/95 backdrop-blur-lg shadow-md"
-            : "bg-gradient-to-b from-background/70 to-transparent"
+        ? "bg-background/95 backdrop-blur-xl shadow-xl"
+        : scrolled
+          ? "bg-background/95 backdrop-blur-lg shadow-md"
+          : "bg-gradient-to-b from-background/70 to-transparent"
         }`}
     >
       <nav className="container mx-auto px-6 py-4">
@@ -153,7 +154,7 @@ const Navbar = () => {
 
                 {/* Right Side - Sub Items */}
                 <div className="w-1/2 bg-background/95 p-12 flex flex-col justify-center border-l border-border">
-                  <div className="space-y-2">
+                  <div className="grid grid-cols-2 gap-x-8 gap-y-6">
                     {navItems
                       .find((item) => item.label === activeDropdown)
                       ?.children?.map((child, index) => (
@@ -165,7 +166,7 @@ const Navbar = () => {
                         >
                           <Link
                             to={child.href}
-                            className="group block py-4 border-b border-border last:border-b-0 hover:pl-2 transition-all duration-300"
+                            className="group block p-4 rounded-xl hover:bg-muted/50 transition-all duration-300"
                           >
                             <span className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
                               {child.label}
