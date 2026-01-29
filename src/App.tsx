@@ -22,6 +22,7 @@ import TermsAndConditions from "./pages/TermsAndConditions";
 import ShippingPolicy from "./pages/ShippingPolicy";
 import ReturnPolicy from "./pages/ReturnPolicy";
 import RefundPolicy from "./pages/RefundPolicy";
+import HelpCenter from "./pages/HelpCenter";
 import NotFound from "./pages/NotFound";
 import PageTransition from "./components/layout/PageTransition";
 
@@ -166,6 +167,14 @@ const AnimatedRoutes = () => {
           element={
             <PageTransition>
               <RefundPolicy />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/help-center"
+          element={
+            <PageTransition>
+              <HelpCenter />
             </PageTransition>
           }
         />
