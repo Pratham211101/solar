@@ -62,21 +62,25 @@ export function WorkLifeSection() {
           </h2>
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-border">
-          {perks.map((perk, index) => (
+        {/* Grid - 2 rows x 4 columns */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 border-t border-l border-border">
+          {/* Empty first cell */}
+          <div className="hidden lg:block border-r border-b border-border h-64" />
+          
+          {/* First 3 perks in row 1 */}
+          {perks.slice(0, 3).map((perk, index) => (
             <motion.div
               key={perk.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group relative border-r border-b border-border"
+              whileHover={{ scale: 1.05 }}
+              className="group relative border-r border-b border-border cursor-pointer z-10 hover:z-20"
             >
               {/* Default State */}
-              <div className="relative h-64 p-8 flex flex-col items-center justify-center text-center transition-opacity duration-300 group-hover:opacity-0">
+              <div className="relative h-64 p-8 flex flex-col items-center justify-center text-center transition-opacity duration-300 group-hover:opacity-0 bg-background">
                 <div className="w-16 h-16 rounded-full border-2 border-primary/30 flex items-center justify-center mb-6 relative">
-                  {/* Rotating dashed circle */}
                   <div className="absolute inset-0 rounded-full border-2 border-dashed border-primary/40 animate-[spin_20s_linear_infinite]" />
                   <perk.icon className="w-7 h-7 text-primary" />
                 </div>
@@ -85,7 +89,7 @@ export function WorkLifeSection() {
                 </h3>
               </div>
 
-              {/* Hover State - Gradient Overlay */}
+              {/* Hover State */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/80 to-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-start justify-end p-8">
                 <div className="w-12 h-12 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center mb-4">
                   <perk.icon className="w-6 h-6 text-white" />
@@ -99,6 +103,46 @@ export function WorkLifeSection() {
               </div>
             </motion.div>
           ))}
+
+          {/* Last 3 perks in row 2 */}
+          {perks.slice(3, 6).map((perk, index) => (
+            <motion.div
+              key={perk.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: (index + 3) * 0.1 }}
+              whileHover={{ scale: 1.05 }}
+              className="group relative border-r border-b border-border cursor-pointer z-10 hover:z-20"
+            >
+              {/* Default State */}
+              <div className="relative h-64 p-8 flex flex-col items-center justify-center text-center transition-opacity duration-300 group-hover:opacity-0 bg-background">
+                <div className="w-16 h-16 rounded-full border-2 border-primary/30 flex items-center justify-center mb-6 relative">
+                  <div className="absolute inset-0 rounded-full border-2 border-dashed border-primary/40 animate-[spin_20s_linear_infinite]" />
+                  <perk.icon className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground">
+                  {perk.title}
+                </h3>
+              </div>
+
+              {/* Hover State */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/80 to-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-start justify-end p-8">
+                <div className="w-12 h-12 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center mb-4">
+                  <perk.icon className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">
+                  {perk.title}
+                </h3>
+                <p className="text-white/90 text-sm leading-relaxed">
+                  • {perk.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+
+          {/* Empty last cell */}
+          <div className="hidden lg:block border-r border-b border-border h-64" />
         </div>
       </div>
     </section>
