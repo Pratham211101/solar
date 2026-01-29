@@ -27,6 +27,7 @@ const navItems: NavItem[] = [
       { label: "About Us", href: "/about-us", description: "Our story and mission" },
       { label: "Careers", href: "/careers", description: "Join our team" },
       { label: "Contact", href: "/contact-us", description: "Get in touch" },
+      { label: "Resources", href: "/resources", description: "resources and downloads" },
     ],
   },
   {
@@ -63,13 +64,12 @@ const Navbar = () => {
       initial={{ y: 0 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        activeDropdown
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${activeDropdown
           ? "bg-background/95 backdrop-blur-xl shadow-xl"
           : scrolled
             ? "bg-background/95 backdrop-blur-lg shadow-md"
             : "bg-gradient-to-b from-background/70 to-transparent"
-      }`}
+        }`}
     >
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
@@ -100,9 +100,8 @@ const Navbar = () => {
                     {item.label}
                     {item.children && (
                       <ChevronDown
-                        className={`w-4 h-4 transition-transform duration-300 ${
-                          activeDropdown === item.label ? "rotate-180" : ""
-                        }`}
+                        className={`w-4 h-4 transition-transform duration-300 ${activeDropdown === item.label ? "rotate-180" : ""
+                          }`}
                       />
                     )}
                   </Link>

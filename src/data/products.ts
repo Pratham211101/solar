@@ -42,6 +42,11 @@ export interface ProductData {
     formTitle: string;
     formSubtitle: string;
   };
+  whyCluix?: {
+    title: string;
+    description: string;
+    features: string[];
+  };
 }
 
 export const productsData: Record<string, ProductData> = {
@@ -101,6 +106,20 @@ export const productsData: Record<string, ProductData> = {
           description: "View trends, get alerts, generate compliance reports. Take action with confidence.",
         },
       ],
+    },
+    whyCluix: {
+      title: "Why Choose C012",
+      description: "Validated by NABL labs and trusted by state governments for reliable field testing.",
+      features: [
+        "Lab-grade accuracy (NABL Validated)",
+        "GPS-tagged digital reports",
+        "Rugged IP65 design",
+        "2-minute multi-parameter feedback",
+        "Unlimited data storage",
+        "Made in India support",
+        "Easy calibration",
+        "One-click reporting",
+      ]
     },
     whoItsFor: {
       title: "Who it's for",
@@ -221,6 +240,20 @@ export const productsData: Record<string, ProductData> = {
         },
       ],
     },
+    whyCluix: {
+      title: "Why Choose OCEMS",
+      description: "Regulatory compliance made simple with automated reporting and reliable hardware.",
+      features: [
+        "100% CPCB/SPCB Server Uptime",
+        "Automated Compliance alerts",
+        "Modular sensor replacement",
+        "Remote troubleshooting",
+        "Dashboard with historical data",
+        "Low maintenance requirements",
+        "Data security verified",
+        "Quick installation support",
+      ]
+    },
     whoItsFor: {
       title: "Who it's for",
       subtitle: "For industries requiring continuous effluent monitoring.",
@@ -337,6 +370,20 @@ export const productsData: Record<string, ProductData> = {
         },
       ],
     },
+    whyCluix: {
+      title: "Why Choose Varunaa",
+      description: "Data-driven groundwater management that works in remote, off-grid locations.",
+      features: [
+        "Solar Powered (No external power)",
+        "LoRa/GSM Long-range connectivity",
+        "Zero maintenance design",
+        "Predictive water level analytics",
+        "Works in remote areas",
+        "Tamper-proof casing",
+        "Real-time mobile alerts",
+        "Historical trend analysis",
+      ]
+    },
     whoItsFor: {
       title: "Who it's for",
       subtitle: "For anyone managing groundwater resources.",
@@ -445,6 +492,20 @@ export const productsData: Record<string, ProductData> = {
           description: "View trends, set alerts, predict shortages before they happen.",
         },
       ],
+    },
+    whyCluix: {
+      title: "Why Our Reagents",
+      description: "Optimized for stability and accuracy in tropical field conditions.",
+      features: [
+        "Extended shelf life (> 1 year)",
+        "Pre-measured dosages",
+        "Heat-stable formulation",
+        "Recyclable packaging",
+        "Compatible with C012 & standard colorimeters",
+        "Batch-tested for consistency",
+        "Bulk pricing available",
+        "Rapid dissolution",
+      ]
     },
     whoItsFor: {
       title: "Who it's for",

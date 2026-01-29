@@ -4,8 +4,8 @@ import ProductHero from "../components/product/ProductHero";
 import ProductParameters from "../components/product/ProductParameters";
 import ProductHowItWorks from "../components/product/ProductHowItWorks";
 import ProductWhoItsFor from "../components/product/ProductWhoItsFor";
-import ProductTestimonials from "../components/product/ProductTestimonials";
 import ProductDeploymentSupport from "../components/product/ProductDeploymentSupport";
+import WhyCluixSection from "../components/product/WhyCluixSection";
 import { productsData } from "@/data/products";
 
 const ProductDetail = () => {
@@ -65,11 +65,12 @@ const ProductDetail = () => {
           />
         )}
 
-        {/* Testimonials Section */}
-        {product.testimonials && (
-          <ProductTestimonials
-            title={product.testimonials.title}
-            items={product.testimonials.items}
+        {/* Why Cluix Section */}
+        {product.whyCluix && (
+          <WhyCluixSection
+            title={product.whyCluix.title}
+            description={product.whyCluix.description}
+            features={product.whyCluix.features}
           />
         )}
 

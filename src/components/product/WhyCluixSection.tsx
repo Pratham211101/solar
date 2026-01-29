@@ -1,20 +1,28 @@
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 
-const features = [
-  "Lab-grade accuracy in field conditions",
-  "Auto data sync with GPS tagging",
-  "Rugged, IP65-rated hardware",
-  "Training & calibration support",
-  "< 2 min per multi-parameter test",
-  "Compliance-ready reports (BIS/CPCB)",
-  "Cloud dashboard with role-based access",
-  "Made in India, for Indian conditions",
-];
+interface WhyCluixSectionProps {
+  title?: string;
+  description?: string;
+  features?: string[];
+}
 
-export function WhyCluixSection() {
+export function WhyCluixSection({
+  title = "Why Cluix",
+  description = "Built for the reality of field water testing in India—reliable, accurate, and designed for scale.",
+  features = [
+    "Lab-grade accuracy in field conditions",
+    "Auto data sync with GPS tagging",
+    "Rugged, IP65-rated hardware",
+    "Training & calibration support",
+    "< 2 min per multi-parameter test",
+    "Compliance-ready reports (BIS/CPCB)",
+    "Cloud dashboard with role-based access",
+    "Made in India, for Indian conditions",
+  ],
+}: WhyCluixSectionProps) {
   return (
-    <section className="py-20 lg:py-28 bg-white">
+    <section className="min-h-screen flex items-center bg-gray-50 py-16 lg:py-0">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Content */}
@@ -24,10 +32,10 @@ export function WhyCluixSection() {
             viewport={{ once: true }}
           >
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
-              Why Cluix
+              {title}
             </h2>
             <p className="text-slate-600 text-lg mb-8 max-w-lg">
-              Built for the reality of field water testing in India—reliable, accurate, and designed for scale.
+              {description}
             </p>
 
             {/* Features Grid */}

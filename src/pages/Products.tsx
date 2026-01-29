@@ -56,15 +56,15 @@ const Products = () => {
     <div className="bg-foreground min-h-screen">
       <main className="pt-24">
         {/* Hero Section */}
-        <section className="relative py-16 lg:py-24">
+        <section className="relative ">
           <div className="container mx-auto px-6">
             <ScrollReveal className="max-w-5xl">
-              <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-background tracking-tight leading-none">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-background tracking-tight leading-none">
                 OUR
                 <br />
                 PRODUCTS
               </h1>
-              <p className="text-lg text-muted-background mt-8 max-w-xl">
+              <p className="text-lg text-muted-background  max-w-xl">
                 Field-proven water quality monitoring solutions designed for Indian conditions.
               </p>
             </ScrollReveal>
@@ -84,7 +84,7 @@ const Products = () => {
                   transition={{ delay: i * 0.1 }}
                   className="group"
                 >
-                  <div className="relative h-full bg-foreground rounded-2xl border border-border overflow-hidden transition-all duration-500 group-hover:border-transparent group-hover:shadow-2xl">
+                  <div className="relative h-full bg-foreground rounded-2xl border border-gray-300 overflow-hidden transition-all duration-500 group-hover:border-transparent group-hover:shadow-2xl">
                     {/* Gradient overlay on hover */}
                     <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
 
@@ -96,7 +96,7 @@ const Products = () => {
                           <span
                             key={tag}
                             className="px-4 py-1.5 text-xs font-medium rounded-full border transition-colors duration-500
-                              border-border text-background
+                              border-gray-300 text-background
                               group-hover:border-foreground/30 group-hover:text-foreground"
                           >
                             {tag}
@@ -110,7 +110,7 @@ const Products = () => {
                           src={product.image}
                           alt={product.name}
                           className="max-w-full max-h-full object-contain transition-all duration-500 
-                            filter grayscale-0 group-hover:grayscale group-hover:brightness-200 group-hover:opacity-80"
+                            filter grayscale-0 group-hover:opacity-80"
                         />
                       </div>
 
@@ -119,13 +119,13 @@ const Products = () => {
                         <h3 className="font-sans text-xl font-bold mb-2 transition-colors duration-500 text-background group-hover:text-foreground">
                           {product.name}
                         </h3>
-                        <p className="text-sm leading-relaxed transition-colors duration-500 text-muted-background group-hover:text-foreground/70">
+                        <p className="text-sm leading-relaxed transition-colors duration-500 text-gray-400 group-hover:text-foreground/70">
                           {product.description}
                         </p>
                       </div>
 
                       {/* Sub Links */}
-                      <div className="flex flex-wrap gap-4 mt-6 pt-4 border-t transition-colors duration-500 border-border group-hover:border-foreground/20">
+                      <div className="flex flex-wrap gap-4 mt-6 pt-4 border-t transition-colors duration-500 border-gray-300 group-hover:border-foreground/20">
                         {product.subLinks.map((link) => (
                           <Link
                             key={link.label}
