@@ -6,6 +6,7 @@ import ScrollReveal from "../components/ui/ScrollReveal";
 import WorkLifeSection from "../components/careers/WorkLifeSection";
 import EmployeeCarousel from "../components/careers/EmployeeCarousel";
 import { ArrowRight, MapPin, Briefcase } from "lucide-react";
+import CareersHero from "@/components/careers/CareersHero";
 
 const openings = [
   {
@@ -57,45 +58,9 @@ const benefits = [
 const Careers = () => {
   return (
     <>
-      <Navbar />
-      <main className="pt-24">
+      <main className=" bg-background">
         {/* Hero Section */}
-        <section className="relative py-24 overflow-hidden">
-          <div className="absolute inset-0 bg-curve-top pointer-events-none" />
-          <div className="container mx-auto px-6 relative z-10">
-            <ScrollReveal className="max-w-4xl mx-auto text-center">
-              <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-medium mb-6">
-                Careers
-              </span>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                <span className="text-foreground">Join Our</span>{" "}
-                <span className="text-gradient">Mission</span>
-              </h1>
-              <p className="text-xl text-muted-foreground">
-                Help us build the future of environmental monitoring. We're looking for
-                passionate individuals who want to make a real impact.
-              </p>
-            </ScrollReveal>
-          </div>
-        </section>
-
-        {/* Benefits */}
-        <section className="py-16">
-          <div className="container mx-auto px-6">
-            <ScrollReveal>
-              <div className="flex flex-wrap justify-center gap-4">
-                {benefits.map((benefit) => (
-                  <span
-                    key={benefit}
-                    className="px-4 py-2 rounded-full bg-muted text-muted-foreground"
-                  >
-                    {benefit}
-                  </span>
-                ))}
-              </div>
-            </ScrollReveal>
-          </div>
-        </section>
+        <CareersHero />
 
         {/* Open Positions */}
         <section className="py-24 bg-muted/30">

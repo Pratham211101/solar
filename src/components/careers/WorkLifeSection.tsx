@@ -50,12 +50,12 @@ export function WorkLifeSection() {
         {/* Header */}
         <div className="mb-16">
           <div className="flex items-center gap-4 mb-6">
-            <span className="text-sm font-medium tracking-wider text-muted-foreground uppercase">
-              Perks & Benefits
+            <span className="text-sm font-gilroy font-normal tracking-wider text-muted-foreground uppercase">
+              PERKS & BENEFITS
             </span>
             <div className="h-px w-16 bg-border" />
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+          <h2 className="text-6xl md:text-7xl lg:text-8xl font-gilroy font-normal text-foreground leading-tight">
             Quality of work,
             <br />
             quality of life

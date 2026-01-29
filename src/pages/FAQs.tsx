@@ -122,7 +122,6 @@ const FAQs = () => {
 
   return (
     <>
-      <Navbar />
       <main className="pt-24">
         {/* Hero */}
         <section className="py-20">
@@ -172,11 +171,10 @@ const FAQs = () => {
                     setActiveCategory(cat.key);
                     setOpenFaq(null);
                   }}
-                  className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
-                    activeCategory === cat.key
+                  className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${activeCategory === cat.key
                       ? "bg-primary text-primary-foreground"
                       : "bg-muted text-muted-foreground hover:bg-muted/80"
-                  }`}
+                    }`}
                 >
                   {cat.label}
                 </button>
@@ -241,7 +239,7 @@ const FAQs = () => {
             <ScrollReveal className="text-center">
               <h2 className="text-2xl font-bold text-foreground mb-4">Still have questions?</h2>
               <p className="text-muted-foreground mb-6">Our support team is here to help you</p>
-              <a 
+              <a
                 href="/contact-us"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors"
               >

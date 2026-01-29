@@ -47,7 +47,6 @@ const blogPosts = [
 const Blog = () => {
   return (
     <>
-      <Navbar />
       <main className="pt-24">
         {/* Hero */}
         <section className="relative py-24 overflow-hidden">

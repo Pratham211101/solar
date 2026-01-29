@@ -10,7 +10,7 @@ const CareerDetail = () => {
 
   return (
     <>
-      <Navbar />
+
       <main className="pt-24">
         <section className="py-24">
           <div className="container mx-auto px-6">

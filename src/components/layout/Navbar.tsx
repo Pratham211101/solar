@@ -134,9 +134,9 @@ const Navbar = () => {
 
             <Link
               to="https://dashboard.cluix.in"
-              className="ml-4 px-6 py-2 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/25"
+              className="ml-4 px-6 py-2 bg-primary text-primary-foreground rounded-full font-gilroy font-extrabold hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/25"
             >
-              Dashboard
+              DASHBOARD
             </Link>
           </div>
 

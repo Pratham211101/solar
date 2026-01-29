@@ -37,7 +37,6 @@ const team = [
 const AboutUs = () => {
   return (
     <>
-      <Navbar />
       <main className="pt-24">
         {/* Hero Section */}
         <section className="relative py-24 overflow-hidden">

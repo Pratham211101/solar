@@ -169,7 +169,6 @@ const Resources = () => {
 
   return (
     <>
-      <Navbar />
       <main className="pt-24">
         {/* Hero */}
         <section className="py-20">

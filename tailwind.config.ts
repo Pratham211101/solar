@@ -14,7 +14,14 @@ export default {
     },
     extend: {
       fontFamily: {
+        gilroy: ["Gilroy", "system-ui", "sans-serif"],
         sans: ["Space Grotesk", "system-ui", "sans-serif"],
+      }, letterSpacing: {
+        'tighter-custom': '-0.04em',  // For large headlines
+        'wide-custom': '0.2em',       // For vertical scroll text
+      },
+      lineHeight: {
+        'tight-custom': '0.95',       // Exact line height from image
       },
       colors: {
         border: "hsl(var(--border))",

@@ -7,7 +7,6 @@ import { Home } from "lucide-react";
 const NotFound = () => {
   return (
     <>
-      <Navbar />
       <main className="pt-24">
         <section className="py-24 min-h-[60vh] flex items-center">
           <div className="container mx-auto px-6 text-center">
