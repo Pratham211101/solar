@@ -25,6 +25,7 @@ import ShippingPolicy from "./pages/ShippingPolicy";
 import ReturnPolicy from "./pages/ReturnPolicy";
 import RefundPolicy from "./pages/RefundPolicy";
 import HelpCenter from "./pages/HelpCenter";
+import Awards from "./pages/Awards";
 import NotFound from "./pages/NotFound";
 import PageTransition from "./components/layout/PageTransition";
 
@@ -193,6 +194,14 @@ const AnimatedRoutes = () => {
           element={
             <PageTransition>
               <HelpCenter />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/awards"
+          element={
+            <PageTransition>
+              <Awards />
             </PageTransition>
           }
         />
