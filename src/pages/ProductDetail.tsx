@@ -34,7 +34,7 @@ const ProductDetail = () => {
 
   return (
     <div className="bg-white min-h-screen">
-      <main className="pt-24">
+      <main className="pt-8">
         {/* Hero Section */}
         <ProductHero product={product} />
 
