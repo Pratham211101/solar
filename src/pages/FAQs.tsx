@@ -7,6 +7,7 @@ import { Plus, Minus, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 
 const faqCategories = [
+  { key: "all", label: "All" },
   { key: "general", label: "General" },
   { key: "products", label: "Products" },
   { key: "support", label: "Support" },
@@ -90,14 +91,34 @@ const allFaqs = {
 
 const FAQs = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [activeCategory, setActiveCategory] = useState("general");
+  const [activeCategory, setActiveCategory] = useState("all");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  const currentFaqs = allFaqs[activeCategory as keyof typeof allFaqs].filter(
-    faq => 
-      faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      faq.answer.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  // Get all FAQs flattened with category info
+  const getAllFaqs = () => {
+    const all: { question: string; answer: string; category: string }[] = [];
+    Object.entries(allFaqs).forEach(([category, faqs]) => {
+      faqs.forEach(faq => all.push({ ...faq, category }));
+    });
+    return all;
+  };
+
+  // Filter logic: if searching, always search across ALL categories
+  const currentFaqs = (() => {
+    if (searchQuery.trim()) {
+      // Search across all categories
+      return getAllFaqs().filter(
+        faq =>
+          faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          faq.answer.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+    // No search query - filter by category
+    if (activeCategory === "all") {
+      return getAllFaqs();
+    }
+    return allFaqs[activeCategory as keyof typeof allFaqs].map(faq => ({ ...faq, category: activeCategory }));
+  })();
 
   return (
     <>
