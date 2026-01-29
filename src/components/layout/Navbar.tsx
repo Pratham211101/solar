@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
@@ -47,6 +47,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,13 +62,27 @@ const Navbar = () => {
     setMobileMenuOpen(false);
   }, [location]);
 
+  const handleMouseEnter = (label: string) => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setActiveDropdown(label);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 150);
+  };
+
   return (
     <motion.header
       initial={{ y: 0 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${activeDropdown
-        ? "bg-background/95 backdrop-blur-xl shadow-xl"
+        ? "bg-background shadow-xl"
         : scrolled
           ? "bg-background/95 backdrop-blur-lg shadow-md"
           : "bg-gradient-to-b from-background/70 to-transparent"
@@ -84,22 +99,28 @@ const Navbar = () => {
               <div
                 key={item.label}
                 className="relative"
-                onMouseEnter={() => item.children && setActiveDropdown(item.label)}
-                onMouseLeave={() => setActiveDropdown(null)}
+                onMouseEnter={() => item.children && handleMouseEnter(item.label)}
+                onMouseLeave={handleMouseLeave}
               >
                 {item.href && !item.children ? (
                   <Link
                     to={item.href}
-                    className="flex items-center gap-1 px-4 py-2 text-foreground/80 hover:text-foreground transition-colors link-underline"
+                    className="group flex items-center gap-1 px-4 py-2 text-foreground/80 hover:text-foreground transition-colors"
                   >
-                    {item.label}
+                    <span className="relative">
+                      {item.label}
+                      <span className="absolute bottom-0 left-0 w-full h-[1px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
+                    </span>
                   </Link>
                 ) : (
                   <Link
                     to={item.href || "#"}
-                    className="flex items-center gap-1 px-4 py-2 text-foreground/80 hover:text-foreground transition-colors link-underline"
+                    className="group flex items-center gap-1 px-4 py-2 text-foreground/80 hover:text-foreground transition-colors"
                   >
-                    {item.label}
+                    <span className="relative">
+                      {item.label}
+                      <span className="absolute bottom-0 left-0 w-full h-[1px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
+                    </span>
                     {item.children && (
                       <ChevronDown
                         className={`w-4 h-4 transition-transform duration-300 ${activeDropdown === item.label ? "rotate-180" : ""
@@ -133,9 +154,9 @@ const Navbar = () => {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="absolute left-0 right-0 top-full bg-background/95 border-b border-border overflow-hidden"
-              onMouseEnter={() => setActiveDropdown(activeDropdown)}
-              onMouseLeave={() => setActiveDropdown(null)}
+              className="absolute left-0 right-0 top-full bg-background border-b border-border overflow-hidden"
+              onMouseEnter={() => activeDropdown && handleMouseEnter(activeDropdown)}
+              onMouseLeave={handleMouseLeave}
             >
               <div className="flex min-h-[280px]">
                 {/* Left Side - Nav Link Name */}
@@ -167,10 +188,11 @@ const Navbar = () => {
                         >
                           <Link
                             to={child.href}
-                            className="group block p-4 rounded-xl hover:bg-muted/50 transition-all duration-300"
+                            className="group block p-4 rounded-xl transition-all duration-300"
                           >
-                            <span className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
+                            <span className="relative inline-block text-xl font-semibold text-foreground transition-colors">
                               {child.label}
+                              <span className="absolute bottom-0 left-0 w-full h-[1px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
                             </span>
                             {child.description && (
                               <p className="mt-1 text-sm text-muted-foreground">{child.description}</p>

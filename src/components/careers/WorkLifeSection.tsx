@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import { 
-  MapPin, 
-  Shield, 
-  Brain, 
-  Globe, 
-  Users, 
+import {
+  MapPin,
+  Shield,
+  Brain,
+  Globe,
+  Users,
   TrendingUp,
   Heart,
   Coffee
@@ -63,10 +63,10 @@ export function WorkLifeSection() {
         </div>
 
         {/* Grid - 2 rows x 4 columns */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 border-t border-l border-border">
+        <div className="grid grid-cols-2 lg:grid-cols-4 border-border">
           {/* Empty first cell */}
-          <div className="hidden lg:block border-r border-b border-border h-64" />
-          
+          <div className="hidden lg:block h-64" />
+
           {/* First 3 perks in row 1 */}
           {perks.slice(0, 3).map((perk, index) => (
             <motion.div
@@ -76,7 +76,8 @@ export function WorkLifeSection() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ scale: 1.05 }}
-              className="group relative border-r border-b border-border cursor-pointer z-10 hover:z-20"
+              className={`group relative border-r border-b border-border cursor-pointer z-10 hover:z-20 border-t ${index === 0 ? 'border-l' : ''
+                }`}
             >
               {/* Default State */}
               <div className="relative h-64 p-8 flex flex-col items-center justify-center text-center transition-opacity duration-300 group-hover:opacity-0 bg-background">
@@ -111,9 +112,10 @@ export function WorkLifeSection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: (index + 3) * 0.1 }}
+              transition={{ delay: 0.1 }}
               whileHover={{ scale: 1.05 }}
-              className="group relative border-r border-b border-border cursor-pointer z-10 hover:z-20"
+              className={`group relative border-r border-b border-border cursor-pointer z-10 hover:z-20 ${index === 0 ? 'border-t border-l' : ''
+                }`}
             >
               {/* Default State */}
               <div className="relative h-64 p-8 flex flex-col items-center justify-center text-center transition-opacity duration-300 group-hover:opacity-0 bg-background">
@@ -142,7 +144,7 @@ export function WorkLifeSection() {
           ))}
 
           {/* Empty last cell */}
-          <div className="hidden lg:block border-r border-b border-border h-64" />
+          <div className="hidden lg:block h-64" />
         </div>
       </div>
     </section>

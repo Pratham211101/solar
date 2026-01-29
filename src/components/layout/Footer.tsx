@@ -75,9 +75,10 @@ const Footer = () => {
                 <li key={link.href}>
                   <Link
                     to={link.href}
-                    className="text-muted-foreground hover:text-primary transition-colors link-underline"
+                    className="group relative inline-block text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.label}
+                    <span className="absolute bottom-0 left-0 w-full h-[1px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
                   </Link>
                 </li>
               ))}
@@ -92,9 +93,10 @@ const Footer = () => {
                 <li key={link.href}>
                   <Link
                     to={link.href}
-                    className="text-muted-foreground hover:text-primary transition-colors link-underline"
+                    className="group relative inline-block text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.label}
+                    <span className="absolute bottom-0 left-0 w-full h-[1px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
                   </Link>
                 </li>
               ))}
@@ -109,9 +111,10 @@ const Footer = () => {
                 <li key={link.href}>
                   <Link
                     to={link.href}
-                    className="text-muted-foreground hover:text-primary transition-colors link-underline"
+                    className="group relative inline-block text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.label}
+                    <span className="absolute bottom-0 left-0 w-full h-[1px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
                   </Link>
                 </li>
               ))}
@@ -126,9 +129,10 @@ const Footer = () => {
                 <li key={link.href}>
                   <Link
                     to={link.href}
-                    className="text-muted-foreground hover:text-primary transition-colors link-underline"
+                    className="group relative inline-block text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.label}
+                    <span className="absolute bottom-0 left-0 w-full h-[1px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
                   </Link>
                 </li>
               ))}
