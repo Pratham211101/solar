@@ -28,6 +28,7 @@ const navItems: NavItem[] = [
       { label: "Careers", href: "/careers", description: "Join our team" },
       { label: "Contact", href: "/contact-us", description: "Get in touch" },
       { label: "Awards & Recognitions", href: "/awards", description: "Awards & Recognitions" },
+      { label: "Quality & Certifications", href: "/quality-certifications", description: "Quality & Certifications" },
     ],
   },
   {
