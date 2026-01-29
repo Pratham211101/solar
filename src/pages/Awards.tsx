@@ -125,6 +125,56 @@ const Awards = () => {
             </div>
           </div>
         </section>
+
+        {/* Awards Gallery */}
+        <section className="pb-24 lg:pb-32">
+          <div className="container mx-auto px-6">
+            <ScrollReveal>
+              <div className="text-center mb-12">
+                <h2 className="font-display text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+                  Moments of Recognition
+                </h2>
+                <p className="text-slate-500 max-w-xl mx-auto">
+                  Celebrating our achievements and the milestones that mark our journey of innovation.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { title: "Innovation Award Ceremony", year: "2024" },
+                { title: "Government Partnership Recognition", year: "2023" },
+                { title: "Startup India Summit", year: "2023" },
+                { title: "Environmental Excellence Award", year: "2022" },
+                { title: "Industry Leadership Recognition", year: "2022" },
+                { title: "Make in India Showcase", year: "2021" },
+              ].map((photo, i) => (
+                <ScrollReveal key={photo.title} delay={i * 0.08}>
+                  <motion.div
+                    whileHover={{ y: -4 }}
+                    className="group bg-slate-50 border border-slate-200 rounded-lg overflow-hidden hover:border-primary/30 transition-colors"
+                  >
+                    {/* Placeholder Image */}
+                    <div className="aspect-[4/3] bg-slate-100 flex items-center justify-center relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-slate-100 to-slate-200" />
+                      <div className="relative z-10 text-center p-6">
+                        <div className="w-16 h-16 mx-auto mb-3 bg-white rounded-lg shadow-sm flex items-center justify-center">
+                          <Trophy className="w-8 h-8 text-primary/60" />
+                        </div>
+                        <p className="text-sm text-slate-400">Award Photo</p>
+                      </div>
+                    </div>
+                    {/* Caption */}
+                    <div className="p-4 bg-white">
+                      <h3 className="font-display font-semibold text-slate-900">{photo.title}</h3>
+                      <p className="text-sm text-slate-500">{photo.year}</p>
+                    </div>
+                  </motion.div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </>

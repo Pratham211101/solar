@@ -125,6 +125,56 @@ const Certifications = () => {
             </div>
           </div>
         </section>
+
+        {/* Certification Documents Gallery */}
+        <section className="pb-24 lg:pb-32">
+          <div className="container mx-auto px-6">
+            <ScrollReveal>
+              <div className="text-center mb-12">
+                <h2 className="font-display text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+                  Our Certification Documents
+                </h2>
+                <p className="text-slate-500 max-w-xl mx-auto">
+                  Official documentation validating our commitment to quality and compliance standards.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { title: "NABL Certificate", subtitle: "Laboratory Accreditation" },
+                { title: "ISO 9001:2015", subtitle: "Quality Management System" },
+                { title: "BIS License", subtitle: "Bureau of Indian Standards" },
+                { title: "CPCB Approval", subtitle: "Emission Monitoring Systems" },
+                { title: "Make in India", subtitle: "Government Recognition" },
+                { title: "Startup India", subtitle: "DPIIT Registration" },
+              ].map((doc, i) => (
+                <ScrollReveal key={doc.title} delay={i * 0.08}>
+                  <motion.div
+                    whileHover={{ y: -4 }}
+                    className="group bg-slate-50 border border-slate-200 rounded-lg overflow-hidden hover:border-primary/30 transition-colors"
+                  >
+                    {/* Placeholder Image */}
+                    <div className="aspect-[4/3] bg-slate-100 flex items-center justify-center relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-slate-100 to-slate-200" />
+                      <div className="relative z-10 text-center p-6">
+                        <div className="w-16 h-16 mx-auto mb-3 bg-white rounded-lg shadow-sm flex items-center justify-center">
+                          <FileCheck className="w-8 h-8 text-primary/60" />
+                        </div>
+                        <p className="text-sm text-slate-400">Certificate Image</p>
+                      </div>
+                    </div>
+                    {/* Caption */}
+                    <div className="p-4 bg-white">
+                      <h3 className="font-display font-semibold text-slate-900">{doc.title}</h3>
+                      <p className="text-sm text-slate-500">{doc.subtitle}</p>
+                    </div>
+                  </motion.div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </>
