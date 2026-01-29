@@ -89,6 +89,7 @@ const faqs = [
 ];
 
 const downloadCategories = [
+  { key: "all", label: "All", icon: FileText },
   { key: "brochures", label: "Brochures", icon: Book },
   { key: "pamphlets", label: "Pamphlets", icon: FileText },
   { key: "datasheets", label: "Datasheets", icon: ScrollText },
@@ -99,12 +100,32 @@ const downloadCategories = [
 
 const Resources = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [activeCategory, setActiveCategory] = useState("brochures");
+  const [activeCategory, setActiveCategory] = useState("all");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  const filteredDownloads = downloadables[activeCategory as keyof typeof downloadables].filter(
-    item => item.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  // Get all documents flattened with category info
+  const getAllDocuments = () => {
+    const all: { title: string; size: string; link?: string; category: string }[] = [];
+    Object.entries(downloadables).forEach(([category, docs]) => {
+      docs.forEach(doc => all.push({ ...doc, category }));
+    });
+    return all;
+  };
+
+  // Filter logic: if searching, always search across ALL categories
+  const filteredDownloads = (() => {
+    if (searchQuery.trim()) {
+      // Search across all categories
+      return getAllDocuments().filter(
+        item => item.title.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+    // No search query - filter by category
+    if (activeCategory === "all") {
+      return getAllDocuments();
+    }
+    return downloadables[activeCategory as keyof typeof downloadables].map(doc => ({ ...doc, category: activeCategory }));
+  })();
 
   return (
     <>
@@ -129,23 +150,6 @@ const Resources = () => {
           </div>
         </section>
 
-        {/* Search Bar */}
-        <section className="pb-12">
-          <div className="container mx-auto px-6">
-            <ScrollReveal className="max-w-xl mx-auto">
-              <div className="relative">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                <Input
-                  type="text"
-                  placeholder="Search resources..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-12 h-12 rounded-full border-border bg-background"
-                />
-              </div>
-            </ScrollReveal>
-          </div>
-        </section>
 
         {/* Patents Section */}
         <section className="py-16 bg-muted/30">
@@ -239,12 +243,26 @@ const Resources = () => {
         {/* Downloadables Section */}
         <section className="py-16">
           <div className="container mx-auto px-6">
-            <ScrollReveal className="text-center mb-12">
+            <ScrollReveal className="text-center mb-8">
               <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                 <Download className="w-8 h-8 text-primary" />
               </div>
               <h2 className="text-3xl font-bold text-foreground mb-2">Downloadables</h2>
               <p className="text-muted-foreground">Documents and materials for your reference</p>
+            </ScrollReveal>
+
+            {/* Search Bar */}
+            <ScrollReveal className="max-w-xl mx-auto mb-8">
+              <div className="relative">
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                <Input
+                  type="text"
+                  placeholder="Search documents..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-12 h-12 rounded-full border-border bg-background"
+                />
+              </div>
             </ScrollReveal>
 
             {/* Category Tabs */}
