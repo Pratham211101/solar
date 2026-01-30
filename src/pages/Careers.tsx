@@ -56,63 +56,65 @@ const benefits = [
 
 const Careers = () => {
   return (
-    <div className="light-theme bg-background min-h-screen">
-      <main className="bg-background">
-        {/* Hero Section  */}
-        <CareersHero />
+    <>
+      <div className="light-theme bg-background min-h-screen">
+        <main className="bg-background">
+          {/* Hero Section  */}
+          <CareersHero />
 
-        {/* Open Positions */}
-        <section className="py-24 bg-muted/30">
-          <div className="container mx-auto px-6">
-            <ScrollReveal className="text-center mb-16">
-              <h2 className="text-4xl font-bold mb-4">
-                <span className="text-foreground">Open</span>{" "}
-                <span className="text-gradient">Positions</span>
-              </h2>
-            </ScrollReveal>
-            <div className="max-w-3xl mx-auto space-y-4">
-              {openings.map((job, index) => (
-                <ScrollReveal key={job.id} delay={index * 0.1}>
-                  <Link to={`/careers/${job.id}`}>
-                    <motion.div
-                      whileHover={{ x: 8 }}
-                      className="group card-gradient p-6 flex items-center justify-between"
-                    >
-                      <div>
-                        <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
-                          {job.title}
-                        </h3>
-                        <div className="flex items-center gap-4 mt-2 text-sm text-muted-foreground">
-                          <span className="flex items-center gap-1">
-                            <Briefcase className="w-4 h-4" />
-                            {job.department}
-                          </span>
-                          <span className="flex items-center gap-1">
-                            <MapPin className="w-4 h-4" />
-                            {job.location}
-                          </span>
-                          <span className="px-2 py-0.5 rounded bg-primary/10 text-primary text-xs">
-                            {job.type}
-                          </span>
+          {/* Open Positions */}
+          <section className="py-24 bg-muted/30">
+            <div className="container mx-auto px-6">
+              <ScrollReveal className="text-center mb-16">
+                <h2 className="text-4xl font-bold mb-4">
+                  <span className="text-foreground">Open</span>{" "}
+                  <span className="text-gradient">Positions</span>
+                </h2>
+              </ScrollReveal>
+              <div className="max-w-3xl mx-auto space-y-4">
+                {openings.map((job, index) => (
+                  <ScrollReveal key={job.id} delay={index * 0.1}>
+                    <Link to={`/careers/${job.id}`}>
+                      <motion.div
+                        whileHover={{ x: 8 }}
+                        className="group card-gradient p-6 flex items-center justify-between"
+                      >
+                        <div>
+                          <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
+                            {job.title}
+                          </h3>
+                          <div className="flex items-center gap-4 mt-2 text-sm text-muted-foreground">
+                            <span className="flex items-center gap-1">
+                              <Briefcase className="w-4 h-4" />
+                              {job.department}
+                            </span>
+                            <span className="flex items-center gap-1">
+                              <MapPin className="w-4 h-4" />
+                              {job.location}
+                            </span>
+                            <span className="px-2 py-0.5 rounded bg-primary/10 text-primary text-xs">
+                              {job.type}
+                            </span>
+                          </div>
                         </div>
-                      </div>
-                      <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                    </motion.div>
-                  </Link>
-                </ScrollReveal>
-              ))}
+                        <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                      </motion.div>
+                    </Link>
+                  </ScrollReveal>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Work Life Section */}
-        <WorkLifeSection />
+          {/* Work Life Section */}
+          <WorkLifeSection />
 
-        {/* Employee Carousel */}
-        <EmployeeCarousel />
-      </main>
+          {/* Employee Carousel */}
+          <EmployeeCarousel />
+        </main>
+      </div>
       <Footer />
-    </div>
+    </>
   );
 };
 

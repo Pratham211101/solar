@@ -28,70 +28,72 @@ const pressReleases = [
 
 const Media = () => {
   return (
-    <div className="light-theme bg-background min-h-screen">
-      <main className="pt-24">
-        {/* Hero */}
-        <section className="relative py-24 overflow-hidden">
-          <div className="absolute inset-0 bg-curve-top pointer-events-none" />
-          <div className="container mx-auto px-6 relative z-10">
-            <ScrollReveal className="max-w-4xl mx-auto text-center">
-              <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-medium mb-6">
-                Newsroom
-              </span>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                <span className="text-foreground">Latest</span>{" "}
-                <span className="text-gradient">News & Updates</span>
-              </h1>
-              <p className="text-xl text-muted-foreground">
-                Stay updated with the latest news, press releases, and announcements from Cluix.
-              </p>
-            </ScrollReveal>
-          </div>
-        </section>
-
-        {/* Press Releases */}
-        <section className="py-24">
-          <div className="container mx-auto px-6">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {pressReleases.map((item, index) => (
-                <ScrollReveal key={item.title} delay={index * 0.1}>
-                  <motion.article
-                    whileHover={{ y: -8 }}
-                    className="card-gradient overflow-hidden h-full"
-                  >
-                    <div className="aspect-video overflow-hidden">
-                      <motion.img
-                        src={item.image}
-                        alt={item.title}
-                        className="w-full h-full object-cover"
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ duration: 0.6 }}
-                      />
-                    </div>
-                    <div className="p-6">
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                        <Calendar className="w-4 h-4" />
-                        {item.date}
-                      </div>
-                      <h2 className="text-xl font-bold text-foreground mb-3">{item.title}</h2>
-                      <p className="text-muted-foreground mb-4">{item.excerpt}</p>
-                      <Link
-                        to="#"
-                        className="inline-flex items-center gap-2 text-primary font-medium link-underline"
-                      >
-                        Read More
-                        <ArrowRight className="w-4 h-4" />
-                      </Link>
-                    </div>
-                  </motion.article>
-                </ScrollReveal>
-              ))}
+    <>
+      <div className="light-theme bg-background min-h-screen">
+        <main className="pt-24">
+          {/* Hero */}
+          <section className="relative py-24 overflow-hidden">
+            <div className="absolute inset-0 bg-curve-top pointer-events-none" />
+            <div className="container mx-auto px-6 relative z-10">
+              <ScrollReveal className="max-w-4xl mx-auto text-center">
+                <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-medium mb-6">
+                  Newsroom
+                </span>
+                <h1 className="text-5xl md:text-6xl font-bold mb-6">
+                  <span className="text-foreground">Latest</span>{" "}
+                  <span className="text-gradient">News & Updates</span>
+                </h1>
+                <p className="text-xl text-muted-foreground">
+                  Stay updated with the latest news, press releases, and announcements from Cluix.
+                </p>
+              </ScrollReveal>
             </div>
-          </div>
-        </section>
-      </main>
+          </section>
+
+          {/* Press Releases */}
+          <section className="py-24">
+            <div className="container mx-auto px-6">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {pressReleases.map((item, index) => (
+                  <ScrollReveal key={item.title} delay={index * 0.1}>
+                    <motion.article
+                      whileHover={{ y: -8 }}
+                      className="card-gradient overflow-hidden h-full"
+                    >
+                      <div className="aspect-video overflow-hidden">
+                        <motion.img
+                          src={item.image}
+                          alt={item.title}
+                          className="w-full h-full object-cover"
+                          whileHover={{ scale: 1.05 }}
+                          transition={{ duration: 0.6 }}
+                        />
+                      </div>
+                      <div className="p-6">
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
+                          <Calendar className="w-4 h-4" />
+                          {item.date}
+                        </div>
+                        <h2 className="text-xl font-bold text-foreground mb-3">{item.title}</h2>
+                        <p className="text-muted-foreground mb-4">{item.excerpt}</p>
+                        <Link
+                          to="#"
+                          className="inline-flex items-center gap-2 text-primary font-medium link-underline"
+                        >
+                          Read More
+                          <ArrowRight className="w-4 h-4" />
+                        </Link>
+                      </div>
+                    </motion.article>
+                  </ScrollReveal>
+                ))}
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
       <Footer />
-    </div>
+    </>
   );
 };
 
