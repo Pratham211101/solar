@@ -7,10 +7,23 @@ import ProductWhoItsFor from "../components/product/ProductWhoItsFor";
 import ProductDeploymentSupport from "../components/product/ProductDeploymentSupport";
 import WhyCluixSection from "../components/product/WhyCluixSection";
 import { productsData } from "@/data/products";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const product = id ? productsData[id] : null;
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash === "#productQuote") {
+      const el = document.getElementById("productQuote");
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
 
   if (!product) {
     return (
