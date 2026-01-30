@@ -87,7 +87,7 @@ const ProductHero = ({ product }: ProductHeroProps) => {
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
-                to="/contact-us"
+                to={`/products/reagent-kits/${product.name}`}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-gray-300 text-gray-900 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
               >
                 Get a Quote
