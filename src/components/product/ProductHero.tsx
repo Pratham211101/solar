@@ -86,12 +86,12 @@ const ProductHero = ({ product }: ProductHeroProps) => {
                 Request a Demo
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link
-                to={`/products/reagent-kit/${product.id}#productQuote`}
+              <a
+                href="#deployment-support"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-gray-300 text-gray-900 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
               >
                 Get a Quote
-              </Link>
+              </a>
             </motion.div>
 
             {/* Volume Pricing */}

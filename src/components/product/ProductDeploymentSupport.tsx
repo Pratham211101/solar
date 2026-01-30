@@ -35,7 +35,9 @@ const ProductDeploymentSupport = ({
     console.log("Form submitted:", formData);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
@@ -43,7 +45,7 @@ const ProductDeploymentSupport = ({
   };
 
   return (
-    <section className="min-h-screen flex items-center bg-white py-16 lg:py-0" id="productQuote">
+    <section id="deployment-support" className="min-h-screen flex items-center bg-white py-16 lg:py-0">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start max-w-6xl mx-auto">
           {/* Left - Info */}
@@ -53,8 +55,12 @@ const ProductDeploymentSupport = ({
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{title}</h2>
-            <p className="text-gray-600 mb-8 max-w-lg">{description}</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              {title}
+            </h2>
+            <p className="text-gray-600 mb-8 max-w-lg">
+              {description}
+            </p>
 
             {/* Features List */}
             <ul className="space-y-3">
@@ -82,8 +88,12 @@ const ProductDeploymentSupport = ({
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <div className="bg-gray-50 rounded-2xl p-6 lg:p-8">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">{formTitle}</h3>
-              <p className="text-gray-600 text-sm mb-6">{formSubtitle}</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                {formTitle}
+              </h3>
+              <p className="text-gray-600 text-sm mb-6">
+                {formSubtitle}
+              </p>
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
@@ -143,7 +153,10 @@ const ProductDeploymentSupport = ({
                   />
                 </div>
 
-                <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-white py-3">
+                <Button
+                  type="submit"
+                  className="w-full bg-primary hover:bg-primary/90 text-white py-3"
+                >
                   Submit Enquiry
                 </Button>
               </form>
