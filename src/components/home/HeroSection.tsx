@@ -20,7 +20,7 @@ const HeroSection = () => {
           className="w-full h-full object-cover"
           poster="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80"
         >
-          <source src="https://cdn.pixabay.com/video/2017/03/10/8281-208046155_large.mp4" type="video/mp4" />
+          <source src="https://pixabay.com/videos/download/video-170835_medium.mp4" type="video/mp4" />
         </video>
         <div className="hero-overlay absolute inset-0" />
       </div>
@@ -130,14 +130,11 @@ const HeroSection = () => {
                   <span className="text-sm tracking-[0.3em] text-muted-foreground font-light">{text}</span>
                 </motion.div>
               ))}
-
             </motion.div>
           </div>
         </div>
       </div>
       <ScrollIndicator style="absolute right-8 md:right-12 bottom-12 flex flex-col items-center gap-3 z-50 pointer-events-none" />
-
-
 
       {/* Bottom Gradient Line */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
