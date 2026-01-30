@@ -168,7 +168,7 @@ const Resources = () => {
   })();
 
   return (
-    <>
+    <div className="light-theme bg-background min-h-screen">
       <main className="pt-24">
         {/* Hero */}
         <section className="py-20">
@@ -564,7 +564,7 @@ const Resources = () => {
         document.body
       )}
 
-    </>
+    </div>
   );
 };
 

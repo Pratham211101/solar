@@ -28,7 +28,7 @@ const pressReleases = [
 
 const Media = () => {
   return (
-    <>
+    <div className="light-theme bg-background min-h-screen">
       <main className="pt-24">
         {/* Hero */}
         <section className="relative py-24 overflow-hidden">
@@ -91,7 +91,7 @@ const Media = () => {
         </section>
       </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

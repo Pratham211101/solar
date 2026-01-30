@@ -36,7 +36,7 @@ const team = [
 
 const AboutUs = () => {
   return (
-    <>
+    <div className="light-theme bg-background min-h-screen">
       <main className="pt-24">
         {/* Hero Section */}
         <section className="relative py-24 overflow-hidden">
@@ -157,7 +157,7 @@ const AboutUs = () => {
         </section>
       </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

@@ -53,6 +53,38 @@
     --background: 222 47% 8%;
     --foreground: 210 40% 98%;
   }
+
+  .light-theme {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 98%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 185 84% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 252 90% 65%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 185 70% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 185 84% 40%;
+
+    --footer-bg: 222 47% 11%;
+  }
 }
 
 @layer base {
