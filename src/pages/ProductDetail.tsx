@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 import Footer from "../components/layout/Footer";
 import ProductHero from "../components/product/ProductHero";
 import ProductParameters from "../components/product/ProductParameters";
@@ -8,7 +8,6 @@ import ProductDeploymentSupport from "../components/product/ProductDeploymentSup
 import WhyCluixSection from "../components/product/WhyCluixSection";
 import { productsData } from "@/data/products";
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
 
 const ProductDetail = () => {
   const { id } = useParams();
