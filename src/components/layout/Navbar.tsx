@@ -81,12 +81,13 @@ const Navbar = () => {
       initial={{ y: 0 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${activeDropdown
-        ? "bg-background shadow-xl"
-        : scrolled
-          ? "bg-background/95 backdrop-blur-lg shadow-md"
-          : "bg-gradient-to-b from-background/70 to-transparent"
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        activeDropdown
+          ? "bg-background shadow-xl"
+          : scrolled
+            ? "bg-background/95 backdrop-blur-lg shadow-md"
+            : "bg-gradient-to-b from-background/70 to-transparent"
+      }`}
     >
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
@@ -123,8 +124,9 @@ const Navbar = () => {
                     </span>
                     {item.children && (
                       <ChevronDown
-                        className={`w-4 h-4 transition-transform duration-300 ${activeDropdown === item.label ? "rotate-180" : ""
-                          }`}
+                        className={`w-4 h-4 transition-transform duration-300 ${
+                          activeDropdown === item.label ? "rotate-180" : ""
+                        }`}
                       />
                     )}
                   </Link>
@@ -134,7 +136,7 @@ const Navbar = () => {
 
             <Link
               to="https://dashboard.cluix.in"
-              className="ml-4 px-6 py-2 bg-primary text-primary-foreground rounded-full font-gilroy font-extrabold hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/25"
+              className="ml-4 px-6 py-2 bg-primary text-primary-foreground rounded-full font-gilroy hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/25"
             >
               DASHBOARD
             </Link>
@@ -186,10 +188,7 @@ const Navbar = () => {
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: index * 0.08 }}
                         >
-                          <Link
-                            to={child.href}
-                            className="group block p-4 rounded-xl transition-all duration-300"
-                          >
+                          <Link to={child.href} className="group block p-4 rounded-xl transition-all duration-300">
                             <span className="relative inline-block text-xl font-semibold text-foreground transition-colors">
                               {child.label}
                               <span className="absolute bottom-0 left-0 w-full h-[1px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
