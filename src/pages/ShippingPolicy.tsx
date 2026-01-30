@@ -5,8 +5,8 @@ import ScrollReveal from "../components/ui/ScrollReveal";
 const ShippingPolicy = () => {
   return (
     <>
-
-      <main className="pt-24">
+      <div className="light-theme bg-background min-h-screen">
+        <main className="pt-24">
         <section className="py-24">
           <div className="container mx-auto px-6">
             <ScrollReveal className="max-w-4xl mx-auto">
@@ -51,7 +51,8 @@ const ShippingPolicy = () => {
             </ScrollReveal>
           </div>
         </section>
-      </main>
+        </main>
+      </div>
       <Footer />
     </>
   );

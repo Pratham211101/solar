@@ -122,7 +122,8 @@ const FAQs = () => {
 
   return (
     <>
-      <main className="pt-24">
+      <div className="light-theme bg-background min-h-screen">
+        <main className="pt-24">
         {/* Hero */}
         <section className="py-20">
           <div className="container mx-auto px-6">
@@ -248,7 +249,8 @@ const FAQs = () => {
             </ScrollReveal>
           </div>
         </section>
-      </main>
+        </main>
+      </div>
       <Footer />
     </>
   );
