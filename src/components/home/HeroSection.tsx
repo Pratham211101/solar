@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, ChevronDown, Check } from "lucide-react";
-import ScrollIndicator from "../layout/ScrollIndicator";
 
 const scrollTexts = ["ENVIRONMENTAL MONITORING", "WATER QUALITY ANALYSIS", "EMISSION TRACKING", "SUSTAINABLE FUTURE"];
 
@@ -20,7 +19,7 @@ const HeroSection = () => {
           className="w-full h-full object-cover"
           poster="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80"
         >
-          <source src="https://pixabay.com/videos/download/video-1843_small.mp4" type="video/mp4" />
+          <source src="https://cdn.pixabay.com/video/2017/03/10/8281-208046155_large.mp4" type="video/mp4" />
         </video>
         <div className="hero-overlay absolute inset-0" />
       </div>
@@ -130,11 +129,25 @@ const HeroSection = () => {
                   <span className="text-sm tracking-[0.3em] text-muted-foreground font-light">{text}</span>
                 </motion.div>
               ))}
+
+              {/* Scroll Indicator */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.5 }}
+                className="mt-20 flex flex-col items-end"
+              >
+                {/* <span className="text-xs tracking-[0.2em] text-muted-foreground mb-3 rotate-90 origin-right translate-x-3">
+                  SCROLL
+                </span> */}
+                <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
+                  <ChevronDown className="w-6 h-6 text-primary" />
+                </motion.div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
       </div>
-      <ScrollIndicator style="absolute right-8 md:right-12 bottom-12 flex flex-col items-center gap-3 z-50 pointer-events-none" />
 
       {/* Bottom Gradient Line */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />

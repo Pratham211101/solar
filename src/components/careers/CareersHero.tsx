@@ -1,7 +1,6 @@
 
 import { Home, ArrowDown } from "lucide-react";
 import { motion } from "framer-motion";
-import ScrollIndicator from "../layout/ScrollIndicator";
 
 const CareersHero = () => {
     return (
@@ -65,7 +64,6 @@ const CareersHero = () => {
 
 
                     {/* Scroll Indicator - Bottom Right Vertical */}
-                    <ScrollIndicator />
                 </div>
             </section>
         </>
