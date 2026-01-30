@@ -20,7 +20,7 @@ const HeroSection = () => {
           className="w-full h-full object-cover"
           poster="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80"
         >
-          <source src="https://pixabay.com/videos/download/video-170835_medium.mp4" type="video/mp4" />
+          <source src="https://cdn.pixabay.com/video/2017/03/10/8281-208046155_large.mp4" type="video/mp4" />
         </video>
         <div className="hero-overlay absolute inset-0" />
       </div>
