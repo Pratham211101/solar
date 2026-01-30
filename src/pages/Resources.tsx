@@ -168,7 +168,8 @@ const Resources = () => {
   })();
 
   return (
-    <div className="light-theme bg-background min-h-screen">
+    <>
+      <div className="light-theme bg-background min-h-screen">
       <main className="pt-24">
         {/* Hero */}
         <section className="py-20">
@@ -458,6 +459,7 @@ const Resources = () => {
           </div>
         </section>
       </main>
+      </div>
       <Footer />
 
       {/* Request Form Modal */}
@@ -564,7 +566,7 @@ const Resources = () => {
         document.body
       )}
 
-    </div>
+    </>
   );
 };
 
