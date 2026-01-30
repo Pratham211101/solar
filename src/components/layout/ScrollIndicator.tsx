@@ -1,8 +1,21 @@
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 const ScrollIndicator = () => {
-    return (
-        <div className="fixed right-8 md:right-12 bottom-12 flex flex-col items-center gap-3 z-50">
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if (!mounted) return null;
+
+    return createPortal(
+        <div
+            className="fixed right-8 md:right-12 bottom-12 flex flex-col items-center gap-3 z-[9999]"
+            aria-hidden="true"
+        >
             {/* Vertical Line (optional decorative) */}
             <motion.div
                 initial={{ height: 0 }}
@@ -16,7 +29,7 @@ const ScrollIndicator = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="font-gilroy text-[10px] font-medium tracking-[0.3em] text-neutral-500 uppercase"
+                className="font-gilroy text-[10px] font-medium tracking-[0.3em] text-neutral-500 uppercase select-none"
                 style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}
             >
                 SCROLL DOWN
@@ -26,12 +39,12 @@ const ScrollIndicator = () => {
             <motion.div
                 animate={{
                     scale: [1, 1.2, 1],
-                    opacity: [0.6, 1, 0.6]
+                    opacity: [0.6, 1, 0.6],
                 }}
                 transition={{
                     duration: 1.5,
                     repeat: Infinity,
-                    ease: "easeInOut"
+                    ease: "easeInOut",
                 }}
             >
                 <svg
@@ -45,7 +58,8 @@ const ScrollIndicator = () => {
                     <path d="M12 0L14 10L24 12L14 14L12 24L10 14L0 12L10 10L12 0Z" />
                 </svg>
             </motion.div>
-        </div>
+        </div>,
+        document.body
     );
 };
 
