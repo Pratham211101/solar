@@ -7,6 +7,8 @@ import WorkLifeSection from "../components/careers/WorkLifeSection";
 import EmployeeCarousel from "../components/careers/EmployeeCarousel";
 import { ArrowRight, MapPin, Briefcase } from "lucide-react";
 import CareersHero from "@/components/careers/CareersHero";
+import { useEffect, useRef, useState } from "react";
+import ScrollIndicator from "@/components/layout/ScollIndicator";
 
 const openings = [
   {
@@ -56,11 +58,39 @@ const benefits = [
 ];
 
 const Careers = () => {
+  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
+  const heroRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    // Create observer to detect when hero is visible
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Show indicator when hero is intersecting (visible)
+        setShowScrollIndicator(entry.isIntersecting);
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of hero is visible
+        rootMargin: "0px 0px -50px 0px" // Slightly before it fully leaves
+      }
+    );
+
+    if (heroRef.current) {
+      observer.observe(heroRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+
   return (
     <>
       <main className=" bg-background">
-        {/* Hero Section */}
-        <CareersHero />
+        {/* Hero Section with ref for tracking */}
+        <div ref={heroRef}>
+          <CareersHero />
+        </div>
+
+        {/* Scroll Indicator - Only shows while hero is visible */}
+        {showScrollIndicator && <ScrollIndicator />}
 
         {/* Open Positions */}
         <section className="py-24 bg-muted/30">
