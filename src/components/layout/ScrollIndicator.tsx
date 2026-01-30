@@ -1,65 +1,62 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import { createPortal } from "react-dom";
+import { Droplet, Waves } from "lucide-react";
 
-const ScrollIndicator = () => {
-    const [mounted, setMounted] = useState(false);
+type ScrollIndicatorProps = {
+    variant?: "light" | "dark";
+    style?: string;
+};
 
-    useEffect(() => {
-        setMounted(true);
-    }, []);
+const ScrollIndicator = ({ variant = "light", style }: ScrollIndicatorProps) => {
+    const isDark = variant === "dark";
 
-    if (!mounted) return null;
+    const colors = {
+        line: isDark ? "bg-white/40" : "bg-neutral-400/50",
+        text: isDark ? "text-white/70" : "text-neutral-500",
+        drop: isDark ? "text-white/80" : "text-neutral-600",
+    };
 
-    return createPortal(
-        <div
-            className="fixed right-8 md:right-12 bottom-12 flex flex-col items-center gap-3 z-[9999]"
+    return (
+        <motion.div
             aria-hidden="true"
+            className={style || "absolute right-0.5 md:right-1 bottom-12 flex flex-col items-center gap-3 z-50 pointer-events-none"}
+            initial={{ y: -36, opacity: 0 }}
+            animate={{
+                y: [-36, 0, 0, 28],
+                opacity: [0, 1, 1, 0],
+            }}
+            transition={{
+                duration: 1.8,
+                times: [0, 0.35, 0.65, 1], // ← pit stop window
+                ease: "linear",
+                repeat: Infinity,
+                repeatDelay: 0.6,
+            }}
         >
-            {/* Vertical Line (optional decorative) */}
-            <motion.div
-                initial={{ height: 0 }}
-                animate={{ height: 40 }}
-                transition={{ duration: 1, delay: 0.5 }}
-                className="w-px bg-neutral-400/50 mb-2"
-            />
+            {/* Line */}
+            <div className={`w-px h-10 mb-2 ${colors.line}`} />
 
             {/* Text */}
-            <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                className="font-gilroy text-[10px] font-medium tracking-[0.3em] text-neutral-500 uppercase select-none"
+            <span
+                className={`font-gilroy text-[10px] font-medium tracking-[0.3em] uppercase select-none ${colors.text}`}
                 style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}
             >
                 SCROLL DOWN
-            </motion.span>
+            </span>
 
-            {/* 4-Point Star with Pulse */}
+            {/* Water Drop — pulses ONLY while stopped */}
             <motion.div
-                animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.6, 1, 0.6],
-                }}
+                className={`${colors.drop} translate-x-[2px]`}
                 transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
+                    duration: 0.9,
                     ease: "easeInOut",
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    repeatDelay: 0.3,
                 }}
             >
-                <svg
-                    width="12"
-                    height="12"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="text-neutral-600"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <path d="M12 0L14 10L24 12L14 14L12 24L10 14L0 12L10 10L12 0Z" />
-                </svg>
+                <Droplet className={`w-4 h-4 ${colors.text}`} />
             </motion.div>
-        </div>,
-        document.body
+        </motion.div>
     );
 };
 
