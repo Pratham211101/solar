@@ -8,7 +8,7 @@ import EmployeeCarousel from "../components/careers/EmployeeCarousel";
 import { ArrowRight, MapPin, Briefcase } from "lucide-react";
 import CareersHero from "@/components/careers/CareersHero";
 import { useEffect, useRef, useState } from "react";
-import ScrollIndicator from "@/components/layout/ScollIndicator";
+import ScrollIndicator from "@/components/layout/ScrollIndicator";
 
 const openings = [
   {
