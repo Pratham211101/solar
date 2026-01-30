@@ -3,22 +3,21 @@ import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import ScrollReveal from "../components/ui/ScrollReveal";
 import { Mail, Check } from "lucide-react";
+import NewsletterCarousel from "../components/newsletter/NewsletterCarousel";
 
 const Newsletter = () => {
   return (
     <>
       <div className="light-theme bg-background min-h-screen">
         <main className="pt-24">
+
+
+          <NewsletterCarousel />
           <section className="py-24">
             <div className="container mx-auto px-6">
               <div className="max-w-2xl mx-auto text-center">
                 <ScrollReveal>
-                  <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-8">
-                    <Mail className="w-10 h-10 text-primary" />
-                  </div>
-                  <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-medium mb-6">
-                    Newsletter
-                  </span>
+
                   <h1 className="text-5xl md:text-6xl font-bold mb-6">
                     <span className="text-foreground">Stay</span>{" "}
                     <span className="text-gradient">Updated</span>
@@ -48,7 +47,7 @@ const Newsletter = () => {
                     <input
                       type="email"
                       placeholder="Enter your email"
-                      className="flex-1 px-6 py-4 rounded-full bg-muted border border-border focus:border-primary focus:outline-none transition-colors"
+                      className="flex-1 px-6 py-4 rounded-full bg-muted border border-border focus:border-primary focus:outline-none transition-colors text-foreground"
                     />
                     <motion.button
                       type="submit"
