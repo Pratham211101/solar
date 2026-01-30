@@ -14,13 +14,14 @@ const footerLinks = {
     { label: "About Us", href: "/about-us" },
     { label: "Careers", href: "/careers" },
     { label: "Contact Us", href: "/contact-us" },
-    { label: "Resources", href: "/resources" },
     { label: "Help Center", href: "/help-center" },
+    { label: "FAQs", href: "/faqs" },
   ],
   media: [
     { label: "Newsletter", href: "/news-letter" },
     { label: "Blog", href: "/blog" },
     { label: "Newsroom", href: "/media" },
+    { label: "Resources", href: "/resources" },
   ],
   legal: [
     { label: "Privacy Policy", href: "/privacy-policy" },
