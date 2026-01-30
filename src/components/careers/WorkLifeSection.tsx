@@ -75,31 +75,33 @@ export function WorkLifeSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              whileHover={{ scale: 1.05 }}
-              className={`group relative border-r border-b border-border cursor-pointer z-10 hover:z-20 border-t ${index === 0 ? 'border-l' : ''
+              className={`group relative border-r border-b border-border cursor-pointer z-10 overflow-hidden border-t ${index === 0 ? 'border-l' : ''
                 }`}
             >
+              {/* Hover Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-900/95 to-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
+
               {/* Default State */}
-              <div className="relative h-64 p-8 flex flex-col items-center justify-center text-center transition-opacity duration-300 group-hover:opacity-0 bg-background">
+              <div className="relative h-64 p-8 flex flex-col items-center justify-center text-center transition-all duration-200 group-hover:translate-y-[-10px] z-10 group-hover:opacity-0">
                 <div className="w-16 h-16 rounded-full border-2 border-primary/30 flex items-center justify-center mb-6 relative">
                   <div className="absolute inset-0 rounded-full border-2 border-dashed border-primary/40 animate-[spin_20s_linear_infinite]" />
                   <perk.icon className="w-7 h-7 text-primary" />
                 </div>
-                <h3 className="text-lg font-semibold text-foreground">
+                <h3 className="text-lg font-semibold text-foreground group-hover:text-background transition-colors duration-500">
                   {perk.title}
                 </h3>
               </div>
 
               {/* Hover State */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/80 to-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-start justify-end p-8">
-                <div className="w-12 h-12 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center mb-4">
+              <div className="absolute inset-0 transition-all duration-500 opacity-0 group-hover:opacity-100 flex flex-col items-start justify-end p-8 translate-y-4 group-hover:translate-y-0 z-10">
+                <div className="w-12 h-12 rounded-lg bg-white/10 backdrop-blur-md flex items-center justify-center mb-4 border border-white/20">
                   <perk.icon className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">
                   {perk.title}
                 </h3>
-                <p className="text-white/90 text-sm leading-relaxed">
-                  • {perk.description}
+                <p className="text-white/80 text-sm leading-relaxed">
+                  {perk.description}
                 </p>
               </div>
             </motion.div>
@@ -113,31 +115,33 @@ export function WorkLifeSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              whileHover={{ scale: 1.05 }}
-              className={`group relative border-r border-b border-border cursor-pointer z-10 hover:z-20 ${index === 0 ? 'border-t border-l' : ''
+              className={`group relative border-r border-b border-border cursor-pointer z-10 overflow-hidden ${index === 0 ? 'border-t border-l' : ''
                 }`}
             >
+              {/* Hover Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-900/95 to-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
+
               {/* Default State */}
-              <div className="relative h-64 p-8 flex flex-col items-center justify-center text-center transition-opacity duration-300 group-hover:opacity-0 bg-background">
+              <div className="relative h-64 p-8 flex flex-col items-center justify-center text-center transition-all duration-200 group-hover:translate-y-[-10px] z-10 group-hover:opacity-0">
                 <div className="w-16 h-16 rounded-full border-2 border-primary/30 flex items-center justify-center mb-6 relative">
                   <div className="absolute inset-0 rounded-full border-2 border-dashed border-primary/40 animate-[spin_20s_linear_infinite]" />
                   <perk.icon className="w-7 h-7 text-primary" />
                 </div>
-                <h3 className="text-lg font-semibold text-foreground">
+                <h3 className="text-lg font-semibold text-foreground group-hover:text-background transition-colors duration-500">
                   {perk.title}
                 </h3>
               </div>
 
               {/* Hover State */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/80 to-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-start justify-end p-8">
-                <div className="w-12 h-12 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center mb-4">
+              <div className="absolute inset-0 transition-all duration-500 opacity-0 group-hover:opacity-100 flex flex-col items-start justify-end p-8 translate-y-4 group-hover:translate-y-0 z-10">
+                <div className="w-12 h-12 rounded-lg bg-white/10 backdrop-blur-md flex items-center justify-center mb-4 border border-white/20">
                   <perk.icon className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">
                   {perk.title}
                 </h3>
-                <p className="text-white/90 text-sm leading-relaxed">
-                  • {perk.description}
+                <p className="text-white/80 text-sm leading-relaxed">
+                  {perk.description}
                 </p>
               </div>
             </motion.div>
