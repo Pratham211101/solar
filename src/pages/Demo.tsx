@@ -7,7 +7,8 @@ import { Check } from "lucide-react";
 const Demo = () => {
   return (
     <>
-      <main className="pt-24">
+      <div className="light-theme bg-background min-h-screen">
+        <main className="pt-24">
         <section className="py-24">
           <div className="container mx-auto px-6">
             <div className="grid lg:grid-cols-2 gap-16">
@@ -114,7 +115,8 @@ const Demo = () => {
             </div>
           </div>
         </section>
-      </main>
+        </main>
+      </div>
       <Footer />
     </>
   );
