@@ -138,7 +138,7 @@ const Navbar = () => {
               to="https://dashboard.cluix.in"
               className="ml-4 px-6 py-2 bg-primary text-primary-foreground rounded-full font-gilroy font-semibold hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/25"
             >
-              DASHBOARD
+              Dashboard
             </Link>
           </div>
 
@@ -257,9 +257,9 @@ const Navbar = () => {
                 >
                   <Link
                     to="/demo"
-                    className="block w-full py-3 bg-primary text-primary-foreground rounded-full font-medium text-center"
+                    className="block w-full py-3 bg-primary text-primary-foreground font-gilroy font-semibold rounded-full font-medium text-center"
                   >
-                    Request Demo
+                    Dashboard
                   </Link>
                 </motion.div>
               </div>
