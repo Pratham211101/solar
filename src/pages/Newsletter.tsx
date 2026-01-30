@@ -6,7 +6,7 @@ import { Mail, Check } from "lucide-react";
 
 const Newsletter = () => {
   return (
-    <>
+    <div className="light-theme bg-background min-h-screen">
       <main className="pt-24">
         <section className="py-24">
           <div className="container mx-auto px-6">
@@ -67,7 +67,7 @@ const Newsletter = () => {
         </section>
       </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

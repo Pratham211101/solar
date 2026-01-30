@@ -46,7 +46,7 @@ const blogPosts = [
 
 const Blog = () => {
   return (
-    <>
+    <div className="light-theme bg-background min-h-screen">
       <main className="pt-24">
         {/* Hero */}
         <section className="relative py-24 overflow-hidden">
@@ -121,7 +121,7 @@ const Blog = () => {
         </section>
       </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

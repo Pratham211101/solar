@@ -56,8 +56,8 @@ const benefits = [
 
 const Careers = () => {
   return (
-    <>
-      <main className=" bg-background">
+    <div className="light-theme bg-background min-h-screen">
+      <main className="bg-background">
         {/* Hero Section  */}
         <CareersHero />
 
@@ -112,7 +112,7 @@ const Careers = () => {
         <EmployeeCarousel />
       </main>
       <Footer />
-    </>
+    </div>
   );
 };
 
