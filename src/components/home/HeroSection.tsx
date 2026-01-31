@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import ScrollIndicator from "../layout/ScrollIndicator";
 import AppleGlassButton from "../ui/AppleGlassButton";
 
@@ -44,7 +44,7 @@ const HeroSection = () => {
           >
             <span className="text-white">Precision</span>
             <br />
-            <span className="text-gradient">Simplified</span>
+            <div className="text-gradient italic">Simplified</div>
           </motion.h1>
 
           <motion.div
@@ -54,7 +54,7 @@ const HeroSection = () => {
             className="flex flex-col md:flex-row items-start md:items-center gap-12"
           >
             <Link to="/products">
-              <AppleGlassButton>
+              <AppleGlassButton icon={<ArrowUpRight className="w-5 h-5" />} >
                 Explore Products
               </AppleGlassButton>
             </Link>

@@ -62,15 +62,12 @@ export function TestimonialsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="relative border-l border-b border-black/5 p-10 min-h-[400px] flex flex-col justify-between overflow-hidden last:border-r bg-white"
+              className="bg-cyan-50 relative border-l border-b border-black/5 p-10 min-h-[400px] flex flex-col justify-between overflow-hidden last:border-r"
             >
               <div className="relative z-10">
                 {/* Index & Quote Icon */}
                 <div className="flex justify-between items-center mb-12">
-                  <span className="font-gilroy text-[10px] font-bold tracking-[0.3em] text-black/20">
-                    {testimonial.index} / IMPACT
-                  </span>
-                  <Quote className="w-6 h-6 text-primary opacity-20" />
+                  <Quote className="w-6 h-6 text-primary opacity-60" />
                 </div>
 
                 {/* Quote Text */}

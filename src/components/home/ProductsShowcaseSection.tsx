@@ -50,7 +50,7 @@ export function ProductsShowcaseSection() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="font-gilroy text-4xl md:text-5xl lg:text-6xl font-bold text-black tracking-tighter leading-none">
-            Our <span className="text-gray-300 italic">Products</span>
+            Our <span className="text-primary italic">Products</span>
           </h2>
         </motion.div>
       </div>

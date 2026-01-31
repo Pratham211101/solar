@@ -86,7 +86,7 @@ export function CTABannerSection() {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
           viewport={{ once: true }}
-          className="mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6"
+          className="mt-24 pt-8  flex flex-col md:flex-row items-center justify-between gap-6"
         >
           <div className="flex items-center gap-3">
             <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
@@ -94,11 +94,9 @@ export function CTABannerSection() {
               Enterprise Grade Infrastructure
             </span>
           </div>
-          <p className="font-gilroy text-[10px] font-bold tracking-[0.3em] text-white/20 uppercase">
-            © 2024 CLUIX PRIVATE LIMITED
-          </p>
-          <div className="flex items-center gap-6">
-            <a href="mailto:sales@cluix.in" className="font-gilroy text-[10px] font-bold tracking-[0.3em] text-white/40 hover:text-cyan-400 transition-colors uppercase">
+          <div className="flex items-center gap-3">
+            <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
+            <a href="mailto:sales@cluix.in" className="font-gilroy text-xs font-bold tracking-[0.2em] text-white/40 hover:text-cyan-400 transition-colors">
               sales@cluix.in
             </a>
           </div>

@@ -27,7 +27,7 @@ export function StatsHighlightSection() {
         initial={{ x: "-100%" }}
         animate={isInView ? { x: ["-100%", "20%", "-100%"] } : {}}
         transition={{
-          duration: 5,
+          duration: 3,
           times: [0, 0.4, 1],
           ease: "easeInOut"
         }}
@@ -84,7 +84,7 @@ function StatCard({ stat, index, trigger }) {
             filter: "blur(0px)",
           } : {}}
           transition={{
-            duration: 1.2,
+            duration: 0.8,
             ease: [0.23, 1, 0.32, 1],
             delay: 0.1
           }}
