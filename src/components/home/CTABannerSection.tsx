@@ -33,7 +33,7 @@ export function CTABannerSection() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
@@ -43,11 +43,23 @@ export function CTABannerSection() {
               <span className="text-cyan-400 italic">Water Intelligence?</span>
             </h2>
 
-            <p className="text-white/50 text-base md:text-xl font-gilroy max-w-2xl mx-auto mb-12 leading-relaxed">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              viewport={{ once: true }}
+              className="text-white/50 text-base md:text-xl font-gilroy max-w-2xl mx-auto mb-12 leading-relaxed"
+            >
               Join 50+ government utilities and enterprises who trust Cluix for accurate, reliable water quality monitoring.
-            </p>
+            </motion.p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+              viewport={{ once: true }}
+              className="flex flex-col sm:flex-row items-center justify-center gap-6"
+            >
               <Link to="/contact-us">
                 <AppleGlassButton
                   icon={<ArrowUpRight className="w-5 h-5" />}
@@ -64,7 +76,7 @@ export function CTABannerSection() {
                   REQUEST DEMO
                 </AppleGlassButton>
               </Link>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
 

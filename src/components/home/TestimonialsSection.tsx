@@ -58,42 +58,36 @@ export function TestimonialsSection() {
           {testimonials.map((testimonial, i) => (
             <motion.div
               key={testimonial.index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: i % 2 === 0 ? 0 : 40 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="group relative border-l border-b border-black/5 p-10 min-h-[450px] flex flex-col justify-between overflow-hidden last:border-r bg-white"
+              className="relative border-l border-b border-black/5 p-10 min-h-[400px] flex flex-col justify-between overflow-hidden last:border-r bg-white"
             >
-              {/* Background Gradient on Hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-black via-black/95 to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0" />
-
               <div className="relative z-10">
                 {/* Index & Quote Icon */}
                 <div className="flex justify-between items-center mb-12">
-                  <span className="font-gilroy text-[10px] font-bold tracking-[0.3em] text-black/20 group-hover:text-primary transition-colors">
+                  <span className="font-gilroy text-[10px] font-bold tracking-[0.3em] text-black/20">
                     {testimonial.index} / IMPACT
                   </span>
-                  <Quote className="w-6 h-6 text-primary opacity-20 group-hover:opacity-100 transition-all duration-500" />
+                  <Quote className="w-6 h-6 text-primary opacity-20" />
                 </div>
 
                 {/* Quote Text */}
-                <p className="font-gilroy text-lg font-bold text-black/40 leading-tight group-hover:text-white transition-colors duration-500 line-clamp-6 uppercase">
+                <p className="font-gilroy text-lg font-bold text-black/40 leading-tight uppercase">
                   "{testimonial.quote}"
                 </p>
               </div>
 
               {/* Author Info */}
-              <div className="relative z-10 pt-10 border-t border-black/5 group-hover:border-white/10 transition-colors duration-500">
-                <h4 className="font-gilroy text-sm font-bold text-black group-hover:text-primary transition-colors uppercase tracking-widest">
+              <div className="relative z-10 pt-10 border-t border-black/5">
+                <h4 className="font-gilroy text-sm font-bold text-black uppercase tracking-widest">
                   {testimonial.role}
                 </h4>
-                <p className="text-black/40 text-[9px] font-bold mt-2 font-gilroy tracking-[0.2em] group-hover:text-white/60 transition-colors uppercase">
+                <p className="text-black/40 text-[9px] font-bold mt-2 font-gilroy tracking-[0.2em] uppercase">
                   {testimonial.organization}
                 </p>
               </div>
-
-              {/* Sharp Corner Glow */}
-              <div className="absolute inset-0 border border-primary/0 group-hover:border-primary/20 pointer-events-none transition-colors duration-500" />
             </motion.div>
           ))}
         </div>

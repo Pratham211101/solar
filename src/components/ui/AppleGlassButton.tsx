@@ -13,8 +13,7 @@ const AppleGlassButton: React.FC<AppleGlassButtonProps> = ({
     children,
     icon,
     className,
-    // soundUrl = "/sounds/scary-scream.mp3",
-    soundUrl = "/sounds/water-drip.mp3", // Local high-quality click sound
+    soundUrl = "/sounds/water-drip.mp3",
     ...props
 }) => {
     const [isHovered, setIsHovered] = useState(false);
@@ -56,8 +55,9 @@ const AppleGlassButton: React.FC<AppleGlassButtonProps> = ({
                     initial={{ x: "-100%" }}
                     animate={isHovered ? { x: "200%" } : { x: "-100%" }}
                     transition={{
-                        duration: 2.5,
-                        repeat: Infinity,
+                        duration: isHovered ? 2.5 : 0.5,
+                        repeat: isHovered ? Infinity : 0,
+                        repeatType: "loop",
                         ease: "linear",
                     }}
                     className="absolute inset-0 w-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12"
