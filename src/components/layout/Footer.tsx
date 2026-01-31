@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Mail, MapPin, Phone, Linkedin, Twitter, Youtube } from "lucide-react";
 import Logo from "@/components/ui/Logo";
+import BackToTop from "./BackToTop";
 
 const footerLinks = {
   products: [
@@ -34,7 +35,8 @@ const footerLinks = {
 
 const Footer = () => {
   return (
-    <footer className="footer-dark pt-20 pb-8">
+    <footer className="footer-dark pt-20 pb-8 relative">
+      <BackToTop style="absolute right-6 md:right-12 top-20 flex flex-col items-center cursor-pointer z-10" />
       {/* Gradient Curve at Top */}
       <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
 

@@ -1,129 +1,106 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ChevronRight } from "lucide-react";
+import { Plus } from "lucide-react";
 
 const products = [
   {
     id: "cluix-c012",
     name: "CLUIX C012",
-    description: "Advanced multi-parameter water quality analyzer with IoT connectivity",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
-    tags: ["12+ Parameters", "IoT Enabled"],
-    subLinks: [
-      { label: "Features", href: "/products/cluix-c012#features" },
-      { label: "Specs", href: "/products/cluix-c012#specs" },
-    ],
+    category: "WATER QUALITY",
+    description: "Advanced multi-parameter water quality analyzer with IoT connectivity.",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
+    href: "/products/cluix-c012"
   },
   {
     id: "reagent-kit",
-    name: "Reagent Kit",
-    description: "Complete reagent kit for comprehensive water quality testing",
-    image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&q=80",
-    tags: ["100 Tests", "Field Ready"],
-    subLinks: [
-      { label: "Parameters", href: "/products/reagent-kit#parameters" },
-      { label: "Order", href: "/contact-us" },
-    ],
+    name: "REAGENT KIT",
+    category: "LAB SOLUTIONS",
+    description: "Complete reagent kit for comprehensive water quality testing.",
+    image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80",
+    href: "/products/reagent-kit"
   },
   {
     id: "varunaa",
-    name: "Varunaa",
-    description: "Smart water level monitoring system with real-time alerts",
-    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&q=80",
-    tags: ["Solar Powered", "LoRa Enabled"],
-    subLinks: [
-      { label: "How It Works", href: "/products/varunaa#how-it-works" },
-      { label: "Demo", href: "/demo" },
-    ],
+    name: "VARUNAA",
+    category: "MONITORING",
+    description: "Smart water level monitoring system with real-time alerts.",
+    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80",
+    href: "/products/varunaa"
+  },
+  {
+    id: "ocems",
+    name: "OCEMS DEVICE",
+    category: "COMPLIANCE",
+    description: "Online Continuous Emission Monitoring for industrial compliance.",
+    image: "https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?w=800&q=80",
+    href: "/products/ocems"
   },
 ];
 
 export function ProductsShowcaseSection() {
   return (
-    <section className="py-20 lg:py-28 bg-foreground">
-      <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="font-sans text-3xl md:text-4xl lg:text-5xl font-bold text-background mb-4">Our Products</h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Industry-leading water quality monitoring solutions
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+    <section className="h-screen pt-[72px] bg-white relative overflow-hidden flex items-center pb-[40px]">
+      <div className="container mx-auto px-6 h-full flex items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 w-full">
           {products.map((product, i) => (
             <motion.div
               key={product.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: i % 2 === 0 ? 0 : 60 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="group"
+              transition={{ duration: 0.6, delay: i * 0.05, ease: [0.19, 1, 0.22, 1] }}
+              className="group relative border border-black/5 p-8 pb-12 h-[75vh] flex flex-col justify-between overflow-hidden"
             >
-              <div className="relative h-full bg-foreground rounded-2xl border border-gray-300 overflow-hidden transition-all duration-500 group-hover:border-transparent group-hover:shadow-2xl">
-                {/* Gradient overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
+              {/* Black to Cyan Gradient Background on Hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-black via-black/95 to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0" />
 
-                {/* Content wrapper */}
-                <div className="relative z-10 p-6 h-full flex flex-col">
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {product.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-4 py-1.5 text-xs font-medium rounded-full border transition-colors duration-500
-                          border-gray-300 text-background
-                          group-hover:border-foreground/30 group-hover:text-foreground"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Image Area */}
-                  <div className="relative aspect-[4/3] mb-6 flex items-center justify-center">
-                    <motion.img
-                      src={product.image}
-                      alt={product.name}
-                      className="max-w-full max-h-full object-contain transition-all duration-500 
-                        filter grayscale-0 group-hover:opacity-80"
-                    />
-                  </div>
-
-                  {/* Title & Description */}
-                  <div className="flex-1">
-                    <h3 className="font-sans text-xl font-bold mb-2 transition-colors duration-500 text-background group-hover:text-foreground">
-                      {product.name}
-                    </h3>
-                    <p className="text-sm leading-relaxed transition-colors duration-500 text-gray-400 group-hover:text-foreground/70">
-                      {product.description}
-                    </p>
-                  </div>
-
-                  {/* Sub Links */}
-                  <div className="flex flex-wrap gap-4 mt-6 pt-4 border-t transition-colors duration-500 border-gray-300 group-hover:border-foreground/20">
-                    {product.subLinks.map((link) => (
-                      <Link
-                        key={link.label}
-                        to={link.href}
-                        className="inline-flex items-center gap-1 text-sm font-medium transition-colors duration-500
-                          text-background hover:text-primary
-                          group-hover:text-foreground group-hover:hover:text-primary-background"
-                      >
-                        <span className="relative">
-                          {link.label}
-                          <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary transition-colors duration-500 group-hover:bg-foreground/50" />
-                        </span>
-                        <ChevronRight className="w-4 h-4" />
-                      </Link>
-                    ))}
-                  </div>
+              {/* Header: Category & Icon */}
+              <div className="relative z-10 flex justify-between items-start">
+                <div>
+                  <span className="font-gilroy text-[10px] tracking-[0.4em] text-primary uppercase font-bold">{product.category}</span>
                 </div>
+                <Plus className="w-5 h-5 text-black/20 group-hover:text-primary group-hover:rotate-90 transition-all duration-300" />
               </div>
+
+              {/* Center: Image */}
+              <div className="relative flex-1 flex flex-col items-center justify-center">
+                <motion.div
+                  className="relative z-10 w-full aspect-square overflow-hidden shadow-sm group-hover:shadow-primary/20"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.2, ease: "easeOut" }}
+                >
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-300"
+                  />
+                  {/* Subtle vignette */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-80 group-hover:from-black/60 transition-all duration-300" />
+                </motion.div>
+              </div>
+
+              {/* Footer: Title & Description */}
+              <div className="relative z-10 pt-6 border-t border-black/5 group-hover:border-white/10 transition-colors duration-300 space-y-4">
+                <Link to={product.href} className="block group/link">
+                  <h3 className="font-gilroy text-xl font-bold text-black tracking-tighter group-hover:text-white transition-colors uppercase">
+                    {product.name}
+                  </h3>
+                </Link>
+                <div className="h-10">
+                  <p className="text-black/40 text-[10px] font-medium leading-relaxed font-gilroy tracking-wider max-w-[90%] uppercase group-hover:text-white/60 transition-colors duration-300 line-clamp-2">
+                    {product.description}
+                  </p>
+                </div>
+                <Link
+                  to={product.href}
+                  className="inline-block text-[9px] font-gilroy font-bold tracking-[0.5em] text-black/20 uppercase group-hover:text-primary transition-all pt-4 border-b border-transparent hover:border-primary pb-1"
+                >
+                  EXPLORE PRODUCT —
+                </Link>
+              </div>
+
+              {/* Hover Sharp Border Glow */}
+              <div className="absolute inset-0 border border-primary/0 group-hover:border-primary/20 pointer-events-none transition-colors duration-300" />
             </motion.div>
           ))}
         </div>

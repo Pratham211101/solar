@@ -1,41 +1,49 @@
 import { motion } from "framer-motion";
 
 const organizations = [
-  "IIT Delhi",
-  "Invest India",
-  "Har Ghar Jal",
-  "IIT Palakkad",
-  "Startup India",
-  "PHED Gujarat",
-  "PHED Rajasthan",
-  "Jal Jeevan Mission",
-  "NABL Labs",
-  "State Water Boards",
+  "IIT DELHI",
+  "INVEST INDIA",
+  "HAR GHAR JAL",
+  "IIT PALAKKAD",
+  "STARTUP INDIA",
+  "PHED GUJARAT",
+  "PHED RAJASTHAN",
+  "JAL JEEVAN MISSION",
+  "NABL LABS",
+  "STATE WATER BOARDS",
+  "WASH PROGRAMS",
+  "CSR INITIATIVES",
 ];
 
 export function TrustedBySection() {
   return (
-    <section className="py-16 lg:py-20 bg-slate-50 overflow-hidden">
-      <div className="container mx-auto px-6 mb-10">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+    <section className="py-24 bg-white overflow-hidden border-t border-black/5">
+      <div className="container mx-auto px-6 mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center font-display text-xl md:text-2xl font-semibold text-slate-900"
+          className="flex flex-col md:flex-row md:items-center justify-between gap-6"
         >
-          Trusted by Leading Organizations
-        </motion.h2>
+          <h2 className="font-gilroy text-xs font-bold tracking-[0.5em] text-black/30 uppercase">
+            Trusted Ecosystem
+          </h2>
+          <div className="h-px flex-1 bg-black/5 mx-6 hidden md:block" />
+          <p className="font-gilroy text-[10px] font-bold tracking-[0.2em] text-primary uppercase">
+            ESTABLISHED PARTNERSHIPS — 2024
+          </p>
+        </motion.div>
       </div>
 
-      {/* Carousel Container */}
-      <div className="relative">
-        {/* Gradient Overlays */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none" />
+      {/* Marquee Container */}
+      <div className="relative group">
+        {/* Gradient Overlays for smooth edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-40 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-40 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
-        {/* Scrolling Track */}
+        {/* Scrolling Track 1 */}
         <motion.div
-          className="flex gap-4"
+          className="flex gap-0"
           animate={{
             x: [0, -1920],
           }}
@@ -43,22 +51,51 @@ export function TrustedBySection() {
             x: {
               repeat: Infinity,
               repeatType: "loop",
-              duration: 30,
+              duration: 40,
               ease: "linear",
             },
           }}
         >
-          {/* Duplicate organizations for seamless loop */}
           {[...organizations, ...organizations, ...organizations].map((org, i) => (
             <div
               key={`${org}-${i}`}
-              className="flex-shrink-0 px-6 py-3 bg-white rounded-full border border-slate-200 shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300 cursor-pointer"
+              className="flex-shrink-0 px-12 py-8 border-l border-black/5 flex items-center justify-center group/item hover:bg-black/[0.02] transition-colors duration-500"
             >
-              <span className="text-slate-700 text-sm font-medium whitespace-nowrap">
+              <span className="font-gilroy text-lg md:text-xl font-black text-black/10 group-hover/item:text-primary transition-colors duration-700 whitespace-nowrap tracking-tighter italic overflow-hidden">
                 {org}
               </span>
             </div>
           ))}
+        </motion.div>
+      </div>
+
+      {/* Secondary Opposite Track for Rhythm */}
+      <div className="relative mt-0 pt-0 border-t border-black/5">
+        <motion.div
+          className="flex gap-0"
+          animate={{
+            x: [-1920, 0],
+          }}
+          transition={{
+            x: {
+              repeat: Infinity,
+              repeatType: "loop",
+              duration: 50,
+              ease: "linear",
+            },
+          }}
+        >
+          {[...organizations, ...organizations, ...organizations].reverse().map((org, i) => (
+            <div
+              key={`${org}-rev-${i}`}
+              className="flex-shrink-0 px-12 py-8 border-l border-black/5 flex items-center justify-center group/item hover:bg-black/[0.02] transition-colors duration-500"
+            >
+              <span className="font-gilroy text-lg md:text-xl font-black text-black/10 group-hover/item:text-primary transition-colors duration-700 whitespace-nowrap tracking-tighter italic">
+                {org}
+              </span>
+            </div>
+          ))}
+          <div className="border-r border-black/5" />
         </motion.div>
       </div>
     </section>

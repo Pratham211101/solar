@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
 import Logo from "@/components/ui/Logo";
+import AppleGlassButton from "../ui/AppleGlassButton";
 
 interface NavItem {
   label: string;
@@ -81,13 +82,12 @@ const Navbar = () => {
       initial={{ y: 0 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        activeDropdown
-          ? "bg-background shadow-xl"
-          : scrolled
-            ? "bg-background/95 backdrop-blur-lg shadow-md"
-            : "bg-gradient-to-b from-background/70 to-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${activeDropdown
+        ? "bg-background shadow-xl"
+        : scrolled
+          ? "bg-background/95 backdrop-blur-lg shadow-md"
+          : "bg-gradient-to-b from-background/70 to-transparent"
+        }`}
     >
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
@@ -124,9 +124,8 @@ const Navbar = () => {
                     </span>
                     {item.children && (
                       <ChevronDown
-                        className={`w-4 h-4 transition-transform duration-300 ${
-                          activeDropdown === item.label ? "rotate-180" : ""
-                        }`}
+                        className={`w-4 h-4 transition-transform duration-300 ${activeDropdown === item.label ? "rotate-180" : ""
+                          }`}
                       />
                     )}
                   </Link>
@@ -134,11 +133,10 @@ const Navbar = () => {
               </div>
             ))}
 
-            <Link
-              to="https://dashboard.cluix.in"
-              className="ml-4 px-6 py-2 bg-primary text-primary-foreground rounded-full font-gilroy font-semibold hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/25"
-            >
-              Dashboard
+            <Link to="https://dashboard.cluix.in">
+              <AppleGlassButton >
+                Dashboard
+              </AppleGlassButton>
             </Link>
           </div>
 
@@ -249,19 +247,11 @@ const Navbar = () => {
                     )}
                   </motion.div>
                 ))}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                  className="mt-8"
-                >
-                  <Link
-                    to="/demo"
-                    className="block w-full py-3 bg-primary text-primary-foreground font-gilroy font-semibold rounded-full font-medium text-center"
-                  >
+                <Link to="https://dashboard.cluix.in" target="_blank">
+                  <AppleGlassButton >
                     Dashboard
-                  </Link>
-                </motion.div>
+                  </AppleGlassButton>
+                </Link>
               </div>
             </motion.div>
           )}

@@ -36,8 +36,7 @@ const Logo = ({ variant = "auto", size = "md", className = "", linkTo = "/" }: L
     >
       <img src={cluixLogo} alt="Cluix Logo" className={`${sizeClasses[size]} w-auto object-contain`} />
       <span
-        className={`font-bold tracking-tight ${textSizeClasses[size]} ${textColorClasses[variant]}`}
-        style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+        className={`font-gilroy font-bold tracking-widest ${textSizeClasses[size]} ${textColorClasses[variant]}`}
       >
         CLUIX
       </span>

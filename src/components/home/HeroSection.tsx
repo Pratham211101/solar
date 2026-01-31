@@ -1,15 +1,14 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, ChevronDown, Check } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import ScrollIndicator from "../layout/ScrollIndicator";
+import AppleGlassButton from "../ui/AppleGlassButton";
 
 const scrollTexts = ["ENVIRONMENTAL MONITORING", "WATER QUALITY ANALYSIS", "EMISSION TRACKING", "SUSTAINABLE FUTURE"];
 
-const features = ["NABL-ready accuracy standards", "Government-approved deployments", "Enterprise-grade reliability"];
-
 const HeroSection = () => {
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className="relative h-screen w-full overflow-hidden flex items-end">
       {/* Video Background */}
       <div className="absolute inset-0">
         <video
@@ -22,122 +21,77 @@ const HeroSection = () => {
         >
           <source src="/videos/hero-bg.mp4" type="video/mp4" />
         </video>
-        <div className="hero-overlay absolute inset-0" />
+        <div className="hero-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
       </div>
 
       {/* Gradient Curves */}
-      <div className="absolute inset-0 bg-curve-top pointer-events-none" />
-      <div className="absolute inset-0 bg-curve-bottom pointer-events-none" />
+      <div className="absolute inset-0 bg-curve-top pointer-events-none opacity-50" />
+      <div className="absolute inset-0 bg-curve-bottom pointer-events-none opacity-50" />
 
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 mt-28 h-full flex items-center">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full">
-          {/* Main Text */}
-          <div className="lg:col-span-8">
-            {/* <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-medium mb-6">
-                Next-Gen Environmental Monitoring
-              </span>
-            </motion.div> */}
+      {/* Content anchored to Bottom Left */}
+      <div className="relative z-10 container mx-auto px-12 pb-24 text-left">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          className="max-w-5xl"
+        >
+          <motion.h1
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-6xl md:text-8xl lg:text-9xl font-gilroy font-bold leading-[0.85] mb-10 tracking-tighter"
+          >
+            <span className="text-white">Precision</span>
+            <br />
+            <span className="text-gradient">Simplified</span>
+          </motion.h1>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
-            >
-              <span className="text-foreground">Decision-Grade</span>
-              <br />
-              <span className="text-gradient">Water Quality</span>
-              <br />
-              <span className="text-foreground">System</span>
-            </motion.h1>
-
-            {/* <motion.p
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-lg text-muted-foreground max-w-2xl mb-8"
-            >
-              Trusted by government utilities, industries, and institutions for field-ready water quality monitoring
-              with real-time compliance reporting.
-            </motion.p> */}
-
-            {/* Feature Checkmarks */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-              className="flex flex-wrap gap-6 mb-10"
-            >
-              {features.map((feature, index) => (
-                <div key={index} className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-full bg-primary/20 border border-primary/50 flex items-center justify-center">
-                    <Check className="w-3 h-3 text-primary" />
-                  </div>
-                  <span className="text-sm text-muted-foreground">{feature}</span>
-                </div>
-              ))}
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="flex flex-wrap gap-4"
-            >
-              <Link
-                to="/products"
-                className="group inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/25"
-              >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="flex flex-col md:flex-row items-start md:items-center gap-12"
+          >
+            <Link to="/products">
+              <AppleGlassButton>
                 Explore Products
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                to="/about-us"
-                className="inline-flex items-center gap-2 px-8 py-4 border border-primary/30 text-foreground rounded-full font-semibold hover:bg-primary/10 transition-all duration-300"
-              >
-                Learn More
-              </Link>
-            </motion.div>
-          </div>
+              </AppleGlassButton>
+            </Link>
 
-          {/* Animated Scroll Text */}
-          <div className="hidden lg:flex lg:col-span-4 flex-col items-end justify-center h-full py-20">
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 1 }}
-              className="relative"
+            <motion.p
+              className="text-lg md:text-xl text-white/60 font-gilroy font-light tracking-wide max-w-md border-l border-white/20 pl-6"
             >
-              {scrollTexts.map((text, index) => (
-                <motion.div
-                  key={text}
-                  initial={{ opacity: 0.3 }}
-                  animate={{ opacity: [0.3, 1, 0.3] }}
-                  transition={{
-                    duration: 3,
-                    delay: index * 0.8,
-                    repeat: Infinity,
-                    repeatDelay: scrollTexts.length * 0.8 - 0.8,
-                  }}
-                  className="text-right mb-4"
-                >
-                  <span className="text-sm tracking-[0.3em] text-muted-foreground font-light">{text}</span>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
+              Building the future of environmental monitoring with decision-grade accuracy.
+            </motion.p>
+          </motion.div>
+        </motion.div>
       </div>
-      <ScrollIndicator style="absolute right-8 md:right-12 bottom-12 flex flex-col items-center gap-3 z-50 pointer-events-none" />
 
-      {/* Bottom Gradient Line */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+      {/* Animated Scroll Text (Top Right) - Subtler */}
+      <div className="hidden lg:flex absolute right-12 top-24 flex-col items-end gap-2 z-10">
+        {scrollTexts.map((text, index) => (
+          <motion.div
+            key={text}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0, 0.3, 0] }}
+            transition={{
+              duration: 5,
+              delay: index * 1.2,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="text-right"
+          >
+            <span className="text-[9px] tracking-[0.6em] text-white font-gilroy uppercase whitespace-nowrap">{text}</span>
+          </motion.div>
+        ))}
+      </div>
+
+      <ScrollIndicator style="absolute right-12 bottom-12 flex flex-col items-center gap-3 z-50 pointer-events-none" />
+
+      {/* Bottom Subtle Highlight */}
+      <div className="absolute bottom-0 left-0 right-0 h-[20vh] bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
     </section>
   );
 };
