@@ -36,25 +36,33 @@ const pressReleases = [
 const featuredNews = {
   date: "2024.01.25",
   title: "Exploring the range and connectivity options for environmental sensors",
+  excerpt: "Discover how advanced IoT protocols and standardized communication methods are enabling a more interconnected ecosystem for environmental monitoring.",
   image: "https://images.unsplash.com/photo-1542382257-80dedb725088?w=1200&q=80",
 };
 
 const Media = () => {
   return (
     <>
-      <div className="light-theme bg-background min-h-screen">
+      <div className="light-theme bg-background min-h-screen font-gilroy">
         <main className="pt-24 lg:pt-32">
           {/* Header & Featured News */}
-          <section className="pb-24">
-            <div className="container mx-auto px-6">
+          <section className="pb-12">
+            <div className="container mx-auto px-6 mb-8">
               <ScrollReveal>
-                <h1 className="text-6xl md:text-8xl font-bold text-slate-900 tracking-tight mb-12 uppercase">
+                <h1 className="text-6xl md:text-8xl font-bold text-slate-900 tracking-tight uppercase">
                   Newsroom
                 </h1>
               </ScrollReveal>
+            </div>
 
+            {/* Scrolling Headline Ticker - Full Width */}
+            <div className="mb-12 border-y-2 border-slate-900">
+              <ScrollingHeadline />
+            </div>
+
+            <div className="container mx-auto px-6">
               <div className="grid lg:grid-cols-12 gap-12 items-center">
-                <div className="lg:col-span-7">
+                <div className="lg:col-span-5">
                   <ScrollReveal>
                     <motion.div
                       className="relative group cursor-pointer overflow-hidden rounded-sm"
@@ -68,33 +76,31 @@ const Media = () => {
                       />
                       <div className="absolute inset-0 bg-black/10 transition-opacity group-hover:bg-black/20" />
                       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/40">
-                          <Plus className="w-8 h-8 text-white" />
-                        </div>
                       </div>
                     </motion.div>
                   </ScrollReveal>
                 </div>
+
                 <div className="lg:col-span-5">
                   <ScrollReveal delay={0.2}>
                     <p className="text-sm font-medium text-slate-500 mb-4">{featuredNews.date}</p>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-8 group cursor-pointer">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-6 group cursor-pointer">
                       <span className="hover:text-primary transition-colors duration-300">
                         {featuredNews.title}
                       </span>
                     </h2>
+                    <p className="text-slate-600 text-lg leading-relaxed font-light mb-8 max-w-lg">
+                      {featuredNews.excerpt}
+                    </p>
                   </ScrollReveal>
                 </div>
               </div>
             </div>
           </section>
 
-          {/* Scrolling Headline Ticker */}
-          <ScrollingHeadline />
-
           {/* Recent News Header */}
-          <section className="border-t border-slate-200">
-            <div className="container mx-auto px-6 py-12">
+          <section className="">
+            <div className="container mx-auto px-6 py-8">
               <ScrollReveal>
                 <div className="flex flex-col">
                   <span className="text-4xl font-bold text-slate-900 uppercase tracking-tighter">Recent</span>
