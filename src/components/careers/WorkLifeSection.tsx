@@ -55,10 +55,10 @@ export function WorkLifeSection() {
             </span>
             <div className="h-px w-16 bg-border" />
           </div>
-          <h2 className="text-6xl md:text-7xl lg:text-8xl font-gilroy font-normal text-foreground leading-tight">
-            Quality of work,
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-gilroy font-semibold text-foreground leading-tight">
+            Quality of <span className="text-primary">work</span>,
             <br />
-            quality of life
+            quality of <span className="text-primary">life</span>
           </h2>
         </div>
 
@@ -73,8 +73,9 @@ export function WorkLifeSection() {
               key={perk.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.05 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: index * 0.1, type: "spring", stiffness: 300 }}
               className={`group relative border-r border-b border-border cursor-pointer z-10 overflow-hidden border-t ${index === 0 ? 'border-l' : ''
                 }`}
             >
@@ -113,8 +114,9 @@ export function WorkLifeSection() {
               key={perk.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.05 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
+              transition={{ delay: 0.1, type: "spring", stiffness: 300 }}
               className={`group relative border-r border-b border-border cursor-pointer z-10 overflow-hidden ${index === 0 ? 'border-t border-l' : ''
                 }`}
             >

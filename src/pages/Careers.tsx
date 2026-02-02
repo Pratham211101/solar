@@ -1,10 +1,11 @@
+import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Footer from "../components/layout/Footer";
 import ScrollReveal from "../components/ui/ScrollReveal";
 import WorkLifeSection from "../components/careers/WorkLifeSection";
 import EmployeeCarousel from "../components/careers/EmployeeCarousel";
-import { ArrowRight, MapPin, Briefcase } from "lucide-react";
+import { ArrowRight, MapPin, Briefcase, Search, Filter } from "lucide-react";
 import CareersHero from "@/components/careers/CareersHero";
 
 const openings = [
@@ -45,71 +46,127 @@ const openings = [
   },
 ];
 
-const benefits = [
-  "Competitive salary & equity",
-  "Health, dental & vision insurance",
-  "Unlimited PTO",
-  "Remote-friendly culture",
-  "Learning & development budget",
-  "Home office stipend",
-];
-
 const Careers = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedDept, setSelectedDept] = useState("All");
+
+  const departments = ["All", ...new Set(openings.map(job => job.department))];
+
+  const filteredOpenings = useMemo(() => {
+    return openings.filter(job => {
+      const matchesSearch = job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        job.department.toLowerCase().includes(searchQuery.toLowerCase());
+      const matchesDept = selectedDept === "All" || job.department === selectedDept;
+      return matchesSearch && matchesDept;
+    });
+  }, [searchQuery, selectedDept]);
+
   return (
     <>
       <div className="light-theme bg-background min-h-screen">
         <main className="bg-background">
-          {/* Hero Section  */}
           <CareersHero />
 
-          {/* Open Positions */}
-          <section className="py-24 bg-muted/30">
+          <section className="py-24 bg-muted/10">
             <div className="container mx-auto px-6">
-              <ScrollReveal className="text-center mb-16">
-                <h2 className="text-4xl font-bold mb-4">
-                  <span className="text-foreground">Open</span>{" "}
-                  <span className="text-gradient">Positions</span>
+              {/* Header - Left Aligned */}
+              <div className="mb-16">
+                <div className="flex items-center gap-4 mb-6">
+                  <span className="text-sm font-gilroy font-normal tracking-wider text-muted-foreground uppercase">
+                    JOIN THE TEAM
+                  </span>
+                  <div className="h-px w-16 bg-border" />
+                </div>
+                <h2 className="text-5xl md:text-6xl lg:text-7xl font-gilroy font-semibold text-foreground leading-tight">
+                  Open <span className="text-primary">positions</span>
                 </h2>
-              </ScrollReveal>
-              <div className="max-w-3xl mx-auto space-y-4">
-                {openings.map((job, index) => (
-                  <ScrollReveal key={job.id} delay={index * 0.1}>
-                    <Link to={`/careers/${job.id}`}>
-                      <motion.div
-                        whileHover={{ x: 8 }}
-                        className="group card-gradient p-6 flex items-center justify-between"
+              </div>
+
+              {/* Search and Filters */}
+              <div className="flex flex-col md:flex-row gap-4 mb-12">
+                <div className="relative flex-1">
+                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                  <input
+                    type="text"
+                    placeholder="Search roles or departments..."
+                    className="w-full pl-12 pr-4 py-4 rounded-xl bg-white border border-border focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all font-gilroy"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                  />
+                </div>
+                <div className="flex items-center gap-2 bg-white border border-border p-2 rounded-xl">
+                  <Filter className="w-5 h-5 text-muted-foreground ml-2" />
+                  <div className="flex gap-1">
+                    {departments.map((dept) => (
+                      <button
+                        key={dept}
+                        onClick={() => setSelectedDept(dept)}
+                        className={`px-4 py-2 rounded-lg text-sm font-gilroy font-medium transition-all ${selectedDept === dept
+                            ? "bg-primary text-white"
+                            : "hover:bg-muted text-muted-foreground"
+                          }`}
                       >
-                        <div>
-                          <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
-                            {job.title}
-                          </h3>
-                          <div className="flex items-center gap-4 mt-2 text-sm text-muted-foreground">
-                            <span className="flex items-center gap-1">
-                              <Briefcase className="w-4 h-4" />
+                        {dept}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* 2-Column Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <AnimatePresence mode="popLayout">
+                  {filteredOpenings.map((job, index) => (
+                    <motion.div
+                      layout
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, scale: 0.95 }}
+                      transition={{ duration: 0.3 }}
+                      key={job.id}
+                    >
+                      <Link to={`/careers/${job.id}`}>
+                        <motion.div
+                          whileHover={{ y: -4, scale: 1.01 }}
+                          className="group card-gradient p-8 flex items-center justify-between h-full border border-border hover:border-primary/30 transition-all shadow-sm hover:shadow-xl bg-white"
+                        >
+                          <div>
+                            <span className="text-xs font-bold text-primary uppercase tracking-widest mb-2 block">
                               {job.department}
                             </span>
-                            <span className="flex items-center gap-1">
-                              <MapPin className="w-4 h-4" />
-                              {job.location}
-                            </span>
-                            <span className="px-2 py-0.5 rounded bg-primary/10 text-primary text-xs">
-                              {job.type}
-                            </span>
+                            <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors mb-4">
+                              {job.title}
+                            </h3>
+                            <div className="flex items-center gap-6 text-muted-foreground">
+                              <span className="flex items-center gap-2 text-sm">
+                                <MapPin className="w-4 h-4" />
+                                {job.location}
+                              </span>
+                              <span className="flex items-center gap-2 text-sm">
+                                <Briefcase className="w-4 h-4" />
+                                {job.type}
+                              </span>
+                            </div>
                           </div>
-                        </div>
-                        <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                      </motion.div>
-                    </Link>
-                  </ScrollReveal>
-                ))}
+                          <div className="w-12 h-12 rounded-full border border-border flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all">
+                            <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-white transition-colors" />
+                          </div>
+                        </motion.div>
+                      </Link>
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
               </div>
+
+              {filteredOpenings.length === 0 && (
+                <div className="text-center py-20">
+                  <p className="text-xl text-muted-foreground font-gilroy">No positions found matching your criteria.</p>
+                </div>
+              )}
             </div>
           </section>
 
-          {/* Work Life Section */}
           <WorkLifeSection />
-
-          {/* Employee Carousel */}
           <EmployeeCarousel />
         </main>
       </div>
