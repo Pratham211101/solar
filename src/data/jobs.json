@@ -1,0 +1,148 @@
+[
+    {
+        "id": "sales-manager-government",
+        "title": "Sales Manager – Government Business",
+        "department": "Sales",
+        "location": "Delhi (Travel Required)",
+        "type": "Full-time",
+        "salary": "INR 10 Lakh per annum + Performance Linked Incentive",
+        "description": "The Sales Manager – Government Business will own and drive revenue from government customers across central, state, and local departments. This role is hands-on and execution-heavy. You will be responsible for identifying opportunities, managing the tendering process end-to-end, closing orders, and building long-term institutional relationships.",
+        "aboutRole": [
+            "Drive sales of CLUIX products to central and state government departments, PSUs, and urban local bodies",
+            "Build and manage a strong pipeline of B2G opportunities",
+            "Achieve quarterly and annual revenue targets",
+            "Track relevant tenders, EoIs, RFPs, and RFQs across portals",
+            "Lead the end-to-end tendering process including documentation, coordination, and submission",
+            "Work closely with internal teams on technical and commercial compliance",
+            "Build relationships with key decision-makers, engineers, and program heads in government departments",
+            "Coordinate with implementation partners, consultants, and system integrators where required",
+            "Represent CLUIX in meetings, reviews, and government forums",
+            "Provide on-ground insights on procurement trends, budgets, and upcoming programs",
+            "Support pilot-to-scale conversions and repeat orders"
+        ],
+        "skills": [
+            "Strong understanding of government procurement and tender processes",
+            "Proven track record of closing government orders",
+            "Experience dealing with departments such as PHED, Jal Nigam, Municipal Corporations, State Missions, PSUs, or similar bodies is a strong advantage",
+            "Excellent communication, negotiation, and follow-up skills",
+            "Willingness to travel extensively"
+        ],
+        "eligibility": [
+            "Minimum 3 years of experience in government sales or B2G product sales."
+        ],
+        "offers": [
+            "Fixed Salary: INR 10 Lakh per annum",
+            "Performance Linked Incentive tied directly to closures and collections",
+            "Opportunity to grow into a senior leadership role as the government business scales"
+        ]
+    },
+    {
+        "id": "senior-software-engineer",
+        "title": "Senior Software Engineer",
+        "department": "Engineering",
+        "location": "San Francisco, CA",
+        "type": "Full-time",
+        "salary": "Competitive Market Rate",
+        "description": "We're looking for a Senior Software Engineer to join our team and help build the next generation of environmental monitoring solutions.",
+        "aboutRole": [
+            "Design and implement scalable backend services",
+            "Lead technical architecture decisions",
+            "Mentor junior engineers",
+            "Collaborate with product and design teams"
+        ],
+        "skills": [
+            "5+ years of software engineering experience",
+            "Strong proficiency in TypeScript/JavaScript",
+            "Experience with cloud platforms (AWS/GCP)"
+        ],
+        "eligibility": [
+            "Bachelor's or Master's degree in Computer Science or related field."
+        ],
+        "offers": [
+            "Competitive salary and equity",
+            "Comprehensive health, dental, and vision insurance",
+            "Relocation assistance"
+        ]
+    },
+    {
+        "id": "product-manager",
+        "title": "Product Manager",
+        "department": "Product",
+        "location": "Remote",
+        "type": "Full-time",
+        "salary": "Competitive Market Rate",
+        "description": "Apply your product expertise to define the future of environmental monitoring.",
+        "aboutRole": [
+            "Define product strategy and roadmap",
+            "Gather and prioritize product and customer requirements",
+            "Work closely with engineering, sales, and marketing"
+        ],
+        "skills": [
+            "3+ years of product management experience",
+            "Strong analytical and problem-solving skills",
+            "Excellent communication skills"
+        ],
+        "eligibility": [
+            "Experience in B2B SaaS or IoT products preferred."
+        ],
+        "offers": [
+            "Remote-first work environment",
+            "Flexible PTO policy",
+            "Professional development budget"
+        ]
+    },
+    {
+        "id": "data-scientist",
+        "title": "Data Scientist",
+        "department": "AI/ML",
+        "location": "San Francisco, CA",
+        "type": "Full-time",
+        "salary": "Competitive Market Rate",
+        "description": "Help us derive meaningful insights from massive environmental datasets.",
+        "aboutRole": [
+            "Develop and deploy machine learning models",
+            "Analyze large datasets to identify trends",
+            "Work with engineering to integrate models into production"
+        ],
+        "skills": [
+            "Advanced degree in a quantitative field",
+            "Expertise in Python, R, and SQL",
+            "Experience with ML frameworks (PyTorch, TensorFlow)"
+        ],
+        "eligibility": [
+            "Proven track record of delivering AI/ML solutions."
+        ],
+        "offers": [
+            "State-of-the-art compute resources",
+            "Opportunity to publish research",
+            "Collaborative research environment"
+        ]
+    },
+    {
+        "id": "environmental-engineer",
+        "title": "Environmental Engineer",
+        "department": "Engineering",
+        "location": "San Francisco, CA",
+        "type": "Full-time",
+        "salary": "Competitive Market Rate",
+        "description": "Bridge the gap between hardware and environmental science.",
+        "aboutRole": [
+            "Design environmental monitoring systems",
+            "Validate sensor accuracy and performance",
+            "Collaborate with hardware and software teams"
+        ],
+        "skills": [
+            "Degree in Environmental Engineering or related field",
+            "Knowledge of sensor technologies",
+            "Experience with environmental regulations"
+        ],
+        "eligibility": [
+            "Experience in water or air quality monitoring preferred."
+        ],
+        "offers": [
+            "Involvement in cutting-edge climate tech",
+            "Field work opportunities",
+            "Impact-driven projects"
+        ]
+    }
+]

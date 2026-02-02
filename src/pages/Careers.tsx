@@ -10,6 +10,13 @@ import CareersHero from "@/components/careers/CareersHero";
 
 const openings = [
   {
+    id: "sales-manager-government",
+    title: "Sales Manager – Government Business",
+    department: "Sales",
+    location: "Delhi (Travel Required)",
+    type: "Full-time",
+  },
+  {
     id: "senior-software-engineer",
     title: "Senior Software Engineer",
     department: "Engineering",
@@ -28,13 +35,6 @@ const openings = [
     title: "Data Scientist",
     department: "AI/ML",
     location: "San Francisco, CA",
-    type: "Full-time",
-  },
-  {
-    id: "sales-executive",
-    title: "Sales Executive",
-    department: "Sales",
-    location: "New York, NY",
     type: "Full-time",
   },
   {
@@ -102,8 +102,8 @@ const Careers = () => {
                         key={dept}
                         onClick={() => setSelectedDept(dept)}
                         className={`px-4 py-2 rounded-lg text-sm font-gilroy font-medium transition-all ${selectedDept === dept
-                            ? "bg-primary text-white"
-                            : "hover:bg-muted text-muted-foreground"
+                          ? "bg-primary text-white"
+                          : "hover:bg-muted text-muted-foreground"
                           }`}
                       >
                         {dept}
@@ -127,8 +127,9 @@ const Careers = () => {
                     >
                       <Link to={`/careers/${job.id}`}>
                         <motion.div
-                          whileHover={{ y: -4, scale: 1.01 }}
-                          className="group card-gradient p-8 flex items-center justify-between h-full border border-border hover:border-primary/30 transition-all shadow-sm hover:shadow-xl bg-white"
+                          whileHover={{ y: -8, scale: 1.02 }}
+                          transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                          className="group card-gradient p-8 flex items-center justify-between h-full border border-border hover:border-primary/30 shadow-sm hover:shadow-2xl bg-white transition-colors duration-300"
                         >
                           <div>
                             <span className="text-xs font-bold text-primary uppercase tracking-widest mb-2 block">

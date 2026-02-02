@@ -71,16 +71,43 @@ export function WorkLifeSection() {
           {perks.slice(0, 3).map((perk, index) => (
             <motion.div
               key={perk.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ scale: 1.05 }}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  zIndex: 1,
+                  borderColor: "hsl(var(--border))",
+                  transition: {
+                    delay: index * 0.1,
+                    type: "spring",
+                    stiffness: 300,
+                    borderColor: { delay: 0.5 }, // Show border only when back in position
+                    zIndex: { delay: 0 }
+                  }
+                },
+                hover: {
+                  scale: 1.05,
+                  zIndex: 50,
+                  borderColor: "transparent",
+                  boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+                  transition: {
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 30,
+                    borderColor: { duration: 0 } // Instant remove
+                  }
+                }
+              }}
+              initial="hidden"
+              whileInView="visible"
+              whileHover="hover"
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1, type: "spring", stiffness: 300 }}
-              className={`group relative border-r border-b border-border cursor-pointer z-10 overflow-hidden border-t ${index === 0 ? 'border-l' : ''
+              className={`group relative border-r border-b border-border cursor-pointer overflow-hidden border-t ${index === 0 ? 'border-l' : ''
                 }`}
             >
               {/* Hover Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-900/95 to-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
+              <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-900 to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
 
               {/* Default State */}
               <div className="relative h-64 p-8 flex flex-col items-center justify-center text-center transition-all duration-200 group-hover:translate-y-[-10px] z-10 group-hover:opacity-0">
@@ -112,16 +139,43 @@ export function WorkLifeSection() {
           {perks.slice(3, 6).map((perk, index) => (
             <motion.div
               key={perk.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ scale: 1.05 }}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  zIndex: 1,
+                  borderColor: "hsl(var(--border))",
+                  transition: {
+                    delay: (index + 3) * 0.1,
+                    type: "spring",
+                    stiffness: 300,
+                    borderColor: { delay: 0.5 }, // Show border only when back in position
+                    zIndex: { delay: 0 }
+                  }
+                },
+                hover: {
+                  scale: 1.05,
+                  zIndex: 50,
+                  borderColor: "transparent",
+                  boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+                  transition: {
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 30,
+                    borderColor: { duration: 0 } // Instant remove
+                  }
+                }
+              }}
+              initial="hidden"
+              whileInView="visible"
+              whileHover="hover"
               viewport={{ once: true }}
-              transition={{ delay: 0.1, type: "spring", stiffness: 300 }}
-              className={`group relative border-r border-b border-border cursor-pointer z-10 overflow-hidden ${index === 0 ? 'border-t border-l' : ''
+              className={`group relative border-r border-b border-border cursor-pointer overflow-hidden ${index === 0 ? 'border-t border-l' : ''
                 }`}
             >
               {/* Hover Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-900/95 to-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
+              <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-900 to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
 
               {/* Default State */}
               <div className="relative h-64 p-8 flex flex-col items-center justify-center text-center transition-all duration-200 group-hover:translate-y-[-10px] z-10 group-hover:opacity-0">
