@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Shield, Droplets } from "lucide-react";
+import { ArrowRight, Download, Droplets, Shield } from "lucide-react";
 import { ProductData } from "@/data/products";
+import AppleGlassButton from "../ui/AppleGlassButton";
+import ScrollReveal from "../ui/ScrollReveal";
 
 interface ProductHeroProps {
   product: ProductData;
@@ -9,143 +11,94 @@ interface ProductHeroProps {
 
 const ProductHero = ({ product }: ProductHeroProps) => {
   return (
-    <section className="h-screen flex items-center bg-gradient-to-br from-gray-50 to-white overflow-hidden">
-      <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <section className="h-[100vh] flex items-center bg-white overflow-hidden font-gilroy relative">
+      {/* Background Polish */}
+      <div className="absolute top-0 right-0 w-[50%] h-full bg-white skew-x-[-12deg] translate-x-[20%] pointer-events-none" />
+      <div className="absolute top-[10%] left-[10%] w-64 h-64 bg-primary/5 blur-[100px] rounded-full pointer-events-none" />
+
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Content */}
-          <div>
-            {/* Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6"
-            >
-              <Shield className="w-4 h-4" />
-              {product.badge}
-            </motion.div>
+          <div className="lg:col-span-7">
+            <ScrollReveal>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-background leading-[1.05] mb-8 tracking-tighter-custom">
+                {product.name.split(' ').slice(0, -1).join(' ')}
+                <span className="text-gradient italic">{` ${product.name.split(' ').pop()}`}</span>
+              </h1>
 
-            {/* Title */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6"
-            >
-              {product.name}
-            </motion.h1>
+              <p className="text-2xl md:text-3xl font-medium text-slate-800 mb-2 max-w-2xl leading-tight opacity-90">
+                {product.tagline || product.description.split('.')[0]}
+              </p>
 
-            {/* Description */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg text-gray-600 mb-8 max-w-lg"
-            >
-              {product.description}
-            </motion.p>
+              <p className="text-lg text-muted-foreground mb-6 max-w-xl leading-relaxed">
+                {product.description}
+              </p>
 
-            {/* Features */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-wrap gap-3 mb-8"
-            >
-              {product.features.map((feature) => (
-                <span
-                  key={feature}
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-full text-sm text-gray-700"
-                >
-                  <svg
-                    className="w-4 h-4 text-primary"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
+              {/* Features Chips */}
+              <div className="flex flex-wrap gap-3 mb-6">
+                {product.features.map((feature, i) => (
+                  <motion.span
+                    key={i}
+                    whileHover={{ scale: 1.05 }}
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-semibold text-slate-600 shadow-sm"
                   >
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                    <polyline points="22 4 12 14.01 9 11.01" />
-                  </svg>
-                  {feature}
-                </span>
-              ))}
-            </motion.div>
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                    {feature}
+                  </motion.span>
+                ))}
+              </div>
 
-            {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-wrap gap-4 mb-6"
-            >
-              <Link
-                to="/demo"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors"
-              >
-                Request a Demo
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <a
-                href="#deployment-support"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-gray-300 text-gray-900 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
-              >
-                Get a Quote
-              </a>
-            </motion.div>
+              <div className="flex flex-wrap gap-6 mb-6 ">
+                <Link to="/demo">
 
-            {/* Volume Pricing */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="text-sm text-gray-500 mb-4"
-            >
-              Volume pricing available for government and enterprise orders
-            </motion.p>
+                  <AppleGlassButton
+                    className="w-full bg-slate-900 border-none hover:bg-slate-800 text-base"
+                    icon={<ArrowRight className="w-6 h-6" />}
+                  >
+                    Request a Demo
+                  </AppleGlassButton>
+                </Link>
 
-            {/* Brochure Download */}
-            {product.brochureLink && (
-              <motion.a
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                href={product.brochureLink}
-                className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors text-sm font-medium"
-              >
-                <Download className="w-4 h-4" />
-                Download brochure & specifications
-              </motion.a>
-            )}
+                <a
+                  href="#deployment-support"
+                  className="inline-flex items-center gap-4 px-4 border border-slate-200 text-slate-600 rounded-full font-bold hover:bg-slate-50 transition-all text-lg"
+                >
+                  Get a Quote
+                </a>
+              </div>
+
+              <div className="flex flex-col gap-3">
+
+                {product.brochureLink && (
+                  <motion.a
+                    whileHover={{ x: 5 }}
+                    href={product.brochureLink}
+                    className="inline-flex items-center gap-3 text-primary font-bold hover:text-primary/80 transition-colors text-lg group"
+                  >
+                    <Download className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                    Download technical specifications
+                  </motion.a>
+                )}
+              </div>
+            </ScrollReveal>
           </div>
 
           {/* Right Content - Product Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="relative"
-          >
-            <div className="relative bg-white rounded-2xl shadow-xl p-8 lg:p-12">
-              {/* Product Image Placeholder */}
-              <div className="bg-gray-50 rounded-xl flex items-center justify-center mb-6 aspect-square">
-                <div className="text-center">
-                  <div className="w-20 h-20 mx-auto bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
-                    <Droplets className="w-10 h-10 text-primary" />
+          <div className="lg:col-span-5 relative flex items-center justify-center">
+            <ScrollReveal delay={0.3} direction="right">
+              <div className="relative group w-full">
+                <div className="relative z-10 transition-transform duration-700 hover:scale-105">
+                  <div className="relative aspect-square flex items-center justify-center">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-full object-contain"
+                    />
                   </div>
-                  <p className="text-gray-400 text-sm">Product image</p>
                 </div>
               </div>
-
-              {/* Stat Badge */}
-              <div className="absolute bottom-4 right-4 bg-white rounded-xl shadow-lg px-4 py-3 border border-gray-100">
-                <p className="text-xs text-gray-500">Deployed in</p>
-                <p className="text-xl font-bold text-gray-900">
-                  {product.stat.value} {product.stat.label}
-                </p>
-              </div>
-            </div>
-          </motion.div>
+            </ScrollReveal>
+          </div>
         </div>
       </div>
     </section>

@@ -46,7 +46,7 @@ const ProductDetail = () => {
 
   return (
     <div className="bg-white min-h-screen">
-      <main className="pt-8">
+      <main className="pt-0">
         {/* Hero Section */}
         <ProductHero product={product} />
 
@@ -65,15 +65,6 @@ const ProductDetail = () => {
             title={product.howItWorks.title}
             subtitle={product.howItWorks.subtitle}
             steps={product.howItWorks.steps}
-          />
-        )}
-
-        {/* Who It's For Section */}
-        {product.whoItsFor && (
-          <ProductWhoItsFor
-            title={product.whoItsFor.title}
-            subtitle={product.whoItsFor.subtitle}
-            sectors={product.whoItsFor.sectors}
           />
         )}
 
