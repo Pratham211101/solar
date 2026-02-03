@@ -115,8 +115,8 @@ const AboutUs = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8 }}
                   >
-                    <h1 className="font-gilroy text-7xl md:text-9xl font-black text-white leading-[0.85] tracking-[0.02em] uppercase">
-                      ABOUT <br /> <span className="text-gradient italic">CLUIX</span>
+                    <h1 className="font-gilroy text-7xl md:text-9xl text-white leading-[0.85] tracking-[0.02em] font-medium">
+                      ABOUT <br /> <span className="text-gradient italic font-semibold">CLUIX</span>
                     </h1>
                   </motion.div>
                 </div>
