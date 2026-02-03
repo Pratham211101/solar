@@ -20,20 +20,12 @@ const products = [
     href: "/products/reagent-kit"
   },
   {
-    id: "varunaa",
-    name: "VARUNAA",
-    category: "MONITORING",
-    description: "Smart water level monitoring system with real-time alerts.",
+    id: "monitoring-solutions",
+    name: "MONITORING SOLUTIONS",
+    category: "SURVEILLANCE",
+    description: "Continuous IoT systems including OCEMS, Varunaa, and industrial surveillance.",
     image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80",
-    href: "/products/varunaa"
-  },
-  {
-    id: "ocems",
-    name: "OCEMS DEVICE",
-    category: "COMPLIANCE",
-    description: "Online Continuous Emission Monitoring for industrial compliance.",
-    image: "https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?w=800&q=80",
-    href: "/products/ocems"
+    href: "/products/monitoring-solutions"
   },
 ];
 
@@ -56,7 +48,7 @@ export function ProductsShowcaseSection() {
       </div>
 
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 w-3/4 mx-auto">
           {products.map((product, i) => (
             <Link to={product.href} key={product.id}>
               <motion.div

@@ -77,8 +77,9 @@ const Careers = () => {
                   </span>
                   <div className="h-px w-16 bg-border" />
                 </div>
-                <h2 className="text-5xl md:text-6xl lg:text-7xl font-gilroy font-semibold text-foreground leading-tight">
-                  Open <span className="text-primary">positions</span>
+                <h2 className="text-5xl md:text-6xl lg:text-7xl font-gilroy font-semibold text-foreground leading-tight flex flex-wrap items-center gap-x-4">
+                  <span>Open</span>
+                  <span className="text-primary italic px-2">positions</span>
                 </h2>
               </div>
 
@@ -132,7 +133,7 @@ const Careers = () => {
                           className="group card-gradient p-8 flex items-center justify-between h-full border border-border hover:border-primary/30 shadow-sm hover:shadow-2xl bg-white transition-colors duration-300"
                         >
                           <div>
-                            <span className="text-xs font-bold text-primary uppercase tracking-widest mb-2 block">
+                            <span className="text-[10px] font-bold text-primary italic uppercase tracking-widest mb-2 block">
                               {job.department}
                             </span>
                             <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors mb-4">

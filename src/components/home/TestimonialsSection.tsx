@@ -30,14 +30,14 @@ const testimonials = [
 
 export function TestimonialsSection() {
   return (
-    <section className="py-32 bg-white relative overflow-hidden border-t border-black/5">
-      <div className="container mx-auto px-6 mb-24">
+    <section className="h-screen bg-white relative overflow-hidden border-t border-black/5 flex items-center">
+      <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col md:flex-row md:items-end justify-between gap-8"
+          className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16"
         >
           <div>
             <span className="text-primary font-gilroy text-[10px] font-bold tracking-[0.5em] uppercase mb-4 block">Impact Stories</span>
@@ -51,9 +51,6 @@ export function TestimonialsSection() {
             ))}
           </div>
         </motion.div>
-      </div>
-
-      <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border-t border-black/5">
           {testimonials.map((testimonial, i) => (
             <motion.div
@@ -90,12 +87,6 @@ export function TestimonialsSection() {
         </div>
       </div>
 
-      {/* Decorative Branding */}
-      <div className="container mx-auto px-6 mt-16 flex justify-center opacity-5">
-        <span className="font-gilroy font-black text-[12vw] tracking-tighter text-black select-none pointer-events-none">
-          TESTIMONIALS
-        </span>
-      </div>
     </section>
   );
 }

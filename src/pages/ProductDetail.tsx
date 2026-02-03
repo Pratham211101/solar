@@ -6,6 +6,7 @@ import ProductHowItWorks from "../components/product/ProductHowItWorks";
 import ProductWhoItsFor from "../components/product/ProductWhoItsFor";
 import ProductDeploymentSupport from "../components/product/ProductDeploymentSupport";
 import WhyCluixSection from "../components/product/WhyCluixSection";
+import ProductFAQ from "../components/product/ProductFAQ";
 import { productsData } from "@/data/products";
 import { useEffect } from "react";
 
@@ -88,6 +89,9 @@ const ProductDetail = () => {
             productName={product.name}
           />
         )}
+
+        {/* FAQ Section */}
+        <ProductFAQ />
       </main>
       <Footer />
     </div>

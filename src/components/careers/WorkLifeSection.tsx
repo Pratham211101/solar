@@ -56,9 +56,9 @@ export function WorkLifeSection() {
             <div className="h-px w-16 bg-border" />
           </div>
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-gilroy font-semibold text-foreground leading-tight">
-            Quality of <span className="text-primary">work</span>,
+            Quality of <span className="text-primary italic px-2">work</span>,
             <br />
-            quality of <span className="text-primary">life</span>
+            quality of <span className="text-primary italic px-2">life</span>
           </h2>
         </div>
 

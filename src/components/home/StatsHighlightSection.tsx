@@ -15,7 +15,7 @@ export function StatsHighlightSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-16 lg:py-20 bg-[#f7f1e3] overflow-hidden"
+      className="relative py-24 bg-gradient-to-b from-[#00f8fc] to-[#009dff] overflow-hidden"
     >
       {/* Sand Texture - Subtle Grain */}
       <div className="absolute inset-0 opacity-[0.05] pointer-events-none z-0"
@@ -27,14 +27,14 @@ export function StatsHighlightSection() {
         initial={{ x: "-100%" }}
         animate={isInView ? { x: ["-100%", "20%", "-100%"] } : {}}
         transition={{
-          duration: 3,
-          times: [0, 0.4, 1],
+          duration: 4,
+          times: [0, 0.45, 1],
           ease: "easeInOut"
         }}
-        className="absolute inset-0 z-20 pointer-events-none w-[150%]"
+        className="absolute inset-0 z-20 pointer-events-none w-[400%]"
       >
         {/* Foam & Water Body - Leading edge of the wave */}
-        <div className="w-full h-full bg-gradient-to-r from-cyan-200/40 via-white/80 to-transparent backdrop-blur-[2px]">
+        <div className="w-full h-full bg-gradient-to-r from-transparent via-cyan-100/30 to-transparent backdrop-blur-[2px]">
           {/* Animated Edge Foam */}
           <motion.div
             animate={{ height: ["100%", "105%", "100%"] }}
@@ -88,27 +88,20 @@ function StatCard({ stat, index, trigger }) {
             ease: [0.23, 1, 0.32, 1],
             delay: 0.1
           }}
-          className="font-gilroy text-5xl md:text-7xl font-extrabold text-[#3d5a80] tracking-tighter"
+          className="font-gilroy text-5xl md:text-7xl font-extrabold text-[#ffffff] tracking-tighter"
         >
           {stat.value.toLocaleString()}{stat.suffix}
         </motion.div>
 
         {/* Sand Shadow / Impression */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={revealed ? { opacity: 0.15 } : {}}
-          transition={{ duration: 1.5 }}
-          className="absolute inset-0 top-[22px] left-[3px] select-none pointer-events-none font-gilroy text-5xl md:text-7xl font-extrabold text-black blur-[1px]"
-        >
-          {stat.value.toLocaleString()}{stat.suffix}
-        </motion.div>
+
       </div>
 
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={revealed ? { opacity: 1, scale: 1 } : {}}
         transition={{ duration: 0.8, delay: 0.5 }}
-        className="font-gilroy font-bold text-[10px] tracking-[0.4em] text-[#98c1d9] uppercase"
+        className="font-gilroy font-bold text-[10px] tracking-[0.4em] text-[#deeff9] uppercase"
       >
         {stat.label}
       </motion.div>

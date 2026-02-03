@@ -92,8 +92,14 @@ const Blog = () => {
           <section className="pb-24">
             <div className="container mx-auto px-6">
               <div className="mb-12">
-                <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4 hidden md:block tracking-tight uppercase">All Articles</h2>
-                <h2 className="text-3xl font-bold text-slate-900 mb-4 md:hidden tracking-tight uppercase">Latest Blog</h2>
+                <h2 className="font-gilroy text-4xl md:text-6xl lg:text-7xl font-black text-slate-900 mb-4 hidden md:flex flex-wrap items-center gap-x-4 tracking-tighter leading-tight uppercase">
+                  <span className="font-semibold">All</span>
+                  <div className="text-gradient italic px-2">Articles</div>
+                </h2>
+                <h2 className="font-gilroy text-3xl font-black text-slate-900 mb-4 md:hidden tracking-tighter leading-tight uppercase flex flex-wrap items-center gap-x-2">
+                  <span className="font-semibold">Latest</span>
+                  <div className="text-gradient italic px-1">Blog</div>
+                </h2>
                 <p className="text-slate-500 text-sm max-w-xl mb-10 leading-relaxed font-light font-gilroy">
                   Find or list tools that will help designers build to last. Simplify design with our comprehensive
                   and carefully vetted library from the start.
