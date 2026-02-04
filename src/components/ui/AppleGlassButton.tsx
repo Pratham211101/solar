@@ -7,6 +7,7 @@ interface AppleGlassButtonProps extends HTMLMotionProps<"button"> {
     icon?: React.ReactNode;
     className?: string;
     soundUrl?: string;
+    textColor?: string;
 }
 
 const AppleGlassButton: React.FC<AppleGlassButtonProps> = ({
@@ -14,6 +15,7 @@ const AppleGlassButton: React.FC<AppleGlassButtonProps> = ({
     icon,
     className,
     soundUrl = "/sounds/water-drip.mp3",
+    textColor = "text-white",
     ...props
 }) => {
     const [isHovered, setIsHovered] = useState(false);
@@ -76,7 +78,8 @@ const AppleGlassButton: React.FC<AppleGlassButtonProps> = ({
 
             {/* Button Text */}
             <span className={cn(
-                "font-gilroy font-medium text-lg tracking-wide text-white drop-shadow-sm flex-1 text-center",
+                "font-gilroy font-medium text-lg tracking-wide drop-shadow-sm flex-1 text-center",
+                textColor,
                 icon && "pl-2"
             )}>
                 {children}

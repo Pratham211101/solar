@@ -1,6 +1,17 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
-import { FlaskConical, Zap, Cloud, FileCheck, LucideIcon, ArrowRight } from "lucide-react";
+import {
+  FlaskConical,
+  Zap,
+  Cloud,
+  FileCheck,
+  Droplets,
+  Clock,
+  CheckCircle,
+  Upload,
+  LucideIcon,
+  ArrowRight,
+} from "lucide-react";
 import ScrollReveal from "../ui/ScrollReveal";
 
 const iconMap: Record<string, LucideIcon> = {
@@ -8,6 +19,10 @@ const iconMap: Record<string, LucideIcon> = {
   zap: Zap,
   cloud: Cloud,
   "file-check": FileCheck,
+  droplets: Droplets,
+  clock: Clock,
+  "check-circle": CheckCircle,
+  upload: Upload,
 };
 
 export interface HowItWorksStep {
@@ -66,27 +81,32 @@ const StepItem = ({
     ["0 10px 15px -3px rgb(0 0 0 / 0.1)", "0 20px 25px -5px rgb(59 130 246 / 0.3)"]
   );
 
+  const isDense = totalSteps > 4;
+
   return (
     <div className="relative group">
       <ScrollReveal delay={index * 0.1}>
         {/* Icon Container */}
-        <div className="relative mb-8 flex justify-center">
+        <div className={`relative flex justify-center ${isDense ? "mb-6" : "mb-8"}`}>
           <motion.div
             style={{ backgroundColor: cardBgColor, boxShadow: shadow, scale }}
-            className="w-32 h-32 rounded-[32px] border border-slate-100 flex items-center justify-center transition-all duration-300 relative z-10 overflow-hidden"
+            className={`${isDense ? "w-24 h-24 rounded-[24px]" : "w-32 h-32 rounded-[32px]"
+              } border border-slate-100 flex items-center justify-center transition-all duration-300 relative z-10 overflow-hidden`}
           >
             <motion.div style={{ color: iconColor }}>
-              <IconComponent className="w-12 h-12 transition-transform duration-500 group-hover:scale-110" />
+              <IconComponent
+                className={`${isDense ? "w-8 h-8" : "w-12 h-12"} transition-transform duration-500 group-hover:scale-110`}
+              />
             </motion.div>
           </motion.div>
         </div>
 
         {/* Content */}
         <div className="text-center space-y-3">
-          <h3 className="text-2xl font-bold text-slate-900">
+          <h3 className={`font-bold text-slate-900 ${isDense ? "text-lg" : "text-2xl"}`}>
             {step.title}
           </h3>
-          <p className="text-slate-600 leading-relaxed font-medium px-4">
+          <p className={`text-slate-600 leading-relaxed font-medium px-2 ${isDense ? "text-xs" : "text-base"}`}>
             {step.description}
           </p>
         </div>
@@ -149,14 +169,20 @@ const ProductHowItWorks = ({ title, subtitle, steps }: ProductHowItWorksProps) =
         {/* Steps Container */}
         <div className="relative">
           {/* Main Horizontal Line (Desktop) */}
-          <div className="hidden lg:block absolute top-[60px] left-[10%] right-[10%] h-[2px] bg-slate-100 overflow-hidden">
+          <div
+            className={`hidden lg:block absolute left-[10%] right-[10%] h-[2px] bg-slate-100 overflow-hidden ${steps.length > 4 ? "top-[48px]" : "top-[64px]"
+              }`}
+          >
             <motion.div
               style={{ width: lineProgress }}
               className="absolute top-0 left-0 h-full bg-gradient-to-r from-primary to-blue-400 origin-left"
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 relative">
+          <div
+            className={`grid grid-cols-1 md:grid-cols-2 lg:gap-8 relative ${steps.length > 4 ? "lg:grid-cols-6 gap-6" : "lg:grid-cols-4 gap-12"
+              }`}
+          >
             {steps.map((step, index) => (
               <StepItem
                 key={step.step}

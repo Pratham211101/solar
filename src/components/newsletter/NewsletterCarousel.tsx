@@ -5,35 +5,39 @@ import { ChevronLeft, ChevronRight, Calendar, ArrowUpRight } from "lucide-react"
 const newsletters = [
     {
         id: 1,
-        title: "The Future of Water Quality Analysis",
-        date: "January 2024",
-        issue: "Issue #12",
-        color: "bg-amber-400",
-        description: "Exploring new handheld technologies that allow for real-time testing in rural areas.",
+        title: "Advancing Precision in Water Analytics",
+        date: "April - June 2025",
+        issue: "AMJ '25",
+        image: "/images/newsletters/amj_newsletter.png",
+        pdf: "/images/newsletters/AMJ Newsletter 2025-26.pdf",
+        description: "Exploring the next generation of smart water management solutions and satellite integration.",
     },
     {
         id: 2,
-        title: "IoT & Real-time Monitoring Trends",
-        date: "December 2023",
-        issue: "Issue #11",
-        color: "bg-cyan-500",
-        description: "How cloud connectivity is changing the landscape of industrial effluent monitoring.",
+        title: "Innovations in Field Monitoring",
+        date: "January - March 2025",
+        issue: "JFM '25",
+        image: "/images/newsletters/jfm_newsletter.png",
+        pdf: "/images/newsletters/JFM year end newsletter 24-25.pdf",
+        description: "Year-end reflections on deploying hardware at scale across varied Indian terrains.",
     },
     {
         id: 3,
-        title: "Sustainable Manufacturing Guide",
-        date: "November 2023",
-        issue: "Issue #10",
-        color: "bg-slate-300",
-        description: "A deep dive into how manufacturing plants can reduce their environmental footprint.",
+        title: "Scaling Impact Across Ecosystems",
+        date: "October - December 2024",
+        issue: "OND '24",
+        image: "/images/newsletters/ond_newsletter.png",
+        pdf: "/images/newsletters/OND Newsletter.pdf",
+        description: "How centralized data dashboards are empowering urban local bodies with real-time insights.",
     },
     {
         id: 4,
-        title: "Understanding Reagent Chemistry",
-        date: "October 2023",
-        issue: "Issue #09",
-        color: "bg-emerald-400",
-        description: "The science behind colorimetric testing and why precision matters for compliance.",
+        title: "The Science of Sustainable Water",
+        date: "July - September 2024",
+        issue: "JAS '24",
+        image: "/images/newsletters/jas_newsletter.png",
+        pdf: "/images/newsletters/JAS Newsletter.pdf",
+        description: "A deep dive into reagent chemistry and its critical role in nationwide compliance monitoring.",
     },
 ];
 
@@ -67,7 +71,7 @@ const NewsletterCarousel = () => {
     const cardOffset = isMobile ? 180 : 320;
 
     return (
-        <section className="pb-24 bg-slate-50/50 overflow-hidden">
+        <section className="py-12 bg-slate-50/50 overflow-hidden">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-4">
                     <motion.div
@@ -75,7 +79,7 @@ const NewsletterCarousel = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Previous Editions</h2>
+                        <h2 className="text-3xl md:text-4xl font-gilroy font-extrabold text-slate-900 mb-4 uppercase">Previous Editions</h2>
                         <p className="text-slate-600 max-w-2xl mx-auto">
                             Stay ahead of the curve with our archived newsletters. Expert insights, technical guides,
                             and the latest environmental monitoring breakthroughs.
@@ -126,31 +130,41 @@ const NewsletterCarousel = () => {
                                         filter: isActive ? "blur(0px)" : "blur(2px)",
                                     }}
                                     transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                                    className={`absolute w-[280px] md:w-[350px] h-[420px] cursor-pointer ${!isVisible ? "pointer-events-none" : ""}`}
+                                    className={`absolute w-[280px] md:w-[350px] h-[450px] cursor-pointer ${!isVisible ? "pointer-events-none" : ""}`}
                                     onClick={() => {
                                         if (relativeIndex !== 0) {
                                             setIndex(i);
                                         }
                                     }}
                                 >
-                                    <div className={`w-full h-full rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col ${newsletter.color} border-[12px] border-white group`}>
-                                        <div className="p-8 h-full flex flex-col relative">
-                                            {/* Decorative elements */}
-                                            <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 blur-2xl" />
+                                    <div className="w-full h-full rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col bg-slate-900 border-[12px] border-white group relative">
+                                        {/* Background Image with Gradient Overlay */}
+                                        <div className="absolute inset-0 z-0">
+                                            <img
+                                                src={newsletter.image}
+                                                alt={newsletter.title}
+                                                className="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700"
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                                        </div>
 
-                                            <div className="flex justify-between items-start mb-6 relative z-10">
+                                        <div className="p-8 h-full flex flex-col relative z-20">
+                                            <div className="flex justify-between items-start mb-6">
                                                 <span className="px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-white text-[10px] font-bold tracking-[0.2em] uppercase border border-white/30">
                                                     {newsletter.issue}
                                                 </span>
-                                                <motion.div
-                                                    whileHover={{ rotate: 45 }}
-                                                    className="w-11 h-11 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30"
+                                                <a
+                                                    href={newsletter.pdf}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="w-11 h-11 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 hover:bg-primary/80 transition-colors"
+                                                    onClick={(e) => e.stopPropagation()}
                                                 >
                                                     <ArrowUpRight className="w-5 h-5 text-white" />
-                                                </motion.div>
+                                                </a>
                                             </div>
 
-                                            <div className="mt-auto relative z-10">
+                                            <div className="mt-auto">
                                                 <div className="flex items-center gap-2 text-white/90 text-[11px] font-medium tracking-wide mb-4 uppercase">
                                                     <Calendar className="w-4 h-4 opacity-70" />
                                                     {newsletter.date}
@@ -158,9 +172,6 @@ const NewsletterCarousel = () => {
                                                 <h3 className="text-2xl md:text-3xl font-bold text-white leading-[1.1] mb-5 group-hover:translate-x-1 transition-transform">
                                                     {newsletter.title}
                                                 </h3>
-                                                <p className="text-white/80 text-sm leading-relaxed line-clamp-3 font-medium">
-                                                    {newsletter.description}
-                                                </p>
                                             </div>
                                         </div>
                                     </div>

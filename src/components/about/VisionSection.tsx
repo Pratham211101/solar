@@ -31,7 +31,7 @@ export function VisionSection() {
                         playsInline
                         className="w-full h-full object-cover"
                     >
-                        <source src="/videos/182288-868067168_medium.mp4" type="video/mp4" />
+                        <source src="/videos/underwater.mp4" type="video/mp4" />
                     </video>
                 </motion.div>
 

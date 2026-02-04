@@ -12,6 +12,10 @@ import {
   Leaf,
   Circle,
   Snowflake,
+  Target,
+  Calendar,
+  Clock,
+  Shield,
   LucideIcon,
 } from "lucide-react";
 import { ProductParameter } from "@/data/products";
@@ -30,6 +34,10 @@ const iconMap: Record<string, LucideIcon> = {
   leaf: Leaf,
   circle: Circle,
   snowflake: Snowflake,
+  target: Target,
+  calendar: Calendar,
+  clock: Clock,
+  shield: Shield,
 };
 
 interface ProductParametersProps {
@@ -51,8 +59,14 @@ const ProductParameters = ({ title, subtitle, parameters }: ProductParametersPro
         <div className="text-center mb-10">
           <ScrollReveal>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-background mb-6 leading-[1.1] tracking-tighter-custom">
-              {title.split(' ').slice(0, -2).join(' ')} <br />
-              <span className="text-primary italic">{title.split(' ').slice(-2).join(' ')}</span>
+              {title.split(' ').length > 1 ? (
+                <>
+                  {title.split(' ').slice(0, -1).join(' ')} <br />
+                  <span className="text-primary italic">{title.split(' ').slice(-1).join(' ')}</span>
+                </>
+              ) : (
+                <span className="text-primary italic">{title}</span>
+              )}
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               {subtitle}
@@ -60,13 +74,18 @@ const ProductParameters = ({ title, subtitle, parameters }: ProductParametersPro
           </ScrollReveal>
         </div>
 
-        {/* Parameters Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 lg:gap-6">
+        {/* Parameters Flex Container */}
+        <div className="flex flex-wrap justify-center gap-4 lg:gap-6">
           {parameters.map((param, index) => {
             const IconComponent = iconMap[param.icon] || Droplets;
 
             return (
-              <ScrollReveal key={param.name} delay={index * 0.05} direction="up">
+              <ScrollReveal
+                key={param.name}
+                delay={index * 0.05}
+                direction="up"
+                className="w-[calc(50%-1rem)] md:w-[180px]"
+              >
                 <motion.div
                   whileHover={{ y: -4 }}
                   className="group relative h-full"
