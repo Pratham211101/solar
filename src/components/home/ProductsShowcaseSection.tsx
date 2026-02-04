@@ -86,8 +86,8 @@ export function ProductsShowcaseSection() {
                   <div className="absolute inset-0 bg-gradient-to-br from-black via-black/95 to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
 
                   {/* Header: Category Badge */}
-                  <div className="relative z-10 flex justify-between items-start">
-                    <div className="px-4 py-1.5 rounded-full border border-black/5 bg-black/[0.02] group-hover:border-white/20 group-hover:bg-white/5 transition-colors">
+                  <div className="relative z-10 flex justify-between items-center">
+                    <div className="flex justify-center items-center px-4 py-1.5 rounded-full border border-black/5 bg-black/[0.02] group-hover:border-white/20 group-hover:bg-white/5 transition-colors">
                       <span className="font-gilroy text-[9px] tracking-[0.2em] text-primary uppercase font-bold">{product.category}</span>
                     </div>
                   </div>
@@ -100,10 +100,10 @@ export function ProductsShowcaseSection() {
                       <img
                         src={product.image}
                         alt={product.name}
-                        className="w-full h-full object-contain opacity-90 group-hover:opacity-100 transition-all duration-300"
+                        className="w-full h-full object-contain opacity-90 group-hover:opacity-100 transition-all duration-300 ease-out"
                       />
                       {/* Subtle vignette */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-80 group-hover:from-black/60 transition-all duration-300" />
+                      {/* <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-80 group-hover:from-black/60 transition-all duration-300" /> */}
                     </div>
                   </div>
 

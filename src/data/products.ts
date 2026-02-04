@@ -58,7 +58,7 @@ export const productsData: Record<string, ProductData> = {
     description:
       "Lab-grade accuracy meets field-ready ruggedness. Test 12+ water quality parameters in under 2 minutes, anywhere.",
     features: ["12+ Parameters", "< 2 min testing", "IP65 rated", "Cloud sync", "GPS tagging"],
-    image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80",
+    image: "/images/products/C012.png",
     stat: { value: "15+", label: "States" },
     parametersTitle: "12+ parameters, one device",
     parametersSubtitle: "Comprehensive water quality profiling with the C012 handheld analyzer.",
@@ -460,7 +460,7 @@ export const productsData: Record<string, ProductData> = {
     description:
       "High-quality reagents for accurate colorimetric testing. Available for all parameters with long shelf life.",
     features: ["Long shelf life", "Field-ready", "Bulk available", "Quality assured", "Easy storage"],
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
+    image: "/images/products/reagent-kit.png",
     stat: { value: "50+", label: "Parameters" },
     brochureLink: "#",
     howItWorks: {

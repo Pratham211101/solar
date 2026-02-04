@@ -25,7 +25,7 @@ export const reagentKitsData: ReagentKitProduct[] = [
     id: "reagent-kit-100",
     name: "Complete Reagent Kit (100 Tests)",
     description: "Full kit with reagents for all 12+ parameters. Designed for field use with the C012 analyzer.",
-    image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&q=80",
+    image: "/images/products/reagent-kit.png",
     tags: ["100 Tests", "All Parameters"],
     features: [
       "Complete testing solution for 12+ water quality parameters",
