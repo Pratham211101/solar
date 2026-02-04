@@ -40,11 +40,11 @@ const HeroSection = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-6xl md:text-8xl lg:text-9xl font-gilroy font-bold leading-[0.85] mb-10 tracking-tighter"
+            className="text-5xl md:text-6xl lg:text-7xl font-gilroy font-bold leading-[0.85] mb-10 tracking-tighter"
           >
-            <span className="text-white">Precision</span>
+            <span className="text-white">Decision grade water intelligence</span>
             <br />
-            <div className="text-gradient italic">Simplified</div>
+            <div className="text-gradient italic">Simplified. Decentralized.</div>
           </motion.h1>
 
           <motion.div
@@ -60,9 +60,9 @@ const HeroSection = () => {
             </Link>
 
             <motion.p
-              className="text-lg md:text-xl text-white/60 font-gilroy font-light tracking-wide max-w-md border-l border-white/20 pl-6"
+              className="text-lg md:text-xl text-white/60 font-gilroy font-light tracking-wide max-w-xl border-l border-white/20 pl-6"
             >
-              Building the future of environmental monitoring with decision-grade accuracy.
+              Simple workflows. Reliable results. Real-time visibility across every location for confident decisions.
             </motion.p>
           </motion.div>
         </motion.div>

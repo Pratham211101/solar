@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Linkedin, Twitter, Youtube } from "lucide-react";
+import { Mail, MapPin, Phone, Linkedin, Twitter, Youtube, Instagram } from "lucide-react";
 import Logo from "@/components/ui/Logo";
 import BackToTop from "./BackToTop";
 
@@ -50,22 +50,29 @@ const Footer = () => {
             </p>
             <div className="space-y-3">
               <a
-                href="mailto:contact@cluix.com"
+                href="mailto:info@cluix.com"
                 className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
               >
                 <Mail className="w-4 h-4" />
-                contact@cluix.com
+                info@cluix.com
               </a>
               <a
-                href="tel:+1234567890"
+                href="tel:+919560589782"
                 className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
               >
                 <Phone className="w-4 h-4" />
-                +1 (234) 567-890
+                +91 9560589782
+              </a>
+              <a
+                href="tel:+919910199782"
+                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Phone className="w-4 h-4" />
+                +91 9910199782
               </a>
               <div className="flex items-start gap-3 text-muted-foreground">
                 <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
-                <span>123 Innovation Drive, Tech Park, CA 90210</span>
+                <span>Lab-4C-1D, 4th Floor, C Block, Research & Innovation Park, IIT Delhi Campus, Hauz Khas, South Delhi, Delhi - (110016)</span>
               </div>
             </div>
           </div>
@@ -150,21 +157,28 @@ const Footer = () => {
           {/* Social Links */}
           <div className="flex items-center gap-4">
             <motion.a
-              href="#"
+              href="https://www.linkedin.com/company/cluix/posts/?feedView=all"
               whileHover={{ scale: 1.1, y: -2 }}
               className="w-10 h-10 rounded-full bg-muted/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-muted transition-all"
             >
               <Linkedin className="w-5 h-5" />
             </motion.a>
             <motion.a
-              href="#"
+              href="https://twitter.com/cluix_in"
               whileHover={{ scale: 1.1, y: -2 }}
               className="w-10 h-10 rounded-full bg-muted/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-muted transition-all"
             >
               <Twitter className="w-5 h-5" />
             </motion.a>
             <motion.a
-              href="#"
+              href="https://www.instagram.com/cluix.in?igsh=MW56amljMzBub3R4ag=="
+              whileHover={{ scale: 1.1, y: -2 }}
+              className="w-10 h-10 rounded-full bg-muted/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-muted transition-all"
+            >
+              <Instagram className="w-5 h-5" />
+            </motion.a>
+            <motion.a
+              href="https://www.youtube.com/@CluixOfficial"
               whileHover={{ scale: 1.1, y: -2 }}
               className="w-10 h-10 rounded-full bg-muted/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-muted transition-all"
             >

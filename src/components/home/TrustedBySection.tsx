@@ -1,18 +1,20 @@
 import { motion } from "framer-motion";
 
-const organizations = [
-  "IIT DELHI",
-  "INVEST INDIA",
-  "HAR GHAR JAL",
-  "IIT PALAKKAD",
-  "STARTUP INDIA",
-  "PHED GUJARAT",
-  "PHED RAJASTHAN",
-  "JAL JEEVAN MISSION",
-  "NABL LABS",
-  "STATE WATER BOARDS",
-  "WASH PROGRAMS",
-  "CSR INITIATIVES",
+const clientImages = [
+  "/images/clients/img1.jpg",
+  "/images/clients/img2.jpg",
+  "/images/clients/img3.jpg",
+  "/images/clients/img4.jpg",
+  "/images/clients/img5.jpg",
+  "/images/clients/img6.png",
+  "/images/clients/img7.png",
+  "/images/clients/img8.png",
+  "/images/clients/img10.png",
+  "/images/clients/img11.png",
+  "/images/clients/img12.webp",
+  "/images/clients/img13.jpeg",
+  "/images/clients/img14.jpg",
+  "/images/clients/img92.png",
 ];
 
 export function TrustedBySection() {
@@ -29,74 +31,50 @@ export function TrustedBySection() {
             Trusted Ecosystem
           </h2>
           <div className="h-px flex-1 bg-black/5 mx-6 hidden md:block" />
-          <p className="font-gilroy text-[10px] font-bold tracking-[0.2em] text-primary uppercase">
-            ESTABLISHED PARTNERSHIPS — 2024
-          </p>
         </motion.div>
       </div>
 
       {/* Marquee Container */}
-      <div className="relative group">
+      <div className="relative group pause-on-hover">
         {/* Gradient Overlays for smooth edges */}
         <div className="absolute left-0 top-0 bottom-0 w-40 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-40 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
         {/* Scrolling Track 1 */}
-        <motion.div
-          className="flex gap-0"
-          animate={{
-            x: [0, -1920],
-          }}
-          transition={{
-            x: {
-              repeat: Infinity,
-              repeatType: "loop",
-              duration: 40,
-              ease: "linear",
-            },
-          }}
-        >
-          {[...organizations, ...organizations, ...organizations].map((org, i) => (
-            <div
-              key={`${org}-${i}`}
-              className="flex-shrink-0 px-12 py-8 border-l border-black/5 flex items-center justify-center group/item hover:bg-black/[0.02] transition-colors duration-500"
-            >
-              <span className="font-gilroy text-lg md:text-xl font-black text-black/10 group-hover/item:text-primary transition-colors duration-700 whitespace-nowrap tracking-tighter italic overflow-hidden">
-                {org}
-              </span>
-            </div>
-          ))}
-        </motion.div>
-      </div>
+        <div className="overflow-hidden">
+          <div className="flex w-max animate-marquee whitespace-nowrap">
+            {[...clientImages, ...clientImages].map((img, i) => (
+              <div
+                key={`client-1-${i}`}
+                className="flex-shrink-0 px-16 py-12 border-l border-black/5 flex items-center justify-center transition-all duration-700"
+              >
+                <img
+                  src={img}
+                  alt="Client"
+                  className="h-20 md:h-24 w-auto object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
 
-      {/* Secondary Opposite Track for Rhythm */}
-      <div className="relative mt-0 pt-0 border-t border-black/5">
-        <motion.div
-          className="flex gap-0"
-          animate={{
-            x: [-1920, 0],
-          }}
-          transition={{
-            x: {
-              repeat: Infinity,
-              repeatType: "loop",
-              duration: 50,
-              ease: "linear",
-            },
-          }}
-        >
-          {[...organizations, ...organizations, ...organizations].reverse().map((org, i) => (
-            <div
-              key={`${org}-rev-${i}`}
-              className="flex-shrink-0 px-12 py-8 border-l border-black/5 flex items-center justify-center group/item hover:bg-black/[0.02] transition-colors duration-500"
-            >
-              <span className="font-gilroy text-lg md:text-xl font-black text-black/10 group-hover/item:text-primary transition-colors duration-700 whitespace-nowrap tracking-tighter italic">
-                {org}
-              </span>
-            </div>
-          ))}
-          <div className="border-r border-black/5" />
-        </motion.div>
+        {/* Secondary Opposite Track for Rhythm */}
+        <div className="overflow-hidden border-t border-black/5">
+          <div className="flex w-max animate-marquee-reverse whitespace-nowrap">
+            {[...clientImages, ...clientImages].reverse().map((img, i) => (
+              <div
+                key={`client-2-${i}`}
+                className="flex-shrink-0 px-16 py-12 border-l border-black/5 flex items-center justify-center transition-all duration-700"
+              >
+                <img
+                  src={img}
+                  alt="Client"
+                  className="h-20 md:h-24 w-auto object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

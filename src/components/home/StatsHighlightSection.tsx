@@ -2,10 +2,10 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 
 const stats = [
-  { value: 5, suffix: "+", label: "Digital Products" },
-  { value: 12, suffix: "+", label: "States Covered" },
-  { value: 50, suffix: "+", label: "Enterprise Clients" },
-  { value: 10000, suffix: "+", label: "Water Tests Done" },
+  { value: 15, suffix: "+", label: "States covered" },
+  { value: 6, suffix: "+", label: "National & International awards" },
+  { value: 20, suffix: "+", label: "Clients" },
+  { value: 10000, suffix: "+", label: "Water Tests Done using our solutions" },
 ];
 
 export function StatsHighlightSection() {

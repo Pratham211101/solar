@@ -7,7 +7,7 @@ const audiences = [
     title: "Government Utilities",
     category: "01 / PUBLIC SECTOR",
     description: "ENSURING DRINKING WATER COMPLIANCE AT SCALE FOR MILLIONS THROUGH SMARTER PUBLIC UTILITY INFRASTRUCTURE.",
-    image: "https://images.unsplash.com/photo-1447433589675-4aaa569f3e05?w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1697996069354-6578258b5ec9?q=80&w=1025&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     tags: ["Jal Jeevan Mission", "State Water Boards"],
   },
   {
@@ -31,7 +31,7 @@ const audiences = [
     title: "NGOs & CSR",
     category: "04 / SOCIAL IMPACT",
     description: "TRANSPARENT, DATA-BACKED WATER QUALITY PROGRAMS EMPOWERING COMMUNITY-LED SOCIAL IMPACT INITIATIVES.",
-    image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     tags: ["WASH Programs", "CSR Initiatives"],
   },
 ];

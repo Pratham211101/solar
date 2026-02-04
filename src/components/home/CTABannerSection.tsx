@@ -50,7 +50,9 @@ export function CTABannerSection() {
               viewport={{ once: true }}
               className="text-white/50 text-base md:text-xl font-gilroy max-w-2xl mx-auto mb-12 leading-relaxed"
             >
-              Join 50+ government utilities and enterprises who trust Cluix for accurate, reliable water quality monitoring.
+              Turn water data into action, at scale.
+              <br />
+              Detect early. Respond fast. Mitigate risk everywhere you operate.
             </motion.p>
 
             <motion.div
@@ -97,7 +99,7 @@ export function CTABannerSection() {
           <div className="flex items-center gap-3">
             <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
             <a href="mailto:sales@cluix.in" className="font-gilroy text-xs font-bold tracking-[0.2em] text-white/40 hover:text-cyan-400 transition-colors">
-              sales@cluix.in
+              info@cluix.in
             </a>
           </div>
         </motion.div>

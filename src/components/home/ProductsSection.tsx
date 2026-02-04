@@ -8,7 +8,7 @@ const products = [
     id: "cluix-c012",
     name: "Cluix C012",
     description: "Advanced multi-parameter water quality analyzer with IoT connectivity",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
+    image: "/products/C012-white.jpg",
     features: ["Multi-parameter analysis", "Cloud connectivity", "Auto-calibration"],
   },
   {
