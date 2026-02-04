@@ -39,7 +39,7 @@ const MonitoringSolutions = () => {
                 {/* Solutions Grid - Matching ProductsShowcaseSection Style */}
                 <section className="pb-32">
                     <div className="container mx-auto px-6">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 w-1/2 max-w-4xl mx-auto">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
                             {solutions.map((product, i) => {
                                 const isComingSoon = (product as any).comingSoon;
                                 const cardLink = isComingSoon ? "#" : `/products/${product.id}`;
@@ -47,65 +47,83 @@ const MonitoringSolutions = () => {
                                 return (
                                     <Link to={cardLink} key={product.id} className={isComingSoon ? "cursor-default" : "cursor-pointer"}>
                                         <motion.div
-                                            initial={{ opacity: 0, y: 30 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
-                                            viewport={{ once: true }}
-                                            transition={{ duration: 0.6, delay: i * 0.1, ease: [0.19, 1, 0.22, 1] }}
-                                            className="group relative border border-black/5 p-8 pb-10 h-[500px] flex flex-col justify-between overflow-hidden"
+                                            layout
+                                            initial="rest"
+                                            animate="rest"
+                                            whileHover={isComingSoon ? "rest" : "hover"}
+                                            variants={{
+                                                rest: { scale: 1 },
+                                                hover: { scale: 1.04 }
+                                            }}
+                                            transition={{
+                                                type: "spring",
+                                                stiffness: 220,
+                                                damping: 26
+                                            }}
+                                            className="relative will-change-transform hover:z-20"
                                         >
-                                            {/* Black to Cyan Gradient Background on Hover */}
-                                            {!isComingSoon && (
-                                                <div className="absolute inset-0 bg-gradient-to-br from-black via-black/95 to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0" />
-                                            )}
-
-                                            {/* Header: Category & Icon */}
-                                            <div className="relative z-10 flex justify-between items-start">
-                                                <div>
-                                                    <span className="font-gilroy text-[10px] tracking-[0.4em] text-primary uppercase font-bold">
-                                                        {product.category}
-                                                    </span>
-                                                </div>
-                                                <Plus className={`w-5 h-5 transition-all duration-300 ${isComingSoon ? 'text-black/10' : 'text-black/20 group-hover:text-primary group-hover:rotate-90'}`} />
-                                            </div>
-
-                                            {/* Center: Image Area */}
-                                            <div className="relative flex-1 flex flex-col items-center justify-center p-4">
-                                                <div className="relative z-10 w-full max-w-[220px] aspect-[4/3] overflow-hidden transition-transform duration-500 ease-out group-hover:scale-110">
-                                                    <img
-                                                        src={product.image}
-                                                        alt={product.name}
-                                                        className={`w-full h-full object-cover transition-all duration-300 ${isComingSoon ? 'opacity-30 grayscale' : 'opacity-90 group-hover:opacity-100'}`}
-                                                    />
-                                                    {/* Subtle vignette */}
-                                                    <div className={`absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-80 transition-all duration-300 ${!isComingSoon && 'group-hover:from-black/60'}`} />
-                                                </div>
-                                                {isComingSoon && (
-                                                    <div className="absolute inset-0 flex items-center justify-center z-20">
-                                                        <span className="font-gilroy text-[10px] font-black text-black tracking-[0.3em] uppercase bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-black/5">
-                                                            Coming Soon
-                                                        </span>
-                                                    </div>
+                                            <motion.div
+                                                initial={{ opacity: 0, y: 40 }}
+                                                whileInView={{ opacity: 1, y: 0 }}
+                                                viewport={{ once: true }}
+                                                transition={{ duration: 0.7, ease: "easeOut", delay: i * 0.1 }}
+                                                className="group relative border border-black/10 p-8 pb-10 h-[580px] flex flex-col justify-between overflow-hidden bg-white transition-all hover:shadow-2xl hover:shadow-black/10 rounded-md"
+                                            >
+                                                {/* Black to Cyan Gradient Background on Hover */}
+                                                {!isComingSoon && (
+                                                    <div className="absolute inset-0 bg-gradient-to-br from-black via-black/95 to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
                                                 )}
-                                            </div>
 
-                                            {/* Footer: Title & Description */}
-                                            <div className="relative z-10 pt-6 border-t border-black/5 group-hover:border-white/10 transition-colors duration-300 space-y-4">
-                                                <div className="block">
-                                                    <h3 className="font-gilroy text-xl font-bold text-black tracking-tighter group-hover:text-white transition-colors uppercase">
-                                                        {product.name}
-                                                    </h3>
+                                                {/* Header: Category Badge */}
+                                                <div className="relative z-10 flex justify-between items-center">
+                                                    <div className="flex justify-center items-center px-4 py-1.5 rounded-full border border-black/5 bg-black/[0.02] group-hover:border-white/20 group-hover:bg-white/5 transition-colors">
+                                                        <span className="font-gilroy text-[9px] tracking-[0.2em] text-primary uppercase font-bold">{product.category}</span>
+                                                    </div>
                                                 </div>
-                                                <div className="h-10">
-                                                    <p className="text-black/40 text-[10px] font-medium leading-relaxed font-gilroy tracking-wider max-w-[90%] uppercase group-hover:text-white/60 transition-colors duration-300 line-clamp-2">
-                                                        {product.description}
-                                                    </p>
-                                                </div>
-                                            </div>
 
-                                            {/* Hover Sharp Border Glow */}
-                                            {!isComingSoon && (
-                                                <div className="absolute inset-0 border border-primary/0 group-hover:border-primary/20 pointer-events-none transition-colors duration-300" />
-                                            )}
+                                                {/* Center: Image Area */}
+                                                <div className="relative flex-1 flex flex-col items-center justify-center py-8">
+                                                    <div className="relative z-10 w-full max-w-[280px] aspect-[4/3] overflow-hidden group-hover:scale-105 transition-transform duration-700 ease-out">
+                                                        <img
+                                                            src={product.image}
+                                                            alt={product.name}
+                                                            className={`w-full h-full object-contain transition-all duration-300 ${isComingSoon ? 'opacity-30 grayscale' : 'opacity-90 group-hover:opacity-100'}`}
+                                                        />
+                                                    </div>
+                                                    {isComingSoon && (
+                                                        <div className="absolute inset-0 flex items-center justify-center z-20">
+                                                            <span className="font-gilroy text-[9px] font-bold text-black tracking-[0.3em] uppercase bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-black/5">
+                                                                Coming Soon
+                                                            </span>
+                                                        </div>
+                                                    )}
+                                                </div>
+
+                                                {/* Footer: Title & Description */}
+                                                <div className="relative z-10 space-y-4">
+                                                    <div className="space-y-2">
+                                                        <h3 className="font-gilroy text-2xl font-bold text-black tracking-tight group-hover:text-white transition-colors uppercase">
+                                                            {product.name}
+                                                        </h3>
+                                                        <p className="text-black/50 text-xs font-medium leading-relaxed font-gilroy tracking-wide max-w-[95%] group-hover:text-white/60 transition-colors duration-300 line-clamp-4">
+                                                            {product.description}
+                                                        </p>
+                                                    </div>
+
+                                                    {/* Sub-link / Action */}
+                                                    <div className="pt-6 flex items-center gap-2 group/link">
+                                                        <span className="font-gilroy text-[10px] font-bold tracking-[0.2em] text-black group-hover:text-primary transition-colors uppercase border-b border-black/20 group-hover:border-primary pb-1">
+                                                            {isComingSoon ? 'PRE-ORDER NOW' : 'EXPLORE PRODUCT'}
+                                                        </span>
+                                                        <Plus className="w-3 h-3 text-black/40 group-hover:text-primary group-hover:rotate-90 transition-all duration-300" />
+                                                    </div>
+                                                </div>
+
+                                                {/* Hover Sharp Border Glow */}
+                                                {!isComingSoon && (
+                                                    <div className="absolute inset-0 border border-primary/0 group-hover:border-primary/20 pointer-events-none transition-colors duration-300" />
+                                                )}
+                                            </motion.div>
                                         </motion.div>
                                     </Link>
                                 );

@@ -31,57 +31,83 @@ const ReagentKits = () => {
           </div>
         </section>
 
-        {/* Main Kit Card - Left aligned, max width as before */}
+        {/* Main Kit Card */}
         {mainKit && (
-          <section className="pb-8">
+          <section className="pb-16">
             <div className="container mx-auto px-6 flex justify-start">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.05 }}
-                className="group cursor-pointer w-full max-w-[420px]" // max-w as before, left aligned
+              <Link
+                to={`/products/reagent-kit/${mainKit.id}`}
+                className="w-full max-w-[420px]"
               >
-                <Link
-                  to={`/products/reagent-kit/${mainKit.id}`}
-                  className="h-full block"
+                <motion.div
+                  layout
+                  initial="rest"
+                  animate="rest"
+                  whileHover="hover"
+                  variants={{
+                    rest: { scale: 1 },
+                    hover: { scale: 1.04 }
+                  }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 220,
+                    damping: 26
+                  }}
+                  className="relative will-change-transform hover:z-20"
                 >
-                  <div className="relative h-full bg-white border rounded-xl border-gray-100 overflow-hidden transition-all duration-700 p-8 flex flex-col items-center min-h-[350px] shadow-lg">
-                    {/* Dark Hover State Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-black via-black/95 to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0" />
-                    {/* Header */}
-                    <div className="z-10 flex justify-between items-start mb-6 w-full">
-                      <span className="font-bold text-cyan-400 group-hover:text-cyan-400 transition-colors duration-500 tracking-[0.2em]">
-                        Water Quality
-                      </span>
-                      <Plus className="w-4 h-4 text-gray-200 group-hover:text-cyan-400 transition-all duration-500 group-hover:rotate-90" />
-                    </div>
-                    {/* Image Area */}
-                    <div className="relative z-10 flex-1 flex items-center justify-center mb-6 md:mb-0 md:mr-10 transition-transform duration-700 group-hover:scale-105">
-                      <img
-                        src={mainKit.image}
-                        alt={mainKit.name}
-                        className="max-w-full max-h-[220px] object-contain"
-                      />
+                  <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7, ease: "easeOut" }}
+                    className="group relative border border-black/10 p-8 pb-10 h-[580px] flex flex-col justify-between overflow-hidden bg-white transition-all hover:shadow-2xl hover:shadow-black/10 rounded-md"
+                  >
+                    {/* Black to Cyan Gradient Background on Hover */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-black via-black/95 to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
+
+                    {/* Header: Category Badge */}
+                    <div className="relative z-10 flex justify-between items-center">
+                      <div className="flex justify-center items-center px-4 py-1.5 rounded-full border border-black/5 bg-black/[0.02] group-hover:border-white/20 group-hover:bg-white/5 transition-colors">
+                        <span className="font-gilroy text-[9px] tracking-[0.2em] text-primary uppercase font-bold">TESTING CONSUMABLES</span>
+                      </div>
                     </div>
 
-                    {/* Info Area */}
-                    <div className="relative z-10 flex-1 flex flex-col h-full tracking-widest text-[8px]">
-                      {/* Divider */}
-                      <div className="h-px w-full bg-gray-100 group-hover:bg-white/10 mb-4 transition-colors duration-500" />
-                      {/* Footer Info */}
-                      <div className="mt-auto w-full">
-                        <h3 className="font-gilroy text-2xl font-extrabold mb-2 text-black group-hover:text-white transition-colors duration-500 tracking-tighter line-clamp-2 leading-tight">
+                    {/* Center: Image Area */}
+                    <div className="relative flex-1 flex flex-col items-center justify-center py-8">
+                      <div className="relative z-10 w-full max-w-[280px] aspect-[4/3] overflow-hidden group-hover:scale-105 transition-transform duration-700 ease-out">
+                        <img
+                          src={mainKit.image}
+                          alt={mainKit.name}
+                          className="w-full h-full object-contain opacity-90 group-hover:opacity-100 transition-all duration-300 ease-out"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Footer: Title & Description */}
+                    <div className="relative z-10 space-y-4">
+                      <div className="space-y-2">
+                        <h3 className="font-gilroy text-2xl font-bold text-black tracking-tight group-hover:text-white transition-colors uppercase leading-tight">
                           {mainKit.name}
                         </h3>
-                        <p className="font-gilroy text-xs font-bold text-gray-400 group-hover:text-gray-300 leading-normal tracking-widest line-clamp-2">
+                        <p className="text-black/50 text-xs font-medium leading-relaxed font-gilroy tracking-wide max-w-[95%] group-hover:text-white/60 transition-colors duration-300 line-clamp-4">
                           {mainKit.description}
                         </p>
                       </div>
+
+                      {/* Sub-link / Action */}
+                      <div className="pt-6 flex items-center gap-2 group/link">
+                        <span className="font-gilroy text-[10px] font-bold tracking-[0.2em] text-black group-hover:text-primary transition-colors uppercase border-b border-black/20 group-hover:border-primary pb-1">
+                          EXPLORE PRODUCT
+                        </span>
+                        <Plus className="w-3 h-3 text-black/40 group-hover:text-primary group-hover:rotate-90 transition-all duration-300" />
+                      </div>
                     </div>
-                  </div>
-                </Link>
-              </motion.div>
+
+                    {/* Hover Sharp Border Glow */}
+                    <div className="absolute inset-0 border border-primary/0 group-hover:border-primary/20 pointer-events-none transition-colors duration-300" />
+                  </motion.div>
+                </motion.div>
+              </Link>
             </div>
           </section>
         )}
@@ -89,59 +115,79 @@ const ReagentKits = () => {
         {/* Other Kits Grid */}
         <section className="pb-32">
           <div className="container mx-auto px-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-              {otherKits.map((product, i) => {
-                const cardLink = `/products/reagent-kit/${product.id}`;
-                return (
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+              {otherKits.map((product, i) => (
+                <Link to={`/products/reagent-kit/${product.id}`} key={product.id}>
                   <motion.div
-                    key={product.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.05 }}
-                    className="group cursor-pointer col-span-1"
+                    layout
+                    initial="rest"
+                    animate="rest"
+                    whileHover="hover"
+                    variants={{
+                      rest: { scale: 1 },
+                      hover: { scale: 1.05 }
+                    }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 220,
+                      damping: 26
+                    }}
+                    className="relative will-change-transform hover:z-20"
                   >
-                    <Link to={cardLink} className="block h-full">
-                      <div className="relative h-full bg-white border rounded-md border-gray-100 overflow-hidden transition-all duration-700 p-5 flex flex-col min-h-[350px]">
-                        {/* Dark Hover State Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-black via-black/95 to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0" />
+                    <motion.div
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.03 }}
+                      className="group relative border border-black/10 p-5 pb-6 h-[340px] flex flex-col justify-between overflow-hidden bg-white transition-all hover:shadow-xl hover:shadow-black/5 rounded-md"
+                    >
+                      {/* Black -> Cyan Gradient Background on Hover */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-black via-black/95 to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
 
-                        <div className="relative z-10 flex flex-col h-full tracking-widest text-[8px] uppercase">
-                          {/* Header */}
-                          <div className="flex justify-between items-start mb-6">
-                            <span className="font-bold text-cyan-400 group-hover:text-cyan-300 transition-colors duration-500 tracking-[0.2em]">
-                              Water Quality
-                            </span>
-                            <Plus className="w-3.5 h-3.5 text-gray-200 group-hover:text-cyan-400 transition-all duration-500 group-hover:rotate-90" />
-                          </div>
-
-                          {/* Image Area */}
-                          <div className="relative flex-1 flex items-center justify-center mb-6 transition-transform duration-700 group-hover:scale-110">
-                            <img
-                              src={product.image}
-                              alt={product.name}
-                              className="max-w-full max-h-[120px] object-contain"
-                            />
-                          </div>
-
-                          {/* Divider */}
-                          <div className="h-px w-full bg-gray-100 group-hover:bg-white/10 mb-4 transition-colors duration-500" />
-
-                          {/* Footer Info */}
-                          <div className="mt-auto">
-                            <h3 className="font-gilroy text-sm font-extrabold mb-1.5 text-black group-hover:text-white transition-colors duration-500 tracking-tighter line-clamp-2 leading-tight">
-                              {product.name}
-                            </h3>
-                            <p className="font-gilroy text-[7px] font-bold text-gray-400 group-hover:text-gray-300 leading-normal tracking-widest line-clamp-2">
-                              {product.description}
-                            </p>
-                          </div>
+                      {/* Header: Category Badge - Smaller */}
+                      <div className="relative z-10 flex justify-between items-center">
+                        <div className="flex justify-center items-center px-3 py-1 rounded-full border border-black/5 bg-black/[0.02] group-hover:border-white/20 group-hover:bg-white/5 transition-colors">
+                          <span className="font-gilroy text-[7px] tracking-[0.2em] text-cyan-400 group-hover:text-primary uppercase font-bold">WATER QUALITY</span>
                         </div>
                       </div>
-                    </Link>
+
+                      {/* Center: Image Area - Compact */}
+                      <div className="relative flex-1 flex flex-col items-center justify-center py-4">
+                        <div className="relative z-10 w-full max-w-[140px] aspect-[4/3] overflow-hidden group-hover:scale-110 transition-transform duration-700 ease-out">
+                          <img
+                            src={product.image}
+                            alt={product.name}
+                            className="w-full h-full object-contain opacity-90 group-hover:opacity-100 transition-all duration-300 ease-out"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Footer: Title & Description - Tiny */}
+                      <div className="relative z-10 space-y-2">
+                        <div className="space-y-1">
+                          <h3 className="font-gilroy text-xs font-bold text-black tracking-tight group-hover:text-white transition-colors uppercase leading-tight line-clamp-1">
+                            {product.name}
+                          </h3>
+                          <p className="text-black/50 text-[8px] font-medium leading-relaxed font-gilroy tracking-wide max-w-[95%] group-hover:text-white/60 transition-colors duration-300 line-clamp-2">
+                            {product.description}
+                          </p>
+                        </div>
+
+                        {/* Sub-link / Action - Minimal */}
+                        <div className="pt-2 flex items-center gap-1.5 group/link">
+                          <span className="font-gilroy text-[7px] font-bold tracking-[0.2em] text-black group-hover:text-primary transition-colors uppercase border-b border-black/20 group-hover:border-primary pb-0.5">
+                            EXPLORE
+                          </span>
+                          <Plus className="w-2.5 h-2.5 text-black/40 group-hover:text-primary group-hover:rotate-90 transition-all duration-300" />
+                        </div>
+                      </div>
+
+                      {/* Hover Sharp Border Glow */}
+                      <div className="absolute inset-0 border border-primary/0 group-hover:border-primary/20 pointer-events-none transition-colors duration-300" />
+                    </motion.div>
                   </motion.div>
-                );
-              })}
+                </Link>
+              ))}
             </div>
           </div>
         </section>
