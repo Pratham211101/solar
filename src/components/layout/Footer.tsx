@@ -8,12 +8,13 @@ const footerLinks = {
   products: [
     { label: "Cluix C012", href: "/products/cluix-c012" },
     { label: "Reagent Kit", href: "/products/reagent-kit" },
-    { label: "Varunaa Water Monitoring", href: "/products/varunaa" },
-    { label: "OCEMS Device", href: "/products/ocems" },
+    { label: "Monitoring Solutions", href: "/products/monitoring-solutions" },
+    { label: "Dashboard DSS", href: "/dashboard" },
   ],
   company: [
     { label: "About Us", href: "/about-us" },
     { label: "Careers", href: "/careers" },
+    { label: "Office Space", href: "/office-space" },
     { label: "Contact Us", href: "/contact-us" },
     { label: "Help Center", href: "/help-center" },
     { label: "FAQs", href: "/faqs" },

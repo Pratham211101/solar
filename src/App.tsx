@@ -12,6 +12,7 @@ import CareerDetail from "./pages/CareerDetail";
 import ContactUs from "./pages/ContactUs";
 import Demo from "./pages/Demo";
 import Media from "./pages/Media";
+import OfficeSpace from "./pages/OfficeSpace";
 import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
 import ReagentKits from "./pages/ReagentKits";
@@ -93,6 +94,14 @@ const AnimatedRoutes = () => {
           element={
             <PageTransition>
               <Media />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/office-space"
+          element={
+            <PageTransition>
+              <OfficeSpace />
             </PageTransition>
           }
         />

@@ -69,7 +69,7 @@ const HeroSection = () => {
       </div>
 
       {/* Animated Scroll Text (Top Right) - Subtler */}
-      <div className="hidden lg:flex absolute right-12 top-24 flex-col items-end gap-2 z-10">
+      <div className="hidden lg:flex absolute right-12 top-72 flex-col items-end gap-2 z-10">
         {scrollTexts.map((text, index) => (
           <motion.div
             key={text}

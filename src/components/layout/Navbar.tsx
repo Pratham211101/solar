@@ -19,6 +19,7 @@ const navItems: NavItem[] = [
       { label: "Cluix C012", href: "/products/cluix-c012", description: "Handheld water quality analyzer" },
       { label: "Monitoring Solutions", href: "/products/monitoring-solutions", description: "OCEMS, Varunaa & more" },
       { label: "Reagent Kits", href: "/products/reagent-kit", description: "Testing consumables" },
+      { label: "Dashboard DSS", href: "/dashboard", description: "Decision Support System" },
     ],
   },
   {
