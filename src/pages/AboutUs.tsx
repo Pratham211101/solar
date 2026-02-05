@@ -277,7 +277,9 @@ const AboutUs = () => {
           </section>
         </main>
       </div>
-      <Footer />
+      <div className="bg-black">
+        <Footer />
+      </div>
     </>
   );
 };

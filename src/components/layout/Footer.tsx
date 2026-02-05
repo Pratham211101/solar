@@ -36,7 +36,7 @@ const footerLinks = {
 
 const Footer = () => {
   return (
-    <footer className="footer-dark pt-20 pb-8 relative">
+    <footer className="footer-dark pt-20 pb-8 relative font-gilroy">
       <BackToTop style="absolute right-6 md:right-12 top-20 flex flex-col items-center cursor-pointer z-10" />
       {/* Gradient Curve at Top */}
       <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />

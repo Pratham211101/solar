@@ -132,7 +132,9 @@ const MonitoringSolutions = () => {
                     </div>
                 </section>
             </main>
-            <Footer />
+            <div className="bg-black">
+                <Footer />
+            </div>
         </div>
     );
 };

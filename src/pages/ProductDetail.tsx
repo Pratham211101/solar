@@ -93,7 +93,9 @@ const ProductDetail = () => {
         {/* FAQ Section */}
         <ProductFAQ />
       </main>
-      <Footer />
+      <div className="bg-black">
+        <Footer />
+      </div>
     </div>
   );
 };

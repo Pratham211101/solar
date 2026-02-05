@@ -242,7 +242,9 @@ const HelpCenter = () => {
                     </section>
                 </main>
             </div>
-            <Footer />
+            <div className="bg-black">
+                <Footer />
+            </div>
             <ContactForm isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />
         </>
     );
