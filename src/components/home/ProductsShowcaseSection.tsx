@@ -32,7 +32,7 @@ const products = [
     name: "DASHBOARD DSS",
     category: "DATA ANALYTICS",
     description: "Centralized decision support system providing real-time analytics, automated reporting, and predictive trends for water management.",
-    image: "/images/products/dashboard.png",
+    image: "/images/products/dashboard2.jpg",
     href: "/dashboard"
   },
 ];

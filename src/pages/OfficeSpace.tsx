@@ -47,12 +47,12 @@ const OfficeSpace = () => {
                 <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-black">
                     <div className="absolute inset-0 z-0">
                         <img
-                            src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069&auto=format&fit=crop"
+                            src="/images/research-and-innovation-park.jpg"
                             alt="Office Space"
                             className="w-full h-full object-cover opacity-50"
                         />
                         {/* Original vertical gradient */}
-                        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80" />
+                        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/60" />
                     </div>
 
                     <div className="container mx-auto px-6 relative z-10 h-full flex flex-col justify-center">
@@ -89,7 +89,7 @@ const OfficeSpace = () => {
                             <ScrollReveal direction="right">
                                 <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                                     <img
-                                        src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&q=80"
+                                        src="/images/research-and-innovation-park2.png"
                                         alt="Innovation Hub"
                                         className="w-full h-full object-cover"
                                     />

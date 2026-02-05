@@ -142,9 +142,6 @@ const AboutUs = () => {
           {/* 2. Unified Vision & Mission Section (Stacked Content) */}
           <VisionSection />
 
-          {/* 3. Supported & Incubated By - Clean Strip Carousel */}
-          <SupportedCarousel />
-
           {/* 4. Story Section - Asymmetric Chaos (No overlap) */}
           <section className="pt-64 pb-32 bg-[#f8f9fa] overflow-hidden relative min-h-[1000px]">
             {/* Background Giant Text */}
@@ -243,6 +240,9 @@ const AboutUs = () => {
               </div>
             </div>
           </section>
+
+          {/* 3. Supported & Incubated By - Clean Strip Carousel */}
+          <SupportedCarousel />
 
           {/* 5. Updated Hierarchical Team Section */}
           <section className="py-48 bg-white overflow-hidden relative pt-24">
