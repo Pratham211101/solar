@@ -6,7 +6,7 @@ import BackToTop from "./BackToTop";
 
 const footerLinks = {
   products: [
-    { label: "Cluix C012", href: "/products/cluix-c012" },
+    { label: "solar C012", href: "/products/solar-c012" },
     { label: "Reagent Kit", href: "/products/reagent-kit" },
     { label: "Monitoring Solutions", href: "/products/monitoring-solutions" },
     { label: "Dashboard DSS", href: "/dashboard" },
@@ -51,11 +51,11 @@ const Footer = () => {
             </p>
             <div className="space-y-3">
               <a
-                href="mailto:info@cluix.com"
+                href="mailto:info@solar.com"
                 className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
               >
                 <Mail className="w-4 h-4" />
-                info@cluix.com
+                info@solar.com
               </a>
               <a
                 href="tel:+919560589782"
@@ -153,33 +153,33 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-border/30 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-muted-foreground text-sm">© {new Date().getFullYear()} Cluix. All rights reserved.</p>
+          <p className="text-muted-foreground text-sm">© {new Date().getFullYear()} solar. All rights reserved.</p>
 
           {/* Social Links */}
           <div className="flex items-center gap-4">
             <motion.a
-              href="https://www.linkedin.com/company/cluix/posts/?feedView=all"
+              href="https://www.linkedin.com/company/solar/posts/?feedView=all"
               whileHover={{ scale: 1.1, y: -2 }}
               className="w-10 h-10 rounded-full bg-muted/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-muted transition-all"
             >
               <Linkedin className="w-5 h-5" />
             </motion.a>
             <motion.a
-              href="https://twitter.com/cluix_in"
+              href="https://twitter.com/solar_in"
               whileHover={{ scale: 1.1, y: -2 }}
               className="w-10 h-10 rounded-full bg-muted/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-muted transition-all"
             >
               <Twitter className="w-5 h-5" />
             </motion.a>
             <motion.a
-              href="https://www.instagram.com/cluix.in?igsh=MW56amljMzBub3R4ag=="
+              href="https://www.instagram.com/solar.in?igsh=MW56amljMzBub3R4ag=="
               whileHover={{ scale: 1.1, y: -2 }}
               className="w-10 h-10 rounded-full bg-muted/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-muted transition-all"
             >
               <Instagram className="w-5 h-5" />
             </motion.a>
             <motion.a
-              href="https://www.youtube.com/@CluixOfficial"
+              href="https://www.youtube.com/@solarOfficial"
               whileHover={{ scale: 1.1, y: -2 }}
               className="w-10 h-10 rounded-full bg-muted/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-muted transition-all"
             >

@@ -46,7 +46,7 @@ const ContactUs = () => {
 
                     <div className="space-y-3">
                       {[
-                        { icon: Mail, label: "Email", value: "contact@cluix.com", href: "mailto:contact@cluix.com" },
+                        { icon: Mail, label: "Email", value: "contact@solar.com", href: "mailto:contact@solar.com" },
                         { icon: Phone, label: "Phone", value: "+91 (123) 456-7890", href: "tel:+911234567890" },
                         { icon: MapPin, label: "Office", value: "New Delhi, India", href: "#" }
                       ].map((item, i) => (

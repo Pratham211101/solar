@@ -171,7 +171,7 @@ const OfficeSpace = () => {
                                     <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3]">
                                         <img
                                             src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?q=80&w=2070"
-                                            alt="Cluix Research Lab"
+                                            alt="solar Research Lab"
                                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-8">

@@ -5,8 +5,8 @@ import { ArrowRight } from "lucide-react";
 
 const products = [
   {
-    id: "cluix-c012",
-    name: "Cluix C012",
+    id: "solar-c012",
+    name: "solar C012",
     description: "Advanced multi-parameter water quality analyzer with IoT connectivity",
     image: "/products/C012-white.jpg",
     features: ["Multi-parameter analysis", "Cloud connectivity", "Auto-calibration"],

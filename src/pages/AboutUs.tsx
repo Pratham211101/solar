@@ -12,14 +12,14 @@ const AboutUs = () => {
     {
       name: "Dr. Sarah Chen",
       role: "CEO & Founder",
-      email: "sarah.chen@cluix.com",
+      email: "sarah.chen@solar.com",
       linkedin: "https://linkedin.com",
       image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80"
     },
     {
       name: "Michael Rodriguez",
       role: "CTO & Founder",
-      email: "m.rodriguez@cluix.com",
+      email: "m.rodriguez@solar.com",
       linkedin: "https://linkedin.com",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80"
     },
@@ -29,21 +29,21 @@ const AboutUs = () => {
     {
       name: "Emily Watson",
       role: "VP Engineering",
-      email: "emily.w@cluix.com",
+      email: "emily.w@solar.com",
       linkedin: "https://linkedin.com",
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80"
     },
     {
       name: "David Kim",
       role: "VP Operations",
-      email: "david.kim@cluix.com",
+      email: "david.kim@solar.com",
       linkedin: "https://linkedin.com",
       image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80"
     },
     {
       name: "Sophie Taylor",
       role: "Head of Design",
-      email: "sophie.t@cluix.com",
+      email: "sophie.t@solar.com",
       linkedin: "https://linkedin.com",
       image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80"
     },
@@ -116,7 +116,7 @@ const AboutUs = () => {
                     transition={{ duration: 0.8 }}
                   >
                     <h1 className="font-gilroy text-7xl md:text-9xl text-white leading-[0.85] tracking-[0.02em] font-medium">
-                      ABOUT <br /> <span className="text-gradient italic font-semibold">CLUIX</span>
+                      ABOUT <br /> <span className="text-gradient italic font-semibold">solar</span>
                     </h1>
                   </motion.div>
                 </div>
@@ -160,7 +160,7 @@ const AboutUs = () => {
                   </h2>
                   <div className="space-y-8">
                     <p className="font-gilroy text-xl text-gray-500 leading-relaxed font-bold">
-                      At Cluix, we believe in the power of precision, transparency, and action. Our
+                      At solar, we believe in the power of precision, transparency, and action. Our
                       journey began with a simple observation: the world needed better eyes on
                       its most precious resource—water.
                     </p>

@@ -4,12 +4,12 @@ import { Plus } from "lucide-react";
 
 const products = [
   {
-    id: "cluix-c012",
-    name: "CLUIX C012",
+    id: "solar-c012",
+    name: "solar C012",
     category: "WATER QUALITY ANALYSIS",
     description: "Advanced multi-parameter water quality analyzer with IoT connectivity enabling rapid multi-parameter analysis, digital reporting, and scalable monitoring operations. ",
     image: "/images/products/C012.png",
-    href: "/products/cluix-c012"
+    href: "/products/solar-c012"
   },
   {
     id: "reagent-kit",

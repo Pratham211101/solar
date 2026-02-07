@@ -2,14 +2,14 @@ import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import ScrollReveal from "../ui/ScrollReveal";
 
-interface WhyCluixSectionProps {
+interface WhysolarSectionProps {
   title?: string;
   description?: string;
   features?: string[];
 }
 
-export function WhyCluixSection({
-  title = "Why Cluix",
+export function WhysolarSection({
+  title = "Why solar",
   description = "Built for the reality of field water testing in India—reliable, accurate, and designed for scale.",
   features = [
     "Lab-grade accuracy in field conditions",
@@ -21,7 +21,7 @@ export function WhyCluixSection({
     "Cloud dashboard with role-based access",
     "Made in India, for Indian conditions",
   ],
-}: WhyCluixSectionProps) {
+}: WhysolarSectionProps) {
   return (
     <div className="bg-gray-100 font-gilroy">
       {/* Spacer for Navbar */}
@@ -130,4 +130,4 @@ export function WhyCluixSection({
   );
 }
 
-export default WhyCluixSection;
+export default WhysolarSection;

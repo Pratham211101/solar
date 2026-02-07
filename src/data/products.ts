@@ -43,7 +43,7 @@ export interface ProductData {
     formTitle: string;
     formSubtitle: string;
   };
-  whyCluix?: {
+  whysolar?: {
     title: string;
     description: string;
     features: string[];
@@ -51,8 +51,8 @@ export interface ProductData {
 }
 
 export const productsData: Record<string, ProductData> = {
-  "cluix-c012": {
-    id: "cluix-c012",
+  "solar-c012": {
+    id: "solar-c012",
     badge: "Trusted by Government & Enterprise",
     name: "C012 Handheld Water Quality Analyzer",
     tagline: "Lab-grade testing in your pocket",
@@ -114,7 +114,7 @@ export const productsData: Record<string, ProductData> = {
         },
       ],
     },
-    whyCluix: {
+    whysolar: {
       title: "Why Choose C012",
       description: "Validated by NABL labs and trusted by state governments for reliable field testing.",
       features: [
@@ -163,7 +163,7 @@ export const productsData: Record<string, ProductData> = {
       items: [
         {
           quote:
-            "Cluix has transformed how we monitor water quality across 200+ villages. The data is reliable and the dashboard makes reporting effortless.",
+            "solar has transformed how we monitor water quality across 200+ villages. The data is reliable and the dashboard makes reporting effortless.",
           role: "District Project Manager",
           organization: "Jal Jeevan Mission, Rajasthan",
         },
@@ -253,7 +253,7 @@ export const productsData: Record<string, ProductData> = {
         },
       ],
     },
-    whyCluix: {
+    whysolar: {
       title: "Why Choose OCEMS",
       description: "Regulatory compliance made simple with automated reporting and reliable hardware.",
       features: [
@@ -308,7 +308,7 @@ export const productsData: Record<string, ProductData> = {
         },
         {
           quote:
-            "Real-time alerts help us catch issues before they become violations. Excellent support from the Cluix team.",
+            "Real-time alerts help us catch issues before they become violations. Excellent support from the solar team.",
           role: "Environment Head",
           organization: "Steel Plant, Odisha",
         },
@@ -388,7 +388,7 @@ export const productsData: Record<string, ProductData> = {
         },
       ],
     },
-    whyCluix: {
+    whysolar: {
       title: "Why Choose Varunaa",
       description: "Data-driven groundwater management that works in remote, off-grid locations.",
       features: [
@@ -516,7 +516,7 @@ export const productsData: Record<string, ProductData> = {
         },
       ],
     },
-    whyCluix: {
+    whysolar: {
       title: "Why Our Reagents",
       description: "Optimized for stability and accuracy in tropical field conditions.",
       features: [

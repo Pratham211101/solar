@@ -17,22 +17,22 @@ const faqCategories = [
 const allFaqs = {
   general: [
     {
-      question: "What is Cluix?",
-      answer: "Cluix is a technology company specializing in water quality monitoring solutions. We develop innovative handheld analyzers, online monitoring systems, and reagent kits for accurate water testing."
+      question: "What is solar?",
+      answer: "solar is a technology company specializing in water quality monitoring solutions. We develop innovative handheld analyzers, online monitoring systems, and reagent kits for accurate water testing."
     },
     {
-      question: "Where is Cluix located?",
-      answer: "Cluix is headquartered in India with operations across multiple states. We serve customers nationwide and are expanding internationally."
+      question: "Where is solar located?",
+      answer: "solar is headquartered in India with operations across multiple states. We serve customers nationwide and are expanding internationally."
     },
     {
       question: "How can I become a distributor?",
-      answer: "To become a Cluix distributor, please contact our sales team through the Contact Us page. We'll evaluate your application and provide partnership details."
+      answer: "To become a solar distributor, please contact our sales team through the Contact Us page. We'll evaluate your application and provide partnership details."
     },
   ],
   products: [
     {
-      question: "What parameters can the Cluix C012 measure?",
-      answer: "The Cluix C012 can measure multiple water quality parameters including pH, TDS, conductivity, turbidity, dissolved oxygen, and various chemical parameters using our reagent kits."
+      question: "What parameters can the solar C012 measure?",
+      answer: "The solar C012 can measure multiple water quality parameters including pH, TDS, conductivity, turbidity, dissolved oxygen, and various chemical parameters using our reagent kits."
     },
     {
       question: "How often does the device need calibration?",
@@ -40,7 +40,7 @@ const allFaqs = {
     },
     {
       question: "What is the battery life of the C012?",
-      answer: "The Cluix C012 has a battery life of approximately 8 hours of continuous use. It can be charged via USB-C and reaches full charge in about 2 hours."
+      answer: "The solar C012 has a battery life of approximately 8 hours of continuous use. It can be charged via USB-C and reaches full charge in about 2 hours."
     },
     {
       question: "Are the reagent kits reusable?",
@@ -53,8 +53,8 @@ const allFaqs = {
   ],
   support: [
     {
-      question: "What is the warranty period for Cluix products?",
-      answer: "All Cluix products come with a standard 1-year warranty covering manufacturing defects. Extended warranty options are available for up to 3 years."
+      question: "What is the warranty period for solar products?",
+      answer: "All solar products come with a standard 1-year warranty covering manufacturing defects. Extended warranty options are available for up to 3 years."
     },
     {
       question: "Do you provide on-site installation support?",
@@ -66,7 +66,7 @@ const allFaqs = {
     },
     {
       question: "Where can I find user manuals?",
-      answer: "User manuals are available in the Resources section of our website. You can also access them through the Cluix Dashboard after registering your product."
+      answer: "User manuals are available in the Resources section of our website. You can also access them through the solar Dashboard after registering your product."
     },
   ],
   orders: [
@@ -80,7 +80,7 @@ const allFaqs = {
     },
     {
       question: "Can I track my order?",
-      answer: "Yes, once your order is shipped, you'll receive a tracking number via email. You can also track orders through your Cluix Dashboard account."
+      answer: "Yes, once your order is shipped, you'll receive a tracking number via email. You can also track orders through your solar Dashboard account."
     },
     {
       question: "What is your return policy?",

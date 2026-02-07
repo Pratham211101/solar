@@ -19,7 +19,7 @@ const TermsAndConditions = () => {
                   <section>
                     <h2 className="text-2xl font-bold text-foreground mb-4">1. Acceptance of Terms</h2>
                     <p className="text-muted-foreground">
-                      By accessing and using Cluix products and services, you accept and agree to be bound
+                      By accessing and using solar products and services, you accept and agree to be bound
                       by the terms and provisions of this agreement.
                     </p>
                   </section>
@@ -27,7 +27,7 @@ const TermsAndConditions = () => {
                   <section>
                     <h2 className="text-2xl font-bold text-foreground mb-4">2. Use License</h2>
                     <p className="text-muted-foreground">
-                      Permission is granted to temporarily use Cluix products for personal, non-commercial
+                      Permission is granted to temporarily use solar products for personal, non-commercial
                       transitory viewing only. This is the grant of a license, not a transfer of title.
                     </p>
                   </section>
@@ -35,7 +35,7 @@ const TermsAndConditions = () => {
                   <section>
                     <h2 className="text-2xl font-bold text-foreground mb-4">3. Product Warranty</h2>
                     <p className="text-muted-foreground">
-                      Cluix products come with a standard warranty period as specified in the product
+                      solar products come with a standard warranty period as specified in the product
                       documentation. The warranty covers manufacturing defects and hardware failures
                       under normal use conditions.
                     </p>
@@ -44,7 +44,7 @@ const TermsAndConditions = () => {
                   <section>
                     <h2 className="text-2xl font-bold text-foreground mb-4">4. Limitation of Liability</h2>
                     <p className="text-muted-foreground">
-                      In no event shall Cluix be liable for any damages arising out of the use or inability
+                      In no event shall solar be liable for any damages arising out of the use or inability
                       to use our products or services.
                     </p>
                   </section>

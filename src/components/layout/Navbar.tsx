@@ -16,7 +16,7 @@ const navItems: NavItem[] = [
     label: "Products",
     href: "/products",
     children: [
-      { label: "Cluix C012", href: "/products/cluix-c012", description: "Handheld water quality analyzer" },
+      { label: "solar C012", href: "/products/solar-c012", description: "Handheld water quality analyzer" },
       { label: "Monitoring Solutions", href: "/products/monitoring-solutions", description: "OCEMS, Varunaa & more" },
       { label: "Reagent Kits", href: "/products/reagent-kit", description: "Testing consumables" },
       { label: "Dashboard DSS", href: "/dashboard", description: "Decision Support System" },
@@ -90,11 +90,13 @@ const Navbar = () => {
         }`}
     >
       <nav className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Logo variant="auto" size="md" />
+        <div className="flex items-center">
+          {/* Logo Container */}
+          <div className="flex-1 flex justify-start">
+            <Logo variant="auto" size="md" />
+          </div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - Centered */}
           <div className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (
               <div
@@ -132,18 +134,23 @@ const Navbar = () => {
                 )}
               </div>
             ))}
-
-            <Link to="https://dashboard.cluix.in">
-              <AppleGlassButton >
-                Dashboard
-              </AppleGlassButton>
-            </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button className="lg:hidden relative z-50 p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            {mobileMenuOpen ? <X className="w-6 h-6 text-foreground" /> : <Menu className="w-6 h-6 text-foreground" />}
-          </button>
+          {/* CTA/Dashboard - Right side */}
+          <div className="flex-1 flex justify-end items-center gap-4">
+            <div className="hidden lg:block">
+              <Link to="https://dashboard.solar.in">
+                <AppleGlassButton >
+                  Dashboard
+                </AppleGlassButton>
+              </Link>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button className="lg:hidden relative z-50 p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+              {mobileMenuOpen ? <X className="w-6 h-6 text-foreground" /> : <Menu className="w-6 h-6 text-foreground" />}
+            </button>
+          </div>
         </div>
 
         {/* Full Width Dropdown - Split Layout */}
@@ -158,46 +165,28 @@ const Navbar = () => {
               onMouseEnter={() => activeDropdown && handleMouseEnter(activeDropdown)}
               onMouseLeave={handleMouseLeave}
             >
-              <div className="flex min-h-[280px]">
-                {/* Left Side - Nav Link Name */}
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="w-1/2 bg-background/95 text-foreground p-12 flex flex-col justify-center"
-                >
-                  <h2 className="text-4xl md:text-5xl font-bold mb-4">{activeDropdown}</h2>
-                  <p className="text-foreground/70 text-lg">
-                    {activeDropdown === "Products" && "Discover our innovative water quality solutions"}
-                    {activeDropdown === "Company" && "Learn about our mission and team"}
-                    {activeDropdown === "Media" && "Stay updated with our latest news"}
-                  </p>
-                </motion.div>
-
-                {/* Right Side - Sub Items */}
-                <div className="w-1/2 bg-background/95 p-12 flex flex-col justify-center border-l border-border">
-                  <div className="grid grid-cols-2 gap-x-8 gap-y-6">
-                    {navItems
-                      .find((item) => item.label === activeDropdown)
-                      ?.children?.map((child, index) => (
-                        <motion.div
-                          key={child.href}
-                          initial={{ opacity: 0, x: 20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: index * 0.08 }}
-                        >
-                          <Link to={child.href} className="group block p-4 rounded-xl transition-all duration-300">
-                            <span className="relative inline-block text-xl font-semibold text-foreground transition-colors">
-                              {child.label}
-                              <span className="absolute bottom-0 left-0 w-full h-[1px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
-                            </span>
-                            {child.description && (
-                              <p className="mt-1 text-sm text-muted-foreground">{child.description}</p>
-                            )}
-                          </Link>
-                        </motion.div>
-                      ))}
-                  </div>
+              <div className="container mx-auto px-6 py-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-6">
+                  {navItems
+                    .find((item) => item.label === activeDropdown)
+                    ?.children?.map((child, index) => (
+                      <motion.div
+                        key={child.href}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: index * 0.05 }}
+                      >
+                        <Link to={child.href} className="group block p-4 rounded-xl transition-all duration-300 hover:bg-muted/50">
+                          <span className="relative inline-block text-lg font-semibold text-foreground transition-colors">
+                            {child.label}
+                            <span className="absolute bottom-0 left-0 w-full h-[1px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
+                          </span>
+                          {child.description && (
+                            <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{child.description}</p>
+                          )}
+                        </Link>
+                      </motion.div>
+                    ))}
                 </div>
               </div>
             </motion.div>
@@ -247,7 +236,7 @@ const Navbar = () => {
                     )}
                   </motion.div>
                 ))}
-                <Link to="https://dashboard.cluix.in" target="_blank">
+                <Link to="https://dashboard.solar.in" target="_blank">
                   <AppleGlassButton >
                     Dashboard
                   </AppleGlassButton>

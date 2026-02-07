@@ -15,7 +15,7 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({ isOpen, onClose, jobT
     const [formData, setFormData] = useState({
         fullName: "",
         email: "",
-        whyCluix: "",
+        whysolar: "",
         resume: null as File | null,
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -51,7 +51,7 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({ isOpen, onClose, jobT
         setTimeout(() => {
             onClose();
             setIsSuccess(false);
-            setFormData({ fullName: "", email: "", whyCluix: "", resume: null });
+            setFormData({ fullName: "", email: "", whysolar: "", resume: null });
         }, 2000);
     };
 
@@ -87,7 +87,7 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({ isOpen, onClose, jobT
                                     <CheckCircle2 className="w-10 h-10 text-primary" />
                                 </div>
                                 <h2 className="text-3xl font-bold text-foreground mb-2">Application Sent!</h2>
-                                <p className="text-muted-foreground">Thank you for applying to Cluix. We'll be in touch soon.</p>
+                                <p className="text-muted-foreground">Thank you for applying to solar. We'll be in touch soon.</p>
                             </div>
                         ) : (
                             <>
@@ -124,11 +124,11 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({ isOpen, onClose, jobT
                                     </div>
 
                                     <div className="space-y-2">
-                                        <label className="text-sm font-semibold text-foreground/70 uppercase tracking-wider ml-1">Why Cluix?</label>
+                                        <label className="text-sm font-semibold text-foreground/70 uppercase tracking-wider ml-1">Why solar?</label>
                                         <textarea
                                             required
-                                            name="whyCluix"
-                                            value={formData.whyCluix}
+                                            name="whysolar"
+                                            value={formData.whysolar}
                                             onChange={handleInputChange}
                                             rows={3}
                                             placeholder="Tell us what excites you about joining our team..."

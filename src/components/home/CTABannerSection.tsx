@@ -98,8 +98,8 @@ export function CTABannerSection() {
           </div>
           <div className="flex items-center gap-3">
             <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
-            <a href="mailto:sales@cluix.in" className="font-gilroy text-xs font-bold tracking-[0.2em] text-white/40 hover:text-cyan-400 transition-colors">
-              info@cluix.in
+            <a href="mailto:sales@solar.in" className="font-gilroy text-xs font-bold tracking-[0.2em] text-white/40 hover:text-cyan-400 transition-colors">
+              info@solar.in
             </a>
           </div>
         </motion.div>

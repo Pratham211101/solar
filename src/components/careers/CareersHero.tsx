@@ -36,7 +36,7 @@ const CareersHero = () => {
                                 <br />
                                 <div className="flex items-center gap-[0.2em]">
                                     <span>with</span>
-                                    <div className="text-gradient italic pr-4 py-2">Cluix</div>
+                                    <div className="text-gradient italic pr-4 py-2">solar</div>
                                 </div>
                             </h1>
                         </motion.div>
@@ -50,7 +50,7 @@ const CareersHero = () => {
                         className="absolute bottom-12 right-6 md:right-12 lg:right-24 max-w-md"
                     >
                         <p className="font-gilroy text-base md:text-lg text-white/80 leading-relaxed">
-                            We believe real progress comes from diverse thinkers taking on the hardest problems. At <span className="text-white font-semibold italic">Cluix</span>, we turn ambition into innovation and ideas into lasting impact.
+                            We believe real progress comes from diverse thinkers taking on the hardest problems. At <span className="text-white font-semibold italic">solar</span>, we turn ambition into innovation and ideas into lasting impact.
                         </p>
                     </motion.div>
 

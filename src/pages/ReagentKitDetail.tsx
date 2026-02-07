@@ -4,7 +4,7 @@ import ProductHero from "../components/product/ProductHero";
 import ProductParameters from "../components/product/ProductParameters";
 import ProductHowItWorks from "../components/product/ProductHowItWorks";
 import ProductDeploymentSupport from "../components/product/ProductDeploymentSupport";
-import WhyCluixSection from "../components/product/WhyCluixSection";
+import WhysolarSection from "../components/product/WhysolarSection";
 import ProductFAQ from "../components/product/ProductFAQ";
 import { reagentKitsData } from "../data/reagentKits";
 import { ProductData } from "@/data/products";
@@ -109,9 +109,9 @@ const ReagentKitDetail = () => {
     };
   }
 
-  // Add Why Cluix section with features
+  // Add Why solar section with features
   if (reagentKit.features) {
-    productData.whyCluix = {
+    productData.whysolar = {
       title: `Why Choose ${reagentKit.name}`,
       description: "Quality-tested reagents designed for reliability and accuracy in field conditions.",
       features: reagentKit.features,
@@ -142,12 +142,12 @@ const ReagentKitDetail = () => {
           />
         )}
 
-        {/* Why Cluix Section */}
-        {productData.whyCluix && (
-          <WhyCluixSection
-            title={productData.whyCluix.title}
-            description={productData.whyCluix.description}
-            features={productData.whyCluix.features}
+        {/* Why solar Section */}
+        {productData.whysolar && (
+          <WhysolarSection
+            title={productData.whysolar.title}
+            description={productData.whysolar.description}
+            features={productData.whysolar.features}
           />
         )}
 

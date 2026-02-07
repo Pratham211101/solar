@@ -45,7 +45,7 @@ const Demo = () => {
                     </div>
 
                     <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold mb-4 text-foreground leading-[1.1] tracking-tighter-custom">
-                      See Cluix <br />
+                      See solar <br />
                       <span className="text-gradient italic">in action</span>
                     </h1>
 
@@ -135,7 +135,7 @@ const Demo = () => {
                                 <input
                                   required
                                   type="text"
-                                  placeholder="Cluix"
+                                  placeholder="solar"
                                   className="w-full bg-muted/20 border border-border rounded-xl px-4 py-2.5 text-sm outline-none focus:border-primary transition-all font-gilroy"
                                 />
                               </div>

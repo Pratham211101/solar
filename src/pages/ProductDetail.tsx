@@ -5,7 +5,7 @@ import ProductParameters from "../components/product/ProductParameters";
 import ProductHowItWorks from "../components/product/ProductHowItWorks";
 import ProductWhoItsFor from "../components/product/ProductWhoItsFor";
 import ProductDeploymentSupport from "../components/product/ProductDeploymentSupport";
-import WhyCluixSection from "../components/product/WhyCluixSection";
+import WhySolarSection from "../components/product/WhySolarSection";
 import ProductFAQ from "../components/product/ProductFAQ";
 import { productsData } from "@/data/products";
 import { useEffect } from "react";
@@ -69,12 +69,12 @@ const ProductDetail = () => {
           />
         )}
 
-        {/* Why Cluix Section */}
-        {product.whyCluix && (
-          <WhyCluixSection
-            title={product.whyCluix.title}
-            description={product.whyCluix.description}
-            features={product.whyCluix.features}
+        {/* Why solar Section */}
+        {product.whysolar && (
+          <WhySolarSection
+            title={product.whysolar.title}
+            description={product.whysolar.description}
+            features={product.whysolar.features}
           />
         )}
 

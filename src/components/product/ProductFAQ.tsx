@@ -6,16 +6,16 @@ import ScrollReveal from "../ui/ScrollReveal";
 
 const productFaqs = [
     {
-        question: "How accurate are Cluix portable analyzers?",
+        question: "How accurate are solar portable analyzers?",
         answer: "Our devices provide lab-grade accuracy (±2-5% for most parameters) and are validated by NABL labs. They are designed to deliver reliable results in field conditions, matching high-end spectrophotometers."
     },
     {
         question: "Do I need special training to use these devices?",
-        answer: "No. Cluix devices are designed for 'precision simplified'. Most users can learn to perform tests in less than 30 minutes. We also provide comprehensive on-site and remote training as part of our deployment support."
+        answer: "No. solar devices are designed for 'precision simplified'. Most users can learn to perform tests in less than 30 minutes. We also provide comprehensive on-site and remote training as part of our deployment support."
     },
     {
         question: "Are the products compatible with mobile apps?",
-        answer: "Yes, all our recent devices feature IoT connectivity via LoRa, Bluetooth, or GSM. Data is automatically synced to the Cluix dashboard, and real-time alerts can be received on mobile devices and via email."
+        answer: "Yes, all our recent devices feature IoT connectivity via LoRa, Bluetooth, or GSM. Data is automatically synced to the solar dashboard, and real-time alerts can be received on mobile devices and via email."
     },
     {
         question: "How long does a typical test take?",

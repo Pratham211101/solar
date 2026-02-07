@@ -26,11 +26,11 @@ const categories = [
     {
         icon: Rocket,
         title: "Getting Started",
-        description: "New to Cluix? Learn how to set up your account and hardware."
+        description: "New to solar? Learn how to set up your account and hardware."
     },
     {
         icon: Zap,
-        title: "Using Cluix",
+        title: "Using solar",
         description: "Master the features and get the most out of your analysis."
     },
     {
@@ -46,7 +46,7 @@ const categories = [
     {
         icon: Share2,
         title: "Integrations",
-        description: "Connect Cluix with your existing ERP or data platforms."
+        description: "Connect solar with your existing ERP or data platforms."
     },
     {
         icon: Wrench,
@@ -62,7 +62,7 @@ const faqs = [
     },
     {
         question: "What is the shelf life of the reagents in the kit?",
-        answer: "Most Cluix reagents have a shelf life of 12-24 months when stored in a cool, dry place. Each kit is clearly marked with an expiration date for your safety and accuracy."
+        answer: "Most solar reagents have a shelf life of 12-24 months when stored in a cool, dry place. Each kit is clearly marked with an expiration date for your safety and accuracy."
     },
     {
         question: "How does IoT connectivity work in remote areas?",
@@ -70,7 +70,7 @@ const faqs = [
     },
     {
         question: "Can I export historical water quality data to Excel?",
-        answer: "Yes, you can export all your historical data in CSV, Excel, or PDF formats directly from the Cluix Cloud dashboard."
+        answer: "Yes, you can export all your historical data in CSV, Excel, or PDF formats directly from the solar Cloud dashboard."
     },
     {
         question: "What routine maintenance does the device require?",
@@ -105,9 +105,9 @@ const HelpCenter = () => {
 
                                 {/* Support Info Row in Hero */}
                                 <div className="flex flex-wrap justify-center gap-8 mb-16 text-white/80">
-                                    <div className="flex items-center gap-2 group cursor-pointer" onClick={() => window.open('mailto:support@cluix.in')}>
+                                    <div className="flex items-center gap-2 group cursor-pointer" onClick={() => window.open('mailto:support@solar.in')}>
                                         <Mail className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
-                                        <span className="font-medium hover:text-white transition-colors">support@cluix.in</span>
+                                        <span className="font-medium hover:text-white transition-colors">support@solar.in</span>
                                     </div>
                                     <div className="flex items-center gap-2 group cursor-pointer" onClick={() => window.open('tel:18001024799')}>
                                         <Phone className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
@@ -129,7 +129,7 @@ const HelpCenter = () => {
                                                 <Calendar className="w-8 h-8 text-amber-600" />
                                             </div>
                                             <h3 className="text-xl font-bold text-slate-900 mb-2">Schedule a demo</h3>
-                                            <p className="text-slate-500 text-sm leading-relaxed text-center">See Cluix in action with a personalized walkthrough.</p>
+                                            <p className="text-slate-500 text-sm leading-relaxed text-center">See solar in action with a personalized walkthrough.</p>
                                         </div>
                                     </Link>
                                 </ScrollReveal>

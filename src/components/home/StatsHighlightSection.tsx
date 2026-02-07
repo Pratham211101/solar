@@ -25,7 +25,7 @@ export function StatsHighlightSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-24 bg-gradient-to-b from-[#00f8fc] to-[#009dff] overflow-hidden"
+      className="relative py-24 bg-gradient-to-b from-primary to-secondary overflow-hidden"
     >
       {/* Subtle Grain Texture */}
       <div
@@ -100,7 +100,7 @@ function StatCard({ stat, index, trigger }) {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={revealed ? { opacity: 1, scale: 1 } : {}}
         transition={{ duration: 0.7, delay: 0.3 }}
-        className="font-gilroy font-bold text-[10px] tracking-[0.4em] text-[#deeff9] uppercase"
+        className="font-gilroy font-bold text-[10px] tracking-[0.4em] text-white/70 uppercase"
       >
         {stat.label}
       </motion.div>

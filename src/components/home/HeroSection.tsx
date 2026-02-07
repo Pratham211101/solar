@@ -19,7 +19,7 @@ const HeroSection = () => {
           className="w-full h-full object-cover"
           poster="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80"
         >
-          <source src="/videos/hero-bg.mp4" type="video/mp4" />
+          <source src="https://media.istockphoto.com/id/1285283013/video/three-solar-energy-specialists-walking-through-a-solar-park-at-sunset-drone-shot.mp4?s=mp4-640x640-is&k=20&c=m9VcBUpJhgxOOEXLoPXaMnjwY4XfCpgFrjuA6AtaPUo=" type="video/mp4" />
         </video>
         <div className="hero-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
       </div>
