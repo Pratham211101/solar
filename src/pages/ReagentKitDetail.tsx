@@ -47,6 +47,7 @@ const ReagentKitDetail = () => {
       "Quality assured",
     ],
     image: reagentKit.image,
+    images: reagentKit.images,
     stat: {
       value: reagentKit.specifications?.shelfLife || "24",
       label: "Months Shelf Life"

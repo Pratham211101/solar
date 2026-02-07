@@ -16,6 +16,7 @@ export interface ProductData {
   description: string;
   features: string[];
   image: string;
+  images?: string[];
   stat: { value: string; label: string };
   parametersTitle?: string;
   parametersSubtitle?: string;
@@ -59,6 +60,12 @@ export const productsData: Record<string, ProductData> = {
       "Lab-grade accuracy meets field-ready ruggedness. Test 12+ water quality parameters in under 2 minutes, anywhere.",
     features: ["12+ Parameters", "< 2 min testing", "IP65 rated", "Cloud sync", "GPS tagging"],
     image: "/images/products/C012.png",
+    images: [
+      "/images/products/C012.png",
+      "/images/products/C012-kit.JPG",
+      "/images/products/C012-white.jpg",
+      "/images/products/C012-black.jpg"
+    ],
     stat: { value: "15+", label: "States" },
     parametersTitle: "12+ parameters, one device",
     parametersSubtitle: "Comprehensive water quality profiling with the C012 handheld analyzer.",
@@ -198,6 +205,12 @@ export const productsData: Record<string, ProductData> = {
       "Continuous effluent monitoring system for STP/ETP compliance with real-time alerts and automated reporting.",
     features: ["CPCB Compliant", "Real-time alerts", "Remote access", "Auto-reporting", "24/7 monitoring"],
     image: "https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?w=800&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?w=800&q=80",
+      "/images/products/monitoring.png",
+      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
+      "/images/products/dashboard.png"
+    ],
     stat: { value: "100+", label: "Installations" },
     parametersTitle: "Complete compliance monitoring",
     parametersSubtitle: "All parameters required for regulatory compliance in one integrated system.",
@@ -330,6 +343,11 @@ export const productsData: Record<string, ProductData> = {
       "IoT-enabled water level monitoring for borewells and tanks with predictive analytics and trend analysis.",
     features: ["Solar powered", "LoRa enabled", "Trend analysis", "Low maintenance", "Remote alerts"],
     image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80",
+      "https://images.unsplash.com/photo-1574689232449-396a46174a62?q=80&w=2070",
+      "/images/products/dashboard2.jpg"
+    ],
     stat: { value: "500+", label: "Deployments" },
     parametersTitle: "Smart monitoring capabilities",
     parametersSubtitle: "Advanced sensors and analytics for comprehensive water level management.",
@@ -461,6 +479,11 @@ export const productsData: Record<string, ProductData> = {
       "High-quality reagents for accurate colorimetric testing. Available for all parameters with long shelf life.",
     features: ["Long shelf life", "Field-ready", "Bulk available", "Quality assured", "Easy storage"],
     image: "/images/products/reagent-kit.png",
+    images: [
+      "/images/products/reagent-kit.png",
+      "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80",
+      "https://images.unsplash.com/photo-1576086213369-9713439bb5ad?w=800&q=80"
+    ],
     stat: { value: "50+", label: "Parameters" },
     brochureLink: "#",
     howItWorks: {

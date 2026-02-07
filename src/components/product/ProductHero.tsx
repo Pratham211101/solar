@@ -1,15 +1,31 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Droplets, Shield } from "lucide-react";
+import { ArrowRight, Download, Droplets, Shield, ChevronLeft, ChevronRight } from "lucide-react";
 import { ProductData } from "@/data/products";
 import AppleGlassButton from "../ui/AppleGlassButton";
 import ScrollReveal from "../ui/ScrollReveal";
+import { useState, useEffect } from "react";
+import { AnimatePresence } from "framer-motion";
 
 interface ProductHeroProps {
   product: ProductData;
 }
 
 const ProductHero = ({ product }: ProductHeroProps) => {
+  const images = product.images && product.images.length > 0 ? product.images : [product.image];
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (images.length <= 1) return;
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [images.length, currentIndex]);
+
+  const nextImage = () => setCurrentIndex((prev) => (prev + 1) % images.length);
+  const prevImage = () => setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+
   return (
     <section className="h-[100vh] flex items-center bg-white overflow-hidden font-gilroy relative">
       {/* Background Polish */}
@@ -83,19 +99,52 @@ const ProductHero = ({ product }: ProductHeroProps) => {
             </ScrollReveal>
           </div>
 
-          {/* Right Content - Product Image */}
+          {/* Right Content - Product Image Carousel */}
           <div className="lg:col-span-5 relative flex items-center justify-center">
-            <ScrollReveal delay={0.3} direction="right">
-              <div className="relative group w-full">
-                <div className="relative z-10 transition-transform duration-700 hover:scale-105">
-                  <div className="relative aspect-square flex items-center justify-center">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                </div>
+            <ScrollReveal delay={0.3} direction="right" className="w-full">
+              <div className="relative group w-full aspect-square flex items-center justify-center overflow-hidden rounded-2xl bg-gray-50/50">
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={currentIndex}
+                    src={images[currentIndex]}
+                    alt={`${product.name} view ${currentIndex + 1}`}
+                    initial={{ opacity: 0, scale: 0.9, x: 20 }}
+                    animate={{ opacity: 1, scale: 1, x: 0 }}
+                    exit={{ opacity: 0, scale: 1.1, x: -20 }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                    className="w-full h-full object-contain p-8"
+                  />
+                </AnimatePresence>
+
+                {/* Navigation Arrows */}
+                {images.length > 1 && (
+                  <>
+                    <button
+                      onClick={(e) => { e.preventDefault(); prevImage(); }}
+                      className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center text-slate-800 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white z-20"
+                    >
+                      <ChevronLeft className="w-6 h-6" />
+                    </button>
+                    <button
+                      onClick={(e) => { e.preventDefault(); nextImage(); }}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center text-slate-800 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white z-20"
+                    >
+                      <ChevronRight className="w-6 h-6" />
+                    </button>
+
+                    {/* Indicators */}
+                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+                      {images.map((_, i) => (
+                        <button
+                          key={i}
+                          onClick={() => setCurrentIndex(i)}
+                          className={`w-2 h-2 rounded-full transition-all ${i === currentIndex ? "bg-primary w-6" : "bg-slate-300"
+                            }`}
+                        />
+                      ))}
+                    </div>
+                  </>
+                )}
               </div>
             </ScrollReveal>
           </div>

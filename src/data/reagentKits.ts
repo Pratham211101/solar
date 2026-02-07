@@ -3,6 +3,7 @@ export interface ReagentKitProduct {
   name: string;
   description: string;
   image: string;
+  images?: string[];
   tags: string[];
   specifications?: {
     parameter: string;
@@ -26,6 +27,11 @@ export const reagentKitsData: ReagentKitProduct[] = [
     name: "Complete Reagent Kit (100 Tests)",
     description: "Full kit with reagents for all 12+ parameters. Designed for field use with the C012 analyzer.",
     image: "/images/products/reagent-kit.png",
+    images: [
+      "/images/products/reagent-kit.png",
+      "https://images.unsplash.com/photo-1579154341098-e4e158cc7f55?q=80&w=2070",
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2070"
+    ],
     tags: ["100 Tests", "All Parameters"],
     features: [
       "Complete testing solution for 12+ water quality parameters",
@@ -55,6 +61,11 @@ export const reagentKitsData: ReagentKitProduct[] = [
     name: "pH Reagent",
     description: "High-precision pH indicator solution for accurate pH measurement in the 0-14 range.",
     image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&q=80",
+      "https://images.unsplash.com/photo-1603398938378-e54eab446ddd?q=80&w=2070",
+      "https://images.unsplash.com/photo-1574689232449-396a46174a62?q=80&w=2070"
+    ],
     tags: ["Single Parameter", "pH 0-14"],
     specifications: {
       parameter: "pH",
@@ -79,6 +90,11 @@ export const reagentKitsData: ReagentKitProduct[] = [
     name: "Chlorine Reagent",
     description: "DPD-based reagent for free and total chlorine testing. Range: 0-10 mg/L.",
     image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&q=80",
+      "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?q=80&w=2070",
+      "/images/products/reagent-kit.png"
+    ],
     tags: ["Single Parameter", "0-10 mg/L"],
     specifications: {
       parameter: "Free & Total Chlorine",

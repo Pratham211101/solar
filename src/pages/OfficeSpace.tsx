@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Footer from "../components/layout/Footer";
 import ScrollReveal from "../components/ui/ScrollReveal";
 import ScrollIndicator from "../components/layout/ScrollIndicator";
-import { Check, Users, Monitor, Coffee, Wifi, Printer, Calendar, Shield } from "lucide-react";
+import { Check, Users, Monitor, Coffee, Wifi, Printer, Calendar, Shield, Beaker } from "lucide-react";
 
 const OfficeSpace = () => {
     const offerings = [
@@ -44,15 +44,18 @@ const OfficeSpace = () => {
 
             <main>
                 {/* Hero Section */}
-                <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-black">
-                    <div className="absolute inset-0 z-0">
-                        <img
-                            src="/images/research-and-innovation-park.jpg"
-                            alt="Office Space"
-                            className="w-full h-full object-cover opacity-50"
-                        />
-                        {/* Original vertical gradient */}
-                        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/60" />
+                <section className="relative h-[100vh] w-full overflow-hidden bg-black flex items-center justify-center">
+                    <div className="absolute inset-0 z-0 h-full w-full">
+                        <video
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto object-cover opacity-60 scale-[1.33]"
+                        >
+                            <source src="/videos/research-and-innovation-park2.mp4" type="video/mp4" />
+                        </video>
+                        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/40 pointer-events-none" />
                     </div>
 
                     <div className="container mx-auto px-6 relative z-10 h-full flex flex-col justify-center">
@@ -126,55 +129,60 @@ const OfficeSpace = () => {
                     </div>
                 </section>
 
-                {/* Offerings Section */}
-                <section className="py-24 bg-white">
+                {/* Lab Section */}
+                <section className="py-24 bg-white overflow-hidden">
                     <div className="container mx-auto px-6">
-                        <ScrollReveal className="text-center mb-16">
-                            <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
-                                Our <span className="text-primary italic">Spaces</span>
-                            </h2>
-                            <p className="text-gray-500 max-w-2xl mx-auto">
-                                Whether you need a single desk, a private suite, or a conference hall,
-                                we have the perfect space for you.
-                            </p>
-                        </ScrollReveal>
+                        <div className="flex flex-col lg:flex-row gap-16 items-center">
+                            <ScrollReveal direction="right" className="flex-1 order-2 lg:order-1">
+                                <div className="space-y-8">
+                                    <div className="inline-block px-4 py-2 bg-primary/10 rounded-full">
+                                        <div className="flex items-center gap-2">
+                                            <Beaker size={14} className="text-primary" />
+                                            <span className="text-primary font-bold tracking-widest text-[10px] uppercase">Research Infrastructure</span>
+                                        </div>
+                                    </div>
+                                    <h2 className="text-4xl md:text-5xl font-bold text-black leading-tight">
+                                        Our <span className="text-primary italic">R&D Laboratory</span>
+                                    </h2>
+                                    <p className="text-lg text-gray-600 leading-relaxed font-light">
+                                        Our facility houses a cutting-edge laboratory dedicated to advanced water quality
+                                        analysis and environmental research. Equipped with high-precision analytical
+                                        instruments, it serves as the core of our innovation.
+                                    </p>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                                        {[
+                                            { title: "Advanced Analytics", desc: "Equipped with latest spectrometry and chromatography tools." },
+                                            { title: "ISO Certified", desc: "Processes that meet international quality standards." },
+                                            { title: "Rapid Prototyping", desc: "Dedicated space for sensor development and testing." },
+                                            { title: "Expert Support", desc: "Collaborate with Ph.D. researchers and engineers." }
+                                        ].map((item, idx) => (
+                                            <div key={idx} className="space-y-2 group">
+                                                <h4 className="font-bold text-black group-hover:text-primary transition-colors">{item.title}</h4>
+                                                <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </ScrollReveal>
 
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            {offerings.map((offer, index) => (
-                                <ScrollReveal key={index} delay={index * 0.1}>
-                                    <motion.div
-                                        whileHover={{ y: -10 }}
-                                        className="group bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col"
-                                    >
-                                        <div className="h-48 overflow-hidden relative">
-                                            <img
-                                                src={offer.image}
-                                                alt={offer.title}
-                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                            />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
-                                                <h3 className="text-2xl font-bold text-white">{offer.title}</h3>
+                            <ScrollReveal direction="left" className="flex-1 order-1 lg:order-2 w-full">
+                                <div className="relative group">
+                                    <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-blue-500/20 rounded-3xl blur-2xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
+                                    <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3]">
+                                        <img
+                                            src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?q=80&w=2070"
+                                            alt="Cluix Research Lab"
+                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-8">
+                                            <div className="text-white">
+                                                <p className="text-xs font-medium opacity-80 uppercase tracking-widest mb-1">State-of-the-Art</p>
+                                                <p className="text-2xl font-bold">Innovation Center</p>
                                             </div>
                                         </div>
-
-                                        <div className="p-8 flex flex-col flex-grow">
-                                            <p className="text-gray-600 mb-6 leading-relaxed">{offer.description}</p>
-
-                                            <div className="mt-auto">
-                                                <h4 className="font-bold text-sm text-black uppercase tracking-wider mb-4">Includes:</h4>
-                                                <ul className="space-y-2">
-                                                    {offer.features.map((feature, idx) => (
-                                                        <li key={idx} className="flex items-center gap-2 text-sm text-gray-500">
-                                                            <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                                                            {feature}
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </motion.div>
-                                </ScrollReveal>
-                            ))}
+                                    </div>
+                                </div>
+                            </ScrollReveal>
                         </div>
                     </div>
                 </section>
