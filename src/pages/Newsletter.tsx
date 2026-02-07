@@ -26,8 +26,8 @@ const Newsletter = () => {
               <ScrollReveal>
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                   <div>
-                    <h1 className="text-6xl md:text-8xl font-black text-slate-900 tracking-tighter uppercase leading-[0.8] mb-4">
-                      THE <br /> <span className="text-primary italic">PULSE</span>
+                    <h1 className="text-6xl md:text-8xl font-semibold text-slate-900 tracking-tighter uppercase leading-[0.8] mb-4">
+                      OUR <span className="text-primary font-bold italic">NEWSLETTER</span>
                     </h1>
                   </div>
                   <p className="text-slate-500 max-w-sm text-lg leading-relaxed font-medium pb-1">
@@ -115,7 +115,7 @@ const Newsletter = () => {
           <NewsletterCarousel />
 
           {/* Subscription Section */}
-          <section className="py-32 bg-slate-900 relative overflow-hidden">
+          <section className="min-h-screen flex items-center bg-slate-900 relative overflow-hidden py-24">
             <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
               <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-primary blur-[150px] rounded-full" />
               <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-blue-400 blur-[100px] rounded-full" />
@@ -124,14 +124,14 @@ const Newsletter = () => {
             <div className="container mx-auto px-6 relative z-10">
               <div className="max-w-4xl mx-auto text-center">
                 <ScrollReveal>
-                  <h2 className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter">
-                    JOIN THE <span className="text-primary italic text-gradient">CLUIX HUB</span>
+                  <h2 className="text-4xl md:text-6xl text-white mb-6 tracking-tighter font-medium">
+                    SUBSCRIBE TO OUR <span className="text-primary font-bold italic text-gradient">NEWSLETTER</span>
                   </h2>
-                  <p className="text-xl text-slate-400 mb-16 max-w-2xl mx-auto font-medium leading-relaxed">
+                  <p className="text-lg text-slate-400 mb-10 max-w-xl mx-auto font-medium leading-relaxed">
                     Get exclusive quarterly insights, early access to new product launches, and expert takes on the water ecosystem.
                   </p>
 
-                  <div className="grid md:grid-cols-2 gap-12 text-left mb-16 bg-white/5 backdrop-blur-sm border border-white/10 p-12 rounded-[3rem]">
+                  <div className="grid md:grid-cols-2 gap-8 text-left mb-10 bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-[2.5rem]">
                     {[
                       { title: "Quarterly Pulse", desc: "Our curated newsletter with the top industry breakthroughs." },
                       { title: "Early Access", desc: "Be the first to test our new products and software betas." },
@@ -139,32 +139,32 @@ const Newsletter = () => {
                       { title: "Community Events", desc: "Invites to webinars and roundtables with industry leaders." }
                     ].map((item) => (
                       <div key={item.title} className="flex gap-4">
-                        <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center shrink-0 mt-1">
-                          <Check className="w-4 h-4 text-primary" />
+                        <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center shrink-0 mt-1">
+                          <Check className="w-3 h-3 text-primary" />
                         </div>
                         <div>
-                          <h3 className="text-white font-bold text-lg mb-1">{item.title}</h3>
-                          <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
+                          <h3 className="text-white font-bold text-base mb-1">{item.title}</h3>
+                          <p className="text-slate-500 text-xs leading-relaxed">{item.desc}</p>
                         </div>
                       </div>
                     ))}
                   </div>
 
-                  <form className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
+                  <form className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
                     <input
                       type="email"
                       placeholder="your@email.com"
-                      className="flex-1 px-8 py-5 rounded-full bg-white/10 border border-white/20 focus:border-primary focus:outline-none transition-all text-white backdrop-blur-sm placeholder:text-slate-500"
+                      className="flex-1 px-6 py-3.5 rounded-full bg-white/10 border border-white/20 focus:border-primary focus:outline-none transition-all text-white backdrop-blur-sm placeholder:text-slate-500 text-sm"
                     />
                     <AppleGlassButton
                       type="submit"
                       textColor="text-slate-900"
-                      className="px-10 py-5 bg-primary hover:bg-white transition-colors border-none"
+                      className="px-8 bg-primary hover:bg-white transition-colors border-none h-[46px]"
                     >
-                      <span className="uppercase tracking-widest text-sm font-black">Subscribe Now</span>
+                      <span className="uppercase tracking-widest text-xs font-black">Subscribe Now</span>
                     </AppleGlassButton>
                   </form>
-                  <p className="text-xs text-slate-500 mt-6 tracking-widest uppercase font-bold opacity-50">
+                  <p className="text-[10px] text-slate-500 mt-4 tracking-widest uppercase font-bold opacity-50">
                     Zero Spam. Just Science.
                   </p>
                 </ScrollReveal>

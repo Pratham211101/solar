@@ -149,16 +149,6 @@ const CareerDetail = () => {
                         </p>
                       </div>
 
-                      <div className="mt-10 pt-8 border-t border-white/10">
-                        <p className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Questions?</p>
-                        <a
-                          href="mailto:careers@cluix.com"
-                          className="text-primary hover:text-primary/80 transition-colors font-semibold flex items-center gap-2 group/link"
-                        >
-                          careers@cluix.com
-                          <ArrowLeft className="w-4 h-4 rotate-180 group-hover:translate-x-1 transition-transform" />
-                        </a>
-                      </div>
                     </div>
                   </ScrollReveal>
                 </div>
