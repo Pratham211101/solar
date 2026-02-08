@@ -16,6 +16,12 @@ import {
   Calendar,
   Clock,
   Shield,
+  Battery,
+  Sun,
+  Settings,
+  Wifi,
+  Smartphone,
+  Monitor,
   LucideIcon,
 } from "lucide-react";
 import { ProductParameter } from "@/data/products";
@@ -38,6 +44,12 @@ const iconMap: Record<string, LucideIcon> = {
   calendar: Calendar,
   clock: Clock,
   shield: Shield,
+  battery: Battery,
+  sun: Sun,
+  settings: Settings,
+  wifi: Wifi,
+  smartphone: Smartphone,
+  monitor: Monitor,
 };
 
 interface ProductParametersProps {

@@ -1,41 +1,9 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Plus } from "lucide-react";
+import { productsData } from "@/data/products";
 
-const products = [
-  {
-    id: "solar-c012",
-    name: "solar C012",
-    category: "WATER QUALITY ANALYSIS",
-    description: "Advanced multi-parameter water quality analyzer with IoT connectivity enabling rapid multi-parameter analysis, digital reporting, and scalable monitoring operations. ",
-    image: "/images/products/C012.png",
-    href: "/products/solar-c012"
-  },
-  {
-    id: "reagent-kit",
-    name: "C012 REAGENT KIT",
-    category: "TESTING CONSUMABLES",
-    description: "Complete reagent solution ensuring reliable, standardized testing across routine and large-scale water monitoring programs.",
-    image: "/images/products/reagent-kit.png",
-    href: "/products/reagent-kit"
-  },
-  {
-    id: "monitoring-solutions",
-    name: "Smart Online Water Quality Monitoring",
-    category: "continuous monitoring",
-    description: "Designed for continuous industrial and environmental monitoring, our multi-sensor array tracks key parameters in real time. ",
-    image: "/images/products/monitoring.png",
-    href: "/products/monitoring-solutions"
-  },
-  {
-    id: "dashboard-dss",
-    name: "DASHBOARD DSS",
-    category: "DATA ANALYTICS",
-    description: "Centralized decision support system providing real-time analytics, automated reporting, and predictive trends for water management.",
-    image: "/images/products/dashboard2.jpg",
-    href: "/dashboard"
-  },
-];
+const products = Object.values(productsData);
 
 export function ProductsShowcaseSection() {
   return (

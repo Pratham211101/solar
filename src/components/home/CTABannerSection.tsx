@@ -18,16 +18,16 @@ export function CTABannerSection() {
       {/* Decorative Glow Elements (Matching the image's arcs) */}
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
-      {/* Main Bottom Arc - Cyan */}
-      <div className="absolute -bottom-[400px] left-1/2 -translate-x-1/2 w-[200%] aspect-square rounded-full border border-cyan-500/20 bg-gradient-to-t from-cyan-500/[0.05] to-transparent blur-sm pointer-events-none" />
+      {/* Main Bottom Arc - purple */}
+      <div className="absolute -bottom-[400px] left-1/2 -translate-x-1/2 w-[200%] aspect-square rounded-full border border-purple-500/20 bg-gradient-to-t from-purple-500/[0.05] to-transparent blur-sm pointer-events-none" />
 
-      {/* Symmetrical Side Arcs - Cyan */}
-      <div className="absolute -bottom-20 left-[-10%] w-[60%] aspect-square border-[1px] border-cyan-500/30 rounded-full blur-[2px] opacity-20 pointer-events-none" />
-      <div className="absolute -bottom-20 right-[-10%] w-[60%] aspect-square border-[1px] border-cyan-500/30 rounded-full blur-[2px] opacity-20 pointer-events-none" />
+      {/* Symmetrical Side Arcs - purple */}
+      <div className="absolute -bottom-20 left-[-10%] w-[60%] aspect-square border-[1px] border-purple-500/30 rounded-full blur-[2px] opacity-20 pointer-events-none" />
+      <div className="absolute -bottom-20 right-[-10%] w-[60%] aspect-square border-[1px] border-purple-500/30 rounded-full blur-[2px] opacity-20 pointer-events-none" />
 
-      {/* Symmetrical Side Glows - Cyan */}
-      <div className="absolute -bottom-40 left-0 w-[500px] h-[500px] bg-cyan-600/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute -bottom-40 right-0 w-[500px] h-[500px] bg-cyan-600/10 rounded-full blur-[120px] pointer-events-none" />
+      {/* Symmetrical Side Glows - purple */}
+      <div className="absolute -bottom-40 left-0 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute -bottom-40 right-0 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[120px] pointer-events-none" />
 
       {/* Content Container */}
       <div className="container mx-auto px-6 relative z-10">
@@ -40,7 +40,7 @@ export function CTABannerSection() {
           >
             <h2 className="font-gilroy text-4xl md:text-7xl font-bold text-white tracking-tighter leading-[1.05] mb-8">
               Ready to scale your <br />
-              <span className="text-cyan-400 italic">Water Intelligence?</span>
+              <span className="text-purple-400 italic">Solar Infrastructure?</span>
             </h2>
 
             <motion.p
@@ -50,9 +50,9 @@ export function CTABannerSection() {
               viewport={{ once: true }}
               className="text-white/50 text-base md:text-xl font-gilroy max-w-2xl mx-auto mb-12 leading-relaxed"
             >
-              Turn water data into action, at scale.
+              Powering the next generation of decentralized cities.
               <br />
-              Detect early. Respond fast. Mitigate risk everywhere you operate.
+              Smart lighting. Off-grid energy. Seamless IoT connectivity everywhere.
             </motion.p>
 
             <motion.div
@@ -65,7 +65,7 @@ export function CTABannerSection() {
               <Link to="/contact-us">
                 <AppleGlassButton
                   icon={<ArrowUpRight className="w-5 h-5" />}
-                  className="bg-cyan-500/20 border-cyan-400/30 hover:bg-cyan-500/30 hover:border-cyan-400/50 shadow-[0_0_40px_rgba(6,182,212,0.2)]"
+                  className="bg-purple-500/20 border-purple-400/30 hover:bg-purple-500/30 hover:border-purple-400/50 shadow-purple-950"
                 >
                   TALK TO EXPERTS
                 </AppleGlassButton>
@@ -73,7 +73,7 @@ export function CTABannerSection() {
 
               <Link to="/demo">
                 <AppleGlassButton
-                  className="bg-white/5 border-white/10 hover:bg-white/10"
+                  className="bg-white/5 border-white/10 hover:bg-white/10 py-3"
                 >
                   REQUEST DEMO
                 </AppleGlassButton>
@@ -91,14 +91,14 @@ export function CTABannerSection() {
           className="mt-24 pt-8  flex flex-col md:flex-row items-center justify-between gap-6"
         >
           <div className="flex items-center gap-3">
-            <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
             <span className="font-gilroy text-[10px] font-bold tracking-[0.3em] text-white/30 uppercase">
               Enterprise Grade Infrastructure
             </span>
           </div>
           <div className="flex items-center gap-3">
-            <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
-            <a href="mailto:sales@solar.in" className="font-gilroy text-xs font-bold tracking-[0.2em] text-white/40 hover:text-cyan-400 transition-colors">
+            <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
+            <a href="mailto:sales@solar.in" className="font-gilroy text-xs font-bold tracking-[0.2em] text-white/40 hover:text-purple-400 transition-colors">
               info@solar.in
             </a>
           </div>

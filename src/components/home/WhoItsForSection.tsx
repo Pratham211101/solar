@@ -1,38 +1,38 @@
 import { motion } from "framer-motion";
-import { Building2, Factory, FlaskConical, Heart, ArrowUpRight } from "lucide-react";
+import { Building2, Factory, Shield, Trees, ArrowUpRight } from "lucide-react";
 
 const audiences = [
   {
-    icon: Building2,
-    title: "Government Utilities",
-    category: "01 / PUBLIC SECTOR",
-    description: "ENSURING DRINKING WATER COMPLIANCE AT SCALE FOR MILLIONS THROUGH SMARTER PUBLIC UTILITY INFRASTRUCTURE.",
-    image: "https://images.unsplash.com/photo-1697996069354-6578258b5ec9?q=80&w=1025&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    tags: ["Jal Jeevan Mission", "State Water Boards"],
+    icon: Shield,
+    title: "Smart Cities & Govt",
+    category: "01 / PUBLIC INFRA",
+    description: "POWERING INDIA'S 100 SMART CITIES AND NATIONAL HIGHWAYS WITH INTELLIGENT, DATA-DRIVEN LIGHTING NETWORKS.",
+    image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=1200&auto=format&fit=crop",
+    tags: ["Smart Cities", "NHAI Networks"],
   },
   {
     icon: Factory,
-    title: "Industries",
-    category: "02 / COMPLIANCE",
-    description: "REAL-TIME MONITORING AND DISCHARGE COMPLIANCE ACROSS DIVERSE INDUSTRIAL MANUFACTURING SECTORS.",
-    image: "https://images.unsplash.com/photo-1516937941344-00b4e0337589?w=1200&q=80",
-    tags: ["Manufacturing", "Pharmaceuticals"],
+    title: "Industries & SEZs",
+    category: "02 / INDUSTRIAL",
+    description: "ROBUST ENERGY SOLUTIONS FOR LARGE-SCALE MANUFACTURING PLANTS, WAREHOUSING CORRIDORS, AND LOGISTICS CENTERS.",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop",
+    tags: ["Manufacturing", "Logistics"],
   },
   {
-    icon: FlaskConical,
-    title: "Labs & Institutions",
-    category: "03 / RESEARCH",
-    description: "EXTENDING LAB-GRADE PRECISION TO THE FIELD FOR HIGH-FIDELITY RESEARCH AND INSTITUTIONAL TESTING.",
-    image: "https://images.unsplash.com/photo-1576086213369-97a306d36557?w=1200&q=80",
-    tags: ["Universities", "NABL Labs"],
+    icon: Building2,
+    title: "Gated Communities",
+    category: "03 / RESIDENTIAL",
+    description: "ENHANCING THE CURB APPEAL AND SAFETY OF LUXURY TOWNSHIPS, RWAs, AND PRIVATE INTEGRATED RESIDENTIAL SPACES.",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
+    tags: ["Luxury Villas", "Townships"],
   },
   {
-    icon: Heart,
-    title: "NGOs & CSR",
-    category: "04 / SOCIAL IMPACT",
-    description: "TRANSPARENT, DATA-BACKED WATER QUALITY PROGRAMS EMPOWERING COMMUNITY-LED SOCIAL IMPACT INITIATIVES.",
-    image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    tags: ["WASH Programs", "CSR Initiatives"],
+    icon: Trees,
+    title: "Agri & Eco-Resorts",
+    category: "04 / OFF-GRID",
+    description: "BRINGING RENEWABLE AUTONOMY TO OFF-GRID FARM ESTATES, LUXURY GETAWAYS, AND ECO-SENSITIVE HOSPITALITY ZONES.",
+    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&q=80",
+    tags: ["Farm Life", "Eco-Tourism"],
   },
 ];
 
@@ -60,7 +60,7 @@ export function WhoItsForSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-black/40 text-sm md:text-base max-w-md font-gilroy font-medium uppercase"
           >
-            Precision monitoring across sectors where water quality decisions matter.
+            Sustainable infrastructure for sectors where energy independence and safety matter.
           </motion.p>
         </div>
 

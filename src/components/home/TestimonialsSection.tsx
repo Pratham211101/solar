@@ -3,24 +3,24 @@ import { Quote, Star } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "I would like to formally acknowledge and appreciate the training session you conducted on the C012 Water Quality Analyzer. Your explanation of the device's operation, parameter handling and maintenance procedures was thorough and easy to understand. Your training style was clear, well-structured and interactive, which made the session highly effective. The way you addressed questions with patience and provided hands-on guidance reflected your strong technical knowledge and communication skills. Overall, the session was very informative, and you professionalism and command over the subject were clearly evident. Thank you for your support and for ensuring that we feel confident using the device.",
-    role: "FIELD ASSISTANT",
-    name: "JAGDISH",
-    organization: "AMBUJA FOUNDATION",
+    quote: "The EOS self-cleaning solar poles have been a game-changer for our national highway stretches in Rajasthan. We've seen a 95% reduction in manual maintenance visits, and the light output remains consistently high despite the heavy sandstorms.",
+    role: "CHIEF ENGINEER",
+    name: "RAHUL SHARMA",
+    organization: "NHAI PROJECTS",
     index: "01",
   },
   {
-    quote: "Truly wonderful-- an amazing piece of work. Honestly, I wasn't sure in the beginning whether it would function so smoothly. But now, seeing how well it actually works, I must say--brilliant job! I believe it has great potential to perform exceptionally well. ",
-    role: "DIRECTOR",
-    name: "VIKAS BRAHMAVAR",
-    organization: "BOSON WATER",
+    quote: "Implementing the Smart Solar Bench across our corporate campus was the best decision for our employee breakout zones. It's more than just seating—it's a hub for connectivity that aligns perfectly with our sustainability goals.",
+    role: "OPERATIONS DIRECTOR",
+    name: "ANANYA GUPTA",
+    organization: "CYBER CITY BANGALORE",
     index: "02",
   },
   {
-    quote: "This device has helped me a lot while testing the water. There are some significant changes in the device device when compare to laboratory and this device.",
-    role: "OPERATIONS EXECUTIVE",
-    name: "ANU SHREE",
-    organization: "BOSON WATER",
+    quote: "As a gated community, security is our top priority. The Helios vertical solar poles not only look architecturally stunning but provide reliable, theft-proof lighting throughout the night. Our residents feel safer than ever.",
+    role: "MANAGEMENT COMMITTEE",
+    name: "PRIYA DESHMUKH",
+    organization: "HARMONY RESIDENCY",
     index: "03",
   },
 ];
@@ -39,7 +39,7 @@ export function TestimonialsSection() {
           <div>
             <span className="text-primary font-gilroy text-[10px] font-bold tracking-[0.5em] uppercase mb-4 block">Impact Stories</span>
             <h2 className="font-gilroy text-4xl md:text-5xl lg:text-6xl font-bold text-black tracking-tighter leading-none">
-              Voices of <span className="text-primary italic">Precision</span>
+              Voices of <span className="text-primary italic">Efficiency</span>
             </h2>
           </div>
           <div className="flex gap-1 text-primary">

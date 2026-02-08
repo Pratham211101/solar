@@ -116,6 +116,25 @@ const ProductHero = ({ product }: ProductHeroProps) => {
                   />
                 </AnimatePresence>
 
+                {/* Floating Stat Badge */}
+                {product.stat && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.8, duration: 0.6 }}
+                    className="absolute top-8 right-8 p-4 bg-white/90 backdrop-blur-md rounded-2xl shadow-xl z-20 border border-white"
+                  >
+                    <div className="flex flex-col">
+                      <span className="text-2xl font-bold text-primary leading-none">
+                        {product.stat.value}
+                      </span>
+                      <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-1">
+                        {product.stat.label}
+                      </span>
+                    </div>
+                  </motion.div>
+                )}
+
                 {/* Navigation Arrows */}
                 {images.length > 1 && (
                   <>

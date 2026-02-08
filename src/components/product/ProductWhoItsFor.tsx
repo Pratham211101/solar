@@ -1,11 +1,14 @@
 import { motion } from "framer-motion";
-import { Building2, Factory, FlaskConical, Heart, LucideIcon } from "lucide-react";
+import { Building2, Factory, FlaskConical, Heart, LucideIcon, MapPin, Leaf, Shield } from "lucide-react";
 
 const iconMap: Record<string, LucideIcon> = {
   building: Building2,
   factory: Factory,
   flask: FlaskConical,
   heart: Heart,
+  "map-pin": MapPin,
+  leaf: Leaf,
+  shield: Shield,
 };
 
 export interface WhoItsForSector {
@@ -45,7 +48,7 @@ const ProductWhoItsFor = ({ title, subtitle, sectors }: ProductWhoItsForProps) =
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {sectors.map((sector, index) => {
             const IconComponent = iconMap[sector.icon] || Building2;
-            
+
             return (
               <motion.div
                 key={sector.title}

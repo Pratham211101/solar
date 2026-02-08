@@ -16,10 +16,14 @@ const navItems: NavItem[] = [
     label: "Products",
     href: "/products",
     children: [
-      { label: "solar C012", href: "/products/solar-c012", description: "Handheld water quality analyzer" },
-      { label: "Monitoring Solutions", href: "/products/monitoring-solutions", description: "OCEMS, Varunaa & more" },
-      { label: "Reagent Kits", href: "/products/reagent-kit", description: "Testing consumables" },
-      { label: "Dashboard DSS", href: "/dashboard", description: "Decision Support System" },
+      { label: "Helios", href: "/products/helios", description: "Vertical solar pole light" },
+      { label: "EOS", href: "/products/eos", description: "Self-cleaning solar light" },
+      { label: "Apollo", href: "/products/apollo", description: "Versatile solar street light" },
+      { label: "Astro", href: "/products/astro", description: "High mast solar light" },
+      { label: "Solar Bench", href: "/products/solar-bench", description: "Smart urban furniture" },
+      { label: "Solar Tower", href: "/products/solar-tower", description: "Mobile power & light" },
+      { label: "Solar System", href: "/products/solar-system", description: "Off-grid home power" },
+      { label: "Smart Pole", href: "/products/smart-pole", description: "Smart city infrastructure" },
     ],
   },
   {
@@ -138,14 +142,6 @@ const Navbar = () => {
 
           {/* CTA/Dashboard - Right side */}
           <div className="flex-1 flex justify-end items-center gap-4">
-            <div className="hidden lg:block">
-              <Link to="https://dashboard.solar.in">
-                <AppleGlassButton >
-                  Dashboard
-                </AppleGlassButton>
-              </Link>
-            </div>
-
             {/* Mobile Menu Button */}
             <button className="lg:hidden relative z-50 p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               {mobileMenuOpen ? <X className="w-6 h-6 text-foreground" /> : <Menu className="w-6 h-6 text-foreground" />}
@@ -236,11 +232,6 @@ const Navbar = () => {
                     )}
                   </motion.div>
                 ))}
-                <Link to="https://dashboard.solar.in" target="_blank">
-                  <AppleGlassButton >
-                    Dashboard
-                  </AppleGlassButton>
-                </Link>
               </div>
             </motion.div>
           )}

@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import ScrollIndicator from "../layout/ScrollIndicator";
 import AppleGlassButton from "../ui/AppleGlassButton";
 
-const scrollTexts = ["ENVIRONMENTAL MONITORING", "WATER QUALITY ANALYSIS", "EMISSION TRACKING", "SUSTAINABLE FUTURE"];
+const scrollTexts = ["SMART SOLAR LIGHTING", "CLEAN ENERGY SOLUTIONS", "SUSTAINABLE CITIES", "ENERGY INDEPENDENCE"];
 
 const HeroSection = () => {
   return (
@@ -42,9 +42,9 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl md:text-6xl lg:text-7xl font-gilroy font-bold leading-[0.85] mb-10 tracking-tighter"
           >
-            <span className="text-white">SOLAR</span>
+            <span className="text-white">Lighting the Future,</span>
             <br />
-            <div className="text-gradient italic">Simplified. Decentralized.</div>
+            <div className="text-gradient italic">One space at a time, with SOLAR</div>
           </motion.h1>
 
           <motion.div
@@ -62,7 +62,7 @@ const HeroSection = () => {
             <motion.p
               className="text-lg md:text-xl text-white/60 font-gilroy font-light tracking-wide max-w-xl border-l border-white/20 pl-6"
             >
-              Simple workflows. Reliable results. Real-time visibility across every location for confident decisions.
+              Building the future of urban infrastructure with intelligent solar lighting, off-grid power systems, and smart city connectivity solutions.
             </motion.p>
           </motion.div>
         </motion.div>

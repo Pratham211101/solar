@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 
 const stats = [
-  { value: 15, suffix: "+", label: "States covered" },
-  { value: 6, suffix: "+", label: "National & International awards" },
-  { value: 20, suffix: "+", label: "Clients" },
-  { value: 10000, suffix: "+", label: "Water Tests Done using our solutions" },
+  { value: 50000, suffix: "+", label: "Lights Deployed" },
+  { value: 500, suffix: "+", label: "Smart City Projects" },
+  { value: 120, suffix: "+", label: "Countries Reached" },
+  { value: 1.2, suffix: "MW", label: "Energy Saved Daily" },
 ];
 
 export function StatsHighlightSection() {

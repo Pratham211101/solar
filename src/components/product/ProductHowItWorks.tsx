@@ -11,6 +11,14 @@ import {
   Upload,
   LucideIcon,
   ArrowRight,
+  Sun,
+  Settings,
+  Battery,
+  Activity,
+  Wifi,
+  Smartphone,
+  MapPin,
+  Monitor,
 } from "lucide-react";
 import ScrollReveal from "../ui/ScrollReveal";
 
@@ -23,6 +31,14 @@ const iconMap: Record<string, LucideIcon> = {
   clock: Clock,
   "check-circle": CheckCircle,
   upload: Upload,
+  sun: Sun,
+  settings: Settings,
+  battery: Battery,
+  activity: Activity,
+  wifi: Wifi,
+  smartphone: Smartphone,
+  "map-pin": MapPin,
+  monitor: Monitor,
 };
 
 export interface HowItWorksStep {

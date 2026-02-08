@@ -6,6 +6,7 @@ import ProductHowItWorks from "../components/product/ProductHowItWorks";
 import ProductWhoItsFor from "../components/product/ProductWhoItsFor";
 import ProductDeploymentSupport from "../components/product/ProductDeploymentSupport";
 import WhySolarSection from "../components/product/WhySolarSection";
+import ProductTestimonials from "../components/product/ProductTestimonials";
 import ProductFAQ from "../components/product/ProductFAQ";
 import { productsData } from "@/data/products";
 import { useEffect } from "react";
@@ -77,6 +78,23 @@ const ProductDetail = () => {
             features={product.whysolar.features}
           />
         )}
+
+        {/* Who It's For Section */}
+        {/* {product.whoItsFor && (
+          <ProductWhoItsFor
+            title={product.whoItsFor.title}
+            subtitle={product.whoItsFor.subtitle}
+            sectors={product.whoItsFor.sectors}
+          />
+        )} */}
+
+        {/* Testimonials Section */}
+        {/* {product.testimonials && (
+          <ProductTestimonials
+            title={product.testimonials.title}
+            items={product.testimonials.items}
+          />
+        )} */}
 
         {/* Deployment & Support Section */}
         {product.deploymentSupport && (

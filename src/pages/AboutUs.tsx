@@ -128,9 +128,9 @@ const AboutUs = () => {
                     transition={{ duration: 0.8, delay: 0.3 }}
                     className="font-gilroy text-lg text-white/70 leading-relaxed max-w-sm ml-auto"
                   >
-                    Discover who we are — a precision-focused hardware studio
-                    passionate about crafting bold technologies, immersive
-                    environmental insights, and innovative water quality solutions.
+                    Discover who we are — an innovation hub
+                    passionate about crafting bold solar technologies, clean
+                    energy independence, and smart city infrastructure.
                   </motion.p>
                 </div>
               </div>
@@ -156,18 +156,19 @@ const AboutUs = () => {
               <div className="absolute top-0 right-10 lg:right-20 z-30 max-w-lg text-right">
                 <ScrollReveal>
                   <h2 className="font-gilroy text-6xl font-black text-black mb-10 leading-none">
-                    Sharing is <br /> <span className="text-primary italic">Caring</span>
+                    Powering <br /> <span className="text-primary italic">Life</span>
                   </h2>
                   <div className="space-y-8">
                     <p className="font-gilroy text-xl text-gray-500 leading-relaxed font-bold">
-                      At solar, we believe in the power of precision, transparency, and action. Our
-                      journey began with a simple observation: the world needed better eyes on
-                      its most precious resource—water.
+                      At solar, we believe in the power of light, autonomy, and sustainability. Our
+                      journey began with a simple observation: the world needed smarter, more
+                      efficient ways to harness its most abundant resource—the sun.
                     </p>
                     <p className="font-gilroy text-lg text-gray-400 leading-relaxed font-medium">
-                      Today, we are committed to making a difference—one accurate measurement at a time.
-                      Whether it's empowering industries or fostering sustainable ecosystems, we
-                      craft solutions that matter for a cleaner, safer planet.
+                      Today, we are committed to making a difference—one kilowatt at a time.
+                      Whether it's lighting up city streets with vertical poles or providing
+                      off-grid power to remote homes, we craft solutions that matter for a greener,
+                      more connected planet.
                     </p>
                   </div>
                 </ScrollReveal>
