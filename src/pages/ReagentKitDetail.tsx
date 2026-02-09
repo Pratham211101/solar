@@ -4,7 +4,7 @@ import ProductHero from "../components/product/ProductHero";
 import ProductParameters from "../components/product/ProductParameters";
 import ProductHowItWorks from "../components/product/ProductHowItWorks";
 import ProductDeploymentSupport from "../components/product/ProductDeploymentSupport";
-import WhysolarSection from "../components/product/WhysolarSection";
+import WhySolarSection from "../components/product/WhySolarSection";
 import ProductFAQ from "../components/product/ProductFAQ";
 import { reagentKitsData } from "../data/reagentKits";
 import { ProductData } from "@/data/products";
@@ -144,7 +144,7 @@ const ReagentKitDetail = () => {
 
         {/* Why solar Section */}
         {productData.whysolar && (
-          <WhysolarSection
+          <WhySolarSection
             title={productData.whysolar.title}
             description={productData.whysolar.description}
             features={productData.whysolar.features}
