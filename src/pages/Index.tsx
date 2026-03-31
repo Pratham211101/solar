@@ -6,6 +6,7 @@ import { StatsHighlightSection } from "../components/home/StatsHighlightSection"
 import { TrustedBySection } from "../components/home/TrustedBySection";
 import { TestimonialsSection } from "../components/home/TestimonialsSection";
 import { CTABannerSection } from "../components/home/CTABannerSection";
+import { HorizontalParallaxGallery } from "../components/home/HorizontalParallaxGallery";
 
 const Index = () => {
   return (
@@ -14,7 +15,8 @@ const Index = () => {
         <HeroSection />
         <ProductsShowcaseSection />
         {/* <StatsHighlightSection /> */}
-        <WhoItsForSection />
+        {/* <WhoItsForSection /> */}
+        <HorizontalParallaxGallery />
         {/* <TrustedBySection /> */}
         {/* <TestimonialsSection /> */}
         <CTABannerSection />

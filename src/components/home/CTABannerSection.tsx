@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
-import AppleGlassButton from "../ui/AppleGlassButton";
+import GlowButton from "../ui/GlowButton";
 
 export function CTABannerSection() {
   return (
@@ -63,20 +63,17 @@ export function CTABannerSection() {
               className="flex flex-col sm:flex-row items-center justify-center gap-6"
             >
               <Link to="/contact-us">
-                <AppleGlassButton
+                <GlowButton
                   icon={<ArrowUpRight className="w-5 h-5" />}
-                  className="bg-purple-500/20 border-purple-400/30 hover:bg-purple-500/30 hover:border-purple-400/50 shadow-purple-950"
                 >
                   TALK TO EXPERTS
-                </AppleGlassButton>
+                </GlowButton>
               </Link>
 
               <Link to="/demo">
-                <AppleGlassButton
-                  className="bg-white/5 border-white/10 hover:bg-white/10 py-3"
-                >
+                <GlowButton>
                   REQUEST DEMO
-                </AppleGlassButton>
+                </GlowButton>
               </Link>
             </motion.div>
           </motion.div>

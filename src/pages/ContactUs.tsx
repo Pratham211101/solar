@@ -1,14 +1,20 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import ScrollReveal from "../components/ui/ScrollReveal";
-import { Mail, Phone, MapPin, Send, CheckCircle2 } from "lucide-react";
-import AppleGlassButton from "../components/ui/AppleGlassButton";
+import { Mail, Phone, MapPin, CheckCircle2 } from "lucide-react";
+import StyledContactForm from "../components/product/StyledContactForm";
+import LightPillar from "../components/home/LightPillar";
 
 const ContactUs = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    message: "",
+  });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,28 +25,56 @@ const ContactUs = () => {
     setTimeout(() => setIsSuccess(false), 3000);
   };
 
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
   return (
     <>
-      <div className="light-theme bg-background min-h-screen font-gilroy">
-        <main className="pt-[72px]">
+      <div className="bg-[#050505] min-h-screen font-gilroy relative overflow-hidden">
+        {/* Cinematic Background Elements */}
+        <div className="absolute inset-0 z-0 opacity-40">
+          <LightPillar
+            topColor="#5227FF"
+            bottomColor="#FF9FFC"
+            intensity={0.6}
+            rotationSpeed={0.8}
+            glowAmount={0.002}
+            pillarWidth={3}
+            pillarHeight={0.4}
+            noiseIntensity={0.5}
+            pillarRotation={25}
+            mixBlendMode="screen"
+            quality="high"
+          />
+          <div className="absolute inset-0 opacity-[0.05] pointer-events-none mix-blend-overlay"
+            style={{ backgroundImage: `url("https://grainy-gradients.vercel.app/noise.svg")` }} />
+        </div>
+
+        <main className="pt-[72px] relative z-10">
           <section className="min-h-[calc(100vh-72px)] flex items-center py-12 md:py-16">
             <div className="container mx-auto px-6">
               <div className="grid lg:grid-cols-12 gap-12 xl:gap-16 items-center">
                 <div className="lg:col-span-5">
                   <ScrollReveal>
                     <div className="flex items-center gap-4 mb-4">
-                      <span className="text-sm font-semibold tracking-[0.2em] text-primary uppercase">
+                      <span className="text-[10px] font-medium tracking-[0.3em] text-primary uppercase opacity-80">
                         GET IN TOUCH
                       </span>
-                      <div className="h-px w-12 bg-primary/30" />
+                      <div className="h-px w-8 bg-primary/30" />
                     </div>
 
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground leading-[1.1] tracking-tighter-custom">
+                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 text-white leading-[1.1] tracking-tighter-custom uppercase">
                       Let's start a <br />
-                      <span className="text-gradient italic">conversation</span>
+                      <span className="text-gradient italic font-medium">conversation</span>
                     </h1>
 
-                    <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-sm">
+                    <p className="text-base text-white/50 mb-10 leading-relaxed max-w-sm font-medium">
                       Have questions about our technology or want to explore partnership opportunities? We're here to help.
                     </p>
 
@@ -53,15 +87,15 @@ const ContactUs = () => {
                         <motion.a
                           key={i}
                           href={item.href}
-                          whileHover={{ x: 6 }}
-                          className="flex items-center gap-4 p-4 rounded-[20px] bg-white border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all group"
+                          whileHover={{ x: 6, backgroundColor: "rgba(255,255,255,0.05)" }}
+                          className="flex items-center gap-4 p-4 rounded-[20px] bg-white/5 border border-white/10 hover:border-primary/30 transition-all group"
                         >
                           <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-105 transition-all">
                             <item.icon className="w-5 h-5 text-primary group-hover:text-white transition-colors" />
                           </div>
                           <div>
-                            <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-0.5">{item.label}</p>
-                            <p className="text-base font-semibold text-foreground">{item.value}</p>
+                            <p className="text-[9px] font-medium text-white/30 uppercase tracking-[0.15em] mb-0.5">{item.label}</p>
+                            <p className="text-sm font-medium text-white/90">{item.value}</p>
                           </div>
                         </motion.a>
                       ))}
@@ -71,82 +105,31 @@ const ContactUs = () => {
 
                 <div className="lg:col-span-7">
                   <ScrollReveal delay={0.2}>
-                    <div className="relative bg-white border border-border p-8 md:p-10 rounded-[32px] shadow-2xl overflow-hidden">
-                      {/* Decorative Background */}
-                      <div className="absolute top-0 right-0 w-48 h-48 bg-primary/5 blur-3xl rounded-full -mr-24 -mt-24" />
-
+                    <div className="relative overflow-hidden">
                       {isSuccess ? (
-                        <motion.div
-                          initial={{ opacity: 0, scale: 0.9 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          className="py-16 text-center"
-                        >
-                          <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <CheckCircle2 className="w-8 h-8 text-primary" />
-                          </div>
-                          <h2 className="text-2xl font-bold mb-2">Message Sent!</h2>
-                          <p className="text-muted-foreground">We'll get back to you within 24 hours.</p>
-                        </motion.div>
+                        <div className="bg-[#0A0A0A] border border-white/5 p-8 md:p-10 rounded-[32px] shadow-2xl">
+                          <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            className="py-16 text-center"
+                          >
+                            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                              <CheckCircle2 className="w-8 h-8 text-primary" />
+                            </div>
+                            <h2 className="text-2xl font-bold mb-2 text-white">Message Sent!</h2>
+                            <p className="text-white/60">We'll get back to you within 24 hours.</p>
+                          </motion.div>
+                        </div>
                       ) : (
-                        <>
-                          <div className="mb-8">
-                            <h2 className="text-2xl font-bold text-foreground mb-1">Send us a message</h2>
-                            <p className="text-sm text-muted-foreground">Fill out the form below and we'll be in touch shortly.</p>
-                          </div>
-
-                          <form onSubmit={handleSubmit} className="space-y-4">
-                            <div className="grid md:grid-cols-2 gap-4">
-                              <div className="space-y-1.5">
-                                <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider ml-1">First Name</label>
-                                <input
-                                  required
-                                  type="text"
-                                  placeholder="John"
-                                  className="w-full bg-muted/20 border border-border rounded-xl px-4 py-3 outline-none focus:border-primary transition-all font-gilroy"
-                                />
-                              </div>
-                              <div className="space-y-1.5">
-                                <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider ml-1">Last Name</label>
-                                <input
-                                  required
-                                  type="text"
-                                  placeholder="Doe"
-                                  className="w-full bg-muted/20 border border-border rounded-xl px-4 py-3 outline-none focus:border-primary transition-all font-gilroy"
-                                />
-                              </div>
-                            </div>
-
-                            <div className="space-y-1.5">
-                              <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider ml-1">Email Address</label>
-                              <input
-                                required
-                                type="email"
-                                placeholder="john@example.com"
-                                className="w-full bg-muted/20 border border-border rounded-xl px-4 py-3 outline-none focus:border-primary transition-all font-gilroy"
-                              />
-                            </div>
-
-                            <div className="space-y-1.5">
-                              <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider ml-1">Message</label>
-                              <textarea
-                                required
-                                rows={3}
-                                placeholder="How can we help you?"
-                                className="w-full bg-muted/20 border border-border rounded-xl px-4 py-3 outline-none focus:border-primary transition-all font-gilroy resize-none"
-                              />
-                            </div>
-
-                            <div className="pt-2">
-                              <AppleGlassButton
-                                type="submit"
-                                disabled={isSubmitting}
-                                className="w-full py-4 bg-slate-900 border-none hover:bg-slate-800"
-                              >
-                                {isSubmitting ? "Sending..." : "Send Message"}
-                              </AppleGlassButton>
-                            </div>
-                          </form>
-                        </>
+                        <StyledContactForm 
+                          title="Send us a message"
+                          formSubtitle="Fill out the form below and we'll be in touch shortly."
+                          isSubmitting={isSubmitting}
+                          onSubmit={handleSubmit}
+                          formData={formData}
+                          onChange={handleChange}
+                          isGeneralContact={true}
+                        />
                       )}
                     </div>
                   </ScrollReveal>

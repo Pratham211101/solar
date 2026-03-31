@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import ScrollIndicator from "../layout/ScrollIndicator";
-import AppleGlassButton from "../ui/AppleGlassButton";
+import GlowButton from "../ui/GlowButton";
 
 const scrollTexts = ["SMART SOLAR LIGHTING", "CLEAN ENERGY SOLUTIONS", "SUSTAINABLE CITIES", "ENERGY INDEPENDENCE"];
 
@@ -54,9 +54,9 @@ const HeroSection = () => {
             className="flex flex-col md:flex-row items-start md:items-center gap-12"
           >
             <Link to="/products">
-              <AppleGlassButton icon={<ArrowUpRight className="w-5 h-5" />} >
+              <GlowButton icon={<ArrowUpRight className="w-5 h-5" />} >
                 Explore Products
-              </AppleGlassButton>
+              </GlowButton>
             </Link>
 
             <motion.p

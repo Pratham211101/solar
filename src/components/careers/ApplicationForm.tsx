@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Upload, CheckCircle2 } from "lucide-react";
-import AppleGlassButton from "../ui/AppleGlassButton";
+import GlowButton from "../ui/GlowButton";
 
 interface ApplicationFormProps {
     isOpen: boolean;
@@ -159,13 +159,13 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({ isOpen, onClose, jobT
                                     </div>
 
                                     <div className="pt-4">
-                                        <AppleGlassButton
+                                        <GlowButton
                                             type="submit"
                                             disabled={isSubmitting}
-                                            className="w-full py-4 bg-slate-900 border-none hover:bg-slate-800"
+                                            className="w-full"
                                         >
                                             {isSubmitting ? "Submitting..." : "Submit Application"}
-                                        </AppleGlassButton>
+                                        </GlowButton>
                                     </div>
                                 </form>
                             </>

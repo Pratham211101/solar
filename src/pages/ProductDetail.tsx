@@ -2,10 +2,8 @@ import { useParams, Link, useLocation } from "react-router-dom";
 import Footer from "../components/layout/Footer";
 import ProductHero from "../components/product/ProductHero";
 import ProductParameters from "../components/product/ProductParameters";
-import ProductHowItWorks from "../components/product/ProductHowItWorks";
 import ProductWhoItsFor from "../components/product/ProductWhoItsFor";
 import ProductDeploymentSupport from "../components/product/ProductDeploymentSupport";
-import WhySolarSection from "../components/product/WhySolarSection";
 import ProductTestimonials from "../components/product/ProductTestimonials";
 import ProductFAQ from "../components/product/ProductFAQ";
 import { productsData } from "@/data/products";
@@ -61,23 +59,7 @@ const ProductDetail = () => {
           />
         )}
 
-        {/* How It Works Section */}
-        {product.howItWorks && (
-          <ProductHowItWorks
-            title={product.howItWorks.title}
-            subtitle={product.howItWorks.subtitle}
-            steps={product.howItWorks.steps}
-          />
-        )}
 
-        {/* Why solar Section */}
-        {product.whysolar && (
-          <WhySolarSection
-            title={product.whysolar.title}
-            description={product.whysolar.description}
-            features={product.whysolar.features}
-          />
-        )}
 
         {/* Who It's For Section */}
         {/* {product.whoItsFor && (

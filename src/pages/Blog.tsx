@@ -4,7 +4,7 @@ import Footer from "../components/layout/Footer";
 import ScrollReveal from "../components/ui/ScrollReveal";
 import { Calendar, Clock, ArrowRight, User, Search, Newspaper, Zap, Info, Briefcase, Rocket } from "lucide-react";
 import { Link } from "react-router-dom";
-import AppleGlassButton from "../components/ui/AppleGlassButton";
+
 import { useState } from "react";
 
 const blogPosts = [

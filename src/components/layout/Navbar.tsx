@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
 import Logo from "@/components/ui/Logo";
-import AppleGlassButton from "../ui/AppleGlassButton";
+import GlowButton from "../ui/GlowButton";
 
 interface NavItem {
   label: string;
@@ -142,10 +142,15 @@ const Navbar = () => {
 
           {/* CTA/Dashboard - Right side */}
           <div className="flex-1 flex justify-end items-center gap-4">
-            {/* Mobile Menu Button */}
-            <button className="lg:hidden relative z-50 p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-              {mobileMenuOpen ? <X className="w-6 h-6 text-foreground" /> : <Menu className="w-6 h-6 text-foreground" />}
-            </button>
+            {/* Mobile Menu Button replaced with GlowButton */}
+            <GlowButton
+              className="lg:hidden"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              <div className="p-1">
+                {mobileMenuOpen ? <X className="w-5 h-5 text-white" /> : <Menu className="w-5 h-5 text-white" />}
+              </div>
+            </GlowButton>
           </div>
         </div>
 

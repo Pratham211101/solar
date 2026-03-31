@@ -1,4 +1,4 @@
-import AppleGlassButton from '@/components/ui/AppleGlassButton';
+import GlowButton from '@/components/ui/GlowButton';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
@@ -174,16 +174,16 @@ const NotFound = () => {
 
           {/* Home Button */}
           <Link to="/">
-            <AppleGlassButton
+            <GlowButton
               variants={buttonVariants}
               initial="hidden"
               animate="visible"
               whileHover="hover"
               whileTap="tap"
-              className="mt-8 bg-cyan-500/10 border-cyan-500/20 hover:bg-cyan-500/20 shadow-[0_8px_32px_0_rgba(6,182,212,0.15)] [&>span]:text-cyan-600"
+              className="mt-8"
             >
               Go To Home Page
-            </AppleGlassButton>
+            </GlowButton>
           </Link>
         </motion.div>
       </div>

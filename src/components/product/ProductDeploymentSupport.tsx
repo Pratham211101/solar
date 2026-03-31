@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import AppleGlassButton from "../ui/AppleGlassButton";
+import GlowButton from "../ui/GlowButton";
 import ScrollReveal from "../ui/ScrollReveal";
 import { CheckCircle2, MessageSquare } from "lucide-react";
+import StyledContactForm from "./StyledContactForm";
+import LightPillar from "../home/LightPillar";
 
 interface ProductDeploymentSupportProps {
   title: string;
@@ -52,26 +54,44 @@ const ProductDeploymentSupport = ({
 
   return (
     <>
-      <div className="h-[72px] bg-white"></div>
-      <section id="deployment-support" className="min-h-[calc(100vh-72px)] flex items-center bg-white py-8 md:py-10 font-gilroy light-theme">
-        <div className="container mx-auto px-6">
+      <section id="deployment-support" className="min-h-screen flex items-center bg-[#050505] py-16 md:py-24 font-gilroy relative overflow-hidden">
+        {/* Cinematic Background Elements */}
+        <div className="absolute inset-0 z-0 opacity-40">
+          <LightPillar
+            topColor="#5227FF"
+            bottomColor="#FF9FFC"
+            intensity={0.6}
+            rotationSpeed={0.8}
+            glowAmount={0.002}
+            pillarWidth={3}
+            pillarHeight={0.4}
+            noiseIntensity={0.5}
+            pillarRotation={25}
+            mixBlendMode="screen"
+            quality="high"
+          />
+          <div className="absolute inset-0 opacity-[0.05] pointer-events-none mix-blend-overlay"
+            style={{ backgroundImage: `url("https://grainy-gradients.vercel.app/noise.svg")` }} />
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-12 gap-8 xl:gap-16 items-center max-w-7xl mx-auto">
             {/* Left - Info */}
             <div className="lg:col-span-5">
               <ScrollReveal>
                 <div className="flex items-center gap-4 mb-4">
-                  <span className="text-sm font-semibold tracking-[0.2em] text-primary uppercase">
+                  <span className="text-[10px] font-medium tracking-[0.3em] text-primary uppercase opacity-80">
                     SUPPORT & DEPLOYMENT
                   </span>
-                  <div className="h-px w-12 bg-primary/30" />
+                  <div className="h-px w-8 bg-primary/30" />
                 </div>
 
-                <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 leading-[1.1] tracking-tighter-custom">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-6 leading-[1.1] tracking-tighter-custom uppercase">
                   {title.split(' ').slice(0, -1).join(' ')} <br />
-                  <span className="text-gradient italic">{title.split(' ').pop()}</span>
+                  <span className="text-gradient italic font-medium">{title.split(' ').pop()}</span>
                 </h2>
 
-                <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-sm font-medium">
+                <p className="text-base text-white/50 mb-10 leading-relaxed max-w-sm font-medium">
                   {description}
                 </p>
 
@@ -86,10 +106,10 @@ const ProductDeploymentSupport = ({
                       transition={{ duration: 0.3, delay: index * 0.1 }}
                       className="flex items-center gap-4 group"
                     >
-                      <div className="w-8 h-8 rounded-full bg-primary/5 flex items-center justify-center shrink-0 border border-primary/10 group-hover:bg-primary/10 transition-all">
-                        <CheckCircle2 className="w-4 h-4 text-primary" />
+                      <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20 group-hover:bg-primary transition-all">
+                        <CheckCircle2 className="w-4 h-4 text-primary group-hover:text-white" />
                       </div>
-                      <span className="text-base font-semibold text-slate-700">{feature}</span>
+                      <span className="text-sm font-medium text-white/70 group-hover:text-white transition-colors tracking-tight">{feature}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -99,110 +119,31 @@ const ProductDeploymentSupport = ({
             {/* Right - Form */}
             <div className="lg:col-span-7">
               <ScrollReveal delay={0.2}>
-                <div className="relative bg-white border border-border p-6 md:p-10 rounded-[40px] shadow-2xl overflow-hidden">
-                  {/* Decorative Background */}
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-3xl rounded-full -mr-16 -mt-16" />
-
+                <div className="relative overflow-hidden">
                   {isSuccess ? (
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      className="py-16 text-center"
-                    >
-                      <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <CheckCircle2 className="w-8 h-8 text-primary" />
-                      </div>
-                      <h2 className="text-2xl font-bold mb-2">Enquiry Sent!</h2>
-                      <p className="text-muted-foreground">Our team will get back to you within 24 hours.</p>
-                    </motion.div>
+                    <div className="bg-[#0A0A0A] border border-white/5 p-8 md:p-12 rounded-[40px] shadow-2xl">
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        className="py-16 text-center"
+                      >
+                        <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                          <CheckCircle2 className="w-8 h-8 text-primary" />
+                        </div>
+                        <h2 className="text-2xl font-bold mb-2 text-white">Enquiry Sent!</h2>
+                        <p className="text-white/60">Our team will get back to you within 24 hours.</p>
+                      </motion.div>
+                    </div>
                   ) : (
-                    <>
-                      <div className="mb-6 font-gilroy">
-                        <h3 className="text-2xl font-bold text-foreground mb-1">
-                          {formTitle}
-                        </h3>
-                        <p className="text-sm text-muted-foreground">
-                          {formSubtitle}
-                        </p>
-                      </div>
-
-                      <form onSubmit={handleSubmit} className="space-y-3.5">
-                        <div className="grid md:grid-cols-2 gap-4">
-                          <div className="space-y-1.5">
-                            <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider ml-1">Full Name</label>
-                            <input
-                              required
-                              name="name"
-                              type="text"
-                              placeholder="John Doe"
-                              value={formData.name}
-                              onChange={handleChange}
-                              className="w-full bg-muted/20 border border-border rounded-xl px-4 py-3 outline-none focus:border-primary transition-all font-gilroy"
-                            />
-                          </div>
-                          <div className="space-y-1.5">
-                            <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider ml-1">Email Address</label>
-                            <input
-                              required
-                              name="email"
-                              type="email"
-                              placeholder="john@example.com"
-                              value={formData.email}
-                              onChange={handleChange}
-                              className="w-full bg-muted/20 border border-border rounded-xl px-4 py-3 outline-none focus:border-primary transition-all font-gilroy"
-                            />
-                          </div>
-                        </div>
-
-                        <div className="grid md:grid-cols-2 gap-4">
-                          <div className="space-y-1.5">
-                            <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider ml-1">Phone Number</label>
-                            <input
-                              required
-                              name="phone"
-                              type="tel"
-                              placeholder="+91 00000 00000"
-                              value={formData.phone}
-                              onChange={handleChange}
-                              className="w-full bg-muted/20 border border-border rounded-xl px-4 py-3 outline-none focus:border-primary transition-all font-gilroy"
-                            />
-                          </div>
-                          <div className="space-y-1.5">
-                            <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider ml-1">Organization</label>
-                            <input
-                              name="organization"
-                              type="text"
-                              placeholder="Company Name"
-                              value={formData.organization}
-                              onChange={handleChange}
-                              className="w-full bg-muted/20 border border-border rounded-xl px-4 py-3 outline-none focus:border-primary transition-all font-gilroy"
-                            />
-                          </div>
-                        </div>
-
-                        <div className="space-y-1.5">
-                          <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider ml-1">Requirements</label>
-                          <textarea
-                            name="requirements"
-                            placeholder={`Interested in ${productName}...`}
-                            value={formData.requirements}
-                            onChange={handleChange}
-                            rows={2}
-                            className="w-full bg-muted/20 border border-border rounded-xl px-4 py-3 outline-none focus:border-primary transition-all font-gilroy resize-none text-sm"
-                          />
-                        </div>
-
-                        <div className="pt-2">
-                          <AppleGlassButton
-                            type="submit"
-                            disabled={isSubmitting}
-                            className="w-full py-3.5 bg-slate-900 border-none hover:bg-slate-800 text-base"
-                          >
-                            {isSubmitting ? "Sending..." : "Submit Enquiry"}
-                          </AppleGlassButton>
-                        </div>
-                      </form>
-                    </>
+                    <StyledContactForm 
+                      title={formTitle}
+                      formSubtitle={formSubtitle}
+                      isSubmitting={isSubmitting}
+                      onSubmit={handleSubmit}
+                      formData={formData}
+                      onChange={handleChange}
+                      productName={productName}
+                    />
                   )}
                 </div>
               </ScrollReveal>

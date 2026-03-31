@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Footer from "../components/layout/Footer";
 import ScrollReveal from "../components/ui/ScrollReveal";
 import { ArrowLeft, MapPin, Briefcase, Clock } from "lucide-react";
-import AppleGlassButton from "../components/ui/AppleGlassButton";
+import GlowButton from "../components/ui/GlowButton";
 import ApplicationForm from "../components/careers/ApplicationForm";
 import jobsData from "../data/jobs.json";
 
@@ -137,12 +137,12 @@ const CareerDetail = () => {
                       </p>
 
                       <div className="space-y-4">
-                        <AppleGlassButton
+                        <GlowButton
                           onClick={() => setIsFormOpen(true)}
-                          className="w-full py-5 text-xl bg-slate-950 border-white/10"
+                          className="w-full"
                         >
                           Apply for this Role
-                        </AppleGlassButton>
+                        </GlowButton>
 
                         <p className="text-center text-[10px] text-slate-400 font-bold tracking-[0.2em] uppercase">
                           RESPONDS IN 3-5 BUSINESS DAYS

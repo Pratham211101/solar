@@ -4,7 +4,7 @@ import Footer from "../components/layout/Footer";
 import ScrollReveal from "../components/ui/ScrollReveal";
 import { Mail, Check, ArrowUpRight, Calendar, Download } from "lucide-react";
 import NewsletterCarousel from "../components/newsletter/NewsletterCarousel";
-import AppleGlassButton from "../components/ui/AppleGlassButton";
+import GlowButton from "../components/ui/GlowButton";
 
 const Newsletter = () => {
   const latestNewsletter = {
@@ -83,27 +83,24 @@ const Newsletter = () => {
                         download
                         className="group"
                       >
-                        <AppleGlassButton className="bg-slate-900 border-none hover:bg-slate-800 py-4 h-auto">
+                        <GlowButton className="h-auto">
                           <span className="flex items-center gap-3">
                             DOWNLOAD PDF
                             <Download className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
                           </span>
-                        </AppleGlassButton>
+                        </GlowButton>
                       </a>
                       <a
                         href={latestNewsletter.pdf}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <AppleGlassButton
-                          textColor="text-slate-900 group-hover:text-white transition-colors duration-300"
-                          className="border-2 border-slate-900 bg-transparent hover:bg-slate-900 py-4 h-auto"
-                        >
+                        <GlowButton className="h-auto">
                           <span className="flex items-center gap-3">
                             READ ONLINE
                             <ArrowUpRight className="w-4 h-4" />
                           </span>
-                        </AppleGlassButton>
+                        </GlowButton>
                       </a>
                     </div>
                   </div>
@@ -156,13 +153,12 @@ const Newsletter = () => {
                       placeholder="your@email.com"
                       className="flex-1 px-6 py-3.5 rounded-full bg-white/10 border border-white/20 focus:border-primary focus:outline-none transition-all text-white backdrop-blur-sm placeholder:text-slate-500 text-sm"
                     />
-                    <AppleGlassButton
+                    <GlowButton
                       type="submit"
-                      textColor="text-slate-900"
-                      className="px-8 bg-primary hover:bg-white transition-colors border-none h-[46px]"
+                      className="px-8 h-[46px]"
                     >
                       <span className="uppercase tracking-widest text-xs font-black">Subscribe Now</span>
-                    </AppleGlassButton>
+                    </GlowButton>
                   </form>
                   <p className="text-[10px] text-slate-500 mt-4 tracking-widest uppercase font-bold opacity-50">
                     Zero Spam. Just Science.

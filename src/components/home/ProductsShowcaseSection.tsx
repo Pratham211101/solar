@@ -1,105 +1,196 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Plus } from "lucide-react";
+import { Zap, Target, Shield, Cpu, Globe, Battery, Sun, Lightbulb } from "lucide-react";
 import { productsData } from "@/data/products";
+import ScrollReveal from "../ui/ScrollReveal";
+import { cn } from "@/lib/utils";
+import BorderGlow from "../ui/BorderGlow";
+import LightPillar from "./LightPillar";
 
-const products = Object.values(productsData);
+const bentoProducts = [
+  {
+    ...productsData.helios,
+    color: "bg-[#080808]",
+    glowColor: "142 70% 50%", // Greenish
+    textColor: "text-white",
+    span: "md:col-span-2 md:row-span-2",
+    icon: Sun,
+    imageClass: "w-full max-w-[280px] h-full object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.4)] group-hover:scale-110 group-hover:-translate-y-4 transition-transform duration-1000",
+    revealDirection: "up" as const
+  },
+  {
+    ...productsData.eos,
+    color: "bg-[#080808]",
+    glowColor: "45 93% 47%", // Yellowish
+    textColor: "text-white",
+    span: "md:col-span-1 md:row-span-1",
+    icon: Target,
+    imageClass: "absolute -right-2 -bottom-4 w-32 h-32 object-contain group-hover:opacity-100 group-hover:scale-110 group-hover:-translate-y-6 transition-all duration-700",
+    revealDirection: "right" as const
+  },
+  {
+    ...productsData.apollo,
+    color: "bg-[#080808]",
+    glowColor: "25 95% 53%", // Orangish
+    textColor: "text-white",
+    span: "md:col-span-1 md:row-span-1",
+    icon: Zap,
+    imageClass: "absolute -right-4 -bottom-4 w-32 h-32 object-contain group-hover:opacity-100 group-hover:scale-110 group-hover:-translate-y-6 transition-all duration-700",
+    revealDirection: "left" as const
+  },
+  {
+    ...productsData["solar-bench"],
+    color: "bg-[#080808]",
+    glowColor: "199 89% 48%", // Bluish
+    textColor: "text-white",
+    span: "md:col-span-1 md:row-span-1",
+    icon: Globe,
+    imageClass: "absolute -right-2 bottom-2 w-32 h-32 object-contain group-hover:scale-110 group-hover:-translate-y-6 transition-all duration-700",
+    revealDirection: "left" as const
+  },
+  {
+    ...productsData["smart-pole"],
+    color: "bg-[#080808]",
+    glowColor: "270 95% 60%", // Purplish
+    textColor: "text-white",
+    span: "md:col-span-1 md:row-span-2",
+    icon: Cpu,
+    imageClass: "absolute right-0 -bottom-20 w-96 h-[500px] object-contain origin-bottom group-hover:scale-110 transition-all duration-1000",
+    revealDirection: "up" as const
+  },
+  {
+    ...productsData["solar-tower"],
+    color: "bg-[#080808]",
+    glowColor: "0 91% 62%", // Reddish
+    textColor: "text-white",
+    span: "md:col-span-1 md:row-span-1",
+    icon: Battery,
+    imageClass: "absolute -right-2 bottom-2 w-32 h-32 object-contain group-hover:scale-110 group-hover:-translate-y-6 transition-all duration-700",
+    revealDirection: "up" as const
+  },
+  {
+    ...productsData.astro,
+    color: "bg-[#080808]",
+    glowColor: "220 15% 30%", // Dark grey/zinc
+    textColor: "text-white",
+    span: "md:col-span-2 md:row-span-1",
+    icon: Lightbulb,
+    imageClass: "absolute right-8 -bottom-8 w-46 h-48 object-contain origin-bottom group-hover:scale-110 transition-all duration-700",
+    revealDirection: "right" as const
+  }
+];
 
 export function ProductsShowcaseSection() {
   return (
-    <section className="min-h-screen py-24 bg-white relative overflow-hidden flex flex-col justify-center">
+    <section className="py-24 bg-[#050505] relative overflow-hidden flex flex-col justify-center font-gilroy">
+      {/* Cinematic Background Elements */}
+      <div className="absolute inset-0 z-0 opacity-60">
+        <LightPillar
+          topColor="#5227FF"
+          bottomColor="#FF9FFC"
+          intensity={0.6}
+          rotationSpeed={0.8}
+          glowAmount={0.002}
+          pillarWidth={3}
+          pillarHeight={0.4}
+          noiseIntensity={0.5}
+          pillarRotation={25}
+          // interactive
+          mixBlendMode="screen"
+          quality="high"
+        />
 
-      {/* Heading Section */}
-      <div className="container mx-auto px-6  mb-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="font-gilroy text-4xl md:text-5xl lg:text-6xl font-bold text-black tracking-tighter leading-none">
-            Our <span className="text-primary italic">Products</span>
-          </h2>
-        </motion.div>
+        {/* Grain Texture Overlay */}
+        <div className="absolute inset-0 opacity-[0.05] pointer-events-none mix-blend-overlay"
+          style={{ backgroundImage: `url("https://grainy-gradients.vercel.app/noise.svg")` }} />
       </div>
 
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {products.map((product, i) => (
-            <Link to={product.href} key={product.id}>
-              <motion.div
-                layout
-                initial="rest"
-                animate="rest"
-                whileHover="hover"
-                variants={{
-                  rest: { scale: 1 },
-                  hover: { scale: 1.04 }
-                }}
-                transition={{
-                  type: "spring",
-                  stiffness: 220,
-                  damping: 26
-                }}
-                className="relative will-change-transform hover:z-20"
-              >
-                <motion.div
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7, ease: "easeOut" }}
-                  className="group relative border border-black/10 p-8 pb-10 h-[580px] flex flex-col justify-between overflow-hidden bg-white transition-all hover:shadow-2xl hover:shadow-black/10 rounded-md"
+      <div className="container mx-auto px-6 mb-16 relative z-10">
+        <ScrollReveal>
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 ">
+            <div>
+              <h2 className="text-5xl md:text-7xl lg:text-8xl font-gilroy text-white font-semibold tracking-tighter leading-[0.90] mb-6 uppercase md:whitespace-nowrap">
+                The Next{" "} <span className="text-gradient italic">Generation</span>
+              </h2>
+            </div>
+          </div>
+        </ScrollReveal>
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[300px]">
+          {bentoProducts.map((product, i) => (
+            <ScrollReveal
+              key={product.id}
+              delay={i * 0.05}
+              direction={product.revealDirection}
+              className={product.span}
+            >
+              <Link to={product.href} className="group block h-full">
+                <BorderGlow
+                  glowColor={product.glowColor}
+                  backgroundColor="#080808"
+                  glowRadius={60}
+                  className="h-full w-full"
+                  borderRadius={8}
+                  glowIntensity={0.8}
+                  animated={true}
+                  delay={1000 + i * 200}
                 >
-                  {/* Black to Cyan Gradient Background on Hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-black via-black/95 to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
+                  <div
+                    className={cn(
+                      "relative h-full w-full overflow-hidden p-8 flex flex-col transition-all duration-500"
+                    )}
+                  >
+                    <div className="absolute top-0 right-0 w-48 h-48 bg-white/5 blur-[60px] -mr-24 -mt-24 rounded-sm" />
 
-                  {/* Header: Category Badge */}
-                  <div className="relative z-10 flex justify-between items-center">
-                    <div className="flex justify-center items-center px-4 py-1.5 rounded-full border border-black/5 bg-black/[0.02] group-hover:border-white/20 group-hover:bg-white/5 transition-colors">
-                      <span className="font-gilroy text-[9px] tracking-[0.2em] text-primary uppercase font-bold">{product.category}</span>
+                    {/* Middle: Title & Images */}
+                    <div className="relative z-20 flex-1 flex flex-col">
+                      <h3 className={cn("text-2xl md:text-3xl font-semibold tracking-tighter leading-[0.9] uppercase mb-1", product.textColor)}>
+                        {product.name.split(' ').slice(0, 2).join(' ')}<br />
+                        <span className="opacity-60">{product.name.split(' ').slice(2).join(' ')}</span>
+                      </h3>
+                      <div className={cn("text-[10px] font-bold tracking-[0.3em] uppercase opacity-40 mb-4", product.textColor)}>
+                        {product.category}
+                      </div>
+
+                      {/* Image handling only for centered row-span-2 cards that AREN'T the new purple style */}
+                      {product.span.includes("row-span-2") && product.id !== "smart-pole" && (
+                        <div className="flex-1 flex items-center justify-center p-4">
+                          <img
+                            src={product.image}
+                            alt={product.name}
+                            className={product.imageClass}
+                          />
+                        </div>
+                      )}
                     </div>
-                  </div>
 
-                  {/* Center: Image */}
-                  <div className="relative flex-1 flex flex-col items-center justify-center py-8">
-                    <div
-                      className="relative z-10 w-full max-w-[260px] aspect-[4/3] overflow-hidden group-hover:scale-105 transition-transform duration-700 ease-out"
-                    >
+                    {/* Bottom: Description & Action */}
+                    <div className="relative z-20 mt-auto">
+                      {product.id !== "smart-pole" && (
+                        <div className="flex items-end justify-between gap-4">
+                          <div className="max-w-[140px] md:max-w-none lg:max-w-[140px]">
+                            <p className={cn("text-[10px] font-semibold leading-relaxed opacity-60 group-hover:opacity-100 transition-opacity line-clamp-2", product.textColor)}>
+                              {product.description}
+                            </p>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Floating Image for non-span cards AND the new purple style card */}
+                    {(!product.span.includes("row-span-2") || product.id === "smart-pole") && (
                       <img
                         src={product.image}
                         alt={product.name}
-                        className="w-full h-full object-contain opacity-90 group-hover:opacity-100 transition-all duration-300 ease-out"
+                        className={product.imageClass}
                       />
-                      {/* Subtle vignette */}
-                      {/* <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-80 group-hover:from-black/60 transition-all duration-300" /> */}
-                    </div>
+                    )}
                   </div>
-
-                  {/* Footer: Title & Description */}
-                  <div className="relative z-10 space-y-4">
-                    <div className="space-y-2">
-                      <h3 className="font-gilroy text-2xl font-bold text-black tracking-tight group-hover:text-white transition-colors uppercase">
-                        {product.name}
-                      </h3>
-                      <p className="text-black/50 text-xs font-medium leading-relaxed font-gilroy tracking-wide max-w-[95%] group-hover:text-white/60 transition-colors duration-300 line-clamp-4">
-                        {product.description}
-                      </p>
-                    </div>
-
-                    {/* Sub-link / Action */}
-                    <div className="pt-6 flex items-center gap-2 group/link">
-                      <span className="font-gilroy text-[10px] font-bold tracking-[0.2em] text-black group-hover:text-primary transition-colors uppercase border-b border-black/20 group-hover:border-primary pb-1">
-                        EXPLORE PRODUCT
-                      </span>
-                      <Plus className="w-3 h-3 text-black/40 group-hover:text-primary group-hover:rotate-90 transition-all duration-300" />
-                    </div>
-                  </div>
-
-                  {/* Hover Sharp Border Glow */}
-                  <div className="absolute inset-0 border border-primary/0 group-hover:border-primary/20 pointer-events-none transition-colors duration-300" />
-                </motion.div>
-              </motion.div>
-            </Link>
+                </BorderGlow>
+              </Link>
+            </ScrollReveal>
           ))}
         </div>
       </div>

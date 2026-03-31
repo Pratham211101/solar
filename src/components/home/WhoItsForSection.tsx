@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Building2, Factory, Shield, Trees, ArrowUpRight } from "lucide-react";
+import GlowButton from "../ui/GlowButton";
 
 const audiences = [
   {
@@ -23,7 +24,7 @@ const audiences = [
     title: "Gated Communities",
     category: "03 / RESIDENTIAL",
     description: "ENHANCING THE CURB APPEAL AND SAFETY OF LUXURY TOWNSHIPS, RWAs, AND PRIVATE INTEGRATED RESIDENTIAL SPACES.",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&get=80",
     tags: ["Luxury Villas", "Townships"],
   },
   {
@@ -31,7 +32,7 @@ const audiences = [
     title: "Agri & Eco-Resorts",
     category: "04 / OFF-GRID",
     description: "BRINGING RENEWABLE AUTONOMY TO OFF-GRID FARM ESTATES, LUXURY GETAWAYS, AND ECO-SENSITIVE HOSPITALITY ZONES.",
-    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&get=80",
     tags: ["Farm Life", "Eco-Tourism"],
   },
 ];
@@ -124,14 +125,6 @@ export function WhoItsForSection() {
                         ))}
                       </div>
 
-                      <button className="flex items-center gap-3 group/btn w-full mb-2">
-                        <span className="text-[9px] font-gilroy font-bold tracking-[0.4em] text-white/80 group-hover:text-primary uppercase transition-colors">
-                          LEARN MORE
-                        </span>
-                        <div className="w-6 h-6 flex items-center justify-center border border-white/20 group-hover:border-primary transition-all">
-                          <ArrowUpRight className="w-3 h-3 text-white/60 group-hover:text-primary" />
-                        </div>
-                      </button>
                     </div>
                   </div>
                 </div>
