@@ -1,286 +1,282 @@
 import { motion } from "framer-motion";
+import LightPillar from "../components/home/LightPillar";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import ScrollReveal from "../components/ui/ScrollReveal";
-import { ArrowDown, Mail, Linkedin } from "lucide-react";
+import { ArrowDown, Mail, Linkedin, Zap, Shield, Cpu, Layers, Activity, Target } from "lucide-react";
 import VisionSection from "../components/about/VisionSection";
 import ScrollIndicator from "../components/layout/ScrollIndicator";
 import SupportedCarousel from "../components/about/SupportedCarousel";
 
 const AboutUs = () => {
-  const founders = [
-    {
-      name: "Dr. Sarah Chen",
-      role: "CEO & Founder",
-      email: "sarah.chen@solar.com",
-      linkedin: "https://linkedin.com",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80"
-    },
-    {
-      name: "Michael Rodriguez",
-      role: "CTO & Founder",
-      email: "m.rodriguez@solar.com",
-      linkedin: "https://linkedin.com",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80"
-    },
-  ];
-
-  const coreTeam = [
-    {
-      name: "Emily Watson",
-      role: "VP Engineering",
-      email: "emily.w@solar.com",
-      linkedin: "https://linkedin.com",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80"
-    },
-    {
-      name: "David Kim",
-      role: "VP Operations",
-      email: "david.kim@solar.com",
-      linkedin: "https://linkedin.com",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80"
-    },
-    {
-      name: "Sophie Taylor",
-      role: "Head of Design",
-      email: "sophie.t@solar.com",
-      linkedin: "https://linkedin.com",
-      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80"
-    },
-  ];
-
-  const TeamMember = ({ member, size = "large" }: { member: any, size?: "large" | "small" }) => (
-    <ScrollReveal>
-      <motion.div
-        whileHover={{ y: -10 }}
-        className="group flex flex-col items-center text-center"
-      >
-        <div className={`relative mb-6 ${size === 'large' ? 'w-full aspect-[4/5]' : 'w-full aspect-square'} overflow-hidden bg-gray-100 rounded-2xl`}>
-          <img
-            src={member.image}
-            alt={member.name}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
-          />
-        </div>
-        <h3 className={`font-gilroy ${size === 'large' ? 'text-2xl' : 'text-xl'} font-black text-black tracking-tighter uppercase whitespace-nowrap`}>
-          {member.name}
-        </h3>
-        <p className="font-gilroy text-[10px] font-bold text-primary tracking-[0.3em] uppercase mt-2">
-          {member.role}
-        </p>
-
-        {/* Social Icons */}
-        <div className="flex items-center gap-3 mt-6">
-          <a
-            href={`mailto:${member.email}`}
-            className="w-9 h-9 rounded-full border border-gray-100 flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary/20 hover:bg-primary/5 transition-all duration-300 group/link shadow-sm"
-          >
-            <Mail className="w-3.5 h-3.5 group-hover/link:scale-110 transition-transform" />
-          </a>
-          <a
-            href={member.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-9 h-9 rounded-full border border-gray-100 flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary/20 hover:bg-primary/5 transition-all duration-300 group/link shadow-sm"
-          >
-            <Linkedin className="w-3.5 h-3.5 group-hover/link:scale-110 transition-transform" />
-          </a>
-        </div>
-      </motion.div>
-    </ScrollReveal>
-  );
-
   return (
     <>
-      <div className="bg-white min-h-screen">
+      <div className="bg-[#050505] min-h-screen">
         <main>
-          {/* 1. Hero Section - Dark & Moody */}
-          <section className="relative h-screen w-full overflow-hidden flex items-end bg-black">
+          {/* 1. Hero Section - Minimal & Premium */}
+          <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-black">
             <div className="absolute inset-0 z-0">
               <img
-                src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop"
-                alt="Visionary environment"
-                className="w-full h-full object-cover opacity-60 grayscale scale-105"
+                src="https://images.unsplash.com/photo-1509391366360-fe5bb548d1bb?q=80&w=2070&auto=format&fit=crop"
+                alt="Solar Architecture"
+                className="w-full h-full object-cover opacity-40 grayscale"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-              <div className="absolute -top-1/4 -left-1/4 w-1/2 h-1/2 bg-blue-500/10 blur-[150px] rounded-full" />
-              <div className="absolute top-1/4 -right-1/4 w-1/2 h-1/2 bg-red-500/10 blur-[150px] rounded-full" />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black" />
             </div>
 
-            <div className="container mx-auto px-12 pb-24 relative z-10 w-full flex flex-col justify-end h-full">
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end w-full">
-                <div className="md:col-span-8">
-                  <motion.div
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8 }}
-                  >
-                    <h1 className="font-gilroy text-7xl md:text-9xl text-white leading-[0.85] tracking-[0.02em] font-medium">
-                      ABOUT <br /> <span className="text-gradient italic font-semibold">solar</span>
-                    </h1>
-                  </motion.div>
-                </div>
-
-                <div className="md:col-span-4 flex flex-col justify-end pb-4">
-                  <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.3 }}
-                    className="font-gilroy text-lg text-white/70 leading-relaxed max-w-sm ml-auto"
-                  >
-                    Discover who we are — an innovation hub
-                    passionate about crafting bold solar technologies, clean
-                    energy independence, and smart city infrastructure.
-                  </motion.p>
-                </div>
-              </div>
+            <div className="container mx-auto px-6 relative z-10 text-center">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                <h1 className="font-gilroy text-5xl md:text-8xl text-white leading-[1.1] tracking-[-0.03em] font-medium max-w-5xl mx-auto uppercase">
+                  Building the Future of <span className="text-primary italic font-bold">Intelligent</span> Solar Infrastructure
+                </h1>
+                <p className="font-gilroy text-lg md:text-2xl text-white/60 mt-8 max-w-2xl mx-auto font-medium">
+                  We design smart, scalable, and sustainable energy solutions for modern environments.
+                </p>
+              </motion.div>
             </div>
 
-            <ScrollIndicator style="absolute right-12 bottom-12 flex flex-col items-center gap-3 z-50 pointer-events-none" variant="light" />
+            <ScrollIndicator style="absolute left-1/2 -translate-x-1/2 bottom-12 z-50 pointer-events-none" variant="light" />
           </section>
 
-          {/* 2. Unified Vision & Mission Section (Stacked Content) */}
-          <VisionSection />
-
-          {/* 4. Story Section - Asymmetric Chaos (No overlap) */}
-          <section className="pt-64 pb-32 bg-[#f8f9fa] overflow-hidden relative min-h-[1000px]">
-            {/* Background Giant Text */}
-            <div className="absolute top-0 left-10 select-none pointer-events-none z-0">
-              <span className="font-gilroy text-[15vw] font-black text-gray-100 leading-none uppercase tracking-tighter">
-                STORY
-              </span>
+          {/* 2. Problem Statement Section */}
+          <section className="py-32 relative overflow-hidden">
+            <div className="absolute inset-0 z-0 opacity-30">
+              <LightPillar
+                topColor="#5227FF"
+                bottomColor="#FF9FFC"
+                intensity={0.6}
+                rotationSpeed={0.8}
+                glowAmount={0.002}
+                pillarWidth={3}
+                pillarHeight={0.4}
+                noiseIntensity={0.5}
+                pillarRotation={25}
+                // interactive
+                mixBlendMode="screen"
+                quality="high"
+              />
             </div>
-
-            <div className="container mx-auto px-6 relative h-full">
-              {/* Text Content - Positioned as an anchor in the chaos */}
-              <div className="absolute top-0 right-10 lg:right-20 z-30 max-w-lg text-right">
+            <div className="container mx-auto px-6 relative z-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
                 <ScrollReveal>
-                  <h2 className="font-gilroy text-6xl font-black text-black mb-10 leading-none">
-                    Powering <br /> <span className="text-primary italic">Life</span>
-                  </h2>
-                  <div className="space-y-8">
-                    <p className="font-gilroy text-xl text-gray-500 leading-relaxed font-bold">
-                      At solar, we believe in the power of light, autonomy, and sustainability. Our
-                      journey began with a simple observation: the world needed smarter, more
-                      efficient ways to harness its most abundant resource—the sun.
+                  <div className="space-y-6">
+                    <span className="font-gilroy text-[12px] font-black uppercase tracking-[0.6em] text-primary">The Challenge</span>
+                    <h2 className="font-gilroy text-4xl md:text-5xl font-black text-white leading-tight uppercase tracking-tighter">
+                      Infrastructure stuck in the <span className="text-primary italic">past</span>.
+                    </h2>
+                    <p className="font-gilroy text-xl text-white/60 leading-relaxed font-medium">
+                      Urban and rural infrastructure still relies heavily on inefficient, grid-dependent lighting systems.
                     </p>
-                    <p className="font-gilroy text-lg text-gray-400 leading-relaxed font-medium">
-                      Today, we are committed to making a difference—one kilowatt at a time.
-                      Whether it's lighting up city streets with vertical poles or providing
-                      off-grid power to remote homes, we craft solutions that matter for a greener,
-                      more connected planet.
+                    <p className="font-gilroy text-xl text-white/50 leading-relaxed font-medium">
+                      High energy costs, unreliable power supply, and lack of intelligent monitoring limit scalability and sustainability.
                     </p>
                   </div>
                 </ScrollReveal>
-              </div>
 
-              {/* Asymmetric Chaos Image Grid (Explicitly No Overlap) */}
-              <div className="relative w-full h-full min-h-[1000px]">
-
-                {/* Image 1: High Left */}
-                <motion.div
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className="absolute top-[5%] left-[0%] w-[320px] aspect-[3/4] rounded-[30px] overflow-hidden shadow-2xl z-10"
-                >
-                  <img
-                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"
-                    alt="Research"
-                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                  />
-                </motion.div>
-
-                {/* Image 2: Center Bottom-Left */}
-                <motion.div
-                  initial={{ opacity: 0, x: -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 }}
-                  className="absolute top-[45%] left-[20%] w-[450px] aspect-[4/3] rounded-[40px] overflow-hidden shadow-2xl z-20"
-                >
-                  <img
-                    src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80"
-                    alt="Laboratory"
-                    className="w-full h-full object-cover"
-                  />
-                </motion.div>
-
-                {/* Image 3: Mid Right (Below Text) */}
-                <motion.div
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 }}
-                  className="absolute top-[65%] right-[5%] w-[380px] aspect-square rounded-[35px] overflow-hidden shadow-2xl z-10"
-                >
-                  <img
-                    src="https://images.unsplash.com/photo-1576086213369-9713439bb5ad?w=800&q=80"
-                    alt="Action"
-                    className="w-full h-full object-cover"
-                  />
-                </motion.div>
-
-                {/* Image 4: Bottom Left (Separate) */}
-                <motion.div
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.4 }}
-                  className="absolute top-[85%] left-[5%] w-[280px] aspect-[4/5] rounded-[25px] overflow-hidden shadow-xl z-20 grayscale"
-                >
-                  <img
-                    src="https://images.unsplash.com/photo-1555664424-778a1e5e1b48?w=800&q=80"
-                    alt="Technology"
-                    className="w-full h-full object-cover"
-                  />
-                </motion.div>
-
-                {/* Decorative Faint Circle Path */}
-                <div className="absolute top-[30%] left-[10%] w-[600px] h-[600px] border border-black/[0.03] rounded-full -z-10 pointer-events-none" />
+                <ScrollReveal delay={0.2}>
+                  <div className="relative flex justify-end">
+                    <div className=" bg-gray-50 overflow-hidden h-[80vh] w-[27vw]">
+                      <img
+                        src="public\images\power-grid.jpg"
+                        alt="Outdated Infrastructure"
+                        className="h-full object-cover opacity-80"
+                      />
+                    </div>
+                  </div>
+                </ScrollReveal>
               </div>
             </div>
           </section>
 
-          {/* 3. Supported & Incubated By - Clean Strip Carousel */}
-          <SupportedCarousel />
+          {/* 3. Our Solution Section */}
+          <section className="py-32 bg-[#050505] text-white overflow-hidden relative">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none z-0">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/[0.05] blur-[150px] rounded-full" />
+            </div>
+            <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
 
-          {/* 5. Updated Hierarchical Team Section */}
-          <section className="py-48 bg-white overflow-hidden relative pt-24">
             <div className="container mx-auto px-6 relative z-10">
-              <ScrollReveal className="text-center mb-24">
-                <h2 className="font-gilroy text-5xl md:text-7xl font-black text-black tracking-tighter leading-none mb-6">
-                  LEADERSHIP <span className="text-primary italic">TEAM</span>
+              <div className="max-w-4xl">
+                <ScrollReveal>
+                  <span className="font-gilroy text-[12px] font-black uppercase tracking-[0.6em] text-primary">Our Solution</span>
+                  <h2 className="font-gilroy text-5xl md:text-7xl font-black text-white leading-tight uppercase tracking-tighter mt-6 mb-10">
+                    Smarter, Cleaner, and <span className="text-primary italic">Autonomous</span>.
+                  </h2>
+                  <p className="font-gilroy text-2xl md:text-3xl text-white/80 leading-relaxed font-medium tracking-tight">
+                    We build intelligent solar-powered systems that combine energy generation, smart controls, and modern infrastructure design — enabling reliable, scalable, and future-ready deployments.
+                  </p>
+                </ScrollReveal>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-20">
+                  <ScrollReveal delay={0.1}>
+                    <div className="flex flex-col gap-4">
+                      <div className="w-12 h-12 rounded-2xl bg-primary/20 flex items-center justify-center text-primary">
+                        <Zap className="w-6 h-6" />
+                      </div>
+                      <h4 className="font-gilroy text-xl font-bold uppercase">Generation</h4>
+                      <p className="text-white/50 font-medium leading-relaxed font-gilroy">High-efficiency solar harvesting even in low light environments.</p>
+                    </div>
+                  </ScrollReveal>
+                  <ScrollReveal delay={0.2}>
+                    <div className="flex flex-col gap-4">
+                      <div className="w-12 h-12 rounded-2xl bg-primary/20 flex items-center justify-center text-primary">
+                        <Cpu className="w-6 h-6" />
+                      </div>
+                      <h4 className="font-gilroy text-xl font-bold uppercase">Smart Controls</h4>
+                      <p className="text-white/50 font-medium leading-relaxed font-gilroy">AI-driven energy management and real-time monitoring dashboard.</p>
+                    </div>
+                  </ScrollReveal>
+                  <ScrollReveal delay={0.3}>
+                    <div className="flex flex-col gap-4">
+                      <div className="w-12 h-12 rounded-2xl bg-primary/20 flex items-center justify-center text-primary">
+                        <Layers className="w-6 h-6" />
+                      </div>
+                      <h4 className="font-gilroy text-xl font-bold uppercase">Integration</h4>
+                      <p className="text-white/50 font-medium leading-relaxed font-gilroy">Sleek, modular designs that blend seamlessly with modern urbanity.</p>
+                    </div>
+                  </ScrollReveal>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* 4. Vision & Mission Section */}
+          <VisionSection />
+
+          {/* 7. Story Section */}
+          <section className="py-32 bg-[#050505] text-white overflow-hidden relative">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none z-0">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/[0.05] blur-[150px] rounded-full" />
+            </div>
+            <div className="container mx-auto px-6 relative z-10">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                <div className="lg:col-span-7">
+                  <ScrollReveal>
+                    <span className="font-gilroy text-[12px] font-black uppercase tracking-[0.6em] text-primary">The Origin</span>
+                    <h2 className="font-gilroy text-5xl md:text-7xl font-black text-white leading-tight uppercase tracking-tighter mt-6 mb-10">
+                      Our <span className="text-primary italic px-2">Story</span>
+                    </h2>
+                    <div className="space-y-8 max-w-2xl">
+                      <p className="font-gilroy text-2xl text-white/70 leading-relaxed font-bold italic border-l-4 border-primary pl-8">
+                        We started with a simple question — why is essential infrastructure still dependent on outdated energy systems?
+                      </p>
+                      <p className="font-gilroy text-xl text-white/50 leading-relaxed font-medium">
+                        What began as a small initiative has grown into a focused effort to build smarter, cleaner, and more efficient infrastructure solutions. We're not just making products; we're redefining how cities and rural areas interact with light and energy.
+                      </p>
+                    </div>
+                  </ScrollReveal>
+                </div>
+                <div className="lg:col-span-5">
+                  <ScrollReveal delay={0.3}>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="aspect-[3/4] rounded-lg overflow-hidden">
+                        <img src="public\images\use-case-image.png" alt="Process" className="w-full h-full object-cover" />
+                      </div>
+                      <div className="aspect-[3/4] rounded-lg overflow-hidden">
+                        <img src="public\images\use-case-img2.png" alt="Engineers" className="w-full h-full object-cover" />
+                      </div>
+                    </div>
+                  </ScrollReveal>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* 8. Why Us Section - Trust Card Grid */}
+          <section className="py-32 relative overflow-hidden">
+            <div className="absolute inset-0 z-0 opacity-20">
+              <LightPillar
+                topColor="#5227FF"
+                bottomColor="#FF9FFC"
+                intensity={0.4}
+                rotationSpeed={0.4}
+                glowAmount={0.001}
+                pillarWidth={2.4}
+                pillarHeight={0.3}
+                noiseIntensity={0.5}
+                pillarRotation={-15}
+                mixBlendMode="screen"
+                quality="high"
+              />
+            </div>
+            <div className="container mx-auto px-6 relative z-10">
+              <ScrollReveal className="text-center mb-20">
+                <span className="font-gilroy text-[12px] font-black uppercase tracking-[0.6em] text-primary">Capabilities</span>
+                <h2 className="font-gilroy text-5xl md:text-7xl font-black text-white leading-tight uppercase tracking-tighter mt-4">
+                  Why <span className="text-primary italic">Solar</span>
                 </h2>
-                <p className="font-gilroy text-gray-400 font-bold uppercase tracking-[0.4em] text-xs">
-                  The Visionaries & Builders
-                </p>
               </ScrollReveal>
 
-              {/* Founders Row - 2 Columns */}
-              <div className="max-w-4xl mx-auto mb-32">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
-                  {founders.map((member) => (
-                    <TeamMember key={member.name} member={member} size="large" />
-                  ))}
-                </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {[
+                  { title: "Engineering-first approach", icon: <Cpu />, desc: "Focus on technical excellence and efficiency." },
+                  { title: "Prototype-driven", icon: <Activity />, desc: "Rapid iteration based on real-world data." },
+                  { title: "Real-world deployment", icon: <Target />, desc: "Solutions built for actual environment challenges." },
+                  { title: "Scalable and modular", icon: <Layers />, desc: "Designed to grow with your infrastructure needs." }
+                ].map((item, idx) => (
+                  <ScrollReveal key={idx} delay={idx * 0.1}>
+                    <div className="bg-[#0A0A0A] p-10 rounded-[30px] border border-white/5 h-full flex flex-col gap-6 hover:shadow-2xl hover:border-primary/20 transition-all duration-500 group">
+                      <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                        {item.icon}
+                      </div>
+                      <h3 className="font-gilroy text-2xl font-bold uppercase leading-tight tracking-tight text-white/90">{item.title}</h3>
+                      <p className="font-gilroy text-white/40 font-medium">{item.desc}</p>
+                    </div>
+                  </ScrollReveal>
+                ))}
               </div>
+            </div>
+          </section>
 
-              {/* Core Team Row - 3 Columns */}
-              <div className="max-w-6xl mx-auto">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 md:gap-16">
-                  {coreTeam.map((member) => (
-                    <TeamMember key={member.name} member={member} size="small" />
+          {/* 9. Future Roadmap Section */}
+          <section className="py-32 bg-black text-white relative overflow-hidden">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none z-0">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/[0.05] blur-[150px] rounded-full" />
+            </div>
+            <div className="container mx-auto px-6 relative z-10">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <ScrollReveal>
+                  <span className="font-gilroy text-[12px] font-black uppercase tracking-[0.6em] text-primary">The Future</span>
+                  <h2 className="font-gilroy text-5xl md:text-7xl font-black text-white leading-tight uppercase tracking-tighter mt-6 mb-8">
+                    Scaling the <br /><span className="text-primary italic">Horizon</span>
+                  </h2>
+                  <p className="font-gilroy text-xl text-white/50 leading-relaxed font-medium max-w-xl">
+                    We are expanding our intelligent monitoring systems to support city-wide autonomous grids, ensuring that sustainable energy is not just a luxury, but a standard.
+                  </p>
+                </ScrollReveal>
+
+                <div className="space-y-4">
+                  {[
+                    { year: "Phase 01", title: "Smart City Integration", status: "In Progress" },
+                    { year: "Phase 02", title: "Global Modular Network", status: "Coming Soon" },
+                    { year: "Phase 03", title: "Autonomous Grid Control", status: "Research Phase" }
+                  ].map((step, idx) => (
+                    <ScrollReveal key={idx} delay={idx * 0.2}>
+                      <div className="group border border-white/10 p-8 rounded-[20px] flex items-center justify-between hover:bg-white/5 transition-colors">
+                        <div>
+                          <span className="text-primary font-gilroy font-black text-xs uppercase tracking-widest">{step.year}</span>
+                          <h4 className="font-gilroy text-xl font-bold uppercase mt-1">{step.title}</h4>
+                        </div>
+                        <div className="text-[10px] font-black uppercase tracking-widest px-3 py-1 border border-white/20 rounded-full text-white/30 group-hover:text-primary group-hover:border-primary/50 transition-colors">
+                          {step.status}
+                        </div>
+                      </div>
+                    </ScrollReveal>
                   ))}
                 </div>
               </div>
             </div>
           </section>
+
+          {/* Social Proof / Partners */}
+          {/* <SupportedCarousel /> */}
         </main>
       </div>
-      <div className="bg-black">
-        <Footer />
-      </div>
+      <Footer />
     </>
   );
 };

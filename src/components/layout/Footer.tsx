@@ -6,10 +6,14 @@ import BackToTop from "./BackToTop";
 
 const footerLinks = {
   products: [
-    { label: "solar C012", href: "/products/solar-c012" },
-    { label: "Reagent Kit", href: "/products/reagent-kit" },
-    { label: "Monitoring Solutions", href: "/products/monitoring-solutions" },
-    { label: "Dashboard DSS", href: "/dashboard" },
+    { label: "Helios", href: "/products/helios" },
+    { label: "EOS", href: "/products/eos" },
+    { label: "Apollo", href: "/products/apollo" },
+    { label: "Astro", href: "/products/astro" },
+    { label: "Solar Bench", href: "/products/solar-bench" },
+    { label: "Solar Tower", href: "/products/solar-tower" },
+    { label: "Smart Pole", href: "/products/smart-pole" },
+
   ],
   company: [
     { label: "About Us", href: "/about-us" },
@@ -51,29 +55,29 @@ const Footer = () => {
             </p>
             <div className="space-y-3">
               <a
-                href="mailto:info@solar.com"
+                href="mailto:siddhant.solar@gmail.com"
                 className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
               >
                 <Mail className="w-4 h-4" />
-                info@solar.com
+                siddhant.solar@gmail.com
               </a>
               <a
-                href="tel:+919560589782"
+                href="tel:+919984045295"
                 className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
               >
                 <Phone className="w-4 h-4" />
-                +91 9560589782
+                +91 9984045295
               </a>
               <a
-                href="tel:+919910199782"
+                href="tel:+919456091127"
                 className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
               >
                 <Phone className="w-4 h-4" />
-                +91 9910199782
+                +91 9456091127
               </a>
               <div className="flex items-start gap-3 text-muted-foreground">
                 <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
-                <span>Lab-4C-1D, 4th Floor, C Block, Research & Innovation Park, IIT Delhi Campus, Hauz Khas, South Delhi, Delhi - (110016)</span>
+                <span>RZB 32-A, Mahavir Enclave-I, New Delhi(110045)</span>
               </div>
             </div>
           </div>
