@@ -22,13 +22,14 @@ export function VisionSection() {
                 <LightPillar
                     topColor="#5227FF"
                     bottomColor="#FF9FFC"
-                    intensity={0.4}
-                    rotationSpeed={0.3}
+                    intensity={0.6}
+                    rotationSpeed={0.8}
                     glowAmount={0.002}
                     pillarWidth={3}
                     pillarHeight={0.4}
                     noiseIntensity={0.5}
-                    pillarRotation={10}
+                    pillarRotation={25}
+                    // interactive
                     mixBlendMode="screen"
                     quality="high"
                 />

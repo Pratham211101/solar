@@ -273,6 +273,7 @@ const Resources = () => {
                 ))}
               </div>
 
+/*
               <ScrollReveal className="text-center">
                 <Link
                   to="/quality-certifications"
@@ -281,6 +282,7 @@ const Resources = () => {
                   View All Certifications <ChevronRight className="w-4 h-4" />
                 </Link>
               </ScrollReveal>
+*/
             </div>
           </section>
 

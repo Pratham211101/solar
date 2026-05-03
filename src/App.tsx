@@ -89,6 +89,7 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
+/*
         <Route
           path="/media"
           element={
@@ -97,6 +98,7 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
+*/
         <Route
           path="/office-space"
           element={
@@ -145,6 +147,7 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
+/*
         <Route
           path="/blog"
           element={
@@ -153,6 +156,8 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
+*/
+/*
         <Route
           path="/news-letter"
           element={
@@ -161,6 +166,8 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
+*/
+/*
         <Route
           path="/resources"
           element={
@@ -169,6 +176,7 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
+*/
         <Route
           path="/faqs"
           element={
@@ -201,6 +209,7 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
+/*
         <Route
           path="/return-policy"
           element={
@@ -209,6 +218,8 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
+*/
+/*
         <Route
           path="/refund-policy"
           element={
@@ -217,6 +228,8 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
+*/
+/*
         <Route
           path="/help-center"
           element={
@@ -225,6 +238,7 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
+*/
         <Route
           path="/awards"
           element={
@@ -233,6 +247,7 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
+/*
         <Route
           path="/quality-certifications"
           element={
@@ -241,6 +256,7 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
+*/
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>

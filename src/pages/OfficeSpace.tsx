@@ -165,7 +165,7 @@ const OfficeSpace = () => {
                                 </div>
                             </ScrollReveal>
 
-                            <ScrollReveal direction="left" className="flex-1 order-1 lg:order-2 w-full">
+                            {/* <ScrollReveal direction="left" className="flex-1 order-1 lg:order-2 w-full">
                                 <div className="relative group">
                                     <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-blue-500/20 rounded-3xl blur-2xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
                                     <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3]">
@@ -182,7 +182,7 @@ const OfficeSpace = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </ScrollReveal>
+                            </ScrollReveal> */}
                         </div>
                     </div>
                 </section>

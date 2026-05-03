@@ -192,13 +192,14 @@ const AboutUs = () => {
               <LightPillar
                 topColor="#5227FF"
                 bottomColor="#FF9FFC"
-                intensity={0.4}
-                rotationSpeed={0.4}
-                glowAmount={0.001}
-                pillarWidth={2.4}
-                pillarHeight={0.3}
+                intensity={0.6}
+                rotationSpeed={0.8}
+                glowAmount={0.002}
+                pillarWidth={3}
+                pillarHeight={0.4}
                 noiseIntensity={0.5}
-                pillarRotation={-15}
+                pillarRotation={25}
+                // interactive
                 mixBlendMode="screen"
                 quality="high"
               />
@@ -207,7 +208,7 @@ const AboutUs = () => {
               <ScrollReveal className="text-center mb-20">
                 <span className="font-gilroy text-[12px] font-black uppercase tracking-[0.6em] text-primary">Capabilities</span>
                 <h2 className="font-gilroy text-5xl md:text-7xl font-black text-white leading-tight uppercase tracking-tighter mt-4">
-                  Why <span className="text-primary italic">Solar</span>
+                  Why <span className="text-primary italic">SUNBOT</span>
                 </h2>
               </ScrollReveal>
 

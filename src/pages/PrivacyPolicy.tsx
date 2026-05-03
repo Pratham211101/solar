@@ -55,7 +55,7 @@ const PrivacyPolicy = () => {
                     <h2 className="text-2xl font-bold text-foreground mb-4">5. Contact Us</h2>
                     <p className="text-muted-foreground">
                       If you have any questions about this Privacy Policy, please contact us at
-                      privacy@solar.com.
+                      siddhant.solar@gmail.com.
                     </p>
                   </section>
                 </div>

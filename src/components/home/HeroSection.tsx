@@ -44,7 +44,7 @@ const HeroSection = () => {
           >
             <span className="text-white">Lighting the Future,</span>
             <br />
-            <div className="text-gradient italic">One space at a time, with SOLAR</div>
+            <div className="text-gradient italic">One space at a time, with SUNBOT</div>
           </motion.h1>
 
           <motion.div

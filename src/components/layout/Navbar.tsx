@@ -32,19 +32,22 @@ const navItems: NavItem[] = [
       { label: "About Us", href: "/about-us", description: "Our story and mission" },
       { label: "Careers", href: "/careers", description: "Join our team" },
       { label: "Contact", href: "/contact-us", description: "Get in touch" },
+      // { label: "Help Center", href: "/help-center", description: "Get help" },
       // { label: "Awards & Recognitions", href: "/awards", description: "Awards & Recognitions" },
-      { label: "Quality & Certifications", href: "/quality-certifications", description: "Quality & Certifications" },
+      // { label: "Quality & Certifications", href: "/quality-certifications", description: "Quality & Certifications" },
     ],
   },
+/*
   {
     label: "Media",
     children: [
-      { label: "Newsletter", href: "/news-letter", description: "Stay updated" },
-      { label: "Blogs", href: "/blog", description: "Insights and articles" },
-      { label: "Newsroom", href: "/media", description: "Press and news" },
+      // { label: "Newsletter", href: "/news-letter", description: "Stay updated" },
+      // { label: "Blogs", href: "/blog", description: "Insights and articles" },
+      // { label: "Newsroom", href: "/media", description: "Press and news" },
       { label: "Resources", href: "/resources", description: "resources and downloads" },
     ],
   },
+*/
 ];
 
 const Navbar = () => {

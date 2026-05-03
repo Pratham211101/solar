@@ -80,9 +80,9 @@ const ContactUs = () => {
 
                     <div className="space-y-3">
                       {[
-                        { icon: Mail, label: "Email", value: "contact@solar.com", href: "mailto:contact@solar.com" },
-                        { icon: Phone, label: "Phone", value: "+91 (123) 456-7890", href: "tel:+911234567890" },
-                        { icon: MapPin, label: "Office", value: "New Delhi, India", href: "#" }
+                        { icon: Mail, label: "Email", value: "siddhant.solar@gmail.com", href: "mailto:siddhant.solar@gmail.com" },
+                        { icon: Phone, label: "Phone", value: "+91 9984045295", href: "tel:+919984045295" },
+                        { icon: MapPin, label: "Office", value: "RZB 32-A, Mahavir Enclave-I, New Delhi(110045)", href: "#" }
                       ].map((item, i) => (
                         <motion.a
                           key={i}
@@ -121,7 +121,7 @@ const ContactUs = () => {
                           </motion.div>
                         </div>
                       ) : (
-                        <StyledContactForm 
+                        <StyledContactForm
                           title="Send us a message"
                           formSubtitle="Fill out the form below and we'll be in touch shortly."
                           isSubmitting={isSubmitting}

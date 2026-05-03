@@ -169,7 +169,7 @@ const Careers = () => {
           </section>
 
           <WorkLifeSection />
-          <EmployeeCarousel />
+          {/* <EmployeeCarousel /> */}
         </main>
       </div>
       <Footer />

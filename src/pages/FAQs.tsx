@@ -17,74 +17,66 @@ const faqCategories = [
 const allFaqs = {
   general: [
     {
-      question: "What is solar?",
-      answer: "solar is a technology company specializing in water quality monitoring solutions. We develop innovative handheld analyzers, online monitoring systems, and reagent kits for accurate water testing."
+      question: "What is SUNBOT?",
+      answer: "SUNBOT is a leader in intelligent solar infrastructure. We design and manufacture advanced solar lighting, smart city poles, and interactive urban furniture like our smart solar benches."
     },
     {
-      question: "Where is solar located?",
-      answer: "solar is headquartered in India with operations across multiple states. We serve customers nationwide and are expanding internationally."
+      question: "Are your products suitable for extreme climates?",
+      answer: "Yes, our products like Helios and EOS are specifically engineered for harsh environments. They are built with high-grade aluminum alloys and feature patented self-cleaning or vertical integration to withstand dust, sand, and high temperatures."
     },
     {
-      question: "How can I become a distributor?",
-      answer: "To become a solar distributor, please contact our sales team through the Contact Us page. We'll evaluate your application and provide partnership details."
+      question: "Do you offer smart city integration?",
+      answer: "Absolutely. Our Smart Poles and lighting systems are IoT-ready, supporting sensors for air quality, traffic monitoring, and public Wi-Fi, all manageable via a centralized dashboard."
     },
   ],
   products: [
     {
-      question: "What parameters can the solar C012 measure?",
-      answer: "The solar C012 can measure multiple water quality parameters including pH, TDS, conductivity, turbidity, dissolved oxygen, and various chemical parameters using our reagent kits."
+      question: "What is the benefit of the Helios vertical solar pole?",
+      answer: "The Helios series features vertical solar panels integrated into a triangular pole. This prevents dust accumulation, offers high wind resistance, and captures sunlight from all 360 degrees throughout the day."
     },
     {
-      question: "How often does the device need calibration?",
-      answer: "We recommend calibrating the device every 30 days for optimal accuracy. The calibration process is simple and takes only a few minutes using the provided calibration solutions."
+      question: "How does the EOS self-cleaning system work?",
+      answer: "EOS features a patented dual-motor brush system that automatically sweeps the solar panel twice daily. This maintains up to 98% efficiency in dusty or sandy regions without manual intervention."
     },
     {
-      question: "What is the battery life of the C012?",
-      answer: "The solar C012 has a battery life of approximately 8 hours of continuous use. It can be charged via USB-C and reaches full charge in about 2 hours."
+      question: "What features does the Smart Solar Bench have?",
+      answer: "Our smart benches offer wireless and USB charging for devices, built-in cooling fans and humidifiers for user comfort, Bluetooth speakers, and even dedicated e-scooter parking with charging."
     },
     {
-      question: "Are the reagent kits reusable?",
-      answer: "Reagent kits are single-use consumables designed for accurate testing. Each kit contains enough reagents for the specified number of tests mentioned on the packaging."
+      question: "What is the lifespan of your solar batteries?",
+      answer: "We use high-capacity LiFePO4 batteries with over 4000+ cycles, providing a service life of approximately 8 to 10 years depending on usage and environment."
     },
     {
-      question: "What is the difference between C012 and OCEMS?",
-      answer: "The C012 is a portable handheld analyzer for field testing, while OCEMS is a fixed online continuous monitoring system for permanent installation at monitoring sites."
+      question: "Can I customize the light output for my project?",
+      answer: "Yes, our products range from 3,000 LM for residential use to over 40,000 LM for high-mast applications like sports arenas and ports. We also offer Dialux simulations to optimize your lighting plan."
     },
   ],
   support: [
     {
-      question: "What is the warranty period for solar products?",
-      answer: "All solar products come with a standard 1-year warranty covering manufacturing defects. Extended warranty options are available for up to 3 years."
+      question: "What kind of warranty do you provide?",
+      answer: "All solar products come with a standard 1 to 3-year warranty covering manufacturing defects. We also offer extended maintenance contracts for large-scale installations."
     },
     {
-      question: "Do you provide on-site installation support?",
-      answer: "Yes, we provide comprehensive on-site installation and training support for all our products. Our technical team ensures smooth deployment and knowledge transfer."
+      question: "Do you provide installation services?",
+      answer: "We provide comprehensive deployment support, including lighting simulations, structural engineering for poles, on-site installation supervision, and remote IoT dashboard configuration."
     },
     {
-      question: "How do I get technical support?",
-      answer: "Technical support is available through our Help Center, email, and phone. Premium support packages include 24/7 assistance and dedicated account managers."
-    },
-    {
-      question: "Where can I find user manuals?",
-      answer: "User manuals are available in the Resources section of our website. You can also access them through the solar Dashboard after registering your product."
+      question: "How do I monitor my lighting network?",
+      answer: "You can monitor and control all your devices through our IoT dashboard using Zigbee, GSM, or 4G connectivity. This allows for real-time performance tracking and automated dimming schedules."
     },
   ],
   orders: [
     {
-      question: "How can I order reagent kit refills?",
-      answer: "Reagent kit refills can be ordered through our dashboard, by contacting our sales team, or through authorized distributors. We offer subscription plans for regular supplies."
+      question: "Do you handle bulk international orders?",
+      answer: "Yes, we have a global logistics network and have successfully deployed projects in Dubai, Europe, and Asia. We specialize in large-scale municipal and industrial lighting projects."
     },
     {
-      question: "What are the shipping options?",
-      answer: "We offer standard and express shipping across India. International shipping is available for select countries. Shipping times and costs vary by location."
+      question: "How can I request a quote?",
+      answer: "You can request a customized quote through our 'Contact Us' page or by using the 'Start Your Project' forms on individual product pages. Our team typically responds within 24 hours."
     },
     {
-      question: "Can I track my order?",
-      answer: "Yes, once your order is shipped, you'll receive a tracking number via email. You can also track orders through your solar Dashboard account."
-    },
-    {
-      question: "What is your return policy?",
-      answer: "We accept returns within 15 days of delivery for unused products in original packaging. Please refer to our Return Policy page for complete details."
+      question: "What is the typical lead time for a project?",
+      answer: "Lead times vary based on project scale and customization requirements, but standard products usually ship within 4 to 6 weeks for large orders."
     },
   ],
 };

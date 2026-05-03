@@ -87,7 +87,7 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({ isOpen, onClose, jobT
                                     <CheckCircle2 className="w-10 h-10 text-primary" />
                                 </div>
                                 <h2 className="text-3xl font-bold text-foreground mb-2">Application Sent!</h2>
-                                <p className="text-muted-foreground">Thank you for applying to solar. We'll be in touch soon.</p>
+                                <p className="text-muted-foreground">Thank you for applying to Sunbot. We'll be in touch soon.</p>
                             </div>
                         ) : (
                             <>
@@ -124,7 +124,7 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({ isOpen, onClose, jobT
                                     </div>
 
                                     <div className="space-y-2">
-                                        <label className="text-sm font-semibold text-foreground/70 uppercase tracking-wider ml-1">Why solar?</label>
+                                        <label className="text-sm font-semibold text-foreground/70 uppercase tracking-wider ml-1">Why Sunbot?</label>
                                         <textarea
                                             required
                                             name="whysolar"

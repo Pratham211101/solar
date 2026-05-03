@@ -51,7 +51,7 @@ const RefundPolicy = () => {
                   <section>
                     <h2 className="text-2xl font-bold text-foreground mb-4">5. Contact</h2>
                     <p className="text-muted-foreground">
-                      For refund inquiries, please contact our support team at refunds@solar.com.
+                      For refund inquiries, please contact our support team at siddhant.solar@gmail.com.
                     </p>
                   </section>
                 </div>

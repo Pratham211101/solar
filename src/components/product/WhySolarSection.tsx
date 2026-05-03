@@ -9,7 +9,7 @@ interface WhysolarSectionProps {
 }
 
 export function WhysolarSection({
-  title = "Why solar",
+  title = "Why SUNBOT",
   description = "Built for the reality of field water testing in India—reliable, accurate, and designed for scale.",
   features = [
     "Lab-grade accuracy in field conditions",

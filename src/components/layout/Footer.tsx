@@ -20,21 +20,23 @@ const footerLinks = {
     { label: "Careers", href: "/careers" },
     { label: "Office Space", href: "/office-space" },
     { label: "Contact Us", href: "/contact-us" },
-    { label: "Help Center", href: "/help-center" },
+    // { label: "Help Center", href: "/help-center" },
     { label: "FAQs", href: "/faqs" },
   ],
-  media: [
-    { label: "Newsletter", href: "/news-letter" },
-    { label: "Blog", href: "/blog" },
-    { label: "Newsroom", href: "/media" },
-    { label: "Resources", href: "/resources" },
-  ],
+  /*
+    media: [
+      // { label: "Newsletter", href: "/news-letter" },
+      // { label: "Blog", href: "/blog" },
+      // { label: "Newsroom", href: "/media" },
+      { label: "Resources", href: "/resources" },
+    ],
+  */
   legal: [
     { label: "Privacy Policy", href: "/privacy-policy" },
     { label: "Terms & Conditions", href: "/terms-and-conditions" },
     { label: "Shipping Policy", href: "/shipping-policy" },
-    { label: "Return Policy", href: "/return-policy" },
-    { label: "Refund Policy", href: "/refund-policy" },
+    // { label: "Return Policy", href: "/return-policy" },
+    // { label: "Refund Policy", href: "/refund-policy" },
   ],
 };
 
@@ -118,11 +120,11 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Media */}
-          <div>
+
+          {/* <div>
             <h4 className="text-foreground font-semibold mb-4">Media</h4>
             <ul className="space-y-3">
-              {footerLinks.media.map((link) => (
+              {footerLinks.media?.map((link) => (
                 <li key={link.href}>
                   <Link
                     to={link.href}
@@ -134,7 +136,8 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
+
 
           {/* Legal */}
           <div>

@@ -26,11 +26,11 @@ const categories = [
     {
         icon: Rocket,
         title: "Getting Started",
-        description: "New to solar? Learn how to set up your account and hardware."
+        description: "New to SUNBOT? Learn how to set up your account and hardware."
     },
     {
         icon: Zap,
-        title: "Using solar",
+        title: "Using SUNBOT",
         description: "Master the features and get the most out of your analysis."
     },
     {
@@ -46,7 +46,7 @@ const categories = [
     {
         icon: Share2,
         title: "Integrations",
-        description: "Connect solar with your existing ERP or data platforms."
+        description: "Connect SUNBOT with your existing ERP or data platforms."
     },
     {
         icon: Wrench,
@@ -146,6 +146,7 @@ const HelpCenter = () => {
                                     </button>
                                 </ScrollReveal>
 
+/*
                                 <ScrollReveal delay={0.3}>
                                     <Link to="/blog" className="block h-full group">
                                         <div className="bg-white rounded-3xl shadow-xl p-10 h-full transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl flex flex-col items-center border border-slate-100">
@@ -157,6 +158,7 @@ const HelpCenter = () => {
                                         </div>
                                     </Link>
                                 </ScrollReveal>
+                                */
                             </div>
                         </div>
                     </section>
