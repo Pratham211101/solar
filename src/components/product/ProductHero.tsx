@@ -28,7 +28,7 @@ const ProductHero = ({ product }: ProductHeroProps) => {
   const prevImage = () => setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
 
   return (
-    <section className="h-[100vh] flex items-center bg-[#050505] overflow-hidden font-gilroy relative">
+    <section className="min-h-screen lg:h-screen py-24 lg:py-0 flex items-center bg-[#050505] overflow-y-auto lg:overflow-hidden font-gilroy relative">
       {/* Cinematic Background Elements */}
       <div className="absolute inset-0 z-0 opacity-40">
         <LightPillar
@@ -49,9 +49,9 @@ const ProductHero = ({ product }: ProductHeroProps) => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid lg:grid-cols-12 gap-12 items-center">
           {/* Left Content */}
-          <div className="lg:col-span-12 xl:col-span-7">
+          <div className="lg:col-span-7">
             <ScrollReveal>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-8 tracking-tighter-custom uppercase">
                 {product.name.split(' ').slice(0, -1).join(' ')}
@@ -114,7 +114,7 @@ const ProductHero = ({ product }: ProductHeroProps) => {
           </div>
 
           {/* Right Content - Product Image Carousel */}
-          <div className="lg:col-span-12 xl:col-span-5 relative flex items-center justify-center">
+          <div className="lg:col-span-5 relative flex items-center justify-center w-full max-w-lg mx-auto">
             <ScrollReveal delay={0.3} direction="right" className="w-full">
               <div className="relative group w-full aspect-square flex items-center justify-center overflow-hidden rounded-[40px] bg-white/5 border border-white/10">
                 <AnimatePresence mode="wait">

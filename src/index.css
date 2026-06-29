@@ -114,8 +114,10 @@
     @apply absolute bottom-0 left-0 w-full h-[1px] bg-primary scale-x-0 origin-left transition-transform duration-300 ease-out;
   }
 
-  .link-underline:hover::after {
-    @apply scale-x-100;
+  @media (hover: hover) {
+    .link-underline:hover::after {
+      @apply scale-x-100;
+    }
   }
 
   /* Navbar dropdown container */

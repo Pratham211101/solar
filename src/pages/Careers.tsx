@@ -95,14 +95,14 @@ const Careers = () => {
                     onChange={(e) => setSearchQuery(e.target.value)}
                   />
                 </div>
-                <div className="flex items-center gap-2 bg-white border border-border p-2 rounded-xl">
-                  <Filter className="w-5 h-5 text-muted-foreground ml-2" />
-                  <div className="flex gap-1">
+                <div className="flex items-center gap-2 bg-white border border-border p-2 rounded-xl w-full md:w-auto overflow-hidden">
+                  <Filter className="w-5 h-5 text-muted-foreground ml-2 shrink-0" />
+                  <div className="flex gap-1 overflow-x-auto max-w-full pb-1 scrollbar-none flex-nowrap">
                     {departments.map((dept) => (
                       <button
                         key={dept}
                         onClick={() => setSelectedDept(dept)}
-                        className={`px-4 py-2 rounded-lg text-sm font-gilroy font-medium transition-all ${selectedDept === dept
+                        className={`px-4 py-2 rounded-lg text-sm font-gilroy font-medium transition-all shrink-0 ${selectedDept === dept
                           ? "bg-primary text-white"
                           : "hover:bg-muted text-muted-foreground"
                           }`}

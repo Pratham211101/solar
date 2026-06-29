@@ -72,7 +72,7 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({ isOpen, onClose, jobT
                         initial={{ opacity: 0, scale: 0.95, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                        className="relative w-full max-w-xl bg-white rounded-[32px] p-8 shadow-2xl overflow-hidden font-gilroy light-theme"
+                        className="relative w-full max-w-xl max-h-[90vh] overflow-y-auto bg-white rounded-2xl md:rounded-[32px] p-6 md:p-8 shadow-2xl font-gilroy light-theme"
                     >
                         <button
                             onClick={onClose}

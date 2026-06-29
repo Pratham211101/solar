@@ -29,7 +29,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-curve-bottom pointer-events-none opacity-50" />
 
       {/* Content anchored to Bottom Left */}
-      <div className="relative z-10 container mx-auto px-12 pb-24 text-left">
+      <div className="relative z-10 container mx-auto px-6 md:px-12 pb-16 md:pb-24 text-left">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -40,7 +40,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-gilroy font-bold leading-[0.85] mb-10 tracking-tighter"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-gilroy font-bold leading-[1.0] md:leading-[0.85] mb-8 md:mb-10 tracking-tighter"
           >
             <span className="text-white">Lighting the Future,</span>
             <br />
@@ -51,7 +51,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="flex flex-col md:flex-row items-start md:items-center gap-12"
+            className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12"
           >
             <Link to="/products">
               <GlowButton icon={<ArrowUpRight className="w-5 h-5" />} >
@@ -60,7 +60,7 @@ const HeroSection = () => {
             </Link>
 
             <motion.p
-              className="text-lg md:text-xl text-white/60 font-gilroy font-light tracking-wide max-w-xl border-l border-white/20 pl-6"
+              className="text-base md:text-lg lg:text-xl text-white/60 font-gilroy font-light tracking-wide max-w-xl border-l-2 md:border-l border-white/20 pl-4 md:pl-6"
             >
               Building the future of urban infrastructure with intelligent solar lighting, off-grid power systems, and smart city connectivity solutions.
             </motion.p>
@@ -88,7 +88,7 @@ const HeroSection = () => {
         ))}
       </div>
 
-      <ScrollIndicator style="absolute right-12 bottom-12 flex flex-col items-center gap-3 z-50 pointer-events-none" />
+      <ScrollIndicator style="hidden md:flex absolute right-12 bottom-12 flex-col items-center gap-3 z-50 pointer-events-none" />
 
       {/* Bottom Subtle Highlight */}
       <div className="absolute bottom-0 left-0 right-0 h-[20vh] bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />

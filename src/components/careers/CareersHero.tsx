@@ -42,20 +42,17 @@ const CareersHero = () => {
                         </motion.div>
                     </div>
 
-                    {/* Description - Bottom Right Positioning */}
+                    {/* Description - Responsive Positioning */}
                     <motion.div
                         initial={{ opacity: 0, y: 40 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-                        className="absolute bottom-12 right-6 md:right-12 lg:right-24 max-w-md"
+                        className="mt-8 md:absolute md:bottom-12 md:right-12 lg:right-24 max-w-md"
                     >
                         <p className="font-gilroy text-base md:text-lg text-white/80 leading-relaxed">
                             We believe real progress comes from diverse thinkers taking on the hardest problems. At <span className="text-white font-semibold italic">sunbot</span>, we turn ambition into innovation and ideas into lasting impact.
                         </p>
                     </motion.div>
-
-                    {/* Scroll Indicator - Positioning it like original */}
-                    <ScrollIndicator variant="dark" />
                 </div>
             </section>
         </>

@@ -126,7 +126,7 @@ const CareerDetail = () => {
               <div className="lg:col-span-4 lg:pt-16 relative">
                 <div className="sticky top-28">
                   <ScrollReveal delay={0.2}>
-                    <div className="bg-slate-900 p-10 rounded-[32px] border border-white/10 shadow-2xl overflow-hidden group">
+                    <div className="bg-slate-900 p-6 md:p-10 rounded-2xl md:rounded-[32px] border border-white/10 shadow-2xl overflow-hidden group relative">
                       {/* Decorative elements */}
                       <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-3xl -mr-16 -mt-16 group-hover:bg-primary/30 transition-colors" />
 

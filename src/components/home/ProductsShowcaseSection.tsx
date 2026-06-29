@@ -55,7 +55,7 @@ const bentoProducts = [
     textColor: "text-white",
     span: "md:col-span-1 md:row-span-2",
     icon: Cpu,
-    imageClass: "absolute right-0 -bottom-20 w-96 h-[500px] object-contain origin-bottom group-hover:scale-110 transition-all duration-1000",
+    imageClass: "absolute right-0 bottom-0 md:-bottom-20 w-48 md:w-96 h-64 md:h-[500px] object-contain origin-bottom group-hover:scale-110 transition-all duration-1000",
     revealDirection: "up" as const
   },
   {
@@ -77,6 +77,16 @@ const bentoProducts = [
     icon: Lightbulb,
     imageClass: "absolute right-8 -bottom-8 w-46 h-48 object-contain origin-bottom group-hover:scale-110 transition-all duration-700",
     revealDirection: "right" as const
+  },
+  {
+    ...productsData["solar-system"],
+    color: "bg-[#080808]",
+    glowColor: "300 100% 50%", // Magenta/pinkish
+    textColor: "text-white",
+    span: "md:col-span-1 md:row-span-1",
+    icon: Battery,
+    imageClass: "absolute -right-2 bottom-2 w-32 h-32 object-contain group-hover:scale-110 group-hover:-translate-y-6 transition-all duration-700",
+    revealDirection: "up" as const
   }
 ];
 

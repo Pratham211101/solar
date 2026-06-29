@@ -30,10 +30,10 @@ const AboutUs = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <h1 className="font-gilroy text-5xl md:text-8xl text-white leading-[1.1] tracking-[-0.03em] font-medium max-w-5xl mx-auto uppercase">
+                <h1 className="font-gilroy text-3xl sm:text-5xl md:text-8xl text-white leading-[1.15] md:leading-[1.1] tracking-[-0.03em] font-medium max-w-5xl mx-auto uppercase">
                   Building the Future of <span className="text-primary italic font-bold">Intelligent</span> Solar Infrastructure
                 </h1>
-                <p className="font-gilroy text-lg md:text-2xl text-white/60 mt-8 max-w-2xl mx-auto font-medium">
+                <p className="font-gilroy text-base sm:text-lg md:text-2xl text-white/60 mt-6 md:mt-8 max-w-2xl mx-auto font-medium">
                   We design smart, scalable, and sustainable energy solutions for modern environments.
                 </p>
               </motion.div>
@@ -43,7 +43,7 @@ const AboutUs = () => {
           </section>
 
           {/* 2. Problem Statement Section */}
-          <section className="py-32 relative overflow-hidden">
+          <section className="py-20 md:py-32 relative overflow-hidden">
             <div className="absolute inset-0 z-0 opacity-30">
               <LightPillar
                 topColor="#5227FF"
@@ -55,35 +55,34 @@ const AboutUs = () => {
                 pillarHeight={0.4}
                 noiseIntensity={0.5}
                 pillarRotation={25}
-                // interactive
                 mixBlendMode="screen"
                 quality="high"
               />
             </div>
             <div className="container mx-auto px-6 relative z-10">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
                 <ScrollReveal>
                   <div className="space-y-6">
                     <span className="font-gilroy text-[12px] font-black uppercase tracking-[0.6em] text-primary">The Challenge</span>
-                    <h2 className="font-gilroy text-4xl md:text-5xl font-black text-white leading-tight uppercase tracking-tighter">
+                    <h2 className="font-gilroy text-3xl md:text-5xl font-black text-white leading-tight uppercase tracking-tighter">
                       Infrastructure stuck in the <span className="text-primary italic">past</span>.
                     </h2>
-                    <p className="font-gilroy text-xl text-white/60 leading-relaxed font-medium">
+                    <p className="font-gilroy text-lg md:text-xl text-white/60 leading-relaxed font-medium">
                       Urban and rural infrastructure still relies heavily on inefficient, grid-dependent lighting systems.
                     </p>
-                    <p className="font-gilroy text-xl text-white/50 leading-relaxed font-medium">
+                    <p className="font-gilroy text-lg md:text-xl text-white/50 leading-relaxed font-medium">
                       High energy costs, unreliable power supply, and lack of intelligent monitoring limit scalability and sustainability.
                     </p>
                   </div>
                 </ScrollReveal>
 
                 <ScrollReveal delay={0.2}>
-                  <div className="relative flex justify-end">
-                    <div className=" bg-gray-50 overflow-hidden h-[80vh] w-[27vw]">
+                  <div className="relative flex justify-center md:justify-end w-full">
+                    <div className="bg-gray-50 overflow-hidden h-[40vh] md:h-[80vh] w-full md:w-[27vw] max-w-lg">
                       <img
-                        src="public\images\power-grid.jpg"
+                        src="/images/power-grid.jpg"
                         alt="Outdated Infrastructure"
-                        className="h-full object-cover opacity-80"
+                        className="w-full h-full object-cover opacity-80"
                       />
                     </div>
                   </div>
@@ -174,10 +173,10 @@ const AboutUs = () => {
                   <ScrollReveal delay={0.3}>
                     <div className="grid grid-cols-2 gap-4">
                       <div className="aspect-[3/4] rounded-lg overflow-hidden">
-                        <img src="public\images\use-case-image.png" alt="Process" className="w-full h-full object-cover" />
+                        <img src="/images/use-case-image.png" alt="Process" className="w-full h-full object-cover" />
                       </div>
                       <div className="aspect-[3/4] rounded-lg overflow-hidden">
-                        <img src="public\images\use-case-img2.png" alt="Engineers" className="w-full h-full object-cover" />
+                        <img src="/images/use-case-img2.png" alt="Engineers" className="w-full h-full object-cover" />
                       </div>
                     </div>
                   </ScrollReveal>

@@ -99,6 +99,7 @@ const AnimatedRoutes = () => {
           }
         />
 */
+/*
         <Route
           path="/office-space"
           element={
@@ -107,6 +108,7 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
+*/
         <Route
           path="/products"
           element={

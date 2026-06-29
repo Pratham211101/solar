@@ -68,8 +68,8 @@ export function VisionSection() {
                         <ScrollReveal>
                             <div className="space-y-6 flex flex-col items-center max-w-3xl">
                                 <h3 className="font-gilroy text-[12px] font-black uppercase tracking-[0.6em] text-primary">Our Vision</h3>
-                                <p className="font-gilroy text-4xl md:text-5xl font-black text-white leading-tight uppercase tracking-tighter">
-                                    To power the <span className="text-primary italic px-2">next generation</span> <br /> of infrastructure with intelligent solutions.
+                                <p className="font-gilroy text-2xl sm:text-4xl md:text-5xl font-black text-white leading-tight uppercase tracking-tighter">
+                                    To power the <span className="text-primary italic px-2">next generation</span> <br className="hidden sm:inline" /> of infrastructure with intelligent solutions.
                                 </p>
                             </div>
                         </ScrollReveal>

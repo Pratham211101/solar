@@ -13,12 +13,13 @@ const footerLinks = {
     { label: "Solar Bench", href: "/products/solar-bench" },
     { label: "Solar Tower", href: "/products/solar-tower" },
     { label: "Smart Pole", href: "/products/smart-pole" },
+    { label: "Solar System", href: "/products/solar-system" },
 
   ],
   company: [
     { label: "About Us", href: "/about-us" },
     { label: "Careers", href: "/careers" },
-    { label: "Office Space", href: "/office-space" },
+    // { label: "Office Space", href: "/office-space" },
     { label: "Contact Us", href: "/contact-us" },
     // { label: "Help Center", href: "/help-center" },
     { label: "FAQs", href: "/faqs" },
