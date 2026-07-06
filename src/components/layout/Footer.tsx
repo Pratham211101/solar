@@ -10,6 +10,7 @@ const footerLinks = {
     { label: "EOS", href: "/products/eos" },
     { label: "Apollo", href: "/products/apollo" },
     { label: "Astro", href: "/products/astro" },
+    { label: "Solar Elf", href: "/products/elf" },
     { label: "Solar Bench", href: "/products/solar-bench" },
     { label: "Solar Tower", href: "/products/solar-tower" },
     { label: "Smart Pole", href: "/products/smart-pole" },
@@ -58,11 +59,11 @@ const Footer = () => {
             </p>
             <div className="space-y-3">
               <a
-                href="mailto:siddhant.solar@gmail.com"
+                href="mailto:siddhant@sunbot.in"
                 className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
               >
                 <Mail className="w-4 h-4" />
-                siddhant.solar@gmail.com
+                siddhant@sunbot.in
               </a>
               <a
                 href="tel:+919984045295"

@@ -80,7 +80,7 @@ const ContactUs = () => {
 
                     <div className="space-y-3">
                       {[
-                        { icon: Mail, label: "Email", value: "siddhant.solar@gmail.com", href: "mailto:siddhant.solar@gmail.com" },
+                        { icon: Mail, label: "Email", value: "siddhant@sunbot.in", href: "mailto:siddhant@sunbot.in" },
                         { icon: Phone, label: "Phone", value: "+91 9984045295", href: "tel:+919984045295" },
                         { icon: MapPin, label: "Office", value: "RZB 32-A, Mahavir Enclave-I, New Delhi(110045)", href: "#" }
                       ].map((item, i) => (

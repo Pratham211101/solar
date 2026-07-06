@@ -47,10 +47,10 @@ export function VisionSection() {
                         playsInline
                         className="w-full h-full object-cover"
                     >
-                        <source src="/videos/hero-bg.mp4" type="video/mp4" />
+                        <source src="/videos/hero-bg2.mp4" type="video/mp4" />
                     </video>
                 </motion.div>
-
+ 
                 <div className="absolute inset-0 z-10 bg-black mix-blend-multiply flex items-center justify-center pointer-events-none">
                     <h2 className="font-gilroy text-[20vw] font-[1000] leading-none tracking-[-0.08em] uppercase text-white ">
                         OUR VISION

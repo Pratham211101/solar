@@ -87,6 +87,16 @@ const bentoProducts = [
     icon: Battery,
     imageClass: "absolute -right-2 bottom-2 w-32 h-32 object-contain group-hover:scale-110 group-hover:-translate-y-6 transition-all duration-700",
     revealDirection: "up" as const
+  },
+  {
+    ...productsData.elf,
+    color: "bg-[#080808]",
+    glowColor: "120 75% 50%", // Lime/Greenish
+    textColor: "text-white",
+    span: "md:col-span-1 md:row-span-1",
+    icon: Lightbulb,
+    imageClass: "absolute -right-2 bottom-2 w-32 h-32 object-contain group-hover:scale-110 group-hover:-translate-y-6 transition-all duration-700",
+    revealDirection: "down" as const
   }
 ];
 

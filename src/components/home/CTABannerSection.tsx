@@ -95,8 +95,8 @@ export function CTABannerSection() {
           </div>
           <div className="flex items-center gap-3">
             <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
-            <a href="mailto:siddhant.solar@gmail.com" className="font-gilroy text-xs font-bold tracking-[0.2em] text-white/40 hover:text-purple-400 transition-colors">
-              siddhant.solar@gmail.com
+            <a href="mailto:siddhant@sunbot.in" className="font-gilroy text-xs font-bold tracking-[0.2em] text-white/40 hover:text-purple-400 transition-colors">
+              siddhant@sunbot.in
             </a>
           </div>
         </motion.div>

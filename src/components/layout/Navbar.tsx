@@ -20,6 +20,7 @@ const navItems: NavItem[] = [
       { label: "EOS", href: "/products/eos", description: "Self-cleaning solar light" },
       { label: "Apollo", href: "/products/apollo", description: "Versatile solar street light" },
       { label: "Astro", href: "/products/astro", description: "High mast solar light" },
+      { label: "Solar Elf", href: "/products/elf", description: "Compact all-in-one solar light" },
       { label: "Solar Bench", href: "/products/solar-bench", description: "Smart urban furniture" },
       { label: "Solar Tower", href: "/products/solar-tower", description: "Mobile power & light" },
       { label: "Solar System", href: "/products/solar-system", description: "Off-grid home power" },
