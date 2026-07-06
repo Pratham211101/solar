@@ -15,14 +15,7 @@ const AboutUs = () => {
         <main>
           {/* 1. Hero Section - Minimal & Premium */}
           <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-black">
-            <div className="absolute inset-0 z-0">
-              <img
-                src="https://images.unsplash.com/photo-1509391366360-fe5bb548d1bb?q=80&w=2070&auto=format&fit=crop"
-                alt="Solar Architecture"
-                className="w-full h-full object-cover opacity-40 grayscale"
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black" />
-            </div>
+            <div className="absolute inset-0 z-0 bg-black" />
 
             <div className="container mx-auto px-6 relative z-10 text-center">
               <motion.div
