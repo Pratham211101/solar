@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -5,7 +6,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { HelmetProvider } from "react-helmet-async";
-import { lazy, Suspense } from 'react';
 import Navbar from "./components/layout/Navbar";
 import Index from "./pages/Index"; // Keep Homepage eager for instant load
 import PageTransition from "./components/layout/PageTransition";
@@ -187,7 +187,13 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Navbar />
-          <AnimatedRoutes />
+          <Suspense fallback={
+            <div className="flex items-center justify-center min-h-screen bg-black text-white/50 font-gilroy">
+              <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <AnimatedRoutes />
+          </Suspense>
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

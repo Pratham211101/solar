@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef, Suspense, lazy } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Zap, Target, Shield, Cpu, Globe, Battery, Sun, Lightbulb } from "lucide-react";
@@ -5,7 +6,8 @@ import { productsData } from "@/data/products";
 import ScrollReveal from "../ui/ScrollReveal";
 import { cn } from "@/lib/utils";
 import BorderGlow from "../ui/BorderGlow";
-import LightPillar from "./LightPillar";
+
+const LightPillar = lazy(() => import("./LightPillar"));
 
 const bentoProducts = [
   {
@@ -101,24 +103,45 @@ const bentoProducts = [
 ];
 
 export function ProductsShowcaseSection() {
+  const [loadLightPillar, setLoadLightPillar] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setLoadLightPillar(true);
+        observer.disconnect();
+      }
+    }, { rootMargin: "300px" });
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="py-24 bg-[#050505] relative overflow-hidden flex flex-col justify-center font-gilroy">
+    <section ref={sectionRef} className="py-24 bg-[#050505] relative overflow-hidden flex flex-col justify-center font-gilroy">
       {/* Cinematic Background Elements */}
       <div className="absolute inset-0 z-0 opacity-60">
-        <LightPillar
-          topColor="#5227FF"
-          bottomColor="#FF9FFC"
-          intensity={0.6}
-          rotationSpeed={0.8}
-          glowAmount={0.002}
-          pillarWidth={3}
-          pillarHeight={0.4}
-          noiseIntensity={0.5}
-          pillarRotation={25}
-          // interactive
-          mixBlendMode="screen"
-          quality="high"
-        />
+        {loadLightPillar && (
+          <Suspense fallback={null}>
+            <LightPillar
+              topColor="#5227FF"
+              bottomColor="#FF9FFC"
+              intensity={0.6}
+              rotationSpeed={0.8}
+              glowAmount={0.002}
+              pillarWidth={3}
+              pillarHeight={0.4}
+              noiseIntensity={0.5}
+              pillarRotation={25}
+              // interactive
+              mixBlendMode="screen"
+              quality="high"
+            />
+          </Suspense>
+        )}
 
         {/* Grain Texture Overlay */}
         <div className="absolute inset-0 opacity-[0.05] pointer-events-none mix-blend-overlay"
