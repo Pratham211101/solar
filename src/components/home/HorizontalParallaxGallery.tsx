@@ -30,23 +30,45 @@ export function HorizontalParallaxGallery() {
     const scroll = scrollRef.current;
     const images = Array.from(container?.querySelectorAll(".gallery__media__image") || []) as HTMLElement[];
 
-    if (!section || !container || !wrapper) return;
+    interface ImageLayout {
+      image: HTMLElement;
+      parentLeftInContainer: number;
+      width: number;
+    }
+
+    let imageLayouts: ImageLayout[] = [];
+    let containerStartingLeft = 0;
+
+    const measureLayout = () => {
+      if (!container) return;
+      const containerRect = container.getBoundingClientRect();
+      containerStartingLeft = containerRect.left + scroll.current;
+
+      imageLayouts = images.map((image) => {
+        const parent = image.parentElement;
+        if (!parent) return { image, parentLeftInContainer: 0, width: 0 };
+        const parentRect = parent.getBoundingClientRect();
+        return {
+          image,
+          parentLeftInContainer: parentRect.left - containerRect.left,
+          width: parentRect.width,
+        };
+      });
+    };
 
     const setLimit = () => {
       // Limit is the amount we need to translate horizontally
       scroll.limit = container.scrollWidth - window.innerWidth;
+      measureLayout();
     };
 
     const applyParallaxEffect = () => {
       const vw = window.innerWidth;
       const viewportCenter = vw * 0.5;
 
-      images.forEach((image) => {
-        const parent = image.parentElement;
-        if (!parent) return;
-
-        const rect = parent.getBoundingClientRect();
-        const elementCenter = rect.left + rect.width * 0.5;
+      imageLayouts.forEach(({ image, parentLeftInContainer, width }) => {
+        const parentViewportLeft = containerStartingLeft - scroll.current + parentLeftInContainer;
+        const elementCenter = parentViewportLeft + width * 0.5;
 
         // Normalized distance from center: -1 (left) .. 0 (center) .. 1 (right)
         const t = clamp(-1, 1, (elementCenter - viewportCenter) / viewportCenter);

@@ -51,6 +51,7 @@ export function TrustedBySection() {
                 <img
                   src={img}
                   alt="Client"
+                  loading="lazy"
                   className="h-20 md:h-24 w-auto object-contain"
                 />
               </div>
@@ -69,6 +70,7 @@ export function TrustedBySection() {
                 <img
                   src={img}
                   alt="Client"
+                  loading="lazy"
                   className="h-20 md:h-24 w-auto object-contain"
                 />
               </div>

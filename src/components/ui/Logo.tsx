@@ -16,6 +16,12 @@ const Logo = ({ variant = "auto", size = "md", className = "", linkTo = "/" }: L
     lg: "h-10",
   };
 
+  const dimensions = {
+    sm: { width: 106, height: 24 },
+    md: { width: 141, height: 32 },
+    lg: { width: 176, height: 40 },
+  };
+
   const content = (
     <motion.div
       className={`flex items-center ${className}`}
@@ -25,6 +31,8 @@ const Logo = ({ variant = "auto", size = "md", className = "", linkTo = "/" }: L
       <img
         src={fullLogo}
         alt="solar Logo"
+        width={dimensions[size].width}
+        height={dimensions[size].height}
         className={`${sizeClasses[size]} w-auto object-contain brightness-110`}
       />
     </motion.div>

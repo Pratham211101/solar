@@ -80,6 +80,7 @@ export function WhoItsForSection() {
                 <img
                   src={audience.image}
                   alt={audience.title}
+                  loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 />
 

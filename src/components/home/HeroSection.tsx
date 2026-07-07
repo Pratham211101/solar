@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
@@ -7,6 +8,16 @@ import GlowButton from "../ui/GlowButton";
 const scrollTexts = ["SMART SOLAR LIGHTING", "CLEAN ENERGY SOLUTIONS", "SUSTAINABLE CITIES", "ENERGY INDEPENDENCE"];
 
 const HeroSection = () => {
+  const [videoSrc, setVideoSrc] = useState<string>("");
+
+  useEffect(() => {
+    // Load video after mount to prioritize critical assets (fonts, stylesheets, bundle JS)
+    const timer = setTimeout(() => {
+      setVideoSrc("/videos/hero-bg2-web.mp4");
+    }, 800);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section className="relative h-screen w-full overflow-hidden flex items-end">
       {/* Video Background */}
@@ -19,7 +30,7 @@ const HeroSection = () => {
           className="w-full h-full object-cover"
           poster="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80"
         >
-          <source src="/videos/hero-bg2.mp4" type="video/mp4" />
+          {videoSrc && <source src={videoSrc} type="video/mp4" />}
         </video>
         <div className="hero-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
       </div>
@@ -30,42 +41,25 @@ const HeroSection = () => {
 
       {/* Content anchored to Bottom Left */}
       <div className="relative z-10 container mx-auto px-6 md:px-12 pb-16 md:pb-24 text-left">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-          className="max-w-5xl"
-        >
-          <motion.h1
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-gilroy font-bold leading-[1.0] md:leading-[0.85] mb-8 md:mb-10 tracking-tighter"
-          >
+        <div className="max-w-5xl">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-gilroy font-bold leading-[1.0] md:leading-[0.85] mb-8 md:mb-10 tracking-tighter">
             <span className="text-white">Lighting the Future,</span>
             <br />
             <div className="text-gradient italic">One space at a time, with SUNBOT</div>
-          </motion.h1>
+          </h1>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12"
-          >
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12">
             <Link to="/products">
               <GlowButton icon={<ArrowUpRight className="w-5 h-5" />} >
                 Explore Products
               </GlowButton>
             </Link>
 
-            <motion.p
-              className="text-base md:text-lg lg:text-xl text-white/60 font-gilroy font-light tracking-wide max-w-xl border-l-2 md:border-l border-white/20 pl-4 md:pl-6"
-            >
+            <p className="text-base md:text-lg lg:text-xl text-white/60 font-gilroy font-light tracking-wide max-w-xl border-l-2 md:border-l border-white/20 pl-4 md:pl-6">
               Building the future of urban infrastructure with intelligent solar lighting, off-grid power systems, and smart city connectivity solutions.
-            </motion.p>
-          </motion.div>
-        </motion.div>
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Animated Scroll Text (Top Right) - Subtler */}

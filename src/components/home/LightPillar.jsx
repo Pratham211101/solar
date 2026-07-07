@@ -41,8 +41,8 @@ const LightPillar = ({
     if (!containerRef.current || !webGLSupported) return;
 
     const container = containerRef.current;
-    const width = container.clientWidth;
-    const height = container.clientHeight;
+    const width = 300;
+    const height = 300;
 
     const scene = new THREE.Scene();
     sceneRef.current = scene;
@@ -263,25 +263,19 @@ const LightPillar = ({
     };
     rafRef.current = requestAnimationFrame(animate);
 
-    let resizeTimeout = null;
-    const handleResize = () => {
-      if (resizeTimeout) {
-        clearTimeout(resizeTimeout);
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (let entry of entries) {
+        const { width: newWidth, height: newHeight } = entry.contentRect;
+        if (newWidth > 0 && newHeight > 0 && rendererRef.current && materialRef.current) {
+          rendererRef.current.setSize(newWidth, newHeight);
+          materialRef.current.uniforms.uResolution.value.set(newWidth, newHeight);
+        }
       }
-
-      resizeTimeout = window.setTimeout(() => {
-        if (!rendererRef.current || !materialRef.current || !containerRef.current) return;
-        const newWidth = containerRef.current.clientWidth;
-        const newHeight = containerRef.current.clientHeight;
-        rendererRef.current.setSize(newWidth, newHeight);
-        materialRef.current.uniforms.uResolution.value.set(newWidth, newHeight);
-      }, 150);
-    };
-
-    window.addEventListener('resize', handleResize, { passive: true });
+    });
+    resizeObserver.observe(container);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      resizeObserver.disconnect();
       if (interactive) {
         container.removeEventListener('mousemove', handleMouseMove);
       }

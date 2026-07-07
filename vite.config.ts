@@ -24,4 +24,24 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            if (id.includes("three")) {
+              return "vendor-three";
+            }
+            if (id.includes("lucide-react")) {
+              return "vendor-lucide";
+            }
+            if (id.includes("framer-motion")) {
+              return "vendor-framer-motion";
+            }
+            return "vendor";
+          }
+        },
+      },
+    },
+  },
 }));
