@@ -1,3 +1,4 @@
+import SEO from "../components/SEO";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "../components/layout/Navbar";
@@ -114,6 +115,7 @@ const FAQs = () => {
 
   return (
     <>
+      <SEO title="FAQs | SUNBOT" />
       <div className="light-theme bg-background min-h-screen">
         <main className="pt-24">
           {/* Hero */}

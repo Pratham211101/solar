@@ -1,3 +1,4 @@
+import SEO from "../components/SEO";
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -63,6 +64,7 @@ const Careers = () => {
 
   return (
     <>
+      <SEO title="Careers | SUNBOT" />
       <div className="light-theme bg-background min-h-screen">
         <main className="bg-background">
           <CareersHero />

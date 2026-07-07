@@ -1,3 +1,4 @@
+import SEO from "../components/SEO";
 import { useParams, Link, useLocation } from "react-router-dom";
 import Footer from "../components/layout/Footer";
 import ProductHero from "../components/product/ProductHero";
@@ -26,6 +27,8 @@ const ProductDetail = () => {
 
   if (!product) {
     return (
+    <>
+      <SEO title="Product Detail | SUNBOT" />
       <div className="bg-white min-h-screen">
         <main className="pt-24">
           <div className="container mx-auto px-6 py-24 text-center">
@@ -41,12 +44,15 @@ const ProductDetail = () => {
         </main>
         <Footer />
       </div>
+      </>
     );
   }
 
   return (
-    <div className="bg-white min-h-screen">
-      <main className="pt-0">
+    <>
+      <SEO title="Product Detail | SUNBOT" />
+      <div className="bg-white min-h-screen">
+        <main className="pt-0">
         {/* Hero Section */}
         <ProductHero product={product} />
 
@@ -97,6 +103,8 @@ const ProductDetail = () => {
         <Footer />
       </div>
     </div>
+  
+    </>
   );
 };
 

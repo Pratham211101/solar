@@ -1,3 +1,4 @@
+import SEO from "../components/SEO";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import ScrollReveal from "../components/ui/ScrollReveal";
@@ -5,6 +6,7 @@ import ScrollReveal from "../components/ui/ScrollReveal";
 const TermsAndConditions = () => {
   return (
     <>
+      <SEO title="Terms and Conditions | SUNBOT" />
       <div className="light-theme bg-background min-h-screen">
         <main className="pt-24">
           <section className="py-24">

@@ -112,6 +112,8 @@ export function HorizontalParallaxGallery() {
               <img
                 src={item.src}
                 alt={item.label}
+                loading="lazy"
+                decoding="async"
                 className="gallery__media__image absolute top-0 left-[-12.5%] w-[125%] h-full object-cover will-change-transform"
                 draggable="false"
               />

@@ -1,3 +1,4 @@
+import SEO from "../components/SEO";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Footer from "../components/layout/Footer";
@@ -36,6 +37,7 @@ const ContactUs = () => {
 
   return (
     <>
+      <SEO title="Contact Us | SUNBOT" />
       <div className="bg-[#050505] min-h-screen font-gilroy relative overflow-hidden">
         {/* Cinematic Background Elements */}
         <div className="absolute inset-0 z-0 opacity-40">

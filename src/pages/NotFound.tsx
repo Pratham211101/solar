@@ -1,3 +1,4 @@
+import SEO from "../components/SEO";
 import GlowButton from '@/components/ui/GlowButton';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -100,7 +101,9 @@ const NotFound = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4 relative overflow-hidden">
+    <>
+      <SEO title="404 - Page Not Found | SUNBOT" />
+      <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4 relative overflow-hidden">
       {/* Background subtle texture/gradient */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -190,6 +193,8 @@ const NotFound = () => {
 
       {/* Optional: Decorative elements similar to the Talk logo style if needed */}
     </div>
+  
+    </>
   );
 };
 

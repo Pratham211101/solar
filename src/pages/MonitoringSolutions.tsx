@@ -1,3 +1,4 @@
+import SEO from "../components/SEO";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Plus } from "lucide-react";
@@ -19,7 +20,9 @@ const MonitoringSolutions = () => {
     ];
 
     return (
-        <div className="bg-white min-h-screen">
+    <>
+      <SEO title="Monitoring Solutions | SUNBOT" />
+      <div className="bg-white min-h-screen">
             <main className="pt-16">
                 {/* Hero Section */}
                 <section className="relative pt-24 pb-16 overflow-hidden">
@@ -136,7 +139,9 @@ const MonitoringSolutions = () => {
                 <Footer />
             </div>
         </div>
-    );
+    
+    </>
+  );
 };
 
 export default MonitoringSolutions;

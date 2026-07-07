@@ -1,3 +1,4 @@
+import SEO from "../components/SEO";
 import { motion } from "framer-motion";
 import LightPillar from "../components/home/LightPillar";
 import Navbar from "../components/layout/Navbar";
@@ -11,6 +12,7 @@ import SupportedCarousel from "../components/about/SupportedCarousel";
 const AboutUs = () => {
   return (
     <>
+      <SEO title="About Us | SUNBOT" />
       <div className="bg-[#050505] min-h-screen">
         <main>
           {/* 1. Hero Section - Minimal & Premium */}

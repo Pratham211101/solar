@@ -1,3 +1,4 @@
+import SEO from "../components/SEO";
 import Footer from "../components/layout/Footer";
 import HeroSection from "../components/home/HeroSection";
 import { ProductsShowcaseSection } from "../components/home/ProductsShowcaseSection";
@@ -11,6 +12,10 @@ import { HorizontalParallaxGallery } from "../components/home/HorizontalParallax
 const Index = () => {
   return (
     <>
+      <SEO 
+        title="SUNBOT | Intelligent Solar Infrastructure & Smart Solutions" 
+        description="Discover SUNBOT's advanced solar-powered infrastructure, smart street lighting, and environmental monitoring solutions for modern cities and industries." 
+      />
       <main>
         <HeroSection />
         <ProductsShowcaseSection />

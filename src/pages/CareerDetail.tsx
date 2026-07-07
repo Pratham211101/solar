@@ -1,3 +1,4 @@
+import SEO from "../components/SEO";
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Footer from "../components/layout/Footer";
@@ -26,6 +27,7 @@ const CareerDetail = () => {
 
   return (
     <>
+      <SEO title="Career Opportunities | SUNBOT" />
       <div className="light-theme bg-background min-h-screen font-gilroy text-foreground">
         <main className="pt-24 lg:pt-32 pb-24">
           <div className="container mx-auto px-6">

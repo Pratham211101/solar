@@ -1,3 +1,4 @@
+import SEO from "../components/SEO";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import ScrollReveal from "../components/ui/ScrollReveal";
@@ -37,6 +38,7 @@ const Demo = () => {
 
   return (
     <>
+      <SEO title="Request a Demo | SUNBOT" />
       <div className="bg-[#050505] min-h-screen font-gilroy relative overflow-hidden">
         {/* Cinematic Background Elements */}
         <div className="absolute inset-0 z-0 opacity-40">

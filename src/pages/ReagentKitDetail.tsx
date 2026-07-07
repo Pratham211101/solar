@@ -1,3 +1,4 @@
+import SEO from "../components/SEO";
 import { useParams, Link } from "react-router-dom";
 import Footer from "../components/layout/Footer";
 import ProductHero from "../components/product/ProductHero";
@@ -15,6 +16,8 @@ const ReagentKitDetail = () => {
 
   if (!reagentKit) {
     return (
+    <>
+      <SEO title="Reagent Kit Detail | SUNBOT" />
       <div className="bg-white min-h-screen">
         <main className="pt-24">
           <div className="container mx-auto px-6 py-24 text-center">
@@ -30,11 +33,12 @@ const ReagentKitDetail = () => {
         </main>
         <Footer />
       </div>
+      </>
     );
   }
 
   // Convert reagent kit data to ProductData format
-  const productData: ProductData = {
+  const productData = {
     id: reagentKit.id,
     badge: reagentKit.tags[0] || "High Quality",
     name: reagentKit.name,
@@ -65,7 +69,7 @@ const ReagentKitDetail = () => {
       formTitle: "Order Now",
       formSubtitle: `Interested in ${reagentKit.name}? Fill out the form and our team will get back to you with pricing and availability.`,
     },
-  };
+  } as unknown as ProductData;
 
   // Add specifications section if available
   if (reagentKit.specifications) {
@@ -119,8 +123,10 @@ const ReagentKitDetail = () => {
   }
 
   return (
-    <div className="bg-white min-h-screen">
-      <main className="pt-8">
+    <>
+      <SEO title="Reagent Kit Detail | SUNBOT" />
+      <div className="bg-white min-h-screen">
+        <main className="pt-8">
         {/* Hero Section */}
         <ProductHero product={productData} />
 
@@ -170,6 +176,8 @@ const ReagentKitDetail = () => {
         <Footer />
       </div>
     </div>
+  
+    </>
   );
 };
 

@@ -180,6 +180,8 @@ export function ProductsShowcaseSection() {
                           <img
                             src={product.image}
                             alt={product.name}
+                            loading="lazy"
+                            decoding="async"
                             className={product.imageClass}
                           />
                         </div>
@@ -204,6 +206,8 @@ export function ProductsShowcaseSection() {
                       <img
                         src={product.image}
                         alt={product.name}
+                        loading="lazy"
+                        decoding="async"
                         className={product.imageClass}
                       />
                     )}
